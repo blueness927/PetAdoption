@@ -1,0 +1,71 @@
+﻿@model IEnumerable<prjPetAdoption.Models.OpenData>
+@{
+    ViewBag.Title = "opAnimal";
+}
+
+
+<h2>收容所資訊</h2>
+<div class="row well">
+    <form class="form" role="form">
+        <div class="=col-lg-3">
+            <div class="input-group">
+                <span class="input-group-addon">縣市</span>
+                @Html.DropDownList("Districts", null, "全部", new { @class = "form-control" })
+            </div>
+        </div>
+   
+            <div class="=col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">種類</span>
+                    @Html.DropDownList("Types", null, "全部", new { @class = "form-control" })
+                </div>
+            </div>
+        <div class="=col-lg-2">
+            <button type="submit" id="buttonSubmit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-search">查詢</span>
+            </button>
+        </div>
+
+
+        </form>
+</div>
+
+    <div id="masonry" class="container-fluid">
+        @foreach (var item in Model)
+        {
+            <div class="thumbnail">
+                <div class="imgs">
+                    <img src="@Html.DisplayFor(modelItem => item.album_file)" width="300px" height="auto" />
+                </div>
+                <div class="caption">
+                    <div class="title">@Html.DisplayFor(modelItem => item.shelter_name)</div>
+                    <div class="content">
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+@section scripts{
+@Styles.Render("~/Content/masonry.css")
+@Scripts.Render("~/bundles/masonry")
+<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript">
+		$(function() {
+
+			var masonryNode = $('#masonry');
+			masonryNode.imagesLoaded(function(){
+				masonryNode.masonry({
+					itemSelector: '.thumbnail',
+					isFitWidth: true
+				});
+			});
+
+		});
+</script>
+
+    }
+
+
+
+
