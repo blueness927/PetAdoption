@@ -1,0 +1,44 @@
+﻿@model prjPetAdoption.ViewModels.AllAniDataViewModel
+@{
+    ViewBag.Title = "showForAdopt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>提供送養列表</h2>
+
+<talbe>
+    @foreach (var item in Model.aniDataAllList)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.animalName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.animalKind)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.animalPicAddress)
+            </td>
+           
+        </tr>
+    }
+    </talbe>
+
+
+<talbe>
+    @foreach (var item in Model.animalDataList)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.animalName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.animalKind)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.animalAddress)
+            </td>
+
+        </tr>
+    }
+</talbe>

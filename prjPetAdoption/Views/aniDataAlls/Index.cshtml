@@ -1,0 +1,160 @@
+﻿@model IEnumerable<prjPetAdoption.Models.aniDataAll>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.animalKind)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.animalType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.animalAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.animalColor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.animalDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.animalChip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.animalAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.animalGender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.animalHealthy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.animalName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.animalNote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.animalReason)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.animalOwner_userID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conditionAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conditionEconomy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conditionFamily)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conditionFee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conditionHome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conditionPaper)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conditionReply)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conditionOther)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.animalPicAddress)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.animalKind)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.animalType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.animalAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.animalColor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.animalDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.animalChip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.animalAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.animalGender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.animalHealthy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.animalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.animalNote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.animalReason)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.animalOwner_userID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conditionAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conditionEconomy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conditionFamily)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conditionFee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conditionHome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conditionPaper)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conditionReply)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conditionOther)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.animalPicAddress)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.animalID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.animalID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.animalID })
+        </td>
+    </tr>
+}
+
+</table>

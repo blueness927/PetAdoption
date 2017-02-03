@@ -78,6 +78,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -187,18 +188,116 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\aniDataController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\opAnimalController.cs" />
+    <Compile Include="Controllers\TEST\MsgsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\aniDataAll.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\aniDataPic.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\animalData.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\animalDatasController.cs" />
+    <Compile Include="Models\animalData_Condition.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\animalData_Pic.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\animalData_Type.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetRoles.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaims.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogins.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUsers.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\board.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbPet.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbPet.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbPet.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DbPet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbPet.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\follow.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\forum.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\forum_reply.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\map.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Msg.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\OpenData.cs" />
+    <Compile Include="Models\petFAQ.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\petKnows.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\petTodo.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\remind.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\search.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\shelter.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\todoData.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\userData.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AllAniDataViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -219,9 +318,27 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <EntityDeploy Include="Models\DbPet.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbPet.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DbPet.edmx.diagram">
+      <DependentUpon>DbPet.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Models\DbPet.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbPet.edmx</DependentUpon>
+      <LastGenOutput>DbPet.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DbPet.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbPet.edmx</DependentUpon>
+      <LastGenOutput>DbPet.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\index.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -276,16 +393,32 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\opAnimal\opAnimalList.cshtml" />
+    <Content Include="Views\aniData\Index.cshtml" />
+    <Content Include="Views\aniData\Create.cshtml" />
+    <Content Include="Views\aniData\showForAdopt.cshtml" />
+    <Content Include="Views\animalDatas\Create.cshtml" />
+    <Content Include="Views\animalDatas\Delete.cshtml" />
+    <Content Include="Views\animalDatas\Details.cshtml" />
+    <Content Include="Views\animalDatas\Edit.cshtml" />
+    <Content Include="Views\animalDatas\Index.cshtml" />
+    <Content Include="Views\Msgs\Create.cshtml" />
+    <Content Include="Views\Msgs\Delete.cshtml" />
+    <Content Include="Views\Msgs\Details.cshtml" />
+    <Content Include="Views\Msgs\Edit.cshtml" />
+    <Content Include="Views\Msgs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Animal\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -305,7 +438,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>63174</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:63174/</IISUrl>
+          <IISUrl>http://localhost:62000/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:62000/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

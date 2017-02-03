@@ -1,0 +1,169 @@
+﻿@model prjPetAdoption.Models.animalData
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>animalData</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.animalKind)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalKind)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalGender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalGender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalColor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalColor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalChip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalChip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalHealthy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalHealthy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalDisease_Other)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalDisease_Other)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalOwner_userID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalOwner_userID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalReason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalReason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalGetter_userID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalGetter_userID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalAdopted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalAdopted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalAdoptedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalAdoptedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalNote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalNote)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

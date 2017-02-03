@@ -1,31 +1,122 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<header id="header_index">
+    <script src="~/Scripts/index.js"></script>
+    <div class="container"><img class="icon" src="http://i.imgur.com/hw602LL.png" /></div>
+    <img class="cat" id="cat_blue" src="http://i.imgur.com/KTIvDTh.png" alt="" /><img class="cat" id="cat_grey" src="http://i.imgur.com/RpFfzSt.png" alt="" /><img class="cat" id="cat_yellow" src="http://i.imgur.com/RAOiF00.png" alt="" />
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+</header>
+<section id="section_service">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12" data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1">
+                <h1>本站服務</h1>
+                <hr />
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="img_wrap" data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1"><img src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/8MNEFJ1N2M.jpg" alt="" /></div><h3 data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1">智慧推薦認養動物</h3>
+                <p data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1">自動推薦合適的動物</p>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="img_wrap" data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1"><img src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/NN5ESPDJE8.jpg" alt="" /></div>
+                <h3 data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1">多平台的認送養體驗</h3>
+                <p data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1">客製化送養條件，聰明的認養條件塞選</p>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="img_wrap" data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1"><img src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/OJXHDWMWV9.jpg" alt="" /></div>
+                <h3 data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1">便捷的寵物資訊</h3>
+                <p data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1">實用的動物飼養資訊</p>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+
+</section>
+<section class="pictures" id="section_adopt">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 pic1">
+                <div class="text-center text-panel">
+                    <h1>我要認養</h1>
+                </div>
+            </div>
+            <div class="col-md-6 pic2">
+                <div class="text-center text-panel">
+                    <h1>我要送養</h1>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+</section>
+
+<section id="section_adopted">
+    <div class="container" style="margin-bottom:5px;">
+        <div id="row post">
+            <div class="col-sm-12" data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1">
+                <h1>最新送養</h1>
+                <hr />
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="grid"><a href="#" /><img src="http://i.imgur.com/z55pzpX.jpg" height="300" width="300" /></span>
+                    <h3> 高雄市  性別：女 </h3>
+                    <p>高雄市動物保護教育園區</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="grid"><a href="#" /><img src="http://i.imgur.com/WllEKEJ.jpg" height="300" width="300" /></span>
+                    <h3>台南市  性別：男</h3>
+                    <p>台南市動物之家灣裡站</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="grid"><a href="#" /><img src="http://i.imgur.com/VrJPDhr.jpg" height="300" width="300" /></span>
+                    <h3>高雄市  性別：女</h3>
+                    <p>高雄市動物保護教育園區</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="grid"><a href="#" /><img src="http://i.imgur.com/pBJz0wA.jpg" height="300" width="300" /></span>
+                    <h3>台南市  性別：女</h3>
+                    <p>台南市動物之家灣裡站</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="grid"><a href="#" /><img src="http://i.imgur.com/DZlblrz.jpg" height="300" width="300" /></span>
+                    <h3>高雄市  性別：男</h3>
+                    <p>高雄市動物保護教育園區</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="grid"><a href="#" /><img src="http://i.imgur.com/uxBlDsd.jpg" height="300" width="300" /> </span>
+                    <h3>台南市  性別：女</h3>
+                    <p>台南市動物之家灣裡站</p>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</section>
+<footer id="footer">
+    <div class="row">
+        <div class="col-md-6">
+
+            <img class="icon" src="http://i.imgur.com/hw602LL.png" />
+        </div>
+        <div class="col-md-2">
+            <img class="icon2" src="http://i.imgur.com/23AYl21.png" />
+        </div>
+        <div class="col-md-2">
+            <img class="icon2" src="http://i.imgur.com/G3bJh6D.png" />
+        </div>
+        <div class="col-md-2">
+            <img class="icon2" src="http://i.imgur.com/Har19jW.png" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <p class="footerp">i Pet 幸福轉運站</p>
+        </div>
+        <div class="col-md-6">
+            <p class="footerp">資料更新：2017/02/24</p>
+        </div>
+
+    </div>
+    </footer>

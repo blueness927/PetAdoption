@@ -1,0 +1,195 @@
+﻿@model prjPetAdoption.Models.aniDataAll
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>aniDataAll</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.animalKind)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalKind)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalColor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalColor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalChip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalChip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalGender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalGender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalHealthy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalHealthy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalNote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalNote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalReason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalReason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalOwner_userID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalOwner_userID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conditionAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conditionAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conditionEconomy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conditionEconomy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conditionFamily)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conditionFamily)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conditionFee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conditionFee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conditionHome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conditionHome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conditionPaper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conditionPaper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conditionReply)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conditionReply)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conditionOther)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conditionOther)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalPicAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalPicAddress)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.animalID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,35 @@
+﻿@model prjPetAdoption.ViewModels.AllAniDataViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Index</h2>
+<talbe>
+        @foreach (var item in Model.animalDataList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.animalName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.animalKind)
+                </td>
+                <td>
+            </tr>
+                }
+    @foreach (var item in Model.animalData_PicList)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.animalPic_animalID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.animalPicAddress)
+            </td>
+            <td>
+                <img src= @Html.DisplayFor(modelItem => item.animalPicAddress) alt="Pic" style="max-height:300px" />
+            </td>
+        </tr>
+    }
+
+</talbe>
