@@ -24,11 +24,11 @@
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li>@Html.ActionLink("iPet", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("最新資訊", "Index", "Home")</li>
-                    <li>@Html.ActionLink("認養專區", "Index", "aniData")</li>
-                    <li>@Html.ActionLink("送養專區", "Index", "Home")</li>
-                    <li>@Html.ActionLink("寵物幫手", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("關於我們", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>                    
+                    <li>@Html.ActionLink("認養專區", "opAnimalList", "opAnimal", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("送養專區" , "showForAdopt", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("寵物幫手", "Contact", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("會員專區", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                     @Html.Partial("_LoginPartial")
                 </ul>
             </div>
@@ -40,8 +40,10 @@
 
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
+    
+        <footer class="col-md-12">
+            <hr />
+            <br>
             <p>&copy; @DateTime.Now.Year - iPet 認養代替購買 動物關懷</p>
             <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
             <script src='https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js'></script>

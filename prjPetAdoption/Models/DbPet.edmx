@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="petstationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="petstationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -131,12 +131,6 @@
           <Property Name="board_animalID" Type="int" />
           <Property Name="boardContent" Type="nvarchar" MaxLength="200" />
         </EntityType>
-        <!--產生期間發現錯誤:
-警告 6013: 資料表/檢視 'petstation.dbo.board_reply' 未定義主索引鍵，也無法推斷有效的主索引鍵。此資料表/檢視已被排除。如果要使用此實體，您必須檢閱您的結構描述，加入正確的索引鍵，並將它取消註解。
-        <EntityType Name="board_reply">
-          <Property Name="reply_boardID" Type="int" />
-          <Property Name="replyToboardID" Type="int" />
-        </EntityType>-->
         <EntityType Name="follow">
           <Key>
             <PropertyRef Name="follow_userId" />
@@ -320,7 +314,7 @@
           <Property Name="animalName" Type="nvarchar" MaxLength="50" />
           <Property Name="animalNote" Type="nvarchar(max)" />
           <Property Name="animalReason" Type="nvarchar" MaxLength="50" />
-          <Property Name="animalOwner_userID" Type="int" />
+          <Property Name="animalOwner_userID" Type="nvarchar" MaxLength="128" />
           <Property Name="conditionAge" Type="nvarchar" MaxLength="50" />
           <Property Name="conditionEconomy" Type="nvarchar" MaxLength="50" />
           <Property Name="conditionFamily" Type="nvarchar" MaxLength="50" />
@@ -338,6 +332,7 @@
             <PropertyRef Name="animalID" />
           </Key>
           <Property Name="animalID" Type="int" Nullable="false" />
+          <Property Name="animalOwner_userID" Type="nvarchar" MaxLength="128" />
           <Property Name="animalPicAddress" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <Association Name="FK__animalDat__anima__32AB8735">
@@ -394,9 +389,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--產生期間發現錯誤:
-錯誤 6004: 資料表 'petstation.dbo.board_reply' 被某個關聯性參考，但是找不到。
-        <Association Name="FK__board_rep__reply__42E1EEFE" />-->
         <Association Name="FK__follow__follow_u__5BAD9CC8">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -665,6 +657,7 @@
           <EntitySet Name="aniDataPic" EntityType="Self.aniDataPic" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [aniDataPic].[animalID] AS [animalID], 
+    [aniDataPic].[animalOwner_userID] AS [animalOwner_userID], 
     [aniDataPic].[animalPicAddress] AS [animalPicAddress]
     FROM [dbo].[aniDataPic] AS [aniDataPic]</DefiningQuery>
           </EntitySet>
@@ -745,8 +738,7 @@
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="petstationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1048,40 +1040,13 @@
           <Property Name="userFBID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="userFBInfo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="aniDataAll">
-          <Key>
-            <PropertyRef Name="animalID" />
-          </Key>
-          <Property Name="animalID" Type="Int32" Nullable="false" />
-          <Property Name="animalKind" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalAge" Type="Int32" />
-          <Property Name="animalColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalChip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalHealthy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="animalReason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalOwner_userID" Type="Int32" />
-          <Property Name="conditionAge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="conditionEconomy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="conditionFamily" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="conditionFee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="conditionHome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="conditionPaper" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="conditionReply" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="conditionOther" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="aniDataPic">
           <Key>
             <PropertyRef Name="animalID" />
           </Key>
           <Property Name="animalID" Type="Int32" Nullable="false" />
           <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="animalOwner_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__animalDat__anima__32AB8735">
           <End Role="animalData" Type="Self.animalData" Multiplicity="0..1">
@@ -1300,7 +1265,6 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="todoData" EntityType="Self.todoData" />
           <EntitySet Name="userData" EntityType="Self.userData" />
-          <EntitySet Name="aniDataAll" EntityType="Self.aniDataAll" />
           <EntitySet Name="aniDataPic" EntityType="Self.aniDataPic" />
           <AssociationSet Name="FK__animalDat__anima__32AB8735" Association="Self.FK__animalDat__anima__32AB8735">
             <End Role="animalData" EntitySet="animalData" />
@@ -1366,7 +1330,36 @@
             <End Role="animalData" EntitySet="animalData" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="aniDataAll" EntityType="petstationModel.aniDataAll" />
         </EntityContainer>
+        <EntityType Name="aniDataAll">
+          <Key>
+            <PropertyRef Name="animalID" />
+          </Key>
+          <Property Name="animalID" Type="Int32" Nullable="false" />
+          <Property Name="animalKind" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalAge" Type="Int32" />
+          <Property Name="animalColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalChip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalHealthy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="animalReason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalOwner_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="conditionAge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="conditionEconomy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="conditionFamily" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="conditionFee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="conditionHome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="conditionPaper" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="conditionReply" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="conditionOther" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1658,38 +1651,10 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="aniDataAll">
-            <EntityTypeMapping TypeName="petstationModel.aniDataAll">
-              <MappingFragment StoreEntitySet="aniDataAll">
-                <ScalarProperty Name="animalID" ColumnName="animalID" />
-                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
-                <ScalarProperty Name="animalType" ColumnName="animalType" />
-                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
-                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
-                <ScalarProperty Name="animalDate" ColumnName="animalDate" />
-                <ScalarProperty Name="animalChip" ColumnName="animalChip" />
-                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
-                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
-                <ScalarProperty Name="animalHealthy" ColumnName="animalHealthy" />
-                <ScalarProperty Name="animalName" ColumnName="animalName" />
-                <ScalarProperty Name="animalNote" ColumnName="animalNote" />
-                <ScalarProperty Name="animalReason" ColumnName="animalReason" />
-                <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
-                <ScalarProperty Name="conditionAge" ColumnName="conditionAge" />
-                <ScalarProperty Name="conditionEconomy" ColumnName="conditionEconomy" />
-                <ScalarProperty Name="conditionFamily" ColumnName="conditionFamily" />
-                <ScalarProperty Name="conditionFee" ColumnName="conditionFee" />
-                <ScalarProperty Name="conditionHome" ColumnName="conditionHome" />
-                <ScalarProperty Name="conditionPaper" ColumnName="conditionPaper" />
-                <ScalarProperty Name="conditionReply" ColumnName="conditionReply" />
-                <ScalarProperty Name="conditionOther" ColumnName="conditionOther" />
-                <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="aniDataPic">
             <EntityTypeMapping TypeName="petstationModel.aniDataPic">
               <MappingFragment StoreEntitySet="aniDataPic">
+                <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
                 <ScalarProperty Name="animalID" ColumnName="animalID" />
                 <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
               </MappingFragment>
@@ -1719,6 +1684,35 @@
               <ScalarProperty Name="Id" ColumnName="pair_userId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="aniDataAll">
+            <EntityTypeMapping TypeName="petstationModel.aniDataAll">
+              <MappingFragment StoreEntitySet="aniDataAll">
+                <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
+                <ScalarProperty Name="conditionOther" ColumnName="conditionOther" />
+                <ScalarProperty Name="conditionReply" ColumnName="conditionReply" />
+                <ScalarProperty Name="conditionPaper" ColumnName="conditionPaper" />
+                <ScalarProperty Name="conditionHome" ColumnName="conditionHome" />
+                <ScalarProperty Name="conditionFee" ColumnName="conditionFee" />
+                <ScalarProperty Name="conditionFamily" ColumnName="conditionFamily" />
+                <ScalarProperty Name="conditionEconomy" ColumnName="conditionEconomy" />
+                <ScalarProperty Name="conditionAge" ColumnName="conditionAge" />
+                <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
+                <ScalarProperty Name="animalReason" ColumnName="animalReason" />
+                <ScalarProperty Name="animalNote" ColumnName="animalNote" />
+                <ScalarProperty Name="animalName" ColumnName="animalName" />
+                <ScalarProperty Name="animalHealthy" ColumnName="animalHealthy" />
+                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
+                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
+                <ScalarProperty Name="animalChip" ColumnName="animalChip" />
+                <ScalarProperty Name="animalDate" ColumnName="animalDate" />
+                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
+                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
+                <ScalarProperty Name="animalType" ColumnName="animalType" />
+                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
+                <ScalarProperty Name="animalID" ColumnName="animalID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

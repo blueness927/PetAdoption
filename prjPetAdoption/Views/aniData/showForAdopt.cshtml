@@ -1,44 +1,49 @@
 ﻿@model prjPetAdoption.ViewModels.AllAniDataViewModel
+
 @{
     ViewBag.Title = "showForAdopt";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>提供送養列表</h2>
+<h4>目前愛心送養寵物</h4>
 
-<talbe>
-    @foreach (var item in Model.aniDataAllList)
+
+@if (Model.aniDataPicList.Count() != 0)
+{
+    foreach (var item in Model.aniDataPicList)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.animalName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.animalKind)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.animalPicAddress)
-            </td>
+        <div class="col-md-4">
+            <span class="grid"><a href="#" /><img src=@Html.DisplayFor(modelItem => item.animalPicAddress) height="300" width="400" /></span>
+            <h3>動物ID：@Html.DisplayFor(modelItem => item.animalID)</h3>
+            <h4>動物名稱</h4>
+        </div>
+    }
+    <br>
+    <div class="col-md-12">
+        <div class="col-md-4">
+            <a href=# /><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" />
+            <p>編輯送養資料</p>
+        </div>
+        <div class="col-md-4">
+            <a href=# /><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" />
            
-        </tr>
-    }
-    </talbe>
+            <p>@Html.ActionLink("我要送養寵物", "Create", "aniData")</p>
+        </div>
+    </div>
+}
+else
+{
+    <div class="col-md-12">
+        <span class="center-block"><img src="http://i.imgur.com/GGDvNPp.jpg" height="300" width="450" /></span>
+        <h2>目前無送養寵物喔～</h2>
+    </div>
+            <br>
+
+            <div class="col-md-4">
+                <span class="grid"><a href="#" /><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" /></span>
+                <p>@Html.ActionLink("我要送養寵物", "Create", "aniData")</p>
+            </div>
+
+}
 
 
-<talbe>
-    @foreach (var item in Model.animalDataList)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.animalName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.animalKind)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.animalAddress)
-            </td>
-
-        </tr>
-    }
-</talbe>

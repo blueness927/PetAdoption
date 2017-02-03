@@ -16,5 +16,6 @@ namespace prjPetAdoption.Models
     {
         public int animalID { get; set; }
         public string animalPicAddress { get; set; }
+        public string animalOwner_userID { get; set; }
     }
 }

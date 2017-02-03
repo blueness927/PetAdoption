@@ -40,6 +40,7 @@ namespace prjPetAdoption.ViewModels
         public IEnumerable<animalData> animalDataList { get; set; }
         public IEnumerable<animalData_Pic> animalData_PicList { get; set; }
         public IEnumerable<aniDataAll> aniDataAllList { get; set; }
+        public IEnumerable<aniDataPic> aniDataPicList { get; set; }
         public IEnumerable<map> mapList { get; set; }
     }
 }

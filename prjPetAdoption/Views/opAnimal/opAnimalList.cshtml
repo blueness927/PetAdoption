@@ -10,14 +10,14 @@
         <div class="=col-lg-3">
             <div class="input-group">
                 <span class="input-group-addon">縣市</span>
-                @Html.DropDownList("Districts", null, "全部", new { @class = "form-control" })
+                @Html.DropDownList("Districts", null, "-不限-", new { @class = "form-control" })
             </div>
         </div>
    
             <div class="=col-lg-3">
                 <div class="input-group">
                     <span class="input-group-addon">種類</span>
-                    @Html.DropDownList("Types", null, "全部", new { @class = "form-control" })
+                    @Html.DropDownList("Types", null, "-不限-", new { @class = "form-control" })
                 </div>
             </div>
         <div class="=col-lg-2">
@@ -33,6 +33,19 @@
     <div id="masonry" class="container-fluid">
         @foreach (var item in Model)
         {
+            if (@item.album_file == "")
+            {
+                <div class="thumbnail">
+                    <div class="imgs">
+                        <img src="http://i.imgur.com/ELgcmBd.png" width="300px" height="auto" />
+                    </div>
+                    <div class="caption">
+                        <div class="title">@Html.DisplayFor(modelItem => item.shelter_name)</div>
+                        <div class="content">
+                        </div>
+                    </div>
+                </div>
+            }
             <div class="thumbnail">
                 <div class="imgs">
                     <img src="@Html.DisplayFor(modelItem => item.album_file)" width="300px" height="auto" />
