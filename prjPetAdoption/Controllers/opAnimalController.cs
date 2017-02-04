@@ -59,7 +59,7 @@ namespace prjPetAdoption.Controllers
         }
         private async Task<IEnumerable<OpenData>> RetriveOPAnimalData(string cacheName)
         {
-            string targetURI = "http://data.coa.gov.tw/Service/OpenData/AnimalOpenData.aspx?$top=30";
+            string targetURI = "http://data.coa.gov.tw/Service/OpenData/AnimalOpenData.aspx?$top=100";
             HttpClient client = new HttpClient();
             client.MaxResponseContentBufferSize = Int32.MaxValue;
             var response = await client.GetStringAsync(targetURI);

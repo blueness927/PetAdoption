@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="petstationModel.animalData" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="petstationModel.animalData_Condition" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="petstationModel.animalData_Pic" Width="1.5" PointX="7.5" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="petstationModel.animalData_Type" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="petstationModel.animalData_Type" Width="1.75" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="petstationModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="17.5" IsExpanded="true" />
         <EntityTypeShape EntityType="petstationModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="petstationModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="14.75" IsExpanded="true" />
@@ -29,7 +29,6 @@
         <EntityTypeShape EntityType="petstationModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="petstationModel.todoData" Width="1.5" PointX="8.25" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="petstationModel.userData" Width="1.5" PointX="11.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="petstationModel.aniDataPic" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
         <AssociationConnector Association="petstationModel.FK__animalDat__anima__32AB8735" ManuallyRouted="false" />
         <AssociationConnector Association="petstationModel.FK__animalDat__condi__3D2915A8" ManuallyRouted="false" />
         <AssociationConnector Association="petstationModel.FK__board__board_ani__40058253" ManuallyRouted="false" />
@@ -47,6 +46,8 @@
         <AssociationConnector Association="petstationModel.giveAnimal" ManuallyRouted="false" />
         <AssociationConnector Association="petstationModel.pair" ManuallyRouted="false" />
         <EntityTypeShape EntityType="petstationModel.aniDataAll" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="petstationModel.aniDataPic" Width="1.5" PointX="13.25" PointY="6.875" />
+        <EntityTypeShape EntityType="petstationModel.aniDataPicOne" Width="1.5" PointX="14.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

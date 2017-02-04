@@ -1,0 +1,98 @@
+﻿@model prjPetAdoption.ViewModels.AllAniDataViewModel
+@{
+    ViewBag.Title = "showForAni";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>愛心送養動物資訊</h2>
+<div class="row well">
+    <form class="form" role="form">
+        <div class="=col-lg-3">
+            <div class="input-group">
+                <span class="input-group-addon">縣市</span>
+                @*@Html.DropDownList( , null, "-不限-", new { @class = "form-control" })*@
+            </div>
+        </div>
+
+        <div class="=col-lg-3">
+            <div class="input-group">
+                <span class="input-group-addon">種類</span>
+                @*@Html.DropDownList("Types", null, "-不限-", new { @class = "form-control" })*@
+            </div>
+        </div>
+        <div class="=col-lg-2">
+            <button type="submit" id="buttonSubmit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-search">查詢</span>
+            </button>
+        </div>
+
+
+    </form>
+</div>
+
+
+<div id="masonry" class="container-fluid">
+    @foreach (var item in Model.aniDataPicOneList)
+    {
+        if (@item.animalPicAddress == "")
+        {
+            <div class="thumbnail">
+                <div class="imgs">
+                    <img src="http://i.imgur.com/ELgcmBd.png" width="300"  />
+                </div>
+                <div class="caption">
+                    <div class="title">@Html.DisplayFor(modelItem => item.animalAddress)</div>
+                    <div class="content">
+                        @Html.DisplayFor(modelItem => item.animalKind)  
+                        @Html.DisplayFor(modelItem => item.animalType)
+                        @Html.DisplayFor(modelItem => item.animalAddress)
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="thumbnail">
+            <div class="imgs">
+                <img src="@Html.DisplayFor(modelItem => item.animalPicAddress)" width="300"  />
+            </div>
+            <div class="caption">
+                <div class="title">@Html.DisplayFor(modelItem => item.animalAddress)</div>
+                <div class="content">
+                    @Html.DisplayFor(modelItem => item.animalKind)
+                    @Html.DisplayFor(modelItem => item.animalType)
+                    @Html.DisplayFor(modelItem => item.animalAddress)
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section scripts{
+    @Styles.Render("~/Content/masonry.css")
+    @Scripts.Render("~/bundles/masonry")
+    <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript">
+		$(function() {
+
+			var masonryNode = $('#masonry');
+			masonryNode.imagesLoaded(function(){
+				masonryNode.masonry({
+					itemSelector: '.thumbnail',
+					isFitWidth: true
+				});
+			});
+
+		});
+    </script>
+
+}
+
+
+
+
+
+
+
+
+
+
+

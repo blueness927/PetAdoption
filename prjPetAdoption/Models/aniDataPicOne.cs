@@ -12,7 +12,7 @@ namespace prjPetAdoption.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class aniDataPic
+    public partial class aniDataPicOne
     {
         public int animalID { get; set; }
         public string animalName { get; set; }
@@ -22,7 +22,7 @@ namespace prjPetAdoption.Models
         public string animalGender { get; set; }
         public string animalAddress { get; set; }
         public Nullable<int> animalAge { get; set; }
-        public string animalPicAddress { get; set; }
         public string animalOwner_userID { get; set; }
+        public string animalPicAddress { get; set; }
     }
 }

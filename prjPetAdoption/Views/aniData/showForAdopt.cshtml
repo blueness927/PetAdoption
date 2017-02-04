@@ -6,14 +6,30 @@
 }
 
 <h4>目前愛心送養寵物</h4>
-
-
-@if (Model.aniDataPicList.Count() != 0)
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
 {
-    foreach (var item in Model.aniDataPicList)
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul >
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">登出</a></li>
+        </ul>
+    }
+}
+
+
+
+@if (Model.aniDataPicOneList.Count() != 0)
+{
+    foreach (var item in Model.aniDataPicOneList)
     {
         <div class="col-md-4">
-            <span class="grid"><a href="#" /><img src=@Html.DisplayFor(modelItem => item.animalPicAddress) height="300" width="400" /></span>
+            <span class="grid"><a href="#" /><img src=@Html.DisplayFor(modelItem => item.animalPicAddress) width="250" /></span>
             <h3>動物ID：@Html.DisplayFor(modelItem => item.animalID)</h3>
             <h4>動物名稱</h4>
         </div>
@@ -34,7 +50,7 @@
 else
 {
     <div class="col-md-12">
-        <span class="center-block"><img src="http://i.imgur.com/GGDvNPp.jpg" height="300" width="450" /></span>
+        <span class="center-block"><img src="http://i.imgur.com/GGDvNPp.jpg" height="300" width="250" /></span>
         <h2>目前無送養寵物喔～</h2>
     </div>
             <br>

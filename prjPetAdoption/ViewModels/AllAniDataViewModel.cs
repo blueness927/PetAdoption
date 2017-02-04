@@ -34,13 +34,14 @@ namespace prjPetAdoption.ViewModels
         public  todoData  todoData { get; set; }
         public  userData  userData { get; set; }
         public  aniDataAll  aniDataAll { get; set; }
-
+        public aniDataPicOne aniDataPicOne { get; set; }
 
 
         public IEnumerable<animalData> animalDataList { get; set; }
         public IEnumerable<animalData_Pic> animalData_PicList { get; set; }
         public IEnumerable<aniDataAll> aniDataAllList { get; set; }
         public IEnumerable<aniDataPic> aniDataPicList { get; set; }
+        public IEnumerable<aniDataPicOne> aniDataPicOneList { get; set; }
         public IEnumerable<map> mapList { get; set; }
     }
 }

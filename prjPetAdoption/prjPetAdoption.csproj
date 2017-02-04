@@ -204,6 +204,9 @@
     <Compile Include="Models\aniDataPic.cs">
       <DependentUpon>DbPet.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\aniDataPicOne.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\animalData.cs">
       <DependentUpon>DbPet.tt</DependentUpon>
     </Compile>
@@ -300,6 +303,7 @@
     <Compile Include="ViewModels\AllAniDataViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\animalDetailcss\animalDetail.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -336,6 +340,9 @@
       <DependentUpon>DbPet.edmx</DependentUpon>
       <LastGenOutput>DbPet.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\animalDetailjs\all.js" />
+    <Content Include="Scripts\animalDetailjs\animalDetail.js" />
+    <Content Include="Scripts\animalDetailjs\lightbox-plus-jquery.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\index.js" />
@@ -406,6 +413,8 @@
     <Content Include="Views\Msgs\Details.cshtml" />
     <Content Include="Views\Msgs\Edit.cshtml" />
     <Content Include="Views\Msgs\Index.cshtml" />
+    <Content Include="Views\aniData\showForAni.cshtml" />
+    <Content Include="Views\aniData\oneAni.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

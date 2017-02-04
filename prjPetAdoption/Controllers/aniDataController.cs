@@ -27,18 +27,41 @@ namespace prjPetAdoption.Controllers
         public ActionResult showForAdopt(string id)   //顯示送養比數
         {           
             var aniData = db.aniDataAll.Where(x=> x.animalOwner_userID==id).ToList();
-            var myanimal = db.aniDataPic.Where(x => x.animalOwner_userID.Equals(id)).ToList();               
+            var myanimal = db.aniDataPicOne.Where(x => x.animalOwner_userID.Equals(id)).ToList();               
             AllAniData.aniDataAllList = aniData;
-            AllAniData.aniDataPicList = myanimal;
+            AllAniData.aniDataPicOneList = myanimal;
                                         
            return View(AllAniData);
             
         }
 
+        public ActionResult oneAni(int? id)   //顯示送養寵物明細資料
+        {
+            var aniData = db.animalData_Pic.Where(x => x.animalPic_animalID == id).ToList();
+            var myanimalPic = db.aniDataPicOne.Where(x => x.animalID == id).ToList();
+            AllAniData.animalData_PicList = aniData;
+            AllAniData.aniDataPicOneList = myanimalPic;
+
+            return View(AllAniData);
+
+        }
 
 
+        public ActionResult showForAni()   //顯示待認養清單
+        {
 
-        public ActionResult Create()
+            var myanimal = db.aniDataPicOne.ToList();
+            AllAniData.aniDataPicOneList = myanimal;
+
+            var myanimal2 = db.aniDataPic.ToList();
+            AllAniData.aniDataPicList = myanimal2;
+
+            return View(AllAniData);
+        }
+            
+
+
+    public ActionResult Create()
         {
             return View();
         }

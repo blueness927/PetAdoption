@@ -19,7 +19,10 @@
     <nav class="navbar navbar-default navbar-fixed-top at_top" style="background-color:#38A4D2;">
         <div class="container">
             <div class="navbar-header">
-                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#header_index">i Pet</a>
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span><span class="icon-bar">
+                    </span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>@Html.ActionLink("iPet", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
@@ -28,7 +31,7 @@
                     <li>@Html.ActionLink("認養專區", "opAnimalList", "opAnimal", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("送養專區" , "showForAdopt", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("寵物幫手", "Contact", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("會員專區", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink(" 商 城", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                     @Html.Partial("_LoginPartial")
                 </ul>
             </div>
