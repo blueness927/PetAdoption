@@ -57,13 +57,23 @@
     </form>
 </div>
 
+<div>
+    @if (@ViewBag.IMG != "")
+    {
+        <img src="@ViewBag.IMG" style="max-width:80%" />
+    }
+
+
+</div>
+
+
 <div id="masonry" class="container-fluid">
     @foreach (var item in Model)
     {
         if (@item.animal_id == "")
         {
             <div class="imgs">
-                <img src="http://i.imgur.com/ELgcmBd.png" width="300px" height="auto" />
+                <img src="http://i.imgur.com/SfojWcu.png" width="300px" height="auto" />
             </div>
         }
         else
@@ -73,7 +83,7 @@
                 <div class="thumbnail">
                     <a href=@Url.Action("opAniOne", "opAnimal", new { id = @Html.DisplayFor(modelItem => item.animal_id) })>
                         <div class="imgs">
-                            <img src="http://i.imgur.com/ELgcmBd.png" width="300px" height="auto" />
+                            <img src="http://i.imgur.com/SfojWcu.png" width="300px" height="auto" />
                         </div>
                         <div class="caption">
                             <div class="title">@Html.DisplayFor(modelItem => item.shelter_name)</div>
@@ -98,7 +108,10 @@
         }
 
     }
+
 </div>
+
+
 
 @section scripts{
     @Styles.Render("~/Content/masonry.css")

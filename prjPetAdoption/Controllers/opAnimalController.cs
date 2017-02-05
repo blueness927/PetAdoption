@@ -40,8 +40,8 @@ namespace prjPetAdoption.Controllers
             }
             if (source.Count() == 0)
             {
-                ViewBag.IMG = 
-                return View();
+                ViewBag.IMG = "http://i.imgur.com/8P7z9ys.png";
+                return View(source.OrderBy(x => x.animal_area_pkid).ToList());
             }
             else
             {
