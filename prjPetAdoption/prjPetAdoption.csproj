@@ -194,6 +194,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\opAnimalController.cs" />
     <Compile Include="Controllers\TEST\MsgsController.cs" />
+    <Compile Include="Controllers\TEST\ViewTestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -270,6 +271,9 @@
     <Compile Include="Models\Msg.cs">
       <DependentUpon>DbPet.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MsgUser.cs">
+      <DependentUpon>DbPet.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\OpenData.cs" />
     <Compile Include="Models\petFAQ.cs">
       <DependentUpon>DbPet.tt</DependentUpon>
@@ -304,10 +308,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\animalDetailcss\animalDetail.css" />
+    <Content Include="Content\animalDetailcss\jquery-ui.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\index.css" />
     <Content Include="Content\masonry.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
@@ -329,6 +335,7 @@
     <Content Include="Models\DbPet.edmx.diagram">
       <DependentUpon>DbPet.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\web.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Models\DbPet.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -340,8 +347,8 @@
       <DependentUpon>DbPet.edmx</DependentUpon>
       <LastGenOutput>DbPet.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\animalDetailjs\all.js" />
     <Content Include="Scripts\animalDetailjs\animalDetail.js" />
+    <Content Include="Scripts\animalDetailjs\jquery-ui.min.js" />
     <Content Include="Scripts\animalDetailjs\lightbox-plus-jquery.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -415,10 +422,13 @@
     <Content Include="Views\Msgs\Index.cshtml" />
     <Content Include="Views\aniData\showForAni.cshtml" />
     <Content Include="Views\aniData\oneAni.cshtml" />
+    <Content Include="Views\opAnimal\opAniOne.cshtml" />
+    <Content Include="Views\aniData\show.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\ViewTest\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

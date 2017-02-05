@@ -58,10 +58,16 @@ namespace prjPetAdoption.Controllers
 
             return View(AllAniData);
         }
-            
+
+        public ActionResult show()   //顯示待認養清單
+        {
+
+            return View();
+        }
 
 
-    public ActionResult Create()
+
+        public ActionResult Create()
         {
             return View();
         }

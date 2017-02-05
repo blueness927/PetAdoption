@@ -14,7 +14,9 @@ namespace prjPetAdoption.Controllers
 {
     public class opAnimalController : Controller
     {
-        public async Task<ActionResult>opAnimalList(string districts, string types)
+        string targetURI = "http://data.coa.gov.tw/Service/OpenData/AnimalOpenData.aspx?$top=50";
+
+        public async Task<ActionResult>opAnimalList(string districts, string types)  //篩選後倒資料
         {
             ViewBag.Districts =
             await this.GetSelectList(await this.GetDistricts(), districts);
@@ -36,13 +38,21 @@ namespace prjPetAdoption.Controllers
             {
                 source = source.Where(x => x.animal_kind == types);
             }
-            return View(source.OrderBy(x => x.animal_area_pkid).ToList());
+            if (source.Count() == 0)
+            {
+                ViewBag.IMG = 
+                return View();
+            }
+            else
+            {
+                return View(source.OrderBy(x => x.animal_area_pkid).ToList());
+            }
+           
         }
 
        
-        public async Task<IEnumerable<OpenData>> GetOPAnimalData()
+        public async Task<IEnumerable<OpenData>> GetOPAnimalData() //一開始取得全DATA
         {
-
             string cacheName = "OpenData";
             ObjectCache cache = MemoryCache.Default;
             CacheItem cacheContents = cache.GetCacheItem(cacheName);
@@ -52,14 +62,25 @@ namespace prjPetAdoption.Controllers
                 return await RetriveOPAnimalData(cacheName);
             }
             else
-                return cacheContents.Value as IEnumerable<OpenData>;
-
-
-         
+                return cacheContents.Value as IEnumerable<OpenData>;  
         }
-        private async Task<IEnumerable<OpenData>> RetriveOPAnimalData(string cacheName)
+
+        public async Task<ActionResult> opAniOne(string id)  //篩選ID取資料
         {
-            string targetURI = "http://data.coa.gov.tw/Service/OpenData/AnimalOpenData.aspx?$top=100";
+           // targetURI = "http://data.coa.gov.tw/Service/OpenData/AnimalOpenData.aspx?$top=50";
+            var  source = await this.GetOPAnimalData();
+            source = source.AsQueryable();
+
+            source = source.Where(x => x.animal_id.Equals(id));
+            
+            return View( source.OrderBy(x => x.animal_area_pkid).ToList());
+        }
+
+
+
+        private async Task<IEnumerable<OpenData>> RetriveOPAnimalData(string cacheName)  //連線OP DATA
+        {
+             targetURI = "http://data.coa.gov.tw/Service/OpenData/AnimalOpenData.aspx?$top=50";
             HttpClient client = new HttpClient();
             client.MaxResponseContentBufferSize = Int32.MaxValue;
             var response = await client.GetStringAsync(targetURI);
@@ -77,7 +98,7 @@ namespace prjPetAdoption.Controllers
         /// 取得縣市ID
         /// </summary>
         /// <returns></returns>
-        private async Task<List<string>>GetDistricts()
+        private async Task<List<string>>GetDistricts()  //縣市分類
         {
             var source = await this.GetOPAnimalData();
             if (source != null)
@@ -96,7 +117,7 @@ namespace prjPetAdoption.Controllers
         /// </summary>
         /// <returns></returns>
 
-        private async Task<List<string>> GetType()
+        private async Task<List<string>> GetType()  //動物類型分類
         {
             var source = await this.GetOPAnimalData();
             if (source != null)

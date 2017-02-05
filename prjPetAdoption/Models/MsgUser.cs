@@ -12,17 +12,16 @@ namespace prjPetAdoption.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Msg
+    public partial class MsgUser
     {
         public int msgID { get; set; }
         public string msgTime { get; set; }
         public string msgFrom_userID { get; set; }
+        public string msgFrom_userName { get; set; }
         public string msgTo_userID { get; set; }
         public string msgType { get; set; }
         public string msgFromURL { get; set; }
         public string msgContent { get; set; }
         public string msgRead { get; set; }
-    
-        public virtual AspNetUsers AspNetUsers { get; set; }
     }
 }

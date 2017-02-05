@@ -36,34 +36,39 @@
     {
         if (@item.animalPicAddress == "")
         {
-            <div class="thumbnail">
+            <a href=@Url.Action("oneAni", "aniData", new { id = @Html.DisplayFor(modelItem => item.animalID) })>
+                <div class="thumbnail">                   
                 <div class="imgs">
-                    <img src="http://i.imgur.com/ELgcmBd.png" width="300"  />
+                    <img src="http://i.imgur.com/ELgcmBd.png" width="300" />
                 </div>
                 <div class="caption">
                     <div class="title">@Html.DisplayFor(modelItem => item.animalAddress)</div>
                     <div class="content">
-                        @Html.DisplayFor(modelItem => item.animalKind)  
+                        @Html.DisplayFor(modelItem => item.animalKind)
                         @Html.DisplayFor(modelItem => item.animalType)
                         @Html.DisplayFor(modelItem => item.animalAddress)
                     </div>
                 </div>
             </div>
-        }
-        <div class="thumbnail">
-            <div class="imgs">
-                <img src="@Html.DisplayFor(modelItem => item.animalPicAddress)" width="300"  />
-            </div>
-            <div class="caption">
-                <div class="title">@Html.DisplayFor(modelItem => item.animalAddress)</div>
-                <div class="content">
-                    @Html.DisplayFor(modelItem => item.animalKind)
-                    @Html.DisplayFor(modelItem => item.animalType)
-                    @Html.DisplayFor(modelItem => item.animalAddress)
+                </a>
+            }
+            <a href=@Url.Action("oneAni", "aniData", new { id = @Html.DisplayFor(modelItem => item.animalID) })>
+                <div class="thumbnail">
+
+                    <div class="imgs">
+                        <img src="@Html.DisplayFor(modelItem => item.animalPicAddress)" width="300" />
+                    </div>
+                    <div class="caption">
+                        <div class="title">@Html.DisplayFor(modelItem => item.animalAddress)</div>
+                        <div class="content">
+                            @Html.DisplayFor(modelItem => item.animalKind)
+                            @Html.DisplayFor(modelItem => item.animalType)
+                            @Html.DisplayFor(modelItem => item.animalAddress)
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    }
+            </a>
+            }
 </div>
 
 @section scripts{

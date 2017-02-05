@@ -10,16 +10,43 @@
         <div class="=col-lg-3">
             <div class="input-group">
                 <span class="input-group-addon">縣市</span>
-                @Html.DropDownList("Districts", null, "-不限-", new { @class = "form-control" })
+
+                <select class="form-control" id="Districts" name="Districts">
+                    <option value=""> -全部-</option>
+                    <option value="2"> 臺北市</option>
+                    <option value="3"> 新北市</option>
+                    <option value="4"> 基隆市</option>
+                    <option value="5"> 宜蘭縣</option>
+                    <option value="6"> 桃園縣</option>
+                    <option value="7"> 新竹縣</option>
+                    <option value="8"> 新竹市</option>
+                    <option value="9"> 苗栗縣</option>
+                    <option value="10"> 臺中市</option>
+                    <option value="11"> 彰化縣</option>
+                    <option value="12"> 南投縣</option>
+                    <option value="13"> 雲林縣</option>
+                    <option value="14"> 嘉義縣</option>
+                    <option value="15"> 嘉義市</option>
+                    <option value="16"> 臺南市</option>
+                    <option value="17"> 高雄市</option>
+                    <option value="18"> 屏東縣</option>
+                    <option value="19"> 花蓮縣</option>
+                    <option value="20"> 臺東縣</option>
+                    <option value="21"> 澎湖縣</option>
+                    <option value="22"> 金門縣</option>
+                    <option value="23"> 連江縣</option>
+                </select>
+
+                @*@Html.DropDownList("Districts", null, "-不限-", new { @class = "form-control" })*@
             </div>
         </div>
-   
-            <div class="=col-lg-3">
-                <div class="input-group">
-                    <span class="input-group-addon">種類</span>
-                    @Html.DropDownList("Types", null, "-不限-", new { @class = "form-control" })
-                </div>
+
+        <div class="=col-lg-3">
+            <div class="input-group">
+                <span class="input-group-addon">種類</span>
+                @Html.DropDownList("Types", null, "-全部-", new { @class = "form-control" })
             </div>
+        </div>
         <div class="=col-lg-2">
             <button type="submit" id="buttonSubmit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-search">查詢</span>
@@ -27,57 +54,71 @@
         </div>
 
 
-        </form>
+    </form>
 </div>
 
-    <div id="masonry" class="container-fluid">
-        @foreach (var item in Model)
+<div id="masonry" class="container-fluid">
+    @foreach (var item in Model)
+    {
+        if (@item.animal_id == "")
+        {
+            <div class="imgs">
+                <img src="http://i.imgur.com/ELgcmBd.png" width="300px" height="auto" />
+            </div>
+        }
+        else
         {
             if (@item.album_file == "")
             {
                 <div class="thumbnail">
+                    <a href=@Url.Action("opAniOne", "opAnimal", new { id = @Html.DisplayFor(modelItem => item.animal_id) })>
+                        <div class="imgs">
+                            <img src="http://i.imgur.com/ELgcmBd.png" width="300px" height="auto" />
+                        </div>
+                        <div class="caption">
+                            <div class="title">@Html.DisplayFor(modelItem => item.shelter_name)</div>
+                            <div class="content">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+            <div class="thumbnail">
+                <a href=@Url.Action("opAniOne", "opAnimal", new { id = @Html.DisplayFor(modelItem => item.animal_id) })>
                     <div class="imgs">
-                        <img src="http://i.imgur.com/ELgcmBd.png" width="300px" height="auto" />
+                        <img src="@Html.DisplayFor(modelItem => item.album_file)" width="300px" height="auto" />
                     </div>
                     <div class="caption">
                         <div class="title">@Html.DisplayFor(modelItem => item.shelter_name)</div>
                         <div class="content">
                         </div>
                     </div>
-                </div>
-            }
-            <div class="thumbnail">
-                <div class="imgs">
-                    <img src="@Html.DisplayFor(modelItem => item.album_file)" width="300px" height="auto" />
-                </div>
-                <div class="caption">
-                    <div class="title">@Html.DisplayFor(modelItem => item.shelter_name)</div>
-                    <div class="content">
-                    </div>
-                </div>
+                </a>
             </div>
         }
-    </div>
-
-@section scripts{
-@Styles.Render("~/Content/masonry.css")
-@Scripts.Render("~/bundles/masonry")
-<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
-<script type="text/javascript">
-		$(function() {
-
-			var masonryNode = $('#masonry');
-			masonryNode.imagesLoaded(function(){
-				masonryNode.masonry({
-					itemSelector: '.thumbnail',
-					isFitWidth: true
-				});
-			});
-
-		});
-</script>
 
     }
+</div>
+
+@section scripts{
+    @Styles.Render("~/Content/masonry.css")
+    @Scripts.Render("~/bundles/masonry")
+    <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            var masonryNode = $('#masonry');
+            masonryNode.imagesLoaded(function () {
+                masonryNode.masonry({
+                    itemSelector: '.thumbnail',
+                    isFitWidth: true
+                });
+            });
+
+        });
+    </script>
+
+}
 
 
 

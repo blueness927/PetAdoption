@@ -192,6 +192,7 @@
           <Property Name="msgType" Type="nvarchar" MaxLength="50" />
           <Property Name="msgFromURL" Type="nvarchar" MaxLength="200" />
           <Property Name="msgContent" Type="nvarchar" MaxLength="200" />
+          <Property Name="msgRead" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="pair">
           <Key>
@@ -359,6 +360,23 @@
           <Property Name="animalOwner_userID" Type="nvarchar" MaxLength="128" />
           <Property Name="animalPicAddress" Type="nvarchar" MaxLength="200" />
         </EntityType>
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'petstation.dbo.MsgUser' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="MsgUser">
+          <Key>
+            <PropertyRef Name="msgID" />
+            <PropertyRef Name="msgFrom_userName" />
+          </Key>
+          <Property Name="msgID" Type="int" Nullable="false" />
+          <Property Name="msgTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="msgFrom_userID" Type="nvarchar" MaxLength="128" />
+          <Property Name="msgFrom_userName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="msgTo_userID" Type="nvarchar" MaxLength="128" />
+          <Property Name="msgType" Type="nvarchar" MaxLength="50" />
+          <Property Name="msgFromURL" Type="nvarchar" MaxLength="200" />
+          <Property Name="msgContent" Type="nvarchar" MaxLength="200" />
+          <Property Name="msgRead" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <Association Name="FK__animalDat__anima__32AB8735">
           <End Role="animalData" Type="Self.animalData" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -469,7 +487,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Msg__msgTo_userI__55F4C372">
+        <Association Name="FK__Msg__msgTo_userI__7D0E9093">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -706,6 +724,19 @@
     [aniDataPicOne].[animalPicAddress] AS [animalPicAddress]
     FROM [dbo].[aniDataPicOne] AS [aniDataPicOne]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="MsgUser" EntityType="Self.MsgUser" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MsgUser].[msgID] AS [msgID], 
+    [MsgUser].[msgTime] AS [msgTime], 
+    [MsgUser].[msgFrom_userID] AS [msgFrom_userID], 
+    [MsgUser].[msgFrom_userName] AS [msgFrom_userName], 
+    [MsgUser].[msgTo_userID] AS [msgTo_userID], 
+    [MsgUser].[msgType] AS [msgType], 
+    [MsgUser].[msgFromURL] AS [msgFromURL], 
+    [MsgUser].[msgContent] AS [msgContent], 
+    [MsgUser].[msgRead] AS [msgRead]
+    FROM [dbo].[MsgUser] AS [MsgUser]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__animalDat__anima__32AB8735" Association="Self.FK__animalDat__anima__32AB8735">
             <End Role="animalData" EntitySet="animalData" />
             <End Role="animalData_Pic" EntitySet="animalData_Pic" />
@@ -738,7 +769,7 @@
             <End Role="animalData" EntitySet="animalData" />
             <End Role="giveAnimal" EntitySet="giveAnimal" />
           </AssociationSet>
-          <AssociationSet Name="FK__Msg__msgTo_userI__55F4C372" Association="Self.FK__Msg__msgTo_userI__55F4C372">
+          <AssociationSet Name="FK__Msg__msgTo_userI__7D0E9093" Association="Self.FK__Msg__msgTo_userI__7D0E9093">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Msg" EntitySet="Msg" />
           </AssociationSet>
@@ -985,6 +1016,7 @@
           <Property Name="msgFromURL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="msgContent" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__Msg__msgTo_userI__55F4C372" FromRole="Msg" ToRole="AspNetUsers" />
+          <Property Name="msgRead" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="petFAQ">
           <Key>
@@ -1369,6 +1401,7 @@
           <EntitySet Name="aniDataAll" EntityType="petstationModel.aniDataAll" />
           <EntitySet Name="aniDataPic" EntityType="petstationModel.aniDataPic" />
           <EntitySet Name="aniDataPicOne" EntityType="petstationModel.aniDataPicOne" />
+          <EntitySet Name="MsgUser" EntityType="petstationModel.MsgUser" />
         </EntityContainer>
         <EntityType Name="aniDataAll">
           <Key>
@@ -1427,6 +1460,21 @@
           <Property Name="animalAge" Type="Int32" />
           <Property Name="animalOwner_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MsgUser">
+          <Key>
+            <PropertyRef Name="msgID" />
+            <PropertyRef Name="msgFrom_userName" />
+          </Key>
+          <Property Name="msgID" Type="Int32" Nullable="false" />
+          <Property Name="msgTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msgFrom_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="msgFrom_userName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="msgTo_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="msgType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msgFromURL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="msgContent" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="msgRead" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1606,6 +1654,7 @@
           <EntitySetMapping Name="Msg">
             <EntityTypeMapping TypeName="petstationModel.Msg">
               <MappingFragment StoreEntitySet="Msg">
+                <ScalarProperty Name="msgRead" ColumnName="msgRead" />
                 <ScalarProperty Name="msgID" ColumnName="msgID" />
                 <ScalarProperty Name="msgTime" ColumnName="msgTime" />
                 <ScalarProperty Name="msgFrom_userID" ColumnName="msgFrom_userID" />
@@ -1801,6 +1850,21 @@
                 <ScalarProperty Name="animalKind" ColumnName="animalKind" />
                 <ScalarProperty Name="animalName" ColumnName="animalName" />
                 <ScalarProperty Name="animalID" ColumnName="animalID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MsgUser">
+            <EntityTypeMapping TypeName="petstationModel.MsgUser">
+              <MappingFragment StoreEntitySet="MsgUser">
+                <ScalarProperty Name="msgRead" ColumnName="msgRead" />
+                <ScalarProperty Name="msgContent" ColumnName="msgContent" />
+                <ScalarProperty Name="msgFromURL" ColumnName="msgFromURL" />
+                <ScalarProperty Name="msgType" ColumnName="msgType" />
+                <ScalarProperty Name="msgTo_userID" ColumnName="msgTo_userID" />
+                <ScalarProperty Name="msgFrom_userName" ColumnName="msgFrom_userName" />
+                <ScalarProperty Name="msgFrom_userID" ColumnName="msgFrom_userID" />
+                <ScalarProperty Name="msgTime" ColumnName="msgTime" />
+                <ScalarProperty Name="msgID" ColumnName="msgID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

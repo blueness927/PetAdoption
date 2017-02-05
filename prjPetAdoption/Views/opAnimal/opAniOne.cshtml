@@ -1,0 +1,38 @@
+﻿@model IEnumerable<prjPetAdoption.Models.OpenData>
+@{
+    ViewBag.Title = "opAniOne";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>opAniOne</h2>
+
+@foreach (var item in Model)
+{
+    if (@item.album_file == "")
+    {  
+
+        <div class="thumbnail">
+            <div class="imgs">
+                <img src="http://i.imgur.com/ELgcmBd.png" width="300px" height="auto" />
+            </div>
+            <div class="caption">
+                <div class="title">@Html.DisplayFor(modelItem => item.shelter_name)</div>
+                <div class="content">
+                </div>
+            </div>
+        </div>
+    }
+    <div class="thumbnail">
+        <div class="imgs">
+            <img src="@Html.DisplayFor(modelItem => item.album_file)" width="300px" height="auto" />
+        </div>
+        <div class="caption">
+            <div class="title">@Html.DisplayFor(modelItem => item.shelter_name)</div>
+            <div class="content">
+            </div>
+        </div>
+    </div>
+}
+    </div>
+
+

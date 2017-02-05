@@ -8,13 +8,39 @@
 <h2>動物資訊</h2>
 
 
+<link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="~/Content/animalDetailcss/animalDetail.css">
+<link rel="stylesheet" type="text/css" href="~/Content/animalDetailcss/jquery-ui.css" />
 <script src="~/Scripts/animalDetailjs/animalDetail.js"></script>
+@*<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>*@
+<script type="text/javascript" src="~/Scripts/animalDetailjs/jquery-ui.min.js"></script>
 
+<section>
+    <div class="container">
+        <div class="row fbshare">
+            <div class="col-md-12">
 
-<br />
-<br />
-<br />
+                <!--Facebook Share-->
+                <div id="fb-root"></div>
+                <script>
+(function(d, s, id) {
+						  var js, fjs = d.getElementsByTagName(s)[0];
+						  if (d.getElementById(id)) return;
+						  js = d.createElement(s); js.id = id;
+						  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8";
+						  fjs.parentNode.insertBefore(js, fjs);
+						}(document, 'script', 'facebook-jssdk'));</script>
+
+                <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Ftwpetanimal.ddns.net%2F&layout=button_count&size=small&mobile_iframe=true&width=63&height=20&appId" width="63" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                @foreach (var item in Model.aniDataPicOneList)
+                {        @Html.DisplayFor(modelItem => item.animalID)
+                 }
+            </div>
+
+        </div>
+    </div>
+
+</section>
 
 <section>
     <div class="container">
@@ -27,43 +53,21 @@
                         <img class="example-image" src="@Html.DisplayFor(modelItem => item.animalPicAddress)" alt="" />
                     </a>
 
-                }            
+                }
                 <div class="row animal_small">
                     <div class="col-md-12">
 
                         @foreach (var item in Model.animalData_PicList)
                         {
                             <a class="example-image-link" href="@Html.DisplayFor(modelItem => item.animalPicAddress)" data-lightbox="example-set" data-title="">
-                                <img class="example-image" src="@Html.DisplayFor(modelItem => item.animalPicAddress)" alt="" />
+                                <img class="example-image" src="@Html.DisplayFor(modelItem => item.animalPicAddress)" alt="" style="max-height:100px;width:auto"/>
                             </a>
                         }
-                        <a class="example-image-link" href="http://www.tas.taipei.gov.tw/uploads/images/medium/2c931b02-944c-4e27-9c04-7094eccfb76b.jpg" data-lightbox="example-set" data-title="The next image in the set is preloaded as you're viewing."><img class="example-image" src="http://www.tas.taipei.gov.tw/uploads/images/medium/2c931b02-944c-4e27-9c04-7094eccfb76b.jpg" alt="" /></a>
-
-                        <a class="example-image-link" href="http://www.tas.taipei.gov.tw/uploads/images/medium/78b37a7a-eeb1-4478-9707-989ffc9257ed.jpg" data-lightbox="example-set" data-title="Click anywhere outside the image or the X to the right to close."><img class="example-image" src="http://www.tas.taipei.gov.tw/uploads/images/medium/78b37a7a-eeb1-4478-9707-989ffc9257ed.jpg" alt="" /></a>
-                        <a class="example-image-link" href="http://www.tas.taipei.gov.tw/uploads/images/medium/78b37a7a-eeb1-4478-9707-989ffc9257ed.jpg" data-lightbox="example-set" data-title="Click anywhere outside the image or the X to the right to close."><img class="example-image" src="http://www.tas.taipei.gov.tw/uploads/images/medium/78b37a7a-eeb1-4478-9707-989ffc9257ed.jpg" alt="" /></a>
-                        <a class="example-image-link" href="http://www.tas.taipei.gov.tw/uploads/images/medium/78b37a7a-eeb1-4478-9707-989ffc9257ed.jpg" data-lightbox="example-set" data-title="Click anywhere outside the image or the X to the right to close."><img class="example-image" src="http://www.tas.taipei.gov.tw/uploads/images/medium/78b37a7a-eeb1-4478-9707-989ffc9257ed.jpg" alt="" /></a>
-
-
-
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="row fbshare">
-                    <div class="col-md-12">
-                        <!--Facebook Share-->
-                        <div id="fb-root"></div>
-                        <script>
-                            (function (d, s, id) {
-                                var js, fjs = d.getElementsByTagName(s)[0];
-                                if (d.getElementById(id)) return;
-                                js = d.createElement(s); js.id = id;
-                                js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8";
-                                fjs.parentNode.insertBefore(js, fjs);
-                            }(document, 'script', 'facebook-jssdk'));</script>
-                        <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Ftwpetanimal.ddns.net%2F&layout=button_count&size=small&mobile_iframe=true&width=63&height=20&appId" width="63" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-                    </div>
-                </div>
+
                 <h3 class="data">動物基本資料</h3>
 
                 @foreach (var item in Model.aniDataPicOneList)
@@ -73,11 +77,6 @@
                             <td>送養日期</td>
                             <td>2017-01-01</td>
                         </tr>
-                        <tr>
-                            <td>領養狀態</td>
-                            <td>no</td>
-                        </tr>
-
                         <tr>
                             <td>動物種類</td>
                             <td>@Html.DisplayFor(modelItem => item.animalKind)</td>
@@ -135,40 +134,6 @@
                     </table>
                 }
 
-                <div class="condition">
-                    <h3>動物認養條件</h3>
-                    <table class="table table-condensed tabledisplay">
-                        <tr>
-                            <td>認養者年齡</td>
-                            <td>不限</td>
-                        </tr>
-                        <tr>
-                            <td>經濟條件</td>
-                            <td>不限</td>
-                        </tr>
-
-                        <tr>
-                            <td>認養環境</td>
-                            <td>不限</td>
-                        </tr>
-                        <tr>
-                            <td>願意回報狀態</td>
-                            <td>不限</td>
-                        </tr>
-                        <tr>
-                            <td>切結書</td>
-                            <td>不限</td>
-                        </tr>
-                        <tr>
-                            <td>補助金額</td>
-                            <td>不限</td>
-                        </tr>
-                        <tr>
-                            <td>其它條件</td>
-                            <td>不限</td>
-                        </tr>
-                    </table>
-                </div>
             </div>
         </div>
     </div>
@@ -176,19 +141,82 @@
 
 
 <br />
-<br />
-<br />
-<br />
-<section class="button">
+<section>
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <button type="button" class="btn btn-primary ">加入追蹤</button>
-            </div>
-            <div class="col-md-6">
-                <button type="button" class="btn btn-success ">我要認養</button>
+            <div class="col-md-12">
+
+
+                <section class="work-section" id="work">
+
+                    <header class="section-header clearfix">
+                        <div class="inner">
+                       
+                            <ul class="tabs-nav tabs3">
+                                <li><a href="#work01">認養條件</a></li>
+                                <li><a href="#work02">留言</a></li>
+                                <li><a href="#work03">位置</a></li>
+
+                            </ul>
+                        </div>
+                    </header>
+
+
+                    <div class="section-body">
+                        <section class="tabs-panel" id="work01">
+                            <table class="table table-condensed">
+                                <tr>
+                                    <td class="table1">認養者年齡</td>
+                                    <td class="table3">不限</td>
+                                </tr>
+                                <tr>
+                                    <td class="table1">經濟條件</td>
+                                    <td class="table3">不限</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="table1">認養環境</td>
+                                    <td class="table3">不限</td>
+                                </tr>
+                                <tr>
+                                    <td class="table1">願意回報狀態</td>
+                                    <td class="table3">不限</td>
+                                </tr>
+                                <tr>
+                                    <td class="table1">切結書</td>
+                                    <td class="table3">不限</td>
+                                </tr>
+                                <tr>
+                                    <td class="table1">補助金額</td>
+                                    <td class="table3">不限</td>
+                                </tr>
+                                <tr>
+                                    <td class="table1">其它條件</td>
+                                    <td class="table3">不限</td>
+                                </tr>
+                            </table>
+                            <div class="buttoncenter">
+
+                                <button type="button" class="btn btn-primary">加入追蹤</button>
+
+
+
+                                <button type="button" class="btn btn-success">我要認養</button>
+
+                            </div>
+
+                        </section>
+                        <section class="tabs-panel" id="work02"></section>
+                        <section class="tabs-panel" id="work03"></section>
+
+                    </div>
+
+                </section>
+                
             </div>
         </div>
     </div>
 </section>
+
+
 <script src="~/Scripts/animalDetailjs/lightbox-plus-jquery.min.js"></script>

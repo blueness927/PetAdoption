@@ -48,6 +48,7 @@
         <EntityTypeShape EntityType="petstationModel.aniDataAll" Width="1.5" PointX="13.375" PointY="0.75" />
         <EntityTypeShape EntityType="petstationModel.aniDataPic" Width="1.5" PointX="13.25" PointY="6.875" />
         <EntityTypeShape EntityType="petstationModel.aniDataPicOne" Width="1.5" PointX="14.375" PointY="10.75" />
+        <EntityTypeShape EntityType="petstationModel.MsgUser" Width="1.5" PointX="10.375" PointY="14.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
