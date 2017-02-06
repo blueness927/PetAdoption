@@ -7,6 +7,52 @@
 
 <h2>Create</h2>
 
+<script type="text/javascript">  //取得下拉選單值的方法
+
+var $ = function(e){ return document.getElementById(e); }
+var swap = function (val, input) {
+    var txt = $(input);
+    txt.val(val);
+    //alert(val)
+};
+//function select() {
+
+//    var selectV = document.getElementById('sKind').value;
+//    var txt = $('#aKind');
+//    txt.val(selectV);
+//    alert(selectV)
+    //};
+
+//動態更新的方法
+function chn() {
+    //alert(document.getElementById("sKind").value);
+    addchg();
+}
+//下拉選單後的事件
+function addchg() {
+    $("#sType").html("");
+    
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "aniType.json",
+        success: function (data) {
+            $.each(data, function (index, value) { //index: Emp物件之相關陣列索引   value:Emp物件
+                //$("#SelectCategory").append("<option>" + value.animalKind + "</option> ");
+                if (value.animalKind == document.getElementById("sKind").value) {
+                    $("#sType").append("<option>" + value.animalType + "</option> ");
+                    return;
+                }
+
+            });
+        }
+    });
+}
+
+
+
+
+</script>
 
 @using (Html.BeginForm()) 
 {
@@ -17,23 +63,41 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.animalKind, htmlAttributes: new { @class = "control-label col-md-2" })
+           
+            <label class="control-label col-md-2">動物種類</label>
+            
+                <select class="form-control col-md-10" id="sKind"  onChange="swap(this.value, '#aKind'),chn()"> @*select()*@
+                    <option value=""> -請選擇動物種類-</option>
+                    <option value="貓"> 貓</option>
+                    <option value="狗"> 狗</option>
+                    <option value="鼠"> 鼠</option>
+                    <option value="兔"> 兔</option>
+                    <option value="鳥"> 鳥</option>
+                    <option value="其他"> 其他</option>
+                  
+                </select>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.animalKind, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.animalKind, "", new { @class = "text-danger" })
+              
+                @Html.EditorFor(model => model.animalKind, new { htmlAttributes = new { @class = "form-control", @id = "aKind" } })
+                @*@Html.ValidationMessageFor(model => model.animalKind, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.animalType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">動物品種</label>
+            <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#sType')">
+                @*select()*@
+                <option value=""> -請選擇動物品種-</option>   
+
+            </select>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.animalType, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.animalType, new { htmlAttributes = new { @class = "form-control", @id = "aType" } })
                 @Html.ValidationMessageFor(model => model.animalType, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.animalName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">動物名稱</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.animalName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.animalName, "", new { @class = "text-danger" })
@@ -41,39 +105,64 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.animalAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+             <label class="control-label col-md-2">所在位址</label>
+
+            <select class="form-control col-md-10" id="sAddress"  onChange="swap(this.value, '#aAddress')">
+                <option value=""> -全部-</option>
+                <option value="2"> 臺北市</option>
+                <option value="3"> 新北市</option>
+                <option value="4"> 基隆市</option>
+                <option value="5"> 宜蘭縣</option>
+                <option value="6"> 桃園縣</option>
+                <option value="7"> 新竹縣</option>
+                <option value="8"> 新竹市</option>
+                <option value="9"> 苗栗縣</option>
+                <option value="10"> 臺中市</option>
+                <option value="11"> 彰化縣</option>
+                <option value="12"> 南投縣</option>
+                <option value="13"> 雲林縣</option>
+                <option value="14"> 嘉義縣</option>
+                <option value="15"> 嘉義市</option>
+                <option value="16"> 臺南市</option>
+                <option value="17"> 高雄市</option>
+                <option value="18"> 屏東縣</option>
+                <option value="19"> 花蓮縣</option>
+                <option value="20"> 臺東縣</option>
+                <option value="21"> 澎湖縣</option>
+                <option value="22"> 金門縣</option>
+                <option value="23"> 連江縣</option>
+            </select>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.animalAddress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.animalAddress, new { htmlAttributes = new { @class = "form-control", @id = "aAddress" } })
                 @Html.ValidationMessageFor(model => model.animalAddress, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.animalDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.animalDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.animalDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.animalGender, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">動物性別</label>
+            <select class="form-control col-md-10" id="sGender" onChange="swap(this.value, '#aGender')">              
+                <option value=""> -請選擇動物性別-</option>
+                <option value="公"> 公</option>
+                <option value="母"> 母</option>
+                <option value="未知"> 未知</option>
+            </select>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.animalGender, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.animalGender, new { htmlAttributes = new { @class = "form-control", @id = "aGender" } })
                 @Html.ValidationMessageFor(model => model.animalGender, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.animalAge, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">動物年紀（月份）</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.animalAge, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.animalAge, new { htmlAttributes = new { @class = "form-control", @id = "aGender" } })
                 @Html.ValidationMessageFor(model => model.animalAge, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.animalColor, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">動物毛色花紋描述</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.animalColor, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.animalColor, "", new { @class = "text-danger" })
@@ -81,88 +170,85 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.animalBirth, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">是否已節育</label>
+            <select class="form-control col-md-10" id="sBirth" onChange="swap(this.value, '#aBirth')">              
+                <option value=""> -請選擇節育狀態-</option>
+                <option value="是"> 是</option>
+                <option value="否"> 否</option>
+                <option value="未知">未知</option>
+            </select>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.animalBirth, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.animalBirth, new { htmlAttributes = new { @class = "form-control", @id = "aBirth" } })
                 @Html.ValidationMessageFor(model => model.animalBirth, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.animalChip, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">是否已植入晶片</label>
+            <select class="form-control col-md-10" id="sChip" onChange="swap(this.value, '#aChip')">
+                <option value=""> -請選擇晶片狀態-</option>
+                <option value="是"> 是</option>
+                <option value="否"> 否</option>
+                <option value="未知">未知</option>
+            </select>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.animalChip, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.animalChip, new { htmlAttributes = new { @class = "form-control", @id = "aChip" } })
                 @Html.ValidationMessageFor(model => model.animalChip, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.animalHealthy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">健康狀態</label>
+            <select class="form-control col-md-10" id="sHealthy" onChange="swap(this.value, '#aHealthy')">
+                <option value=""> -請選擇健康狀態-</option>
+                <option value="健康"> 健康</option>
+                <option value="疾病"> 疾病</option>
+                <option value="未知"> 未知</option>
+            </select>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.animalHealthy, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.animalHealthy, new { htmlAttributes = new { @class = "form-control", @id = "aHealthy" } })
                 @Html.ValidationMessageFor(model => model.animalHealthy, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.animalDisease_Other, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">保健措施</label>   @*待完成checkbox事件*@
+            <input id="sDisease_Other" type="checkbox" />
             <div class="col-md-10">
-                @Html.EditorFor(model => model.animalDisease_Other, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.animalDisease_Other, new { htmlAttributes = new { @class = "form-control", @id = "aDisease_Other" } })
                 @Html.ValidationMessageFor(model => model.animalDisease_Other, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.animalOwner_userID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">送養人ID（系統自動設定）</label> @*待完成checkbox事件*@
             <div class="col-md-10">
-                @Html.EditorFor(model => model.animalOwner_userID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.animalOwner_userID, new { htmlAttributes = new { @class = "form-control", @id = "aOwner_userID" } })
                 @Html.ValidationMessageFor(model => model.animalOwner_userID, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.animalReason, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">送養理由</label> 
             <div class="col-md-10">
-                @Html.EditorFor(model => model.animalReason, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.animalReason, new { htmlAttributes = new { @class = "form-control", @id = "aReason" } })
                 @Html.ValidationMessageFor(model => model.animalReason, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.animalGetter_userID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.animalGetter_userID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.animalGetter_userID, "", new { @class = "text-danger" })
-            </div>
-        </div>
+
 
         <div class="form-group">
-            @Html.LabelFor(model => model.animalAdopted, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">其他送養備註</label> 
             <div class="col-md-10">
-                @Html.EditorFor(model => model.animalAdopted, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.animalAdopted, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.animalAdoptedDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.animalAdoptedDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.animalAdoptedDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.animalNote, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.animalNote, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.animalNote, new { htmlAttributes = new { @class = "form-control", @id = "aNote",@style = "max-width:60%;max-height:200px" } })
                 @Html.ValidationMessageFor(model => model.animalNote, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="新增送養" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -174,4 +260,6 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
 }

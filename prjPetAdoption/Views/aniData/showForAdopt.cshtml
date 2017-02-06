@@ -13,7 +13,7 @@
     {
         @Html.AntiForgeryToken()
 
-        <ul >
+        <ul>
             <li>
                 @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
             </li>
@@ -37,28 +37,33 @@
     <br>
     <div class="col-md-12">
         <div class="col-md-4">
-            <a href=# /><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" />
-            <p>編輯送養資料</p>
-        </div>
+            <a href="@Url.Action("index", "animalData")">
+               <img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" />
+                <p>編輯送養資料</p>
+                </a>
+</div>
         <div class="col-md-4">
-            <a href=# /><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" />
-           
-            <p>@Html.ActionLink("我要送養寵物", "Create", "aniData")</p>
-        </div>
+            <a href="@Url.Action("Create", "animalDatas")">
+                <img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" />
+    </a>
+                <p>我要送養寵物</p>
+</div>
     </div>
 }
 else
 {
     <div class="col-md-12">
-        <span class="center-block"><img src="http://i.imgur.com/GGDvNPp.jpg" height="300" width="250" /></span>
+        <span class="center-block"><img src="http://i.imgur.com/GGDvNPp.jpg" style="max-width:80%" /></span>
         <h2>目前無送養寵物喔～</h2>
     </div>
-            <br>
+    <br>
 
-            <div class="col-md-4">
-                <span class="grid"><a href="#" /><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" /></span>
-                <p>@Html.ActionLink("我要送養寵物", "Create", "aniData")</p>
-            </div>
+    <div class="col-md-4">
+        <a href="@Url.Action("Create", "animalDatas")">
+            <span class="grid"><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" /></span>
+        </a>
+        <p>我要送養寵物</p>
+    </div>
 
 }
 

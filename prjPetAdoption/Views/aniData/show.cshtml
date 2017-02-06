@@ -4,13 +4,96 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>認養專區</h2>
-
-@Html.ActionLink("收容所認養", "opAnimalList", "opAnimal", new { area = "" }, new { @class = "btn btn-info" })
-
-@Html.ActionLink("民眾愛心送養", "ShowForAni", "aniData", new { area = "" }, new { @class ="btn btn-info" })
-
-<br>
+<link rel="stylesheet" href="~/Content/AdoptNavigatecss/AdoptNavigate.css">
 
 
-<br><br><br><br><br><br><br><br><br>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h2>認養專區</h2>
+                <hr />
+                <p class="lead">本站提供全台動物之家的認養資訊，以及個人對個人（Peer To Peer）的媒合服務。</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="pictures h1white" id="section_adopt">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 showpic1">
+                <div class="text-center text-panel">
+                    <a href="@Url.Action("opAnimalList", "opAnimal")">
+
+
+                        <h1 style="width:300px;">
+                            全國收容所認養區
+                        </h1>
+                    </a>
+                </div>
+            </div>
+           
+            <div class="col-md-6 showpic2">
+                <div class="text-center text-panel">
+                    <a href="@Url.Action("ShowForAni", "aniData")">
+
+                        <h1>iPet動物認養區</h1>
+                        </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--禁用連結-->
+<a class="btn btn-*"></a>
+<section class="adoptnavigate1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1>本站認養流程</h1>
+                <hr />
+                <img src="http://i.imgur.com/bq8ee4O.jpg" class="img-responsive" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="adoptnavigate1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1>動物之家認養流程</h1>
+                <hr />
+                <img src="http://i.imgur.com/Dt2Nrqv.jpg" class="img-responsive" alt="">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>認養須知</h1>
+                        <hr />
+                        <p>
+                            一、申請人：年滿20歲之民眾。未滿20歲者，以其法定代理人或法定監護人為飼主。
+                        </p>
+                        <p>
+                            二、申請步驟：
+                            <br />
+                            （一）申請人應攜身分證明文件，填具申請書。
+                            <br />
+                            （二）承辦人員應就認養人核對身分證明文件，必要時得親自實地勘察。
+                            <br />
+                            （三）待認養動物條件：於本處留置已逾7日尚無飼主認領或無身分標識者，且經本處健康行為評估適於認養者。
+                            <br />
+                            （四）符合認養人資格者，得由管理人員協助，由可認養犬隻中，自行挑選合意犬隻。
+                            <br />
+                            （五）繳交相關規費：晶片植入手續費250元、狂犬病預防注射費200元。
+                            <br />
+                            （六）未實施晶片植入、狂犬病預防注射及寵物登記之動物，應於完成晶片植入、狂犬病預防注射及寵物登記後始得放行。<br />  唯8週齡以下幼犬暫免施打狂犬病疫苗。
+                            <br />
+                            （七）認養之犬隻自領出日起1個月內，若因任何原因無法續養，可將該犬交還本所，填寫「不擬續養動物申請切結書」放棄該犬之所有權，<br />  並繳回寵物登記證及狂犬病預防注射證明辦理註銷。認養時所繳之費用概不退還。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

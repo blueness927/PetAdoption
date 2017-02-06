@@ -45,12 +45,12 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" style="border:solid;border-color:aliceblue;border-width:2px">
 
                 @foreach (var item in Model.aniDataPicOneList)
                 {
                     <a class="example-image-link" href="@Html.DisplayFor(modelItem => item.animalPicAddress)" data-lightbox="example-set" data-title=".">
-                        <img class="example-image" src="@Html.DisplayFor(modelItem => item.animalPicAddress)" alt="" />
+                        <img class="example-image" src="@Html.DisplayFor(modelItem => item.animalPicAddress)" alt="" style="display:block; margin:auto;"/>
                     </a>
 
                 }
@@ -66,6 +66,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-6">
 
                 <h3 class="data">動物基本資料</h3>

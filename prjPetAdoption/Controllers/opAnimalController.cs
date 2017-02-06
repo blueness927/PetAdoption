@@ -65,7 +65,7 @@ namespace prjPetAdoption.Controllers
                 return cacheContents.Value as IEnumerable<OpenData>;  
         }
 
-        public async Task<ActionResult> opAniOne(string id)  //篩選ID取資料
+        public async Task<ActionResult> opAniOne(string id)  //篩選ID取單筆資料
         {
            // targetURI = "http://data.coa.gov.tw/Service/OpenData/AnimalOpenData.aspx?$top=50";
             var  source = await this.GetOPAnimalData();

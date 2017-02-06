@@ -307,6 +307,8 @@
     <Compile Include="ViewModels\AllAniDataViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Aboutcss\About.css" />
+    <Content Include="Content\AdoptNavigatecss\AdoptNavigate.css" />
     <Content Include="Content\animalDetailcss\animalDetail.css" />
     <Content Include="Content\animalDetailcss\jquery-ui.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -335,6 +337,7 @@
     <Content Include="Models\DbPet.edmx.diagram">
       <DependentUpon>DbPet.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\animalDatas\aniType.json" />
     <None Include="Properties\PublishProfiles\web.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Models\DbPet.Context.tt">
@@ -352,6 +355,7 @@
     <Content Include="Scripts\animalDetailjs\lightbox-plus-jquery.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\imgup\imgUpload.js" />
     <Content Include="Scripts\index.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -427,6 +431,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\JSON\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\ViewTest\" />
   </ItemGroup>

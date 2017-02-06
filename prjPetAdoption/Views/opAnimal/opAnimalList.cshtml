@@ -70,14 +70,7 @@
 <div id="masonry" class="container-fluid">
     @foreach (var item in Model)
     {
-        if (@item.animal_id == "")
-        {
-            <div class="imgs">
-                <img src="http://i.imgur.com/SfojWcu.png" width="300px" height="auto" />
-            </div>
-        }
-        else
-        {
+      
             if (@item.album_file == "")
             {
                 <div class="thumbnail">
@@ -93,19 +86,23 @@
                     </a>
                 </div>
             }
-            <div class="thumbnail">
-                <a href=@Url.Action("opAniOne", "opAnimal", new { id = @Html.DisplayFor(modelItem => item.animal_id) })>
-                    <div class="imgs">
-                        <img src="@Html.DisplayFor(modelItem => item.album_file)" width="300px" height="auto" />
-                    </div>
-                    <div class="caption">
-                        <div class="title">@Html.DisplayFor(modelItem => item.shelter_name)</div>
-                        <div class="content">
+            else
+            {
+                <div class="thumbnail">
+                    <a href=@Url.Action("opAniOne", "opAnimal", new { id = @Html.DisplayFor(modelItem => item.animal_id) })>
+                        <div class="imgs">
+                            <img src="@Html.DisplayFor(modelItem => item.album_file)" width="300px" height="auto" />
                         </div>
-                    </div>
-                </a>
-            </div>
-        }
+                        <div class="caption">
+                            <div class="title">@Html.DisplayFor(modelItem => item.shelter_name)</div>
+                            <div class="content">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+
+        
 
     }
 

@@ -1,0 +1,462 @@
+﻿[
+  {
+    "animalTypeID": 1,
+    "animalKind": "CAT",
+    "animalType": "MIX米克斯"
+  },
+  {
+    "animalTypeID": 2,
+    "animalKind": "CAT",
+    "animalType": "金吉拉"
+  },
+  {
+    "animalTypeID": 3,
+    "animalKind": "CAT",
+    "animalType": "俄羅斯藍貓"
+  },
+  {
+    "animalTypeID": 4,
+    "animalKind": "CAT",
+    "animalType": "無毛貓"
+  },
+  {
+    "animalTypeID": 5,
+    "animalKind": "CAT",
+    "animalType": "美國短毛貓"
+  },
+  {
+    "animalTypeID": 6,
+    "animalKind": "CAT",
+    "animalType": "安哥拉貓"
+  },
+  {
+    "animalTypeID": 7,
+    "animalKind": "CAT",
+    "animalType": "喜馬拉雅貓"
+  },
+  {
+    "animalTypeID": 8,
+    "animalKind": "CAT",
+    "animalType": "緬甸貓"
+  },
+  {
+    "animalTypeID": 9,
+    "animalKind": "CAT",
+    "animalType": "暹羅貓"
+  },
+  {
+    "animalTypeID": 10,
+    "animalKind": "CAT",
+    "animalType": "蘇格蘭折耳貓"
+  },
+  {
+    "animalTypeID": 11,
+    "animalKind": "CAT",
+    "animalType": "暹羅貓"
+  },
+  {
+    "animalTypeID": 12,
+    "animalKind": "DOG",
+    "animalType": "MIX米克斯"
+  },
+  {
+    "animalTypeID": 13,
+    "animalKind": "DOG",
+    "animalType": "巴哥犬"
+  },
+  {
+    "animalTypeID": 14,
+    "animalKind": "DOG",
+    "animalType": "阿富汗獵狗"
+  },
+  {
+    "animalTypeID": 15,
+    "animalKind": "DOG",
+    "animalType": "秋田犬"
+  },
+  {
+    "animalTypeID": 16,
+    "animalKind": "DOG",
+    "animalType": "阿拉斯加雪撬犬"
+  },
+  {
+    "animalTypeID": 17,
+    "animalKind": "DOG",
+    "animalType": "米格魯"
+  },
+  {
+    "animalTypeID": 18,
+    "animalKind": "DOG",
+    "animalType": "邊境牧羊犬"
+  },
+  {
+    "animalTypeID": 19,
+    "animalKind": "DOG",
+    "animalType": "波士頓㹴"
+  },
+  {
+    "animalTypeID": 20,
+    "animalKind": "DOG",
+    "animalType": "牛頭㹴"
+  },
+  {
+    "animalTypeID": 21,
+    "animalKind": "DOG",
+    "animalType": "吉娃娃"
+  },
+  {
+    "animalTypeID": 22,
+    "animalKind": "DOG",
+    "animalType": "臘腸犬"
+  },
+  {
+    "animalTypeID": 23,
+    "animalKind": "DOG",
+    "animalType": "法國鬥牛犬"
+  },
+  {
+    "animalTypeID": 24,
+    "animalKind": "DOG",
+    "animalType": "德國牧羊犬"
+  },
+  {
+    "animalTypeID": 25,
+    "animalKind": "DOG",
+    "animalType": "大丹犬"
+  },
+  {
+    "animalTypeID": 26,
+    "animalKind": "DOG",
+    "animalType": "\t拉布拉多犬"
+  },
+  {
+    "animalTypeID": 27,
+    "animalKind": "DOG",
+    "animalType": "馬爾濟斯"
+  },
+  {
+    "animalTypeID": 28,
+    "animalKind": "DOG",
+    "animalType": "雪納瑞"
+  },
+  {
+    "animalTypeID": 29,
+    "animalKind": "DOG",
+    "animalType": "英國古代牧羊犬"
+  },
+  {
+    "animalTypeID": 30,
+    "animalKind": "DOG",
+    "animalType": "柯基犬"
+  },
+  {
+    "animalTypeID": 31,
+    "animalKind": "DOG",
+    "animalType": "博美犬"
+  },
+  {
+    "animalTypeID": 32,
+    "animalKind": "DOG",
+    "animalType": "貴賓犬"
+  },
+  {
+    "animalTypeID": 33,
+    "animalKind": "DOG",
+    "animalType": "柴犬"
+  },
+  {
+    "animalTypeID": 34,
+    "animalKind": "DOG",
+    "animalType": "喜樂蒂牧羊犬"
+  },
+  {
+    "animalTypeID": 35,
+    "animalKind": "DOG",
+    "animalType": "哈士奇"
+  },
+  {
+    "animalTypeID": 36,
+    "animalKind": "DOG",
+    "animalType": "西施犬"
+  },
+  {
+    "animalTypeID": 37,
+    "animalKind": "DOG",
+    "animalType": "台灣犬"
+  },
+  {
+    "animalTypeID": 38,
+    "animalKind": "BIRD",
+    "animalType": "八哥"
+  },
+  {
+    "animalTypeID": 39,
+    "animalKind": "BIRD",
+    "animalType": "鴿子"
+  },
+  {
+    "animalTypeID": 40,
+    "animalKind": "BIRD",
+    "animalType": "鸚鵡"
+  },
+  {
+    "animalTypeID": 41,
+    "animalKind": "BIRD",
+    "animalType": "雞"
+  },
+  {
+    "animalTypeID": 42,
+    "animalKind": "Reptile",
+    "animalType": "蛇"
+  },
+  {
+    "animalTypeID": 43,
+    "animalKind": "BIRD",
+    "animalType": "蜥蜴"
+  },
+  {
+    "animalTypeID": 44,
+    "animalKind": "BIRD",
+    "animalType": "烏龜"
+  },
+  {
+    "animalTypeID": 45,
+    "animalKind": "RABBIT",
+    "animalType": "兔子"
+  },
+  {
+    "animalTypeID": 46,
+    "animalKind": "MICE",
+    "animalType": "老鼠"
+  },
+  {
+    "animalTypeID": 47,
+    "animalKind": "CAT",
+    "animalType": "MIX米克斯"
+  },
+  {
+    "animalTypeID": 48,
+    "animalKind": "CAT",
+    "animalType": "金吉拉"
+  },
+  {
+    "animalTypeID": 49,
+    "animalKind": "CAT",
+    "animalType": "俄羅斯藍貓"
+  },
+  {
+    "animalTypeID": 50,
+    "animalKind": "CAT",
+    "animalType": "無毛貓"
+  },
+  {
+    "animalTypeID": 51,
+    "animalKind": "CAT",
+    "animalType": "美國短毛貓"
+  },
+  {
+    "animalTypeID": 52,
+    "animalKind": "CAT",
+    "animalType": "安哥拉貓"
+  },
+  {
+    "animalTypeID": 53,
+    "animalKind": "CAT",
+    "animalType": "喜馬拉雅貓"
+  },
+  {
+    "animalTypeID": 54,
+    "animalKind": "CAT",
+    "animalType": "緬甸貓"
+  },
+  {
+    "animalTypeID": 55,
+    "animalKind": "CAT",
+    "animalType": "暹羅貓"
+  },
+  {
+    "animalTypeID": 56,
+    "animalKind": "CAT",
+    "animalType": "蘇格蘭折耳貓"
+  },
+  {
+    "animalTypeID": 57,
+    "animalKind": "CAT",
+    "animalType": "暹羅貓"
+  },
+  {
+    "animalTypeID": 58,
+    "animalKind": "DOG",
+    "animalType": "MIX米克斯"
+  },
+  {
+    "animalTypeID": 59,
+    "animalKind": "DOG",
+    "animalType": "巴哥犬"
+  },
+  {
+    "animalTypeID": 60,
+    "animalKind": "DOG",
+    "animalType": "阿富汗獵狗"
+  },
+  {
+    "animalTypeID": 61,
+    "animalKind": "DOG",
+    "animalType": "秋田犬"
+  },
+  {
+    "animalTypeID": 62,
+    "animalKind": "DOG",
+    "animalType": "阿拉斯加雪撬犬"
+  },
+  {
+    "animalTypeID": 63,
+    "animalKind": "DOG",
+    "animalType": "米格魯"
+  },
+  {
+    "animalTypeID": 64,
+    "animalKind": "DOG",
+    "animalType": "邊境牧羊犬"
+  },
+  {
+    "animalTypeID": 65,
+    "animalKind": "DOG",
+    "animalType": "波士頓㹴"
+  },
+  {
+    "animalTypeID": 66,
+    "animalKind": "DOG",
+    "animalType": "牛頭㹴"
+  },
+  {
+    "animalTypeID": 67,
+    "animalKind": "DOG",
+    "animalType": "吉娃娃"
+  },
+  {
+    "animalTypeID": 68,
+    "animalKind": "DOG",
+    "animalType": "臘腸犬"
+  },
+  {
+    "animalTypeID": 69,
+    "animalKind": "DOG",
+    "animalType": "法國鬥牛犬"
+  },
+  {
+    "animalTypeID": 70,
+    "animalKind": "DOG",
+    "animalType": "德國牧羊犬"
+  },
+  {
+    "animalTypeID": 71,
+    "animalKind": "DOG",
+    "animalType": "大丹犬"
+  },
+  {
+    "animalTypeID": 72,
+    "animalKind": "DOG",
+    "animalType": "\t拉布拉多犬"
+  },
+  {
+    "animalTypeID": 73,
+    "animalKind": "DOG",
+    "animalType": "馬爾濟斯"
+  },
+  {
+    "animalTypeID": 74,
+    "animalKind": "DOG",
+    "animalType": "雪納瑞"
+  },
+  {
+    "animalTypeID": 75,
+    "animalKind": "DOG",
+    "animalType": "英國古代牧羊犬"
+  },
+  {
+    "animalTypeID": 76,
+    "animalKind": "DOG",
+    "animalType": "柯基犬"
+  },
+  {
+    "animalTypeID": 77,
+    "animalKind": "DOG",
+    "animalType": "博美犬"
+  },
+  {
+    "animalTypeID": 78,
+    "animalKind": "DOG",
+    "animalType": "貴賓犬"
+  },
+  {
+    "animalTypeID": 79,
+    "animalKind": "DOG",
+    "animalType": "柴犬"
+  },
+  {
+    "animalTypeID": 80,
+    "animalKind": "DOG",
+    "animalType": "喜樂蒂牧羊犬"
+  },
+  {
+    "animalTypeID": 81,
+    "animalKind": "DOG",
+    "animalType": "哈士奇"
+  },
+  {
+    "animalTypeID": 82,
+    "animalKind": "DOG",
+    "animalType": "西施犬"
+  },
+  {
+    "animalTypeID": 83,
+    "animalKind": "DOG",
+    "animalType": "台灣犬"
+  },
+  {
+    "animalTypeID": 84,
+    "animalKind": "BIRD",
+    "animalType": "八哥"
+  },
+  {
+    "animalTypeID": 85,
+    "animalKind": "BIRD",
+    "animalType": "鴿子"
+  },
+  {
+    "animalTypeID": 86,
+    "animalKind": "BIRD",
+    "animalType": "鸚鵡"
+  },
+  {
+    "animalTypeID": 87,
+    "animalKind": "BIRD",
+    "animalType": "雞"
+  },
+  {
+    "animalTypeID": 88,
+    "animalKind": "Reptile",
+    "animalType": "蛇"
+  },
+  {
+    "animalTypeID": 89,
+    "animalKind": "BIRD",
+    "animalType": "蜥蜴"
+  },
+  {
+    "animalTypeID": 90,
+    "animalKind": "BIRD",
+    "animalType": "烏龜"
+  },
+  {
+    "animalTypeID": 91,
+    "animalKind": "RABBIT",
+    "animalType": "兔子"
+  },
+  {
+    "animalTypeID": 92,
+    "animalKind": "MICE",
+    "animalType": "老鼠"
+  }
+]
