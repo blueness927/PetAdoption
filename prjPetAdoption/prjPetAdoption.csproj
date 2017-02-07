@@ -462,7 +462,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>63174</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:62000/</IISUrl>
+          <IISUrl>http://localhost:62000</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
           <IISAppRootUrl>http://localhost:62000/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
