@@ -1,4 +1,7 @@
-﻿@model IEnumerable<prjPetAdoption.Models.OpenData>
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.StaticPagedList<prjPetAdoption.Models.OpenData>
+
 @{
     ViewBag.Title = "opAnimal";
 }
@@ -106,7 +109,17 @@
 
     }
 
+
 </div>
+@Html.PagedListPager((IPagedList)Model,
+        page => Url.Action("opAnimalList", new
+        {
+            page = page,
+            districts = ViewBag.SelectedDistrict,
+            types = ViewBag.SelectedType
+            
+        }),
+        PagedListRenderOptions.ClassicPlusFirstAndLast)
 
 
 

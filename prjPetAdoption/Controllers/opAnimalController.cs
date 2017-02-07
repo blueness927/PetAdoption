@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using PagedList;
 using prjPetAdoption.Models;
 using System;
 using System.Collections;
@@ -14,9 +15,9 @@ namespace prjPetAdoption.Controllers
 {
     public class opAnimalController : Controller
     {
-        string targetURI = "http://data.coa.gov.tw/Service/OpenData/AnimalOpenData.aspx?$top=50";
+        string targetURI = "http://data.coa.gov.tw/Service/OpenData/AnimalOpenData.aspx?";
 
-        public async Task<ActionResult>opAnimalList(string districts, string types)  //篩選後倒資料
+        public async Task<ActionResult>opAnimalList(int? page, string districts, string types)  //篩選後倒資料
         {
             ViewBag.Districts =
             await this.GetSelectList(await this.GetDistricts(), districts);
@@ -41,13 +42,24 @@ namespace prjPetAdoption.Controllers
             if (source.Count() == 0)
             {
                 ViewBag.IMG = "http://i.imgur.com/8P7z9ys.png";
-                return View(source.OrderBy(x => x.animal_area_pkid).ToList());
+                source.OrderBy(x => x.animal_area_pkid).ToList();
             }
             else
             {
-                return View(source.OrderBy(x => x.animal_area_pkid).ToList());
+                source.OrderBy(x => x.animal_area_pkid).ToList();
             }
-           
+
+            int pageIndex = page ?? 1;
+            int pageSize = 12;
+            int totalCount = 0;
+
+            totalCount = source.Count();
+            source= source.OrderBy(x => x.animal_area_pkid).Skip((pageIndex - 1) * pageSize).Take(pageSize);
+            var pagedResult = new StaticPagedList<OpenData>(source, pageIndex, pageSize, totalCount);
+
+
+            return View(pagedResult);
+
         }
 
        
