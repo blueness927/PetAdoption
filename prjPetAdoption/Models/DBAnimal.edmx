@@ -60,7 +60,7 @@
           </Key>
           <Property Name="animalPicID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="animalPic_animalID" Type="int" />
-          <Property Name="animalPicAddress" Type="nvarchar" MaxLength="200" StoreGeneratedPattern="Computed" />
+          <Property Name="animalPicAddress" Type="nvarchar" MaxLength="200" StoreGeneratedPattern="None" />
         </EntityType>
         <EntityType Name="animalData_Type">
           <Key>
@@ -936,7 +936,7 @@
           </Key>
           <Property Name="animalPicID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="animalPic_animalID" Type="Int32" />
-          <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
           <NavigationProperty Name="animalData" Relationship="Self.FK__animalDat__anima__19AACF41" FromRole="animalData_Pic" ToRole="animalData" />
         </EntityType>
         <EntityType Name="animalData_Type">
