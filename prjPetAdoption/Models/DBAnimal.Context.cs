@@ -13,10 +13,10 @@ namespace prjPetAdoption.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class petstationEntities1 : DbContext
+    public partial class DbAnimal : DbContext
     {
-        public petstationEntities1()
-            : base("name=petstationEntities1")
+        public DbAnimal()
+            : base("name=DbAnimal")
         {
         }
     
@@ -45,13 +45,13 @@ namespace prjPetAdoption.Models
         public virtual DbSet<petTodo> petTodo { get; set; }
         public virtual DbSet<remind> remind { get; set; }
         public virtual DbSet<search> search { get; set; }
-        public virtual DbSet<shelter> shelter { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<todoData> todoData { get; set; }
-        public virtual DbSet<userData> userData { get; set; }
         public virtual DbSet<aniDataAll> aniDataAll { get; set; }
         public virtual DbSet<aniDataPic> aniDataPic { get; set; }
         public virtual DbSet<aniDataPicOne> aniDataPicOne { get; set; }
+        public virtual DbSet<boardUser> boardUser { get; set; }
+        public virtual DbSet<followAni> followAni { get; set; }
         public virtual DbSet<MsgUser> MsgUser { get; set; }
     }
 }

@@ -12,16 +12,14 @@ namespace prjPetAdoption.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class userData
+    public partial class boardUser
     {
-        public int userID { get; set; }
-        public string userName { get; set; }
-        public string userMail { get; set; }
-        public string userPSW { get; set; }
-        public string userPhone { get; set; }
-        public string userLine { get; set; }
-        public string userPic { get; set; }
-        public string userFBID { get; set; }
-        public string userFBInfo { get; set; }
+        public int boardID { get; set; }
+        public string boardTime { get; set; }
+        public string board_userID { get; set; }
+        public string UserName { get; set; }
+        public string Email { get; set; }
+        public Nullable<int> board_animalID { get; set; }
+        public string boardContent { get; set; }
     }
 }

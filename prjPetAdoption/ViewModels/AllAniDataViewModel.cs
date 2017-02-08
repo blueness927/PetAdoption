@@ -29,10 +29,10 @@ namespace prjPetAdoption.ViewModels
         public  petTodo  petTodo { get; set; }
         public  remind  remind { get; set; }
         public  search  search { get; set; }
-        public  shelter  shelter { get; set; }
+
         public  sysdiagrams  sysdiagrams { get; set; }
         public  todoData  todoData { get; set; }
-        public  userData  userData { get; set; }
+
         public  aniDataAll  aniDataAll { get; set; }
         public aniDataPicOne aniDataPicOne { get; set; }
 

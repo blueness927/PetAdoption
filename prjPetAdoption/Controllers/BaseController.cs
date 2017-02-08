@@ -10,7 +10,7 @@ namespace prjPetAdoption.Controllers
     public class BaseController : Controller
     {
         // GET: Base
-        public petstationEntities1 db = new petstationEntities1();
+        public DbAnimal db = new DbAnimal();
 
     }
 }

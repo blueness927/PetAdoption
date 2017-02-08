@@ -1,0 +1,86 @@
+﻿@model prjPetAdoption.Models.animalData_Pic
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2>新增圖片</h2>
+@*<script  src=@Url.Content("~/Scripts/imgup/imgUpload.js") type="text/javascript"></script>
+<script  src=@Url.Content("~/Scripts/jquery-3.1.1.min.js") type="text/javascript"></script>
+<script src=@Url.Content("~/Scripts/jquery-ui.min.js") type="text/javascript"></script>*@
+@*<script src=@Url.Content("~/Scripts/jquery-3.1.1.min.js") type="text/javascript"></script>
+<script  type="text/javascript" src=@Url.Content("~/Scripts/imgup/imgUpload.js")></script>*@
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>animalData_Pic</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.animalPic_animalID, "animalPic_animalID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.animalPic_animalID, new { htmlAttributes = new { @class = "form-control", @value = "ViewBag.animalID " } })
+                @Html.ValidationMessageFor(model => model.animalPic_animalID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.animalPicAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.animalPicAddress, new { htmlAttributes = new { @class = "form-control",@id= "upPic" } })
+                @Html.ValidationMessageFor(model => model.animalPicAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div id="picshow" class="form-group col-md-offset-2 col-md-10">
+            <br />
+            <script type="text/javascript">
+            $(function(){
+	            //用來顯示上傳結果的 textarea
+	            var uploadResult = document.getElementById('uploadResult');
+	            //使用單鍵上傳 jQuery plugin
+	            $('.uploadBtn').imgUpload({
+		            action: 'imgur_upload_base64.php', //接收上傳圖片的網頁，要回傳JSON檔
+		            multiple: false, //允許選取多張圖片
+		            maxWidth: 1024, //寬度限制最大1000px
+		            maxHeight: 0,   //高度不限制
+
+	            });
+
+            });
+            </script>
+            <button id="uploadResult" type="button" class="uploadBtn  btn btn-info col-md-2">圖片上傳</button>
+            <label for="comment">已上傳照片預覽</label>
+            <br />
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="新增圖片  上傳資料完成" class="btn btn-warning" onclick="addID()"/>
+                <input type="submit" value="無圖片 回到送養頁面" class="btn btn-default" />
+
+                <script type="text/javascript">
+
+                    var id= @ViewBag.condition_animalID;
+                    function addID(){
+                        $('#animalPic_animalID').val(id);
+                    };
+                </script>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

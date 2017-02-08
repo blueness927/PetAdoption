@@ -1,0 +1,82 @@
+﻿@model IEnumerable<prjPetAdoption.Models.animalData_Condition>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.conditionAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conditionEconomy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conditionHome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conditionFamily)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conditionReply)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conditionPaper)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conditionFee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.conditionOther)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.animalData.animalKind)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.conditionAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conditionEconomy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conditionHome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conditionFamily)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conditionReply)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conditionPaper)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conditionFee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.conditionOther)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.animalData.animalKind)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.conditionID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.conditionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.conditionID })
+        </td>
+    </tr>
+}
+
+</table>

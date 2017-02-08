@@ -1,0 +1,168 @@
+﻿@model prjPetAdoption.Models.animalData_Condition
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<script type="text/javascript">
+  //取得下拉選單值的方法
+
+var $ = function(e){ return document.getElementById(e); }
+var swap = function (val, input) {
+    var txt = $(input);
+    txt.val(val);
+
+};
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>animalData_Condition</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.condition_animalID, "condition_animalID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.condition_animalID, new { htmlAttributes = new { @class = "form-control", @value = "ViewBag.condition_animalID " } })
+                @Html.ValidationMessageFor(model => model.condition_animalID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">認養者年齡限制</label>
+            <div class="col-md-10">
+                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aAge'),chn()">
+                    @*select()*@
+                    <option value=""> -不限-</option>
+                    <option value="需年滿20歲以上"> 需年滿20歲以上</option>
+                    <option value="需年滿25歲以上"> 需年滿25歲以上</option>
+
+                </select>
+
+
+                @Html.EditorFor(model => model.conditionAge, new { htmlAttributes = new { @class = "form-control", @id = "aAge", @style = "visibility:hidden" } })
+                @Html.ValidationMessageFor(model => model.conditionAge, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">認養者經濟條件</label>
+            <div class="col-md-10">
+                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aEconomy'),chn()">
+                    <option value=""> -不限-</option>
+                    <option value="需有穩定工作"> 需有穩定工作</option>
+                    <option value="需年滿25歲以上"> 需年滿25歲以上</option>
+
+                </select>
+                @Html.EditorFor(model => model.conditionEconomy, new { htmlAttributes = new { @class = "form-control", @id = "aEconomy", @style = "visibility:hidden" } })
+                @Html.ValidationMessageFor(model => model.conditionEconomy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">認養者環境狀況</label>
+            <div class="col-md-10">
+                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aHome'),chn()">
+                    <option value=""> -不限-</option>
+                    <option value="需先提供環境照片"> 需先提供環境照片</option>
+           
+
+                </select>
+                @Html.EditorFor(model => model.conditionHome, new { htmlAttributes = new { @class = "form-control", @id = "aHome", @style = "visibility:hidden" } })
+                @Html.ValidationMessageFor(model => model.conditionHome, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">是否需經家人或室友同意</label>
+            <div class="col-md-10">
+                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aFamily'),chn()">
+                    <option value=""> -不限-</option>
+                    <option value="需經同意">需經同意 </option>
+
+                </select>
+                @Html.EditorFor(model => model.conditionFamily, new { htmlAttributes = new { @class = "form-control", @id = "aFamily", @style = "visibility:hidden" } })
+                @Html.ValidationMessageFor(model => model.conditionFamily, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">是否需願意回報飼育狀況</label>
+            <div class="col-md-10">
+                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aReply'),chn()">
+                    <option value=""> -不限-</option>
+                    <option value="是">是 </option>
+                    <option value="否">否 </option>
+                </select>
+                @Html.EditorFor(model => model.conditionReply, new { htmlAttributes = new { @class = "form-control", @id = "aReply", @style = "visibility:hidden" } })
+                @Html.ValidationMessageFor(model => model.conditionReply, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">是否需簽訂切結書</label>
+            <div class="col-md-10">
+                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aPaper'),chn()">
+                    <option value="無"> -不限-</option>
+                    <option value="是">是 </option>
+                    <option value="否">否 </option>
+                </select>
+                @Html.EditorFor(model => model.conditionPaper, new { htmlAttributes = new { @class = "form-control", @id = "aPaper", @style = "visibility:hidden" } })
+                @Html.ValidationMessageFor(model => model.conditionPaper, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label class="control-label col-md-2">是否需負擔其他費用：（若有請填寫說明）</label>
+            <div class="col-md-10">
+                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aPaper'),chn()">
+                    <option value="無"> -不限-</option>
+                    <option value="是">是 </option>
+                    <option value="否">否 </option>
+                </select>
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.EditorFor(model => model.conditionFee, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.conditionFee, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">是否需負擔其他費用：（若有請填寫說明）</label>
+           
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.conditionOther, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.conditionOther, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+
+                <input type="submit" value="下一步 圖片上傳" class="btn btn-warning " onclick="addID()"/>
+                <input type="button" value="填ID" class="btn btn-warning " onclick="addID()" />
+                <script type="text/javascript">
+
+                    var id= @ViewBag.condition_animalID;
+                    function addID(){
+
+                        $('#condition_animalID').val(id);
+                    };
+</script>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+
+</div>

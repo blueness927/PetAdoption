@@ -86,7 +86,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
@@ -189,6 +191,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\aniDataController.cs" />
+    <Compile Include="Controllers\animalData_ConditionController.cs" />
+    <Compile Include="Controllers\animalData_Pic1Controller.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -199,108 +203,108 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Controllers\animalDatasController.cs" />
     <Compile Include="Models\aniDataAll.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\aniDataPic.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\aniDataPicOne.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\animalData.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\animalDatasController.cs" />
     <Compile Include="Models\animalData_Condition.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\animalData_Pic.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\animalData_Type.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetRoles.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUserClaims.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUserLogins.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AspNetUsers.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\board.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\boardUser.cs">
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DbPet.Context.cs">
+    <Compile Include="Models\DBAnimal.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DbPet.Context.tt</DependentUpon>
+      <DependentUpon>DBAnimal.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DbPet.cs">
+    <Compile Include="Models\DBAnimal.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DbPet.Designer.cs">
+    <Compile Include="Models\DBAnimal.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DbPet.edmx</DependentUpon>
+      <DependentUpon>DBAnimal.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\follow.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\followAni.cs">
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\forum.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\forum_reply.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\map.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Msg.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MsgUser.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OpenData.cs" />
     <Compile Include="Models\petFAQ.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\petKnows.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\petTodo.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\remind.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\search.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\shelter.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\todoData.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\userData.cs">
-      <DependentUpon>DbPet.tt</DependentUpon>
+      <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -330,26 +334,26 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <EntityDeploy Include="Models\DbPet.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DbPet.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DbPet.edmx.diagram">
-      <DependentUpon>DbPet.edmx</DependentUpon>
+    <Content Include="Models\DBAnimal.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBAnimal.edmx</DependentUpon>
+      <LastGenOutput>DBAnimal.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DBAnimal.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBAnimal.edmx</DependentUpon>
+      <LastGenOutput>DBAnimal.cs</LastGenOutput>
     </Content>
     <Content Include="Views\animalDatas\aniType.json" />
+    <EntityDeploy Include="Models\DBAnimal.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBAnimal.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DBAnimal.edmx.diagram">
+      <DependentUpon>DBAnimal.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\web.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
-    <Content Include="Models\DbPet.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DbPet.edmx</DependentUpon>
-      <LastGenOutput>DbPet.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DbPet.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DbPet.edmx</DependentUpon>
-      <LastGenOutput>DbPet.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\animalDetailjs\animalDetail.js" />
     <Content Include="Scripts\animalDetailjs\jquery-ui.min.js" />
     <Content Include="Scripts\animalDetailjs\lightbox-plus-jquery.min.js" />
@@ -428,6 +432,16 @@
     <Content Include="Views\aniData\oneAni.cshtml" />
     <Content Include="Views\opAnimal\opAniOne.cshtml" />
     <Content Include="Views\aniData\show.cshtml" />
+    <Content Include="Views\animalData_Condition\Create.cshtml" />
+    <Content Include="Views\animalData_Condition\Delete.cshtml" />
+    <Content Include="Views\animalData_Condition\Details.cshtml" />
+    <Content Include="Views\animalData_Condition\Edit.cshtml" />
+    <Content Include="Views\animalData_Condition\Index.cshtml" />
+    <Content Include="Views\animalData_Pic1\Create.cshtml" />
+    <Content Include="Views\animalData_Pic1\Delete.cshtml" />
+    <Content Include="Views\animalData_Pic1\Details.cshtml" />
+    <Content Include="Views\animalData_Pic1\Edit.cshtml" />
+    <Content Include="Views\animalData_Pic1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -462,9 +476,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>63174</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:62000</IISUrl>
+          <IISUrl>http://localhost:61000</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://localhost:62000/</IISAppRootUrl>
+          <IISAppRootUrl>http://localhost:61000/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

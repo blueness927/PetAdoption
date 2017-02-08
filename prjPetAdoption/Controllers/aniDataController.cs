@@ -10,7 +10,7 @@ namespace prjPetAdoption.Controllers
 {
     public class aniDataController : Controller
     {
-        private petstationEntities1 db = new petstationEntities1();
+        private DbAnimal db = new DbAnimal();
         AllAniDataViewModel AllAniData= new AllAniDataViewModel();
         // GET: aniData
         public ActionResult Index()

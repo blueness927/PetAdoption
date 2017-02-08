@@ -8,114 +8,115 @@ using System.Web;
 using System.Web.Mvc;
 using prjPetAdoption.Models;
 
-namespace prjPetAdoption.Controllers.TEST
+namespace prjPetAdoption.Controllers
 {
-    public class MsgsController : Controller
+    public class animalData_Pic1Controller : Controller
     {
         private DbAnimal db = new DbAnimal();
 
-        // GET: Msgs
+        // GET: animalData_Pic1
         public ActionResult Index()
         {
-            var msg = db.Msg.Include(m => m.AspNetUsers);
-            return View(msg.ToList());
+            var animalData_Pic = db.animalData_Pic.Include(a => a.animalData);
+            return View(animalData_Pic.ToList());
         }
 
-        // GET: Msgs/Details/5
+        // GET: animalData_Pic1/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Msg msg = db.Msg.Find(id);
-            if (msg == null)
+            animalData_Pic animalData_Pic = db.animalData_Pic.Find(id);
+            if (animalData_Pic == null)
             {
                 return HttpNotFound();
             }
-            return View(msg);
+            return View(animalData_Pic);
         }
 
-        // GET: Msgs/Create
+        // GET: animalData_Pic1/Create
         public ActionResult Create()
         {
-            ViewBag.msgTo_userID = new SelectList(db.AspNetUsers, "Id", "Email");
+            int? intIdt = db.animalData.Max(u => (int?)u.animalID);
+            ViewBag.condition_animalID = intIdt;
             return View();
         }
 
-        // POST: Msgs/Create
+        // POST: animalData_Pic1/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "msgID,msgTime,msgFrom_userID,msgTo_userID,msgType,msgFromURL,msgContent")] Msg msg)
+        public ActionResult Create([Bind(Include = "animalPicID,animalPic_animalID,animalPicAddress")] animalData_Pic animalData_Pic)
         {
             if (ModelState.IsValid)
             {
-                db.Msg.Add(msg);
+                db.animalData_Pic.Add(animalData_Pic);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("showForAdopt","aniData");
             }
 
-            ViewBag.msgTo_userID = new SelectList(db.AspNetUsers, "Id", "Email", msg.msgTo_userID);
-            return View(msg);
+            ViewBag.animalPic_animalID = new SelectList(db.animalData, "animalID", "animalKind", animalData_Pic.animalPic_animalID);
+            return View(animalData_Pic);
         }
 
-        // GET: Msgs/Edit/5
+        // GET: animalData_Pic1/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Msg msg = db.Msg.Find(id);
-            if (msg == null)
+            animalData_Pic animalData_Pic = db.animalData_Pic.Find(id);
+            if (animalData_Pic == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.msgTo_userID = new SelectList(db.AspNetUsers, "Id", "Email", msg.msgTo_userID);
-            return View(msg);
+            ViewBag.animalPic_animalID = new SelectList(db.animalData, "animalID", "animalKind", animalData_Pic.animalPic_animalID);
+            return View(animalData_Pic);
         }
 
-        // POST: Msgs/Edit/5
+        // POST: animalData_Pic1/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "msgID,msgTime,msgFrom_userID,msgTo_userID,msgType,msgFromURL,msgContent")] Msg msg)
+        public ActionResult Edit([Bind(Include = "animalPicID,animalPic_animalID,animalPicAddress")] animalData_Pic animalData_Pic)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(msg).State = EntityState.Modified;
+                db.Entry(animalData_Pic).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.msgTo_userID = new SelectList(db.AspNetUsers, "Id", "Email", msg.msgTo_userID);
-            return View(msg);
+            ViewBag.animalPic_animalID = new SelectList(db.animalData, "animalID", "animalKind", animalData_Pic.animalPic_animalID);
+            return View(animalData_Pic);
         }
 
-        // GET: Msgs/Delete/5
+        // GET: animalData_Pic1/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Msg msg = db.Msg.Find(id);
-            if (msg == null)
+            animalData_Pic animalData_Pic = db.animalData_Pic.Find(id);
+            if (animalData_Pic == null)
             {
                 return HttpNotFound();
             }
-            return View(msg);
+            return View(animalData_Pic);
         }
 
-        // POST: Msgs/Delete/5
+        // POST: animalData_Pic1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Msg msg = db.Msg.Find(id);
-            db.Msg.Remove(msg);
+            animalData_Pic animalData_Pic = db.animalData_Pic.Find(id);
+            db.animalData_Pic.Remove(animalData_Pic);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -1,0 +1,91 @@
+﻿@model prjPetAdoption.Models.animalData_Condition
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>animalData_Condition</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.conditionAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conditionAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conditionEconomy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conditionEconomy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conditionHome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conditionHome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conditionFamily)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conditionFamily)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conditionReply)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conditionReply)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conditionPaper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conditionPaper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conditionFee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conditionFee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conditionOther)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conditionOther)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalData.animalKind)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalData.animalKind)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.conditionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

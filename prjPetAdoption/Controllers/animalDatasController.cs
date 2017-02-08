@@ -1,4 +1,5 @@
 ﻿using prjPetAdoption.Controllers;
+using prjPetAdoption.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,7 +13,9 @@ namespace prjPetAdoption.Models
 {
     public class animalDatasController : BaseController
     {
-        
+
+       
+        AllAniDataViewModel AllAniData = new AllAniDataViewModel();
 
         // GET: animalDatas
         public ActionResult Index()
@@ -38,6 +41,8 @@ namespace prjPetAdoption.Models
         // GET: animalDatas/Create
         public ActionResult Create()
         {
+            //AllAniData.animalData_Type = db.animalData_Type.ToList;
+
             return View();
         }
 
@@ -52,7 +57,7 @@ namespace prjPetAdoption.Models
             {
                 db.animalData.Add(animalData);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "animalData_Condition");
             }
 
             return View(animalData);
