@@ -1,3 +1,13 @@
+$(window).scroll(function(evt){
+  if ($(window).scrollTop()>0)
+    $(".navbar").removeClass("navbar-top");
+  else
+      $(".navbar").addClass("navbar-top");
+});
+
+var s = skrollr.init();
+
+
 //滑動離開頂部時就取消at_top的class
 $(window).scroll(function(e){
   if ($(window).scrollTop()<=0)
@@ -6,49 +16,75 @@ $(window).scroll(function(e){
     $(".navbar,.explore").removeClass("at_top");
 });
 
-//緩慢滑動
-$(document).on('click', 'a', function(event){
-    event.preventDefault();
-    $('html, body').animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top
-    }, 500);
+//Back-toTop
+$(function () {
+
+    $('.back-to-top').each(function () {
+  
+        var $el = $(scrollableElement('html', 'body'));
+
+        $(this).on('click', function (event) {
+            event.preventDefault();
+            $el.animate({ scrollTop: 0 }, 500);
+        });
+    });
+
+    function scrollableElement (elements) {
+        var i, len, el, $el, scrollable;
+        for (i = 0, len = arguments.length; i < len; i++) {
+            el = arguments[i],
+            $el = $(el);
+            if ($el.scrollTop() > 0) {
+                return el;
+            } else {
+                $el.scrollTop(1);
+                scrollable = $el.scrollTop() > 0;
+                $el.scrollTop(0);
+                if (scrollable) {
+                    return el;
+                }
+            }
+        }
+        return [];
+    }
 });
 
-//偵測進入貓咪範圍就站起來
-function detect_cat(cat_id,x){
-  var catplace = $(cat_id).offset().left+$(cat_id).width()/2;
-  if (Math.abs(x-catplace)<80)
-    $(cat_id).css("bottom","0px");
-  else
-    $(cat_id).css("bottom","-50px");
+//讓 Bootstrap 輪播的內容占用一樣的高度
+$(function() {
+    carouselNormalization();
+});
+function carouselNormalization() {
+    var items = $('.new .carousel .carousel-inner .item'), heights = [], tallest, bwidth, height, width;
+    if( items.length ) {
+        function normalizeHeights() {
+            bwidth = $('.carousel').width();
+            items.each(function() {
+                height = $(this).height();
+                width = $(this).width();
+                if( width > bwidth ) {
+                    height = height * ( bwidth / width );
+                }
+                heights.push(height);
+            });
+            tallest = Math.max.apply(null, heights);
+            if( tallest > bwidth ) {
+                tallest = bwidth;
+            }
+            items.each(function() {
+                $(this).css('height', tallest + 'px');
+            });
+        };
+        normalizeHeights();
+        $(window).on('resize', function() {
+            bwidth = $('.carousel').width();
+            heights = [];
+            items.each(function() {
+                $(this).css('height', 'auto');
+            });
+            normalizeHeights();
+        });
+    }
 }
 
-//滑鼠移動時觸發的事件
-$(window).mousemove(function(evt){
-  var pagex = evt.pageX;
-  var pagey = evt.pageY;
-  
- 
 
-    
-  //站起來的貓咪
-  // console.log(x);
-  detect_cat("#cat_yellow",pagex);
-  detect_cat("#cat_blue",pagex);
-  detect_cat("#cat_grey",pagex);
-  
-
-
-   //更新三角形
-  $(".tri1").css("transform",
-                 "translateX("+x/-5+"px) rotate(-15deg)");
-  $(".tri2").css("transform",
-                 "translateX("+x/-10+"px) rotate(-15deg)");
-  $(".tri3").css("transform",
-                 "translateX("+x/-12+"px) rotate(-15deg)");
-  $(".tri4").css("transform",
-                 "translateX("+x/-14+"px) rotate(-15deg)");
-  $(".tri5").css("transform",
-                 "translateX("+x/-16+"px) rotate(-15deg)");
-});
 

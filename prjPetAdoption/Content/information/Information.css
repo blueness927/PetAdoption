@@ -1,0 +1,119 @@
+﻿
+@charset "UTF-8";
+* {
+  font-family: 微軟正黑體;
+}
+html, body {
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+a {
+  text-decoration:none !important;
+}
+.h1white h1{
+  color: white ;
+  
+}
+.adoptnavigate1{
+  color:black;
+
+}
+
+
+section {
+  padding: 50px 0px;
+}
+
+
+section#section_service img {
+  width: 130%;
+}
+section#section_service .img_wrap {
+  height: 220px;
+  overflow: hidden;
+}
+
+section.pictures {
+  padding: 0px;
+  color: white;
+}
+section.pictures .col-md-6 {
+  padding: 150px;
+  cursor: pointer;
+}
+section.pictures .col-md-6:hover p {
+  opacity: 0.7;
+}
+section.pictures .col-md-6:hover:before {
+  -webkit-filter: brightness(0.5);
+          filter: brightness(0.5);
+  background-size: 120% auto;
+}
+section.pictures .col-md-6:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  background-position: center center;
+}
+section.pictures .showpic1:before {
+    -webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+  background-image: url(http://i.imgur.com/V60qoRx.jpg);
+  background-size: 100%;
+}
+section.pictures .showpic2:before {
+    -webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+  background-image: url(http://i.imgur.com/BLIb0H0.jpg);
+  background-size: 100% auto;
+}
+section.pictures .showpic3:before {
+    -webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+  background-image: url(http://i.imgur.com/t2229v8.jpg);
+  background-size: 100% auto;
+}
+section.pictures .showpic4:before {
+    -webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+  background-image: url(http://i.imgur.com/OActLST.jpg);
+  background-size: 100% auto;
+}
+section.pictures p {
+  opacity: 0.4;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
+footer p{
+  text-align: center;
+}
+
+
+.div1{
+     margin:0px auto;
+    height:10%;
+}
+.img{
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+    display:block;
+    margin: auto;
+    width:90%;
+}
+.h1{
+    text-align:center;
+}

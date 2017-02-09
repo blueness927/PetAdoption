@@ -2,7 +2,6 @@
     ViewBag.Title = "Home Page";
 }
 <header id="header_index">
-    <script src="~/Scripts/index.js"></script>
     <div class="container"><img class="icon" src="http://i.imgur.com/hw602LL.png" /></div>
     <img class="cat" id="cat_blue" src="http://i.imgur.com/KTIvDTh.png" alt="" />
     <img class="cat" id="cat_grey" src="http://i.imgur.com/RpFfzSt.png" alt="" />
@@ -122,3 +121,6 @@
 
     </div>
     </footer>
+    @section scripts{
+    @Scripts.Render("~/Scripts/index.js")
+}   

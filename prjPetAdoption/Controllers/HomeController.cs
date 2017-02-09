@@ -26,5 +26,53 @@ namespace prjPetAdoption.Controllers
 
             return View();
         }
+
+        public ActionResult FAQ()
+        {
+            ViewBag.Message = "FAQ";
+
+            return View();
+        }
+
+        public ActionResult Help()
+        {
+            ViewBag.Message = "Help";
+
+            return View();
+        }
+
+        public ActionResult Information()
+        {
+            ViewBag.Message = "Information";
+
+            return View();
+        }
+
+        public ActionResult Cat()
+        {
+            ViewBag.Message = "Cat";
+
+            return View();
+        }
+        public ActionResult Dog()
+        {
+            ViewBag.Message = "Dog";
+
+            return View();
+        }
+
+        public ActionResult Rabbit()
+        {
+            ViewBag.Message = "Rabbit";
+
+            return View();
+        }
+
+        public ActionResult Bird()
+        {
+            ViewBag.Message = "Bird";
+
+            return View();
+        }
     }
 }

@@ -1,0 +1,55 @@
+﻿@charset "UTF-8";
+        
+        h4 {
+	        background: url(http://i.imgur.com/N32pBt5.png) no-repeat 0 11px;
+	        padding: 10px 0 0 25px;
+	        cursor: pointer;
+            background-color:#ffeee2;
+        }
+         h4.close {
+ 
+	        background-image: url(http://i.imgur.com/7CfDZMu.png)
+        }
+         .answer {
+	        margin-left: 25px;	
+        }
+
+         #dashboard {
+	        width: 70px;
+	        background-color: rgb(110,138,195);
+	        padding: 20px 20px 0 20px;
+	        position: absolute;
+	        left: -92px;
+	        z-index: 100;
+        }
+         #dashboard img {
+	        margin-bottom: 20px;
+	        border: 1px solid rgb(0,0,0);
+
+        }
+         .zxc{
+             -webkit-border-radius: 10px;
+	         -moz-border-radius: 10px;
+	         border-radius: 10px;
+             display:block;
+             margin: auto auto 1% auto;
+             width: 60%; 
+                  
+         }
+         .qwe{
+             -webkit-border-radius: 10px;
+	         -moz-border-radius: 10px;
+	         border-radius: 10px;
+             display:block;
+             text-align:center;
+             background-color:#d2bba0;
+             width:60%;
+             display:block;
+             margin: 1% auto auto auto;
+         }
+         .div1{
+             width:60%;
+             display:block;
+             margin: auto;
+         }
+         

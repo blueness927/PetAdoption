@@ -6,53 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iPet 認養大平台</title>
 
-
-
     <link rel="stylesheet" href="~/Content/index.css">
 
     @Styles.Render("~/Content/css")
+     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+
     @RenderSection("scripts", required: false)
 
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top at_top" style="background-color:#38A4D2;"> @**@
+    <nav class="navbar navbar-default navbar-fixed-top at_top" style="background-color:#38A4D2;">
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span><span class="icon-bar">
+                    <span class="sr-only">Toggle navigation</span><span class="icon-bar">
                     </span><span class="icon-bar"></span><span class="icon-bar"></span>
                 </button>@Html.ActionLink("iPet", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    @using Microsoft.AspNet.Identity
-                    @if (Request.IsAuthenticated)
-                    {
-                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <li>@Html.ActionLink("關於我們", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                            <li>@Html.ActionLink("認養專區", "show", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
-                            <li>@Html.ActionLink("送養專區", "showForAdopt", "aniData", new { id = @User.Identity.GetUserId() }, new { @class = "navbar-brand" })</li>
-                            <li>@Html.ActionLink("寵物幫手", "Contact", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                            <li>@Html.ActionLink(" 商 城", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                            @Html.Partial("_LoginPartial")
-                        }
-                    }
-                    else
-                    {
-                        <li>@Html.ActionLink("關於我們", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                        <li>@Html.ActionLink("認養專區", "show", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
-                        <li>@Html.ActionLink("送養專區", "showForAdopt", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
-                        <li>@Html.ActionLink("寵物幫手", "Contact", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                        <li>@Html.ActionLink(" 商 城", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                        @Html.Partial("_LoginPartial")
-                    }
-
-
+                    <li>@Html.ActionLink("關於我們", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("認養專區", "show", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("送養專區", "showForAdopt", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("寵物幫手", "Help", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("商 城", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    @Html.Partial("_LoginPartial")
                 </ul>
             </div>
             <!---->
