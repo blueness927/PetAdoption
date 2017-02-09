@@ -29,7 +29,7 @@ var swap = function (val, input) {
 
 
         <div class="form-group">
-            @Html.LabelFor(model => model.condition_animalID, "condition_animalID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">動物ID</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.condition_animalID, new { htmlAttributes = new { @class = "form-control", @value = "ViewBag.condition_animalID " } })
                 @Html.ValidationMessageFor(model => model.condition_animalID, "", new { @class = "text-danger" })
@@ -39,8 +39,8 @@ var swap = function (val, input) {
         <div class="form-group">
             <label class="control-label col-md-2">認養者年齡限制</label>
             <div class="col-md-10">
-                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aAge'),chn()">
-                    @*select()*@
+                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aAge') ">
+                   
                     <option value=""> -不限-</option>
                     <option value="需年滿20歲以上"> 需年滿20歲以上</option>
                     <option value="需年滿25歲以上"> 需年滿25歲以上</option>
@@ -56,7 +56,7 @@ var swap = function (val, input) {
         <div class="form-group">
             <label class="control-label col-md-2">認養者經濟條件</label>
             <div class="col-md-10">
-                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aEconomy'),chn()">
+                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aEconomy') ">
                     <option value=""> -不限-</option>
                     <option value="需有穩定工作"> 需有穩定工作</option>
                     <option value="需年滿25歲以上"> 需年滿25歲以上</option>
@@ -70,7 +70,7 @@ var swap = function (val, input) {
         <div class="form-group">
             <label class="control-label col-md-2">認養者環境狀況</label>
             <div class="col-md-10">
-                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aHome'),chn()">
+                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aHome') ">
                     <option value=""> -不限-</option>
                     <option value="需先提供環境照片"> 需先提供環境照片</option>
            
@@ -84,7 +84,7 @@ var swap = function (val, input) {
         <div class="form-group">
             <label class="control-label col-md-2">是否需經家人或室友同意</label>
             <div class="col-md-10">
-                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aFamily'),chn()">
+                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aFamily') ">
                     <option value=""> -不限-</option>
                     <option value="需經同意">需經同意 </option>
 
@@ -97,7 +97,7 @@ var swap = function (val, input) {
         <div class="form-group">
             <label class="control-label col-md-2">是否需願意回報飼育狀況</label>
             <div class="col-md-10">
-                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aReply'),chn()">
+                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aReply') ">
                     <option value=""> -不限-</option>
                     <option value="是">是 </option>
                     <option value="否">否 </option>
@@ -110,7 +110,7 @@ var swap = function (val, input) {
         <div class="form-group">
             <label class="control-label col-md-2">是否需簽訂切結書</label>
             <div class="col-md-10">
-                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aPaper'),chn()">
+                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aPaper') ">
                     <option value="無"> -不限-</option>
                     <option value="是">是 </option>
                     <option value="否">否 </option>
@@ -124,7 +124,7 @@ var swap = function (val, input) {
 
             <label class="control-label col-md-2">是否需負擔其他費用：（若有請填寫說明）</label>
             <div class="col-md-10">
-                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aPaper'),chn()">
+                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aPaper') ">
                     <option value="無"> -不限-</option>
                     <option value="是">是 </option>
                     <option value="否">否 </option>
