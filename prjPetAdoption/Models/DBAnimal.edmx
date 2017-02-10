@@ -44,15 +44,15 @@
             <PropertyRef Name="conditionID" />
           </Key>
           <Property Name="conditionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="condition_animalID" Type="int" StoreGeneratedPattern="Computed" />
-          <Property Name="conditionAge" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
-          <Property Name="conditionEconomy" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
-          <Property Name="conditionHome" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
-          <Property Name="conditionFamily" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
-          <Property Name="conditionReply" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
-          <Property Name="conditionPaper" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
-          <Property Name="conditionFee" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
-          <Property Name="conditionOther" Type="nvarchar(max)" StoreGeneratedPattern="Computed" />
+          <Property Name="condition_animalID" Type="int" StoreGeneratedPattern="None" />
+          <Property Name="conditionAge" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="None" />
+          <Property Name="conditionEconomy" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="None" />
+          <Property Name="conditionHome" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="None" />
+          <Property Name="conditionFamily" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="None" />
+          <Property Name="conditionReply" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="None" />
+          <Property Name="conditionPaper" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="None" />
+          <Property Name="conditionFee" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="None" />
+          <Property Name="conditionOther" Type="nvarchar(max)" StoreGeneratedPattern="None" />
         </EntityType>
         <EntityType Name="animalData_Pic">
           <Key>
@@ -919,15 +919,15 @@
             <PropertyRef Name="conditionID" />
           </Key>
           <Property Name="conditionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="condition_animalID" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="conditionAge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="conditionEconomy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="conditionHome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="conditionFamily" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="conditionReply" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="conditionPaper" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="conditionFee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="conditionOther" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="condition_animalID" Type="Int32" annotation:StoreGeneratedPattern="None" />
+          <Property Name="conditionAge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
+          <Property Name="conditionEconomy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
+          <Property Name="conditionHome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
+          <Property Name="conditionFamily" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
+          <Property Name="conditionReply" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
+          <Property Name="conditionPaper" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
+          <Property Name="conditionFee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
+          <Property Name="conditionOther" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
           <NavigationProperty Name="animalData" Relationship="Self.FK__animalDat__condi__251C81ED" FromRole="animalData_Condition" ToRole="animalData" />
         </EntityType>
         <EntityType Name="animalData_Pic">

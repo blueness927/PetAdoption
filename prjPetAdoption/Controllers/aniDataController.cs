@@ -24,7 +24,7 @@ namespace prjPetAdoption.Controllers
             return View(AllAniData);
         }
 
-        public ActionResult showForAdopt(string id)   //顯示送養比數
+        public ActionResult showForAdopt(string id)   //顯示送養筆數
         {           
             var aniData = db.aniDataAll.Where(x=> x.animalOwner_userID==id).ToList();
             var myanimal = db.aniDataPicOne.Where(x => x.animalOwner_userID.Equals(id)).ToList();               

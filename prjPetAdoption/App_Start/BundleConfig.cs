@@ -15,7 +15,7 @@ namespace prjPetAdoption
                         "~/Scripts/jquery-ui-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*", 
+                        "~/Scripts/jquery.validate*",
                         "~/Scripts/imgup/imgUpload.js"
                          ));
 

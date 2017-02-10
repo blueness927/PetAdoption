@@ -18,6 +18,15 @@ var swap = function (val, input) {
 };
 </script>
 
+<script type="text/javascript">
+                    //$(document).ready( function (){
+    function addID (){
+        var id= @ViewBag.animalID;
+        $('#animalID').val(id);
+    };
+                    //});
+</script>
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -31,7 +40,7 @@ var swap = function (val, input) {
         <div class="form-group">
             <label class="control-label col-md-2">動物ID</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.condition_animalID, new { htmlAttributes = new { @class = "form-control", @value = "ViewBag.condition_animalID " } })
+                @Html.EditorFor(model => model.condition_animalID, new { htmlAttributes = new { @class = "form-control", @id = "animalID" } })
                 @Html.ValidationMessageFor(model => model.condition_animalID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -39,15 +48,11 @@ var swap = function (val, input) {
         <div class="form-group">
             <label class="control-label col-md-2">認養者年齡限制</label>
             <div class="col-md-10">
-                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aAge') ">
-                   
-                    <option value=""> -不限-</option>
+                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aAge') ">                   
+                    <option value="不限"> -不限-</option>
                     <option value="需年滿20歲以上"> 需年滿20歲以上</option>
                     <option value="需年滿25歲以上"> 需年滿25歲以上</option>
-
                 </select>
-
-
                 @Html.EditorFor(model => model.conditionAge, new { htmlAttributes = new { @class = "form-control", @id = "aAge", @style = "visibility:hidden" } })
                 @Html.ValidationMessageFor(model => model.conditionAge, "", new { @class = "text-danger" })
             </div>
@@ -57,7 +62,7 @@ var swap = function (val, input) {
             <label class="control-label col-md-2">認養者經濟條件</label>
             <div class="col-md-10">
                 <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aEconomy') ">
-                    <option value=""> -不限-</option>
+                    <option value="不限"> -不限-</option>
                     <option value="需有穩定工作"> 需有穩定工作</option>
                     <option value="需年滿25歲以上"> 需年滿25歲以上</option>
 
@@ -71,7 +76,7 @@ var swap = function (val, input) {
             <label class="control-label col-md-2">認養者環境狀況</label>
             <div class="col-md-10">
                 <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aHome') ">
-                    <option value=""> -不限-</option>
+                    <option value="不限"> -不限-</option>
                     <option value="需先提供環境照片"> 需先提供環境照片</option>
            
 
@@ -85,7 +90,7 @@ var swap = function (val, input) {
             <label class="control-label col-md-2">是否需經家人或室友同意</label>
             <div class="col-md-10">
                 <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aFamily') ">
-                    <option value=""> -不限-</option>
+                    <option value="不限"> -不限-</option>
                     <option value="需經同意">需經同意 </option>
 
                 </select>
@@ -98,7 +103,7 @@ var swap = function (val, input) {
             <label class="control-label col-md-2">是否需願意回報飼育狀況</label>
             <div class="col-md-10">
                 <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aReply') ">
-                    <option value=""> -不限-</option>
+                    <option value="不限"> -不限-</option>
                     <option value="是">是 </option>
                     <option value="否">否 </option>
                 </select>
@@ -111,7 +116,7 @@ var swap = function (val, input) {
             <label class="control-label col-md-2">是否需簽訂切結書</label>
             <div class="col-md-10">
                 <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aPaper') ">
-                    <option value="無"> -不限-</option>
+                    <option value="不限"> -不限-</option>
                     <option value="是">是 </option>
                     <option value="否">否 </option>
                 </select>
@@ -124,20 +129,20 @@ var swap = function (val, input) {
 
             <label class="control-label col-md-2">是否需負擔其他費用：（若有請填寫說明）</label>
             <div class="col-md-10">
-                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aPaper') ">
-                    <option value="無"> -不限-</option>
+                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aFee') ">
+                    <option value="不限"> -不限-</option>
                     <option value="是">是 </option>
                     <option value="否">否 </option>
                 </select>
                 <div class="col-md-offset-2 col-md-10">
-                    @Html.EditorFor(model => model.conditionFee, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.conditionFee, new { htmlAttributes = new { @class = "form-control col-md-10", @id = "aFee" } })
                     @Html.ValidationMessageFor(model => model.conditionFee, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2">是否需負擔其他費用：（若有請填寫說明）</label>
+            <label class="control-label col-md-2">是否有其他條件：（若有請填寫說明）</label>
            
             <div class="col-md-10">
                 @Html.EditorFor(model => model.conditionOther, new { htmlAttributes = new { @class = "form-control" } })
@@ -149,15 +154,8 @@ var swap = function (val, input) {
             <div class="col-md-offset-2 col-md-10">
 
                 <input type="submit" value="下一步 圖片上傳" class="btn btn-warning " onclick="addID()"/>
-                <input type="button" value="填ID" class="btn btn-warning " onclick="addID()" />
-                <script type="text/javascript">
-
-                    var id= @ViewBag.condition_animalID;
-                    function addID(){
-
-                        $('#condition_animalID').val(id);
-                    };
-</script>
+              
+               
             </div>
         </div>
     </div>
@@ -166,3 +164,4 @@ var swap = function (val, input) {
 <div>
 
 </div>
+<script src=@Url.Content("~/Scripts/jquery-3.1.1.min.js") type="text/javascript"></script>

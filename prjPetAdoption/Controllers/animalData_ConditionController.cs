@@ -41,7 +41,7 @@ namespace prjPetAdoption.Controllers
         public ActionResult Create()
         {
             int? intIdt = db.animalData.Max(u => (int?)u.animalID);
-            ViewBag.condition_animalID = intIdt;
+            ViewBag.animalID = intIdt;
             return View();
         }
 
