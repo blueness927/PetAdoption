@@ -39,6 +39,10 @@ namespace prjPetAdoption
             bundles.Add(new ScriptBundle("~/bundles/FAQ/FAQ").Include(
                      "~/Scripts/FAQ/FAQ.js"
                      ));
+            bundles.Add(new ScriptBundle("~/bundles/animalDetail/animalDetailJS").Include(
+                    "~/Scripts/animalDetailjs/animalDetail.js",
+                    "~/Scripts/animalDetailjs/lightbox-plus-jquery.min.js"
+                    ));
 
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

@@ -1,6 +1,5 @@
 ﻿/// <autosync enabled="true" />
 /// <reference path="animaldetailjs/animaldetail.js" />
-/// <reference path="animaldetailjs/jquery-ui.min.js" />
 /// <reference path="animaldetailjs/lightbox-plus-jquery.min.js" />
 /// <reference path="bootstrap.min.js" />
 /// <reference path="faq/faq.js" />

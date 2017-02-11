@@ -7,21 +7,6 @@
 
 <h4>目前愛心送養寵物</h4>
 @using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
-{
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
-        @Html.AntiForgeryToken()
-
-        <ul>
-            <li>
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-            </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">登出</a></li>
-        </ul>
-    }
-}
-
 
 
 @if (Model.aniDataPicOneList.Count() != 0)
@@ -58,12 +43,30 @@ else
     </div>
     <br>
 
+
+    if (Request.IsAuthenticated)
+    {
+        @Html.AntiForgeryToken()
+
     <div class="col-md-4">
-        <a href="@Url.Action("Create", "animalDatas")">
+        <a href="@Url.Action("Create", "animalDatas",new { id = User.Identity.GetUserName() })">
             <span class="grid"><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" /></span>
         </a>
-        <p>我要送養寵物</p>
+        <p>新增送養寵物</p>
     </div>
+    }
+    else
+    {
+        <div class="col-md-4">
+            <a href="@Url.Action("Login", "Account")">
+                <span class="grid"><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" /></span>
+            </a>
+            <p>請先註冊或登入</p>
+        </div>
+    }
+
+
+
 
 }
 

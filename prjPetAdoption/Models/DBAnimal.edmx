@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DbAnimalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DbAnimalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -24,7 +24,7 @@
           <Property Name="animalType" Type="nvarchar" MaxLength="50" />
           <Property Name="animalName" Type="nvarchar" MaxLength="50" />
           <Property Name="animalAddress" Type="nvarchar" MaxLength="50" />
-          <Property Name="animalDate" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
+          <Property Name="animalDate" Type="nvarchar" MaxLength="50" />
           <Property Name="animalGender" Type="nvarchar" MaxLength="50" />
           <Property Name="animalAge" Type="int" />
           <Property Name="animalColor" Type="nvarchar" MaxLength="50" />
@@ -44,15 +44,15 @@
             <PropertyRef Name="conditionID" />
           </Key>
           <Property Name="conditionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="condition_animalID" Type="int" StoreGeneratedPattern="None" />
-          <Property Name="conditionAge" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="None" />
-          <Property Name="conditionEconomy" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="None" />
-          <Property Name="conditionHome" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="None" />
-          <Property Name="conditionFamily" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="None" />
-          <Property Name="conditionReply" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="None" />
-          <Property Name="conditionPaper" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="None" />
-          <Property Name="conditionFee" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="None" />
-          <Property Name="conditionOther" Type="nvarchar(max)" StoreGeneratedPattern="None" />
+          <Property Name="condition_animalID" Type="int" />
+          <Property Name="conditionAge" Type="nvarchar" MaxLength="50" />
+          <Property Name="conditionEconomy" Type="nvarchar" MaxLength="50" />
+          <Property Name="conditionHome" Type="nvarchar" MaxLength="50" />
+          <Property Name="conditionFamily" Type="nvarchar" MaxLength="50" />
+          <Property Name="conditionReply" Type="nvarchar" MaxLength="50" />
+          <Property Name="conditionPaper" Type="nvarchar" MaxLength="50" />
+          <Property Name="conditionFee" Type="nvarchar" MaxLength="50" />
+          <Property Name="conditionOther" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="animalData_Pic">
           <Key>
@@ -60,7 +60,7 @@
           </Key>
           <Property Name="animalPicID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="animalPic_animalID" Type="int" />
-          <Property Name="animalPicAddress" Type="nvarchar" MaxLength="200" StoreGeneratedPattern="None" />
+          <Property Name="animalPicAddress" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="animalData_Type">
           <Key>
@@ -157,14 +157,6 @@
           <Property Name="reply_forumID" Type="int" Nullable="false" />
           <Property Name="replyTo_forumID" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="giveAnimal">
-          <Key>
-            <PropertyRef Name="give_userId" />
-            <PropertyRef Name="give_animalID" />
-          </Key>
-          <Property Name="give_userId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="give_animalID" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="map">
           <Key>
             <PropertyRef Name="mapID" />
@@ -193,14 +185,6 @@
           <Property Name="msgFromURL" Type="nvarchar" MaxLength="200" />
           <Property Name="msgContent" Type="nvarchar" MaxLength="200" />
           <Property Name="msgRead" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="pair">
-          <Key>
-            <PropertyRef Name="pair_userId" />
-            <PropertyRef Name="pair_animalID" />
-          </Key>
-          <Property Name="pair_userId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="pair_animalID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="petFAQ">
           <Key>
@@ -249,6 +233,19 @@
           <Property Name="SearchType_animalTypeID" Type="int" />
           <Property Name="SearchAge" Type="int" />
           <Property Name="SearchColor" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="shelter">
+          <Key>
+            <PropertyRef Name="shelterID" />
+          </Key>
+          <Property Name="shelterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="shelterName" Type="int" />
+          <Property Name="shelterLocation" Type="nvarchar" MaxLength="50" />
+          <Property Name="shelter_mapID" Type="nvarchar" MaxLength="50" />
+          <Property Name="shelterPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="shelterURL" Type="nvarchar" MaxLength="50" />
+          <Property Name="shelterContent" Type="nvarchar(max)" />
+          <Property Name="shelterPic" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -415,7 +412,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__board__board_ani__2BC97F7C">
+        <Association Name="FK__board__board_ani__1B5E0D89">
           <End Role="animalData" Type="Self.animalData" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -429,7 +426,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__board__board_use__2CBDA3B5">
+        <Association Name="FK__board__board_use__1C5231C2">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
           <End Role="board" Type="Self.board" Multiplicity="*" />
           <ReferentialConstraint>
@@ -441,7 +438,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__follow__follow_a__16CE6296">
+        <Association Name="FK__follow__follow_a__25DB9BFC">
           <End Role="animalData" Type="Self.animalData" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -455,7 +452,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__follow__follow_u__15DA3E5D">
+        <Association Name="FK__follow__follow_u__24E777C3">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -469,7 +466,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__forum__forum_use__4A8310C6">
+        <Association Name="FK__forum__forum_use__3AD6B8E2">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -483,35 +480,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__giveAnima__give___625A9A57">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="giveAnimal" Type="Self.giveAnimal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="giveAnimal">
-              <PropertyRef Name="give_userId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__giveAnima__give___634EBE90">
-          <End Role="animalData" Type="Self.animalData" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="giveAnimal" Type="Self.giveAnimal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="animalData">
-              <PropertyRef Name="animalID" />
-            </Principal>
-            <Dependent Role="giveAnimal">
-              <PropertyRef Name="give_animalID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Msg__msgTo_userI__7D0E9093">
+        <Association Name="FK__Msg__msgTo_userI__3F9B6DFF">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -522,34 +491,6 @@
             </Principal>
             <Dependent Role="Msg">
               <PropertyRef Name="msgTo_userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__pair__pair_anima__5F7E2DAC">
-          <End Role="animalData" Type="Self.animalData" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="pair" Type="Self.pair" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="animalData">
-              <PropertyRef Name="animalID" />
-            </Principal>
-            <Dependent Role="pair">
-              <PropertyRef Name="pair_animalID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__pair__pair_userI__5E8A0973">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="pair" Type="Self.pair" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="pair">
-              <PropertyRef Name="pair_userId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -581,7 +522,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__remind__remind_u__5224328E">
+        <Association Name="FK__remind__remind_u__3335971A">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -595,7 +536,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__search__Search_u__4F47C5E3">
+        <Association Name="FK__search__Search_u__30592A6F">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -680,15 +621,14 @@
           <EntitySet Name="follow" EntityType="Self.follow" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="forum" EntityType="Self.forum" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="forum_reply" EntityType="Self.forum_reply" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="giveAnimal" EntityType="Self.giveAnimal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="map" EntityType="Self.map" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Msg" EntityType="Self.Msg" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="pair" EntityType="Self.pair" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="petFAQ" EntityType="Self.petFAQ" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="petKnows" EntityType="Self.petKnows" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="petTodo" EntityType="Self.petTodo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="remind" EntityType="Self.remind" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="search" EntityType="Self.search" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="shelter" EntityType="Self.shelter" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="todoData" EntityType="Self.todoData" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="aniDataAll" EntityType="Self.aniDataAll" store:Type="Views" store:Schema="dbo">
@@ -795,45 +735,29 @@
             <End Role="animalData" EntitySet="animalData" />
             <End Role="animalData_Condition" EntitySet="animalData_Condition" />
           </AssociationSet>
-          <AssociationSet Name="FK__board__board_ani__2BC97F7C" Association="Self.FK__board__board_ani__2BC97F7C">
+          <AssociationSet Name="FK__board__board_ani__1B5E0D89" Association="Self.FK__board__board_ani__1B5E0D89">
             <End Role="animalData" EntitySet="animalData" />
             <End Role="board" EntitySet="board" />
           </AssociationSet>
-          <AssociationSet Name="FK__board__board_use__2CBDA3B5" Association="Self.FK__board__board_use__2CBDA3B5">
+          <AssociationSet Name="FK__board__board_use__1C5231C2" Association="Self.FK__board__board_use__1C5231C2">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="board" EntitySet="board" />
           </AssociationSet>
-          <AssociationSet Name="FK__follow__follow_a__16CE6296" Association="Self.FK__follow__follow_a__16CE6296">
+          <AssociationSet Name="FK__follow__follow_a__25DB9BFC" Association="Self.FK__follow__follow_a__25DB9BFC">
             <End Role="animalData" EntitySet="animalData" />
             <End Role="follow" EntitySet="follow" />
           </AssociationSet>
-          <AssociationSet Name="FK__follow__follow_u__15DA3E5D" Association="Self.FK__follow__follow_u__15DA3E5D">
+          <AssociationSet Name="FK__follow__follow_u__24E777C3" Association="Self.FK__follow__follow_u__24E777C3">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="follow" EntitySet="follow" />
           </AssociationSet>
-          <AssociationSet Name="FK__forum__forum_use__4A8310C6" Association="Self.FK__forum__forum_use__4A8310C6">
+          <AssociationSet Name="FK__forum__forum_use__3AD6B8E2" Association="Self.FK__forum__forum_use__3AD6B8E2">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="forum" EntitySet="forum" />
           </AssociationSet>
-          <AssociationSet Name="FK__giveAnima__give___625A9A57" Association="Self.FK__giveAnima__give___625A9A57">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="giveAnimal" EntitySet="giveAnimal" />
-          </AssociationSet>
-          <AssociationSet Name="FK__giveAnima__give___634EBE90" Association="Self.FK__giveAnima__give___634EBE90">
-            <End Role="animalData" EntitySet="animalData" />
-            <End Role="giveAnimal" EntitySet="giveAnimal" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Msg__msgTo_userI__7D0E9093" Association="Self.FK__Msg__msgTo_userI__7D0E9093">
+          <AssociationSet Name="FK__Msg__msgTo_userI__3F9B6DFF" Association="Self.FK__Msg__msgTo_userI__3F9B6DFF">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Msg" EntitySet="Msg" />
-          </AssociationSet>
-          <AssociationSet Name="FK__pair__pair_anima__5F7E2DAC" Association="Self.FK__pair__pair_anima__5F7E2DAC">
-            <End Role="animalData" EntitySet="animalData" />
-            <End Role="pair" EntitySet="pair" />
-          </AssociationSet>
-          <AssociationSet Name="FK__pair__pair_userI__5E8A0973" Association="Self.FK__pair__pair_userI__5E8A0973">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="pair" EntitySet="pair" />
           </AssociationSet>
           <AssociationSet Name="FK__petTodo__petTodo__46B27FE2" Association="Self.FK__petTodo__petTodo__46B27FE2">
             <End Role="animalData" EntitySet="animalData" />
@@ -843,11 +767,11 @@
             <End Role="todoData" EntitySet="todoData" />
             <End Role="petTodo" EntitySet="petTodo" />
           </AssociationSet>
-          <AssociationSet Name="FK__remind__remind_u__5224328E" Association="Self.FK__remind__remind_u__5224328E">
+          <AssociationSet Name="FK__remind__remind_u__3335971A" Association="Self.FK__remind__remind_u__3335971A">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="remind" EntitySet="remind" />
           </AssociationSet>
-          <AssociationSet Name="FK__search__Search_u__4F47C5E3" Association="Self.FK__search__Search_u__4F47C5E3">
+          <AssociationSet Name="FK__search__Search_u__30592A6F" Association="Self.FK__search__Search_u__30592A6F">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="search" EntitySet="search" />
           </AssociationSet>
@@ -868,20 +792,110 @@
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DbAnimalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DbAnimal" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="DbAnimalModel.C__MigrationHistory" />
+          <EntitySet Name="animalData" EntityType="DbAnimalModel.animalData" />
+          <EntitySet Name="animalData_Condition" EntityType="DbAnimalModel.animalData_Condition" />
+          <EntitySet Name="animalData_Pic" EntityType="DbAnimalModel.animalData_Pic" />
+          <EntitySet Name="animalData_Type" EntityType="DbAnimalModel.animalData_Type" />
+          <EntitySet Name="AspNetRoles" EntityType="DbAnimalModel.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="DbAnimalModel.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="DbAnimalModel.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="DbAnimalModel.AspNetUsers" />
+          <EntitySet Name="board" EntityType="DbAnimalModel.board" />
+          <EntitySet Name="follow" EntityType="DbAnimalModel.follow" />
+          <EntitySet Name="forum" EntityType="DbAnimalModel.forum" />
+          <EntitySet Name="forum_reply" EntityType="DbAnimalModel.forum_reply" />
+          <EntitySet Name="map" EntityType="DbAnimalModel.map" />
+          <EntitySet Name="Msg" EntityType="DbAnimalModel.Msg" />
+          <EntitySet Name="petFAQ" EntityType="DbAnimalModel.petFAQ" />
+          <EntitySet Name="petKnows" EntityType="DbAnimalModel.petKnows" />
+          <EntitySet Name="petTodo" EntityType="DbAnimalModel.petTodo" />
+          <EntitySet Name="remind" EntityType="DbAnimalModel.remind" />
+          <EntitySet Name="search" EntityType="DbAnimalModel.search" />
+          <EntitySet Name="shelter" EntityType="DbAnimalModel.shelter" />
+          <EntitySet Name="sysdiagrams" EntityType="DbAnimalModel.sysdiagrams" />
+          <EntitySet Name="todoData" EntityType="DbAnimalModel.todoData" />
+          <EntitySet Name="aniDataAll" EntityType="DbAnimalModel.aniDataAll" />
+          <EntitySet Name="aniDataPic" EntityType="DbAnimalModel.aniDataPic" />
+          <EntitySet Name="aniDataPicOne" EntityType="DbAnimalModel.aniDataPicOne" />
+          <EntitySet Name="boardUser" EntityType="DbAnimalModel.boardUser" />
+          <EntitySet Name="followAni" EntityType="DbAnimalModel.followAni" />
+          <EntitySet Name="MsgUser" EntityType="DbAnimalModel.MsgUser" />
+          <AssociationSet Name="FK__animalDat__anima__19AACF41" Association="DbAnimalModel.FK__animalDat__anima__19AACF41">
+            <End Role="animalData" EntitySet="animalData" />
+            <End Role="animalData_Pic" EntitySet="animalData_Pic" />
+          </AssociationSet>
+          <AssociationSet Name="FK__animalDat__condi__251C81ED" Association="DbAnimalModel.FK__animalDat__condi__251C81ED">
+            <End Role="animalData" EntitySet="animalData" />
+            <End Role="animalData_Condition" EntitySet="animalData_Condition" />
+          </AssociationSet>
+          <AssociationSet Name="FK__board__board_ani__3A179ED3" Association="DbAnimalModel.FK__board__board_ani__3A179ED3">
+            <End Role="animalData" EntitySet="animalData" />
+            <End Role="board" EntitySet="board" />
+          </AssociationSet>
+          <AssociationSet Name="FK__follow__follow_a__477199F1" Association="DbAnimalModel.FK__follow__follow_a__477199F1">
+            <End Role="animalData" EntitySet="animalData" />
+            <End Role="follow" EntitySet="follow" />
+          </AssociationSet>
+          <AssociationSet Name="FK__petTodo__petTodo__46B27FE2" Association="DbAnimalModel.FK__petTodo__petTodo__46B27FE2">
+            <End Role="animalData" EntitySet="animalData" />
+            <End Role="petTodo" EntitySet="petTodo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="DbAnimalModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="DbAnimalModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__petTodo__petTodo__47A6A41B" Association="DbAnimalModel.FK__petTodo__petTodo__47A6A41B">
+            <End Role="todoData" EntitySet="todoData" />
+            <End Role="petTodo" EntitySet="petTodo" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="DbAnimalModel.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__board__board_use__1C5231C2" Association="DbAnimalModel.FK__board__board_use__1C5231C2">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="board" EntitySet="board" />
+          </AssociationSet>
+          <AssociationSet Name="FK__follow__follow_u__24E777C3" Association="DbAnimalModel.FK__follow__follow_u__24E777C3">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="follow" EntitySet="follow" />
+          </AssociationSet>
+          <AssociationSet Name="FK__forum__forum_use__3AD6B8E2" Association="DbAnimalModel.FK__forum__forum_use__3AD6B8E2">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="forum" EntitySet="forum" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Msg__msgTo_userI__3F9B6DFF" Association="DbAnimalModel.FK__Msg__msgTo_userI__3F9B6DFF">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Msg" EntitySet="Msg" />
+          </AssociationSet>
+          <AssociationSet Name="FK__remind__remind_u__3335971A" Association="DbAnimalModel.FK__remind__remind_u__3335971A">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="remind" EntitySet="remind" />
+          </AssociationSet>
+          <AssociationSet Name="FK__search__Search_u__30592A6F" Association="DbAnimalModel.FK__search__Search_u__30592A6F">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="search" EntitySet="search" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
             <PropertyRef Name="ContextKey" />
           </Key>
-          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="animalData">
           <Key>
@@ -892,7 +906,7 @@
           <Property Name="animalType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="animalName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="animalAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="animalDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="animalGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="animalAge" Type="Int32" />
           <Property Name="animalColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -906,29 +920,27 @@
           <Property Name="animalAdopted" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="animalAdoptedDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="animalNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="animalData_Pic" Relationship="Self.FK__animalDat__anima__19AACF41" FromRole="animalData" ToRole="animalData_Pic" />
-          <NavigationProperty Name="animalData_Condition" Relationship="Self.FK__animalDat__condi__251C81ED" FromRole="animalData" ToRole="animalData_Condition" />
-          <NavigationProperty Name="board" Relationship="Self.FK__board__board_ani__2BC97F7C" FromRole="animalData" ToRole="board" />
-          <NavigationProperty Name="follow" Relationship="Self.FK__follow__follow_a__16CE6296" FromRole="animalData" ToRole="follow" />
-          <NavigationProperty Name="petTodo" Relationship="Self.FK__petTodo__petTodo__46B27FE2" FromRole="animalData" ToRole="petTodo" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.giveAnimal" FromRole="animalData" ToRole="AspNetUsers" />
-          <NavigationProperty Name="AspNetUsers1" Relationship="Self.pair" FromRole="animalData" ToRole="AspNetUsers" />
+          <NavigationProperty Name="animalData_Pic" Relationship="DbAnimalModel.FK__animalDat__anima__19AACF41" FromRole="animalData" ToRole="animalData_Pic" />
+          <NavigationProperty Name="animalData_Condition" Relationship="DbAnimalModel.FK__animalDat__condi__251C81ED" FromRole="animalData" ToRole="animalData_Condition" />
+          <NavigationProperty Name="board" Relationship="DbAnimalModel.FK__board__board_ani__3A179ED3" FromRole="animalData" ToRole="board" />
+          <NavigationProperty Name="follow" Relationship="DbAnimalModel.FK__follow__follow_a__477199F1" FromRole="animalData" ToRole="follow" />
+          <NavigationProperty Name="petTodo" Relationship="DbAnimalModel.FK__petTodo__petTodo__46B27FE2" FromRole="animalData" ToRole="petTodo" />
         </EntityType>
         <EntityType Name="animalData_Condition">
           <Key>
             <PropertyRef Name="conditionID" />
           </Key>
           <Property Name="conditionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="condition_animalID" Type="Int32" annotation:StoreGeneratedPattern="None" />
-          <Property Name="conditionAge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
-          <Property Name="conditionEconomy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
-          <Property Name="conditionHome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
-          <Property Name="conditionFamily" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
-          <Property Name="conditionReply" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
-          <Property Name="conditionPaper" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
-          <Property Name="conditionFee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
-          <Property Name="conditionOther" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
-          <NavigationProperty Name="animalData" Relationship="Self.FK__animalDat__condi__251C81ED" FromRole="animalData_Condition" ToRole="animalData" />
+          <Property Name="condition_animalID" Type="Int32" />
+          <Property Name="conditionAge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="conditionEconomy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="conditionHome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="conditionFamily" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="conditionReply" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="conditionPaper" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="conditionFee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="conditionOther" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="animalData" Relationship="DbAnimalModel.FK__animalDat__condi__251C81ED" FromRole="animalData_Condition" ToRole="animalData" />
         </EntityType>
         <EntityType Name="animalData_Pic">
           <Key>
@@ -936,8 +948,8 @@
           </Key>
           <Property Name="animalPicID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="animalPic_animalID" Type="Int32" />
-          <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="None" />
-          <NavigationProperty Name="animalData" Relationship="Self.FK__animalDat__anima__19AACF41" FromRole="animalData_Pic" ToRole="animalData" />
+          <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="animalData" Relationship="DbAnimalModel.FK__animalDat__anima__19AACF41" FromRole="animalData_Pic" ToRole="animalData" />
         </EntityType>
         <EntityType Name="animalData_Type">
           <Key>
@@ -951,19 +963,19 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="DbAnimalModel.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="AspNetUserClaims">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers" Relationship="DbAnimalModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="AspNetUserLogins">
           <Key>
@@ -971,16 +983,16 @@
             <PropertyRef Name="ProviderKey" />
             <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="DbAnimalModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="AspNetUsers">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
           <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -991,18 +1003,16 @@
           <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
           <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
           <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
-          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
-          <NavigationProperty Name="board" Relationship="Self.FK__board__board_use__2CBDA3B5" FromRole="AspNetUsers" ToRole="board" />
-          <NavigationProperty Name="follow" Relationship="Self.FK__follow__follow_u__15DA3E5D" FromRole="AspNetUsers" ToRole="follow" />
-          <NavigationProperty Name="forum" Relationship="Self.FK__forum__forum_use__4A8310C6" FromRole="AspNetUsers" ToRole="forum" />
-          <NavigationProperty Name="Msg" Relationship="Self.FK__Msg__msgTo_userI__7D0E9093" FromRole="AspNetUsers" ToRole="Msg" />
-          <NavigationProperty Name="remind" Relationship="Self.FK__remind__remind_u__5224328E" FromRole="AspNetUsers" ToRole="remind" />
-          <NavigationProperty Name="search" Relationship="Self.FK__search__Search_u__4F47C5E3" FromRole="AspNetUsers" ToRole="search" />
-          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
-          <NavigationProperty Name="animalData" Relationship="Self.giveAnimal" FromRole="AspNetUsers" ToRole="animalData" />
-          <NavigationProperty Name="animalData1" Relationship="Self.pair" FromRole="AspNetUsers" ToRole="animalData" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="DbAnimalModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="DbAnimalModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="DbAnimalModel.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <NavigationProperty Name="board" Relationship="DbAnimalModel.FK__board__board_use__1C5231C2" FromRole="AspNetUsers" ToRole="board" />
+          <NavigationProperty Name="follow" Relationship="DbAnimalModel.FK__follow__follow_u__24E777C3" FromRole="AspNetUsers" ToRole="follow" />
+          <NavigationProperty Name="forum" Relationship="DbAnimalModel.FK__forum__forum_use__3AD6B8E2" FromRole="AspNetUsers" ToRole="forum" />
+          <NavigationProperty Name="Msg" Relationship="DbAnimalModel.FK__Msg__msgTo_userI__3F9B6DFF" FromRole="AspNetUsers" ToRole="Msg" />
+          <NavigationProperty Name="remind" Relationship="DbAnimalModel.FK__remind__remind_u__3335971A" FromRole="AspNetUsers" ToRole="remind" />
+          <NavigationProperty Name="search" Relationship="DbAnimalModel.FK__search__Search_u__30592A6F" FromRole="AspNetUsers" ToRole="search" />
         </EntityType>
         <EntityType Name="board">
           <Key>
@@ -1013,8 +1023,8 @@
           <Property Name="board_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="board_animalID" Type="Int32" />
           <Property Name="boardContent" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="animalData" Relationship="Self.FK__board__board_ani__2BC97F7C" FromRole="board" ToRole="animalData" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__board__board_use__2CBDA3B5" FromRole="board" ToRole="AspNetUsers" />
+          <NavigationProperty Name="animalData" Relationship="DbAnimalModel.FK__board__board_ani__3A179ED3" FromRole="board" ToRole="animalData" />
+          <NavigationProperty Name="AspNetUsers" Relationship="DbAnimalModel.FK__board__board_use__1C5231C2" FromRole="board" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="follow">
           <Key>
@@ -1023,8 +1033,8 @@
           <Property Name="followID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="follow_userId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="follow_animalID" Type="Int32" />
-          <NavigationProperty Name="animalData" Relationship="Self.FK__follow__follow_a__16CE6296" FromRole="follow" ToRole="animalData" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__follow__follow_u__15DA3E5D" FromRole="follow" ToRole="AspNetUsers" />
+          <NavigationProperty Name="animalData" Relationship="DbAnimalModel.FK__follow__follow_a__477199F1" FromRole="follow" ToRole="animalData" />
+          <NavigationProperty Name="AspNetUsers" Relationship="DbAnimalModel.FK__follow__follow_u__24E777C3" FromRole="follow" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="forum">
           <Key>
@@ -1035,7 +1045,7 @@
           <Property Name="forum_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="forumTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="forumContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__forum__forum_use__4A8310C6" FromRole="forum" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers" Relationship="DbAnimalModel.FK__forum__forum_use__3AD6B8E2" FromRole="forum" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="forum_reply">
           <Key>
@@ -1073,7 +1083,7 @@
           <Property Name="msgFromURL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="msgContent" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="msgRead" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__Msg__msgTo_userI__7D0E9093" FromRole="Msg" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers" Relationship="DbAnimalModel.FK__Msg__msgTo_userI__3F9B6DFF" FromRole="Msg" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="petFAQ">
           <Key>
@@ -1101,8 +1111,8 @@
           <Property Name="petTodo_todoDataID" Type="Int32" />
           <Property Name="petTododate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="petTodoYN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="animalData" Relationship="Self.FK__petTodo__petTodo__46B27FE2" FromRole="petTodo" ToRole="animalData" />
-          <NavigationProperty Name="todoData" Relationship="Self.FK__petTodo__petTodo__47A6A41B" FromRole="petTodo" ToRole="todoData" />
+          <NavigationProperty Name="animalData" Relationship="DbAnimalModel.FK__petTodo__petTodo__46B27FE2" FromRole="petTodo" ToRole="animalData" />
+          <NavigationProperty Name="todoData" Relationship="DbAnimalModel.FK__petTodo__petTodo__47A6A41B" FromRole="petTodo" ToRole="todoData" />
         </EntityType>
         <EntityType Name="remind">
           <Key>
@@ -1114,7 +1124,7 @@
           <Property Name="remindTodo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="remindMsg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="remindSearch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__remind__remind_u__5224328E" FromRole="remind" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers" Relationship="DbAnimalModel.FK__remind__remind_u__3335971A" FromRole="remind" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="search">
           <Key>
@@ -1125,13 +1135,26 @@
           <Property Name="SearchType_animalTypeID" Type="Int32" />
           <Property Name="SearchAge" Type="Int32" />
           <Property Name="SearchColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__search__Search_u__4F47C5E3" FromRole="search" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AspNetUsers" Relationship="DbAnimalModel.FK__search__Search_u__30592A6F" FromRole="search" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="shelter">
+          <Key>
+            <PropertyRef Name="shelterID" />
+          </Key>
+          <Property Name="shelterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="shelterName" Type="Int32" />
+          <Property Name="shelterLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="shelter_mapID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="shelterPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="shelterURL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="shelterContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="shelterPic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
@@ -1145,7 +1168,7 @@
           <Property Name="todoDataTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="todoDataContent" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="todoDataDocument" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="petTodo" Relationship="Self.FK__petTodo__petTodo__47A6A41B" FromRole="todoData" ToRole="petTodo" />
+          <NavigationProperty Name="petTodo" Relationship="DbAnimalModel.FK__petTodo__petTodo__47A6A41B" FromRole="todoData" ToRole="petTodo" />
         </EntityType>
         <EntityType Name="aniDataAll">
           <Key>
@@ -1213,7 +1236,7 @@
           <Property Name="boardID" Type="Int32" Nullable="false" />
           <Property Name="boardTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="board_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="board_animalID" Type="Int32" />
           <Property Name="boardContent" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -1246,7 +1269,7 @@
           <Property Name="msgID" Type="Int32" Nullable="false" />
           <Property Name="msgTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="msgFrom_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="msgFrom_userName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="msgFrom_userName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="msgTo_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="msgType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="msgFromURL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -1254,10 +1277,10 @@
           <Property Name="msgRead" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__animalDat__anima__19AACF41">
-          <End Role="animalData" Type="Self.animalData" Multiplicity="0..1">
+          <End Type="DbAnimalModel.animalData" Role="animalData" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="animalData_Pic" Type="Self.animalData_Pic" Multiplicity="*" />
+          <End Type="DbAnimalModel.animalData_Pic" Role="animalData_Pic" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="animalData">
               <PropertyRef Name="animalID" />
@@ -1268,10 +1291,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__animalDat__condi__251C81ED">
-          <End Role="animalData" Type="Self.animalData" Multiplicity="0..1">
+          <End Type="DbAnimalModel.animalData" Role="animalData" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="animalData_Condition" Type="Self.animalData_Condition" Multiplicity="*" />
+          <End Type="DbAnimalModel.animalData_Condition" Role="animalData_Condition" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="animalData">
               <PropertyRef Name="animalID" />
@@ -1281,11 +1304,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__board__board_ani__2BC97F7C">
-          <End Role="animalData" Type="Self.animalData" Multiplicity="0..1">
+        <Association Name="FK__board__board_ani__3A179ED3">
+          <End Type="DbAnimalModel.animalData" Role="animalData" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="board" Type="Self.board" Multiplicity="*" />
+          <End Type="DbAnimalModel.board" Role="board" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="animalData">
               <PropertyRef Name="animalID" />
@@ -1295,11 +1318,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__follow__follow_a__16CE6296">
-          <End Role="animalData" Type="Self.animalData" Multiplicity="0..1">
+        <Association Name="FK__follow__follow_a__477199F1">
+          <End Type="DbAnimalModel.animalData" Role="animalData" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="follow" Type="Self.follow" Multiplicity="*" />
+          <End Type="DbAnimalModel.follow" Role="follow" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="animalData">
               <PropertyRef Name="animalID" />
@@ -1310,10 +1333,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__petTodo__petTodo__46B27FE2">
-          <End Role="animalData" Type="Self.animalData" Multiplicity="0..1">
+          <End Type="DbAnimalModel.animalData" Role="animalData" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="petTodo" Type="Self.petTodo" Multiplicity="*" />
+          <End Type="DbAnimalModel.petTodo" Role="petTodo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="animalData">
               <PropertyRef Name="animalID" />
@@ -1324,10 +1347,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+          <End Type="DbAnimalModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <End Type="DbAnimalModel.AspNetUserClaims" Role="AspNetUserClaims" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AspNetUsers">
               <PropertyRef Name="Id" />
@@ -1338,10 +1361,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+          <End Type="DbAnimalModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <End Type="DbAnimalModel.AspNetUserLogins" Role="AspNetUserLogins" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AspNetUsers">
               <PropertyRef Name="Id" />
@@ -1351,93 +1374,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__board__board_use__2CBDA3B5">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
-          <End Role="board" Type="Self.board" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="board">
-              <PropertyRef Name="board_userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__follow__follow_u__15DA3E5D">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="follow" Type="Self.follow" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="follow">
-              <PropertyRef Name="follow_userId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__forum__forum_use__4A8310C6">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="forum" Type="Self.forum" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="forum">
-              <PropertyRef Name="forum_userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Msg__msgTo_userI__7D0E9093">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Msg" Type="Self.Msg" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Msg">
-              <PropertyRef Name="msgTo_userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__remind__remind_u__5224328E">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="remind" Type="Self.remind" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="remind">
-              <PropertyRef Name="remind_userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__search__Search_u__4F47C5E3">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="search" Type="Self.search" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="search">
-              <PropertyRef Name="Search_userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__petTodo__petTodo__47A6A41B">
-          <End Role="todoData" Type="Self.todoData" Multiplicity="0..1">
+          <End Type="DbAnimalModel.todoData" Role="todoData" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="petTodo" Type="Self.petTodo" Multiplicity="*" />
+          <End Type="DbAnimalModel.petTodo" Role="petTodo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="todoData">
               <PropertyRef Name="todoDataID" />
@@ -1448,115 +1389,91 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="AspNetUserRoles">
-          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <End Type="DbAnimalModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
+          <End Type="DbAnimalModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
         </Association>
-        <Association Name="giveAnimal">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
-          <End Role="animalData" Type="Self.animalData" Multiplicity="*" />
+        <Association Name="FK__board__board_use__1C5231C2">
+          <End Type="DbAnimalModel.AspNetUsers" Role="AspNetUsers" Multiplicity="0..1" />
+          <End Type="DbAnimalModel.board" Role="board" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="board">
+              <PropertyRef Name="board_userID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
-        <Association Name="pair">
-          <End Role="animalData" Type="Self.animalData" Multiplicity="*" />
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        <Association Name="FK__follow__follow_u__24E777C3">
+          <End Type="DbAnimalModel.AspNetUsers" Role="AspNetUsers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DbAnimalModel.follow" Role="follow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="follow">
+              <PropertyRef Name="follow_userId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DbAnimal" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
-          <EntitySet Name="animalData" EntityType="Self.animalData" />
-          <EntitySet Name="animalData_Condition" EntityType="Self.animalData_Condition" />
-          <EntitySet Name="animalData_Pic" EntityType="Self.animalData_Pic" />
-          <EntitySet Name="animalData_Type" EntityType="Self.animalData_Type" />
-          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
-          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
-          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
-          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
-          <EntitySet Name="board" EntityType="Self.board" />
-          <EntitySet Name="follow" EntityType="Self.follow" />
-          <EntitySet Name="forum" EntityType="Self.forum" />
-          <EntitySet Name="forum_reply" EntityType="Self.forum_reply" />
-          <EntitySet Name="map" EntityType="Self.map" />
-          <EntitySet Name="Msg" EntityType="Self.Msg" />
-          <EntitySet Name="petFAQ" EntityType="Self.petFAQ" />
-          <EntitySet Name="petKnows" EntityType="Self.petKnows" />
-          <EntitySet Name="petTodo" EntityType="Self.petTodo" />
-          <EntitySet Name="remind" EntityType="Self.remind" />
-          <EntitySet Name="search" EntityType="Self.search" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="todoData" EntityType="Self.todoData" />
-          <EntitySet Name="aniDataAll" EntityType="Self.aniDataAll" />
-          <EntitySet Name="aniDataPic" EntityType="Self.aniDataPic" />
-          <EntitySet Name="aniDataPicOne" EntityType="Self.aniDataPicOne" />
-          <EntitySet Name="boardUser" EntityType="Self.boardUser" />
-          <EntitySet Name="followAni" EntityType="Self.followAni" />
-          <EntitySet Name="MsgUser" EntityType="Self.MsgUser" />
-          <AssociationSet Name="FK__animalDat__anima__19AACF41" Association="Self.FK__animalDat__anima__19AACF41">
-            <End Role="animalData" EntitySet="animalData" />
-            <End Role="animalData_Pic" EntitySet="animalData_Pic" />
-          </AssociationSet>
-          <AssociationSet Name="FK__animalDat__condi__251C81ED" Association="Self.FK__animalDat__condi__251C81ED">
-            <End Role="animalData" EntitySet="animalData" />
-            <End Role="animalData_Condition" EntitySet="animalData_Condition" />
-          </AssociationSet>
-          <AssociationSet Name="FK__board__board_ani__2BC97F7C" Association="Self.FK__board__board_ani__2BC97F7C">
-            <End Role="animalData" EntitySet="animalData" />
-            <End Role="board" EntitySet="board" />
-          </AssociationSet>
-          <AssociationSet Name="FK__follow__follow_a__16CE6296" Association="Self.FK__follow__follow_a__16CE6296">
-            <End Role="animalData" EntitySet="animalData" />
-            <End Role="follow" EntitySet="follow" />
-          </AssociationSet>
-          <AssociationSet Name="FK__petTodo__petTodo__46B27FE2" Association="Self.FK__petTodo__petTodo__46B27FE2">
-            <End Role="animalData" EntitySet="animalData" />
-            <End Role="petTodo" EntitySet="petTodo" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-          </AssociationSet>
-          <AssociationSet Name="FK__board__board_use__2CBDA3B5" Association="Self.FK__board__board_use__2CBDA3B5">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="board" EntitySet="board" />
-          </AssociationSet>
-          <AssociationSet Name="FK__follow__follow_u__15DA3E5D" Association="Self.FK__follow__follow_u__15DA3E5D">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="follow" EntitySet="follow" />
-          </AssociationSet>
-          <AssociationSet Name="FK__forum__forum_use__4A8310C6" Association="Self.FK__forum__forum_use__4A8310C6">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="forum" EntitySet="forum" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Msg__msgTo_userI__7D0E9093" Association="Self.FK__Msg__msgTo_userI__7D0E9093">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Msg" EntitySet="Msg" />
-          </AssociationSet>
-          <AssociationSet Name="FK__remind__remind_u__5224328E" Association="Self.FK__remind__remind_u__5224328E">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="remind" EntitySet="remind" />
-          </AssociationSet>
-          <AssociationSet Name="FK__search__Search_u__4F47C5E3" Association="Self.FK__search__Search_u__4F47C5E3">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="search" EntitySet="search" />
-          </AssociationSet>
-          <AssociationSet Name="FK__petTodo__petTodo__47A6A41B" Association="Self.FK__petTodo__petTodo__47A6A41B">
-            <End Role="todoData" EntitySet="todoData" />
-            <End Role="petTodo" EntitySet="petTodo" />
-          </AssociationSet>
-          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
-            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-          </AssociationSet>
-          <AssociationSet Name="giveAnimal" Association="Self.giveAnimal">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="animalData" EntitySet="animalData" />
-          </AssociationSet>
-          <AssociationSet Name="pair" Association="Self.pair">
-            <End Role="animalData" EntitySet="animalData" />
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-          </AssociationSet>
-        </EntityContainer>
+        <Association Name="FK__forum__forum_use__3AD6B8E2">
+          <End Type="DbAnimalModel.AspNetUsers" Role="AspNetUsers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DbAnimalModel.forum" Role="forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="forum">
+              <PropertyRef Name="forum_userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Msg__msgTo_userI__3F9B6DFF">
+          <End Type="DbAnimalModel.AspNetUsers" Role="AspNetUsers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DbAnimalModel.Msg" Role="Msg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Msg">
+              <PropertyRef Name="msgTo_userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__remind__remind_u__3335971A">
+          <End Type="DbAnimalModel.AspNetUsers" Role="AspNetUsers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DbAnimalModel.remind" Role="remind" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="remind">
+              <PropertyRef Name="remind_userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__search__Search_u__30592A6F">
+          <End Type="DbAnimalModel.AspNetUsers" Role="AspNetUsers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DbAnimalModel.search" Role="search" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="search">
+              <PropertyRef Name="Search_userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1566,391 +1483,389 @@
           <EntitySetMapping Name="C__MigrationHistory">
             <EntityTypeMapping TypeName="DbAnimalModel.C__MigrationHistory">
               <MappingFragment StoreEntitySet="__MigrationHistory">
-                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
-                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
                 <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="animalData">
             <EntityTypeMapping TypeName="DbAnimalModel.animalData">
               <MappingFragment StoreEntitySet="animalData">
-                <ScalarProperty Name="animalID" ColumnName="animalID" />
-                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
-                <ScalarProperty Name="animalType" ColumnName="animalType" />
-                <ScalarProperty Name="animalName" ColumnName="animalName" />
-                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
-                <ScalarProperty Name="animalDate" ColumnName="animalDate" />
-                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
-                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
-                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
-                <ScalarProperty Name="animalBirth" ColumnName="animalBirth" />
-                <ScalarProperty Name="animalChip" ColumnName="animalChip" />
-                <ScalarProperty Name="animalHealthy" ColumnName="animalHealthy" />
-                <ScalarProperty Name="animalDisease_Other" ColumnName="animalDisease_Other" />
-                <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
-                <ScalarProperty Name="animalReason" ColumnName="animalReason" />
-                <ScalarProperty Name="animalGetter_userID" ColumnName="animalGetter_userID" />
-                <ScalarProperty Name="animalAdopted" ColumnName="animalAdopted" />
-                <ScalarProperty Name="animalAdoptedDate" ColumnName="animalAdoptedDate" />
                 <ScalarProperty Name="animalNote" ColumnName="animalNote" />
+                <ScalarProperty Name="animalAdoptedDate" ColumnName="animalAdoptedDate" />
+                <ScalarProperty Name="animalAdopted" ColumnName="animalAdopted" />
+                <ScalarProperty Name="animalGetter_userID" ColumnName="animalGetter_userID" />
+                <ScalarProperty Name="animalReason" ColumnName="animalReason" />
+                <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
+                <ScalarProperty Name="animalDisease_Other" ColumnName="animalDisease_Other" />
+                <ScalarProperty Name="animalHealthy" ColumnName="animalHealthy" />
+                <ScalarProperty Name="animalChip" ColumnName="animalChip" />
+                <ScalarProperty Name="animalBirth" ColumnName="animalBirth" />
+                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
+                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
+                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
+                <ScalarProperty Name="animalDate" ColumnName="animalDate" />
+                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
+                <ScalarProperty Name="animalName" ColumnName="animalName" />
+                <ScalarProperty Name="animalType" ColumnName="animalType" />
+                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
+                <ScalarProperty Name="animalID" ColumnName="animalID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="animalData_Condition">
             <EntityTypeMapping TypeName="DbAnimalModel.animalData_Condition">
               <MappingFragment StoreEntitySet="animalData_Condition">
-                <ScalarProperty Name="conditionID" ColumnName="conditionID" />
-                <ScalarProperty Name="condition_animalID" ColumnName="condition_animalID" />
-                <ScalarProperty Name="conditionAge" ColumnName="conditionAge" />
-                <ScalarProperty Name="conditionEconomy" ColumnName="conditionEconomy" />
-                <ScalarProperty Name="conditionHome" ColumnName="conditionHome" />
-                <ScalarProperty Name="conditionFamily" ColumnName="conditionFamily" />
-                <ScalarProperty Name="conditionReply" ColumnName="conditionReply" />
-                <ScalarProperty Name="conditionPaper" ColumnName="conditionPaper" />
-                <ScalarProperty Name="conditionFee" ColumnName="conditionFee" />
                 <ScalarProperty Name="conditionOther" ColumnName="conditionOther" />
+                <ScalarProperty Name="conditionFee" ColumnName="conditionFee" />
+                <ScalarProperty Name="conditionPaper" ColumnName="conditionPaper" />
+                <ScalarProperty Name="conditionReply" ColumnName="conditionReply" />
+                <ScalarProperty Name="conditionFamily" ColumnName="conditionFamily" />
+                <ScalarProperty Name="conditionHome" ColumnName="conditionHome" />
+                <ScalarProperty Name="conditionEconomy" ColumnName="conditionEconomy" />
+                <ScalarProperty Name="conditionAge" ColumnName="conditionAge" />
+                <ScalarProperty Name="condition_animalID" ColumnName="condition_animalID" />
+                <ScalarProperty Name="conditionID" ColumnName="conditionID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="animalData_Pic">
             <EntityTypeMapping TypeName="DbAnimalModel.animalData_Pic">
               <MappingFragment StoreEntitySet="animalData_Pic">
-                <ScalarProperty Name="animalPicID" ColumnName="animalPicID" />
-                <ScalarProperty Name="animalPic_animalID" ColumnName="animalPic_animalID" />
                 <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
+                <ScalarProperty Name="animalPic_animalID" ColumnName="animalPic_animalID" />
+                <ScalarProperty Name="animalPicID" ColumnName="animalPicID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="animalData_Type">
             <EntityTypeMapping TypeName="DbAnimalModel.animalData_Type">
               <MappingFragment StoreEntitySet="animalData_Type">
-                <ScalarProperty Name="animalTypeID" ColumnName="animalTypeID" />
-                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
                 <ScalarProperty Name="animalType" ColumnName="animalType" />
+                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
+                <ScalarProperty Name="animalTypeID" ColumnName="animalTypeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetRoles">
             <EntityTypeMapping TypeName="DbAnimalModel.AspNetRoles">
               <MappingFragment StoreEntitySet="AspNetRoles">
-                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserClaims">
             <EntityTypeMapping TypeName="DbAnimalModel.AspNetUserClaims">
               <MappingFragment StoreEntitySet="AspNetUserClaims">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
                 <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUserLogins">
             <EntityTypeMapping TypeName="DbAnimalModel.AspNetUserLogins">
               <MappingFragment StoreEntitySet="AspNetUserLogins">
-                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
-                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AspNetUsers">
             <EntityTypeMapping TypeName="DbAnimalModel.AspNetUsers">
               <MappingFragment StoreEntitySet="AspNetUsers">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="board">
             <EntityTypeMapping TypeName="DbAnimalModel.board">
               <MappingFragment StoreEntitySet="board">
-                <ScalarProperty Name="boardID" ColumnName="boardID" />
-                <ScalarProperty Name="boardTime" ColumnName="boardTime" />
-                <ScalarProperty Name="board_userID" ColumnName="board_userID" />
-                <ScalarProperty Name="board_animalID" ColumnName="board_animalID" />
                 <ScalarProperty Name="boardContent" ColumnName="boardContent" />
+                <ScalarProperty Name="board_animalID" ColumnName="board_animalID" />
+                <ScalarProperty Name="board_userID" ColumnName="board_userID" />
+                <ScalarProperty Name="boardTime" ColumnName="boardTime" />
+                <ScalarProperty Name="boardID" ColumnName="boardID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="follow">
             <EntityTypeMapping TypeName="DbAnimalModel.follow">
               <MappingFragment StoreEntitySet="follow">
-                <ScalarProperty Name="followID" ColumnName="followID" />
-                <ScalarProperty Name="follow_userId" ColumnName="follow_userId" />
                 <ScalarProperty Name="follow_animalID" ColumnName="follow_animalID" />
+                <ScalarProperty Name="follow_userId" ColumnName="follow_userId" />
+                <ScalarProperty Name="followID" ColumnName="followID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="forum">
             <EntityTypeMapping TypeName="DbAnimalModel.forum">
               <MappingFragment StoreEntitySet="forum">
-                <ScalarProperty Name="forumID" ColumnName="forumID" />
-                <ScalarProperty Name="forumTime" ColumnName="forumTime" />
-                <ScalarProperty Name="forum_userID" ColumnName="forum_userID" />
-                <ScalarProperty Name="forumTitle" ColumnName="forumTitle" />
                 <ScalarProperty Name="forumContent" ColumnName="forumContent" />
+                <ScalarProperty Name="forumTitle" ColumnName="forumTitle" />
+                <ScalarProperty Name="forum_userID" ColumnName="forum_userID" />
+                <ScalarProperty Name="forumTime" ColumnName="forumTime" />
+                <ScalarProperty Name="forumID" ColumnName="forumID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="forum_reply">
             <EntityTypeMapping TypeName="DbAnimalModel.forum_reply">
               <MappingFragment StoreEntitySet="forum_reply">
-                <ScalarProperty Name="reply_forumID" ColumnName="reply_forumID" />
                 <ScalarProperty Name="replyTo_forumID" ColumnName="replyTo_forumID" />
+                <ScalarProperty Name="reply_forumID" ColumnName="reply_forumID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="map">
             <EntityTypeMapping TypeName="DbAnimalModel.map">
               <MappingFragment StoreEntitySet="map">
-                <ScalarProperty Name="mapID" ColumnName="mapID" />
-                <ScalarProperty Name="mapType" ColumnName="mapType" />
-                <ScalarProperty Name="mapName" ColumnName="mapName" />
-                <ScalarProperty Name="maplatitude" ColumnName="maplatitude" />
-                <ScalarProperty Name="maplongitude" ColumnName="maplongitude" />
-                <ScalarProperty Name="mapTitle" ColumnName="mapTitle" />
-                <ScalarProperty Name="mapContent" ColumnName="mapContent" />
-                <ScalarProperty Name="mapAddressCity" ColumnName="mapAddressCity" />
-                <ScalarProperty Name="mapAddressTown" ColumnName="mapAddressTown" />
-                <ScalarProperty Name="mapAddressDetail" ColumnName="mapAddressDetail" />
                 <ScalarProperty Name="mapPic" ColumnName="mapPic" />
+                <ScalarProperty Name="mapAddressDetail" ColumnName="mapAddressDetail" />
+                <ScalarProperty Name="mapAddressTown" ColumnName="mapAddressTown" />
+                <ScalarProperty Name="mapAddressCity" ColumnName="mapAddressCity" />
+                <ScalarProperty Name="mapContent" ColumnName="mapContent" />
+                <ScalarProperty Name="mapTitle" ColumnName="mapTitle" />
+                <ScalarProperty Name="maplongitude" ColumnName="maplongitude" />
+                <ScalarProperty Name="maplatitude" ColumnName="maplatitude" />
+                <ScalarProperty Name="mapName" ColumnName="mapName" />
+                <ScalarProperty Name="mapType" ColumnName="mapType" />
+                <ScalarProperty Name="mapID" ColumnName="mapID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Msg">
             <EntityTypeMapping TypeName="DbAnimalModel.Msg">
               <MappingFragment StoreEntitySet="Msg">
-                <ScalarProperty Name="msgID" ColumnName="msgID" />
-                <ScalarProperty Name="msgTime" ColumnName="msgTime" />
-                <ScalarProperty Name="msgFrom_userID" ColumnName="msgFrom_userID" />
-                <ScalarProperty Name="msgTo_userID" ColumnName="msgTo_userID" />
-                <ScalarProperty Name="msgType" ColumnName="msgType" />
-                <ScalarProperty Name="msgFromURL" ColumnName="msgFromURL" />
-                <ScalarProperty Name="msgContent" ColumnName="msgContent" />
                 <ScalarProperty Name="msgRead" ColumnName="msgRead" />
+                <ScalarProperty Name="msgContent" ColumnName="msgContent" />
+                <ScalarProperty Name="msgFromURL" ColumnName="msgFromURL" />
+                <ScalarProperty Name="msgType" ColumnName="msgType" />
+                <ScalarProperty Name="msgTo_userID" ColumnName="msgTo_userID" />
+                <ScalarProperty Name="msgFrom_userID" ColumnName="msgFrom_userID" />
+                <ScalarProperty Name="msgTime" ColumnName="msgTime" />
+                <ScalarProperty Name="msgID" ColumnName="msgID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="petFAQ">
             <EntityTypeMapping TypeName="DbAnimalModel.petFAQ">
               <MappingFragment StoreEntitySet="petFAQ">
-                <ScalarProperty Name="petFAQID" ColumnName="petFAQID" />
-                <ScalarProperty Name="petFAQ_QQ" ColumnName="petFAQ_QQ" />
                 <ScalarProperty Name="petFAQ_AA" ColumnName="petFAQ_AA" />
+                <ScalarProperty Name="petFAQ_QQ" ColumnName="petFAQ_QQ" />
+                <ScalarProperty Name="petFAQID" ColumnName="petFAQID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="petKnows">
             <EntityTypeMapping TypeName="DbAnimalModel.petKnows">
               <MappingFragment StoreEntitySet="petKnows">
-                <ScalarProperty Name="petKnowsID" ColumnName="petKnowsID" />
-                <ScalarProperty Name="petKnows_animalTypeID" ColumnName="petKnows_animalTypeID" />
-                <ScalarProperty Name="petKnowsCare" ColumnName="petKnowsCare" />
                 <ScalarProperty Name="petKnowsDisease" ColumnName="petKnowsDisease" />
+                <ScalarProperty Name="petKnowsCare" ColumnName="petKnowsCare" />
+                <ScalarProperty Name="petKnows_animalTypeID" ColumnName="petKnows_animalTypeID" />
+                <ScalarProperty Name="petKnowsID" ColumnName="petKnowsID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="petTodo">
             <EntityTypeMapping TypeName="DbAnimalModel.petTodo">
               <MappingFragment StoreEntitySet="petTodo">
-                <ScalarProperty Name="petTodoID" ColumnName="petTodoID" />
-                <ScalarProperty Name="petTodo_animalID" ColumnName="petTodo_animalID" />
-                <ScalarProperty Name="petTodo_todoDataID" ColumnName="petTodo_todoDataID" />
-                <ScalarProperty Name="petTododate" ColumnName="petTododate" />
                 <ScalarProperty Name="petTodoYN" ColumnName="petTodoYN" />
+                <ScalarProperty Name="petTododate" ColumnName="petTododate" />
+                <ScalarProperty Name="petTodo_todoDataID" ColumnName="petTodo_todoDataID" />
+                <ScalarProperty Name="petTodo_animalID" ColumnName="petTodo_animalID" />
+                <ScalarProperty Name="petTodoID" ColumnName="petTodoID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="remind">
             <EntityTypeMapping TypeName="DbAnimalModel.remind">
               <MappingFragment StoreEntitySet="remind">
-                <ScalarProperty Name="remindID" ColumnName="remindID" />
-                <ScalarProperty Name="remind_userID" ColumnName="remind_userID" />
-                <ScalarProperty Name="remindFollow" ColumnName="remindFollow" />
-                <ScalarProperty Name="remindTodo" ColumnName="remindTodo" />
-                <ScalarProperty Name="remindMsg" ColumnName="remindMsg" />
                 <ScalarProperty Name="remindSearch" ColumnName="remindSearch" />
+                <ScalarProperty Name="remindMsg" ColumnName="remindMsg" />
+                <ScalarProperty Name="remindTodo" ColumnName="remindTodo" />
+                <ScalarProperty Name="remindFollow" ColumnName="remindFollow" />
+                <ScalarProperty Name="remind_userID" ColumnName="remind_userID" />
+                <ScalarProperty Name="remindID" ColumnName="remindID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="search">
             <EntityTypeMapping TypeName="DbAnimalModel.search">
               <MappingFragment StoreEntitySet="search">
-                <ScalarProperty Name="SearchID" ColumnName="SearchID" />
-                <ScalarProperty Name="Search_userID" ColumnName="Search_userID" />
-                <ScalarProperty Name="SearchType_animalTypeID" ColumnName="SearchType_animalTypeID" />
-                <ScalarProperty Name="SearchAge" ColumnName="SearchAge" />
                 <ScalarProperty Name="SearchColor" ColumnName="SearchColor" />
+                <ScalarProperty Name="SearchAge" ColumnName="SearchAge" />
+                <ScalarProperty Name="SearchType_animalTypeID" ColumnName="SearchType_animalTypeID" />
+                <ScalarProperty Name="Search_userID" ColumnName="Search_userID" />
+                <ScalarProperty Name="SearchID" ColumnName="SearchID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="shelter">
+            <EntityTypeMapping TypeName="DbAnimalModel.shelter">
+              <MappingFragment StoreEntitySet="shelter">
+                <ScalarProperty Name="shelterPic" ColumnName="shelterPic" />
+                <ScalarProperty Name="shelterContent" ColumnName="shelterContent" />
+                <ScalarProperty Name="shelterURL" ColumnName="shelterURL" />
+                <ScalarProperty Name="shelterPhone" ColumnName="shelterPhone" />
+                <ScalarProperty Name="shelter_mapID" ColumnName="shelter_mapID" />
+                <ScalarProperty Name="shelterLocation" ColumnName="shelterLocation" />
+                <ScalarProperty Name="shelterName" ColumnName="shelterName" />
+                <ScalarProperty Name="shelterID" ColumnName="shelterID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="DbAnimalModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="todoData">
             <EntityTypeMapping TypeName="DbAnimalModel.todoData">
               <MappingFragment StoreEntitySet="todoData">
-                <ScalarProperty Name="todoDataID" ColumnName="todoDataID" />
-                <ScalarProperty Name="todoDataTitle" ColumnName="todoDataTitle" />
-                <ScalarProperty Name="todoDataContent" ColumnName="todoDataContent" />
                 <ScalarProperty Name="todoDataDocument" ColumnName="todoDataDocument" />
+                <ScalarProperty Name="todoDataContent" ColumnName="todoDataContent" />
+                <ScalarProperty Name="todoDataTitle" ColumnName="todoDataTitle" />
+                <ScalarProperty Name="todoDataID" ColumnName="todoDataID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="aniDataAll">
             <EntityTypeMapping TypeName="DbAnimalModel.aniDataAll">
               <MappingFragment StoreEntitySet="aniDataAll">
-                <ScalarProperty Name="animalID" ColumnName="animalID" />
-                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
-                <ScalarProperty Name="animalType" ColumnName="animalType" />
-                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
-                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
-                <ScalarProperty Name="animalDate" ColumnName="animalDate" />
-                <ScalarProperty Name="animalChip" ColumnName="animalChip" />
-                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
-                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
-                <ScalarProperty Name="animalHealthy" ColumnName="animalHealthy" />
-                <ScalarProperty Name="animalName" ColumnName="animalName" />
-                <ScalarProperty Name="animalNote" ColumnName="animalNote" />
-                <ScalarProperty Name="animalReason" ColumnName="animalReason" />
-                <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
-                <ScalarProperty Name="conditionAge" ColumnName="conditionAge" />
-                <ScalarProperty Name="conditionEconomy" ColumnName="conditionEconomy" />
-                <ScalarProperty Name="conditionFamily" ColumnName="conditionFamily" />
-                <ScalarProperty Name="conditionFee" ColumnName="conditionFee" />
-                <ScalarProperty Name="conditionHome" ColumnName="conditionHome" />
-                <ScalarProperty Name="conditionPaper" ColumnName="conditionPaper" />
-                <ScalarProperty Name="conditionReply" ColumnName="conditionReply" />
-                <ScalarProperty Name="conditionOther" ColumnName="conditionOther" />
                 <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
+                <ScalarProperty Name="conditionOther" ColumnName="conditionOther" />
+                <ScalarProperty Name="conditionReply" ColumnName="conditionReply" />
+                <ScalarProperty Name="conditionPaper" ColumnName="conditionPaper" />
+                <ScalarProperty Name="conditionHome" ColumnName="conditionHome" />
+                <ScalarProperty Name="conditionFee" ColumnName="conditionFee" />
+                <ScalarProperty Name="conditionFamily" ColumnName="conditionFamily" />
+                <ScalarProperty Name="conditionEconomy" ColumnName="conditionEconomy" />
+                <ScalarProperty Name="conditionAge" ColumnName="conditionAge" />
+                <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
+                <ScalarProperty Name="animalReason" ColumnName="animalReason" />
+                <ScalarProperty Name="animalNote" ColumnName="animalNote" />
+                <ScalarProperty Name="animalName" ColumnName="animalName" />
+                <ScalarProperty Name="animalHealthy" ColumnName="animalHealthy" />
+                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
+                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
+                <ScalarProperty Name="animalChip" ColumnName="animalChip" />
+                <ScalarProperty Name="animalDate" ColumnName="animalDate" />
+                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
+                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
+                <ScalarProperty Name="animalType" ColumnName="animalType" />
+                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
+                <ScalarProperty Name="animalID" ColumnName="animalID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="aniDataPic">
             <EntityTypeMapping TypeName="DbAnimalModel.aniDataPic">
               <MappingFragment StoreEntitySet="aniDataPic">
-                <ScalarProperty Name="animalID" ColumnName="animalID" />
-                <ScalarProperty Name="animalName" ColumnName="animalName" />
-                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
-                <ScalarProperty Name="animalType" ColumnName="animalType" />
-                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
-                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
-                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
-                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
-                <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
                 <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
+                <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
+                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
+                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
+                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
+                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
+                <ScalarProperty Name="animalType" ColumnName="animalType" />
+                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
+                <ScalarProperty Name="animalName" ColumnName="animalName" />
+                <ScalarProperty Name="animalID" ColumnName="animalID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="aniDataPicOne">
             <EntityTypeMapping TypeName="DbAnimalModel.aniDataPicOne">
               <MappingFragment StoreEntitySet="aniDataPicOne">
-                <ScalarProperty Name="animalID" ColumnName="animalID" />
-                <ScalarProperty Name="animalName" ColumnName="animalName" />
-                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
-                <ScalarProperty Name="animalType" ColumnName="animalType" />
-                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
-                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
-                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
-                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
-                <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
                 <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
+                <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
+                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
+                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
+                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
+                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
+                <ScalarProperty Name="animalType" ColumnName="animalType" />
+                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
+                <ScalarProperty Name="animalName" ColumnName="animalName" />
+                <ScalarProperty Name="animalID" ColumnName="animalID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="boardUser">
             <EntityTypeMapping TypeName="DbAnimalModel.boardUser">
               <MappingFragment StoreEntitySet="boardUser">
-                <ScalarProperty Name="boardID" ColumnName="boardID" />
-                <ScalarProperty Name="boardTime" ColumnName="boardTime" />
-                <ScalarProperty Name="board_userID" ColumnName="board_userID" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="board_animalID" ColumnName="board_animalID" />
                 <ScalarProperty Name="boardContent" ColumnName="boardContent" />
+                <ScalarProperty Name="board_animalID" ColumnName="board_animalID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="board_userID" ColumnName="board_userID" />
+                <ScalarProperty Name="boardTime" ColumnName="boardTime" />
+                <ScalarProperty Name="boardID" ColumnName="boardID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="followAni">
             <EntityTypeMapping TypeName="DbAnimalModel.followAni">
               <MappingFragment StoreEntitySet="followAni">
-                <ScalarProperty Name="testID" ColumnName="testID" />
-                <ScalarProperty Name="follow_userId" ColumnName="follow_userId" />
-                <ScalarProperty Name="animalID" ColumnName="animalID" />
-                <ScalarProperty Name="animalName" ColumnName="animalName" />
-                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
-                <ScalarProperty Name="animalType" ColumnName="animalType" />
-                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
-                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
-                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
-                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
-                <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
-                <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
                 <ScalarProperty Name="followID" ColumnName="followID" />
+                <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
+                <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
+                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
+                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
+                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
+                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
+                <ScalarProperty Name="animalType" ColumnName="animalType" />
+                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
+                <ScalarProperty Name="animalName" ColumnName="animalName" />
+                <ScalarProperty Name="animalID" ColumnName="animalID" />
+                <ScalarProperty Name="follow_userId" ColumnName="follow_userId" />
+                <ScalarProperty Name="testID" ColumnName="testID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MsgUser">
             <EntityTypeMapping TypeName="DbAnimalModel.MsgUser">
               <MappingFragment StoreEntitySet="MsgUser">
-                <ScalarProperty Name="msgID" ColumnName="msgID" />
-                <ScalarProperty Name="msgTime" ColumnName="msgTime" />
-                <ScalarProperty Name="msgFrom_userID" ColumnName="msgFrom_userID" />
-                <ScalarProperty Name="msgFrom_userName" ColumnName="msgFrom_userName" />
-                <ScalarProperty Name="msgTo_userID" ColumnName="msgTo_userID" />
-                <ScalarProperty Name="msgType" ColumnName="msgType" />
-                <ScalarProperty Name="msgFromURL" ColumnName="msgFromURL" />
-                <ScalarProperty Name="msgContent" ColumnName="msgContent" />
                 <ScalarProperty Name="msgRead" ColumnName="msgRead" />
+                <ScalarProperty Name="msgContent" ColumnName="msgContent" />
+                <ScalarProperty Name="msgFromURL" ColumnName="msgFromURL" />
+                <ScalarProperty Name="msgType" ColumnName="msgType" />
+                <ScalarProperty Name="msgTo_userID" ColumnName="msgTo_userID" />
+                <ScalarProperty Name="msgFrom_userName" ColumnName="msgFrom_userName" />
+                <ScalarProperty Name="msgFrom_userID" ColumnName="msgFrom_userID" />
+                <ScalarProperty Name="msgTime" ColumnName="msgTime" />
+                <ScalarProperty Name="msgID" ColumnName="msgID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <AssociationSetMapping Name="AspNetUserRoles" TypeName="DbAnimalModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
-            <EndProperty Name="AspNetRoles">
-              <ScalarProperty Name="Id" ColumnName="RoleId" />
-            </EndProperty>
             <EndProperty Name="AspNetUsers">
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="giveAnimal" TypeName="DbAnimalModel.giveAnimal" StoreEntitySet="giveAnimal">
-            <EndProperty Name="AspNetUsers">
-              <ScalarProperty Name="Id" ColumnName="give_userId" />
-            </EndProperty>
-            <EndProperty Name="animalData">
-              <ScalarProperty Name="animalID" ColumnName="give_animalID" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="pair" TypeName="DbAnimalModel.pair" StoreEntitySet="pair">
-            <EndProperty Name="animalData">
-              <ScalarProperty Name="animalID" ColumnName="pair_animalID" />
-            </EndProperty>
-            <EndProperty Name="AspNetUsers">
-              <ScalarProperty Name="Id" ColumnName="pair_userId" />
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

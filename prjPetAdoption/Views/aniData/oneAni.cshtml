@@ -8,30 +8,28 @@
 <h2>動物資訊</h2>
 
 
-<link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+@*<link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">*@
 <link rel="stylesheet" href="~/Content/animalDetailcss/animalDetail.css">
 <link rel="stylesheet" type="text/css" href="~/Content/animalDetailcss/jquery-ui.css" />
-<script src="~/Scripts/animalDetailjs/animalDetail.js"></script>
-@*<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>*@
-<script type="text/javascript" src="~/Scripts/animalDetailjs/jquery-ui.min.js"></script>
+
 
 <section>
     <div class="container">
         <div class="row fbshare">
             <div class="col-md-12">
 
-                <!--Facebook Share-->
-                <div id="fb-root"></div>
-                <script>
-(function(d, s, id) {
+                <	<!--Facebook Share-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
 						  var js, fjs = d.getElementsByTagName(s)[0];
 						  if (d.getElementById(id)) return;
 						  js = d.createElement(s); js.id = id;
 						  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8";
 						  fjs.parentNode.insertBefore(js, fjs);
 						}(document, 'script', 'facebook-jssdk'));</script>
-
-                <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Ftwpetanimal.ddns.net%2F&layout=button_count&size=small&mobile_iframe=true&width=63&height=20&appId" width="63" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+<iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Ftwpetanimal.ddns.net%2F&layout=button_count&size=small&mobile_iframe=true&width=63&height=20&appId" width="63" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>                
+                
+                
                 @foreach (var item in Model.aniDataPicOneList)
                 {        @Html.DisplayFor(modelItem => item.animalID)
                  }
@@ -140,8 +138,6 @@
     </div>
 </section>
 
-
-<br />
 <section>
     <div class="container">
         <div class="row">
@@ -196,28 +192,32 @@
                                     <td class="table3">不限</td>
                                 </tr>
                             </table>
-                            <div class="buttoncenter">
 
-                                <button type="button" class="btn btn-primary">加入追蹤</button>
-
-
-
-                                <button type="button" class="btn btn-success">我要認養</button>
-
-                            </div>
 
                         </section>
                         <section class="tabs-panel" id="work02"></section>
+
+
+
                         <section class="tabs-panel" id="work03"></section>
 
                     </div>
 
                 </section>
-                
+                <div class="buttoncenter">
+
+                    <button type="button" class="btn btn-primary">加入追蹤</button>
+
+
+
+                    <button type="button" class="btn btn-success">我要認養</button>
+
+                </div>
             </div>
         </div>
     </div>
 </section>
+@section Scripts {
+    @Scripts.Render("~/bundles/animalDetail/animalDetailJS")
 
-
-<script src="~/Scripts/animalDetailjs/lightbox-plus-jquery.min.js"></script>
+}

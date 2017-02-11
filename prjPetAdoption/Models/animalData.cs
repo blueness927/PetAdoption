@@ -22,8 +22,6 @@ namespace prjPetAdoption.Models
             this.board = new HashSet<board>();
             this.follow = new HashSet<follow>();
             this.petTodo = new HashSet<petTodo>();
-            this.AspNetUsers = new HashSet<AspNetUsers>();
-            this.AspNetUsers1 = new HashSet<AspNetUsers>();
         }
     
         public int animalID { get; set; }
@@ -56,9 +54,5 @@ namespace prjPetAdoption.Models
         public virtual ICollection<follow> follow { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<petTodo> petTodo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AspNetUsers> AspNetUsers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AspNetUsers> AspNetUsers1 { get; set; }
     }
 }

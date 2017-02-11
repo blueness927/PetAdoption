@@ -5,51 +5,50 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="e5b25f0c4ba3486e87b20248b0b818f6" Name="Diagram1">
-        <EntityTypeShape EntityType="DbAnimalModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.animalData" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.animalData_Condition" Width="1.5" PointX="7.5" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.animalData_Pic" Width="1.5" PointX="7.5" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.animalData_Type" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="17.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.AspNetUsers" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.board" Width="1.5" PointX="7.5" PointY="13.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.follow" Width="1.5" PointX="10.5" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.forum" Width="1.5" PointX="5.25" PointY="24.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.forum_reply" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.map" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.Msg" Width="1.5" PointX="5.25" PointY="27.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.petFAQ" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.petKnows" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.petTodo" Width="1.5" PointX="10.5" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.remind" Width="1.5" PointX="5.25" PointY="31" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.search" Width="1.5" PointX="5.25" PointY="34.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.todoData" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.aniDataAll" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.aniDataPic" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.aniDataPicOne" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.boardUser" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.followAni" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbAnimalModel.MsgUser" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
-        <AssociationConnector Association="DbAnimalModel.FK__animalDat__anima__19AACF41" ManuallyRouted="false" />
-        <AssociationConnector Association="DbAnimalModel.FK__animalDat__condi__251C81ED" ManuallyRouted="false" />
-        <AssociationConnector Association="DbAnimalModel.FK__board__board_ani__2BC97F7C" ManuallyRouted="false" />
-        <AssociationConnector Association="DbAnimalModel.FK__follow__follow_a__16CE6296" ManuallyRouted="false" />
-        <AssociationConnector Association="DbAnimalModel.FK__petTodo__petTodo__46B27FE2" ManuallyRouted="false" />
-        <AssociationConnector Association="DbAnimalModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="DbAnimalModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="DbAnimalModel.FK__board__board_use__2CBDA3B5" ManuallyRouted="false" />
-        <AssociationConnector Association="DbAnimalModel.FK__follow__follow_u__15DA3E5D" ManuallyRouted="false" />
-        <AssociationConnector Association="DbAnimalModel.FK__forum__forum_use__4A8310C6" ManuallyRouted="false" />
-        <AssociationConnector Association="DbAnimalModel.FK__Msg__msgTo_userI__7D0E9093" ManuallyRouted="false" />
-        <AssociationConnector Association="DbAnimalModel.FK__remind__remind_u__5224328E" ManuallyRouted="false" />
-        <AssociationConnector Association="DbAnimalModel.FK__search__Search_u__4F47C5E3" ManuallyRouted="false" />
-        <AssociationConnector Association="DbAnimalModel.FK__petTodo__petTodo__47A6A41B" ManuallyRouted="false" />
-        <AssociationConnector Association="DbAnimalModel.AspNetUserRoles" ManuallyRouted="false" />
-        <AssociationConnector Association="DbAnimalModel.giveAnimal" ManuallyRouted="false" />
-        <AssociationConnector Association="DbAnimalModel.pair" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DbAnimalModel.C__MigrationHistory" Width="1.5" PointX="8.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.animalData" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="DbAnimalModel.animalData_Condition" Width="1.5" PointX="3" PointY="14.375" />
+        <EntityTypeShape EntityType="DbAnimalModel.animalData_Pic" Width="1.5" PointX="3" PointY="3.125" />
+        <EntityTypeShape EntityType="DbAnimalModel.animalData_Type" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.AspNetRoles" Width="1.5" PointX="5.75" PointY="2.5" />
+        <EntityTypeShape EntityType="DbAnimalModel.AspNetUserClaims" Width="1.5" PointX="10.25" PointY="1" />
+        <EntityTypeShape EntityType="DbAnimalModel.AspNetUserLogins" Width="1.5" PointX="10.25" PointY="3.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.AspNetUsers" Width="1.5" PointX="8" PointY="1.375" />
+        <EntityTypeShape EntityType="DbAnimalModel.board" Width="1.5" PointX="3" PointY="11.25" />
+        <EntityTypeShape EntityType="DbAnimalModel.follow" Width="1.5" PointX="3" PointY="8.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.forum" Width="1.5" PointX="8.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.forum_reply" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.map" Width="1.5" PointX="10.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.Msg" Width="1.5" PointX="10.75" PointY="10.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.petFAQ" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.petKnows" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.petTodo" Width="1.5" PointX="6" PointY="7.625" />
+        <EntityTypeShape EntityType="DbAnimalModel.remind" Width="1.5" PointX="12.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.search" Width="1.5" PointX="7.75" PointY="12.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.shelter" Width="1.5" PointX="12.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.sysdiagrams" Width="1.5" PointX="12.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.todoData" Width="1.5" PointX="3.75" PointY="5.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.aniDataAll" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.aniDataPic" Width="1.5" PointX="14.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.aniDataPicOne" Width="1.5" PointX="9.75" PointY="14.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.boardUser" Width="1.5" PointX="14.75" PointY="11.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.followAni" Width="1.5" PointX="5.75" PointY="15.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.MsgUser" Width="1.5" PointX="14.75" PointY="15.75" />
+        <AssociationConnector Association="DbAnimalModel.FK__animalDat__anima__19AACF41" />
+        <AssociationConnector Association="DbAnimalModel.FK__animalDat__condi__251C81ED" />
+        <AssociationConnector Association="DbAnimalModel.FK__board__board_ani__3A179ED3" />
+        <AssociationConnector Association="DbAnimalModel.FK__follow__follow_a__477199F1" />
+        <AssociationConnector Association="DbAnimalModel.FK__petTodo__petTodo__46B27FE2" />
+        <AssociationConnector Association="DbAnimalModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="DbAnimalModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="DbAnimalModel.FK__petTodo__petTodo__47A6A41B" />
+        <AssociationConnector Association="DbAnimalModel.AspNetUserRoles" />
+        <AssociationConnector Association="DbAnimalModel.FK__board__board_use__1C5231C2" />
+        <AssociationConnector Association="DbAnimalModel.FK__follow__follow_u__24E777C3" />
+        <AssociationConnector Association="DbAnimalModel.FK__forum__forum_use__3AD6B8E2" />
+        <AssociationConnector Association="DbAnimalModel.FK__Msg__msgTo_userI__3F9B6DFF" />
+        <AssociationConnector Association="DbAnimalModel.FK__remind__remind_u__3335971A" />
+        <AssociationConnector Association="DbAnimalModel.FK__search__Search_u__30592A6F" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

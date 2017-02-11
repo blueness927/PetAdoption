@@ -197,7 +197,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\opAnimalController.cs" />
-    <Compile Include="Controllers\TEST\MsgsController.cs" />
     <Compile Include="Controllers\TEST\ViewTestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -298,6 +297,9 @@
       <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\search.cs">
+      <DependentUpon>DBAnimal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\shelter.cs">
       <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagrams.cs">
@@ -404,7 +406,6 @@
     <None Include="Properties\PublishProfiles\web.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\animalDetailjs\animalDetail.js" />
-    <Content Include="Scripts\animalDetailjs\jquery-ui.min.js" />
     <Content Include="Scripts\animalDetailjs\lightbox-plus-jquery.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -472,11 +473,6 @@
     <Content Include="Views\animalDatas\Details.cshtml" />
     <Content Include="Views\animalDatas\Edit.cshtml" />
     <Content Include="Views\animalDatas\Index.cshtml" />
-    <Content Include="Views\Msgs\Create.cshtml" />
-    <Content Include="Views\Msgs\Delete.cshtml" />
-    <Content Include="Views\Msgs\Details.cshtml" />
-    <Content Include="Views\Msgs\Edit.cshtml" />
-    <Content Include="Views\Msgs\Index.cshtml" />
     <Content Include="Views\aniData\showForAni.cshtml" />
     <Content Include="Views\aniData\oneAni.cshtml" />
     <Content Include="Views\opAnimal\opAniOne.cshtml" />

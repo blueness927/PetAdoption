@@ -45,6 +45,7 @@ namespace prjPetAdoption.Models
         public virtual DbSet<petTodo> petTodo { get; set; }
         public virtual DbSet<remind> remind { get; set; }
         public virtual DbSet<search> search { get; set; }
+        public virtual DbSet<shelter> shelter { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<todoData> todoData { get; set; }
         public virtual DbSet<aniDataAll> aniDataAll { get; set; }
