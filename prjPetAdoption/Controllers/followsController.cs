@@ -10,113 +10,116 @@ using prjPetAdoption.Models;
 
 namespace prjPetAdoption.Controllers
 {
-    public class animalData_Pic1Controller : Controller
+    public class followsController : Controller
     {
         private DbAnimal db = new DbAnimal();
 
-        // GET: animalData_Pic1
+        // GET: follows
         public ActionResult Index()
         {
-            var animalData_Pic = db.animalData_Pic.Include(a => a.animalData);
-            return View(animalData_Pic.ToList());
+            var follow = db.follow.Include(f => f.animalData).Include(f => f.AspNetUsers);
+            return View(follow.ToList());
         }
 
-        // GET: animalData_Pic1/Details/5
+        // GET: follows/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            animalData_Pic animalData_Pic = db.animalData_Pic.Find(id);
-            if (animalData_Pic == null)
+            follow follow = db.follow.Find(id);
+            if (follow == null)
             {
                 return HttpNotFound();
             }
-            return View(animalData_Pic);
+            return View(follow);
         }
 
-        // GET: animalData_Pic1/Create
+        // GET: follows/Create
         public ActionResult Create()
         {
-            int? intIdt = db.animalData.Max(u => (int?)u.animalID);
-            ViewBag.animalID = intIdt;
+            ViewBag.follow_animalID = new SelectList(db.animalData, "animalID", "animalKind");
+            ViewBag.follow_userId = new SelectList(db.AspNetUsers, "Id", "Email");
             return View();
         }
 
-        // POST: animalData_Pic1/Create
+        // POST: follows/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "animalPicID,animalPic_animalID,animalPicAddress")] animalData_Pic animalData_Pic)
+        public ActionResult Create([Bind(Include = "followID,follow_userId,follow_animalID")] follow follow)
         {
             if (ModelState.IsValid)
             {
-                db.animalData_Pic.Add(animalData_Pic);
+                db.follow.Add(follow);
                 db.SaveChanges();
-                return RedirectToAction("oneAni","aniData",new { id = animalData_Pic.animalPic_animalID });
+                return RedirectToAction("Index");
             }
 
-            ViewBag.animalPic_animalID = new SelectList(db.animalData, "animalID", "animalKind", animalData_Pic.animalPic_animalID);
-            return View(animalData_Pic);
+            ViewBag.follow_animalID = new SelectList(db.animalData, "animalID", "animalKind", follow.follow_animalID);
+            ViewBag.follow_userId = new SelectList(db.AspNetUsers, "Id", "Email", follow.follow_userId);
+            return View(follow);
         }
 
-        // GET: animalData_Pic1/Edit/5
+        // GET: follows/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            animalData_Pic animalData_Pic = db.animalData_Pic.Find(id);
-            if (animalData_Pic == null)
+            follow follow = db.follow.Find(id);
+            if (follow == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.animalPic_animalID = new SelectList(db.animalData, "animalID", "animalKind", animalData_Pic.animalPic_animalID);
-            return View(animalData_Pic);
+            ViewBag.follow_animalID = new SelectList(db.animalData, "animalID", "animalKind", follow.follow_animalID);
+            ViewBag.follow_userId = new SelectList(db.AspNetUsers, "Id", "Email", follow.follow_userId);
+            return View(follow);
         }
 
-        // POST: animalData_Pic1/Edit/5
+        // POST: follows/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "animalPicID,animalPic_animalID,animalPicAddress")] animalData_Pic animalData_Pic)
+        public ActionResult Edit([Bind(Include = "followID,follow_userId,follow_animalID")] follow follow)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(animalData_Pic).State = EntityState.Modified;
+                db.Entry(follow).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.animalPic_animalID = new SelectList(db.animalData, "animalID", "animalKind", animalData_Pic.animalPic_animalID);
-            return View(animalData_Pic);
+            ViewBag.follow_animalID = new SelectList(db.animalData, "animalID", "animalKind", follow.follow_animalID);
+            ViewBag.follow_userId = new SelectList(db.AspNetUsers, "Id", "Email", follow.follow_userId);
+            return View(follow);
         }
 
-        // GET: animalData_Pic1/Delete/5
+        // GET: follows/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            animalData_Pic animalData_Pic = db.animalData_Pic.Find(id);
-            if (animalData_Pic == null)
+            follow follow = db.follow.Find(id);
+            if (follow == null)
             {
                 return HttpNotFound();
             }
-            return View(animalData_Pic);
+            return View(follow);
         }
 
-        // POST: animalData_Pic1/Delete/5
+        // POST: follows/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            animalData_Pic animalData_Pic = db.animalData_Pic.Find(id);
-            db.animalData_Pic.Remove(animalData_Pic);
+            follow follow = db.follow.Find(id);
+            db.follow.Remove(follow);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

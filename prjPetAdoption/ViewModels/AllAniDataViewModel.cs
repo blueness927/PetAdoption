@@ -44,5 +44,7 @@ namespace prjPetAdoption.ViewModels
         public IEnumerable<aniDataPicOne> aniDataPicOneList { get; set; }
         public IEnumerable<map> mapList { get; set; }
         public IEnumerable<boardUser> boardUserList { get; set; }
+        public IEnumerable<animalData_Condition> animalData_ConList { get; set; }
+
     }
 }

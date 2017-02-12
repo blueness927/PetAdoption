@@ -40,9 +40,14 @@ namespace prjPetAdoption.Controllers
             var aniData = db.animalData_Pic.Where(x => x.animalPic_animalID == id).ToList();
             var myanimalPic = db.aniDataPicOne.Where(x => x.animalID == id).ToList();
             var board = db.boardUser.Where(x => x.board_animalID == id).ToList();
+            var Data = db.animalData.Where(x => x.animalID == id).ToList();
+            var condi = db.animalData_Condition.Where(x => x.condition_animalID == id).ToList();
+
             AllAniData.animalData_PicList = aniData;
             AllAniData.aniDataPicOneList = myanimalPic;
             AllAniData.boardUserList = board;
+            AllAniData.animalDataList = Data;
+            AllAniData.animalData_ConList = condi;
             return View(AllAniData);
 
         }
@@ -107,7 +112,15 @@ namespace prjPetAdoption.Controllers
             if (ModelState.IsValid)
             {
                 db.board.Add(board);
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                    return RedirectToAction("oneAni", "aniData", new { id = board.board_animalID });
+                }
+                catch (Exception e)
+                {
+                    return RedirectToAction("oneAni", "aniData", new { id = board.board_animalID });
+                }
                 //return View();  
                 return RedirectToAction("oneAni", "aniData", new { id = board.board_animalID });
             }
@@ -116,5 +129,42 @@ namespace prjPetAdoption.Controllers
             ViewBag.board_userID = new SelectList(db.AspNetUsers, "Id", "Email", board.board_userID);
             return RedirectToAction("oneAni", "aniData", new { id = board.board_animalID });
         }
+
+
+
+
+        public ActionResult followCreate()
+        {
+
+            return View();
+        }
+
+        // POST: follows/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult followCreate([Bind(Include = "followID,follow_userId,follow_animalID")] follow follow)
+        {
+            if (ModelState.IsValid)
+            {
+                db.follow.Add(follow);
+                try
+                {
+                    db.SaveChanges();
+                    return RedirectToAction("oneAni", "aniData", new { id = follow.follow_animalID });
+                }
+                catch (Exception e)
+                {
+                    return RedirectToAction("oneAni", "aniData", new { id = follow.follow_animalID });
+                }
+
+                
+            }
+
+            ViewBag.follow_animalID = new SelectList(db.animalData, "animalID", "animalKind", follow.follow_animalID);
+            ViewBag.follow_userId = new SelectList(db.AspNetUsers, "Id", "Email", follow.follow_userId);
+            return RedirectToAction("oneAni", "aniData", new { id = follow.follow_animalID });
+        }
+
+
     }
 }

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<prjPetAdoption.Models.Msg>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.msgTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.msgFrom_userID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.msgType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.msgFromURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.msgContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.msgRead)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.msgTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.msgFrom_userID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.msgType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.msgFromURL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.msgContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.msgRead)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUsers.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.msgID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.msgID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.msgID })
+        </td>
+    </tr>
+}
+
+</table>

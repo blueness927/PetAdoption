@@ -1,0 +1,75 @@
+﻿@model prjPetAdoption.Models.Msg
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Msg</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.msgTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.msgTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.msgFrom_userID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.msgFrom_userID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.msgType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.msgType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.msgFromURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.msgFromURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.msgContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.msgContent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.msgRead)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.msgRead)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUsers.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.msgID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

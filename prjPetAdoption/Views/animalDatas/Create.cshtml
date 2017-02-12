@@ -24,7 +24,10 @@ var swap = function (val, input) {
 //    alert(selectV)
     //};
 
-//動態更新的方法
+    //動態更新的方法
+function aler() {
+    alert("請先登入會員。");
+}
 function chn() {
     
     addchg();
@@ -271,6 +274,18 @@ function addchg() {
                 </div>
         </div>
 
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    <text>
+        <script type="text/javascript">
+                function addID() {
+                                  
+                    $('#aOwner_userID').val('@User.Identity.GetUserId().ToString()');
+                };
+
+        </script>
+    </text>
         <div class="form-group">
             <label class="control-label col-md-2">送養人ID（系統自動設定）</label> @*待取得會員NAME事件*@
             <div class="col-md-10">
@@ -278,7 +293,7 @@ function addchg() {
                 @Html.ValidationMessageFor(model => model.animalOwner_userID, "", new { @class = "text-danger" })
             </div>
         </div>
-
+}
         <div class="form-group">
             <label class="control-label col-md-2">送養理由</label> 
             <div class="col-md-10">
@@ -300,7 +315,17 @@ function addchg() {
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 @Html.ActionLink("取消送養", "Index", "Home", new { area = "" }, new { @class = "btn btn-default" })
-                <input type="submit" value="下一步 填寫認養條件" class="btn btn-warning " />
+               @using Microsoft.AspNet.Identity
+            @if (Request.IsAuthenticated)
+            {
+                 <input type="submit" value="下一步 填寫認養條件" class="btn btn-warning " onclick="addID();" />
+            }
+            else
+            {
+                <input type="button" value="下一步 填寫認養條件" class="btn btn-warning " onclick="aler();" />
+            }
+
+
             </div>
         </div>
     </div>

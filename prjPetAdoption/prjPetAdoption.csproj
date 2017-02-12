@@ -195,8 +195,10 @@
     <Compile Include="Controllers\animalData_Pic1Controller.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\boardsController.cs" />
+    <Compile Include="Controllers\followsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MsgsController.cs" />
     <Compile Include="Controllers\opAnimalController.cs" />
     <Compile Include="Controllers\TEST\ViewTestController.cs" />
     <Compile Include="Global.asax.cs">
@@ -503,6 +505,16 @@
     <Content Include="Views\boards\Edit.cshtml" />
     <Content Include="Views\boards\Index.cshtml" />
     <Content Include="Views\aniData\BoardCreate.cshtml" />
+    <Content Include="Views\follows\Create.cshtml" />
+    <Content Include="Views\follows\Delete.cshtml" />
+    <Content Include="Views\follows\Details.cshtml" />
+    <Content Include="Views\follows\Edit.cshtml" />
+    <Content Include="Views\follows\Index.cshtml" />
+    <Content Include="Views\Msgs\Create.cshtml" />
+    <Content Include="Views\Msgs\Delete.cshtml" />
+    <Content Include="Views\Msgs\Details.cshtml" />
+    <Content Include="Views\Msgs\Edit.cshtml" />
+    <Content Include="Views\Msgs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

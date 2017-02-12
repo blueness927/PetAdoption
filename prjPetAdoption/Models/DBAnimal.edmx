@@ -24,7 +24,7 @@
           <Property Name="animalType" Type="nvarchar" MaxLength="50" />
           <Property Name="animalName" Type="nvarchar" MaxLength="50" />
           <Property Name="animalAddress" Type="nvarchar" MaxLength="50" />
-          <Property Name="animalDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="animalDate" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
           <Property Name="animalGender" Type="nvarchar" MaxLength="50" />
           <Property Name="animalAge" Type="int" />
           <Property Name="animalColor" Type="nvarchar" MaxLength="50" />
@@ -178,7 +178,7 @@
             <PropertyRef Name="msgID" />
           </Key>
           <Property Name="msgID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="msgTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="msgTime" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
           <Property Name="msgFrom_userID" Type="nvarchar" MaxLength="128" />
           <Property Name="msgTo_userID" Type="nvarchar" MaxLength="128" />
           <Property Name="msgType" Type="nvarchar" MaxLength="50" />
@@ -906,7 +906,7 @@
           <Property Name="animalType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="animalName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="animalAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="animalGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="animalAge" Type="Int32" />
           <Property Name="animalColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -1076,7 +1076,7 @@
             <PropertyRef Name="msgID" />
           </Key>
           <Property Name="msgID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="msgTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msgTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="msgFrom_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="msgTo_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="msgType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
