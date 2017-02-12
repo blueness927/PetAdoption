@@ -13,32 +13,34 @@
 <link rel="stylesheet" type="text/css" href="~/Content/animalDetailcss/jquery-ui.css" />
 
 
-<section>
-    <div class="container">
-        <div class="row fbshare">
-            <div class="col-md-12">
 
-                <	<!--Facebook Share-->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-						  var js, fjs = d.getElementsByTagName(s)[0];
-						  if (d.getElementById(id)) return;
-						  js = d.createElement(s); js.id = id;
-						  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8";
-						  fjs.parentNode.insertBefore(js, fjs);
-						}(document, 'script', 'facebook-jssdk'));</script>
-<iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Ftwpetanimal.ddns.net%2F&layout=button_count&size=small&mobile_iframe=true&width=63&height=20&appId" width="63" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>                
-                
-                
-                @foreach (var item in Model.aniDataPicOneList)
-                {        @Html.DisplayFor(modelItem => item.animalID)
-                 }
-            </div>
 
+
+<div class="container">
+    <div class="row fbshare">
+        <div class="col-md-12">
+
+            <!--Facebook Share-->
+            <div id="fb-root"></div>
+            <script>
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+            <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Ftwpetanimal.ddns.net%2F&layout=button_count&size=small&mobile_iframe=true&width=63&height=20&appId" width="63" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
+
+            @foreach (var item in Model.aniDataPicOneList)
+            {        @Html.DisplayFor(modelItem => item.animalID)
+            }
         </div>
-    </div>
 
-</section>
+    </div>
+</div>
+
 
 <section>
     <div class="container">
@@ -48,7 +50,7 @@
                 @foreach (var item in Model.aniDataPicOneList)
                 {
                     <a class="example-image-link" href="@Html.DisplayFor(modelItem => item.animalPicAddress)" data-lightbox="example-set" data-title=".">
-                        <img class="example-image" src="@Html.DisplayFor(modelItem => item.animalPicAddress)" alt="" style="display:block; margin:auto;"/>
+                        <img class="example-image" src="@Html.DisplayFor(modelItem => item.animalPicAddress)" alt="" style="display:block; margin:auto;" />
                     </a>
 
                 }
@@ -58,7 +60,7 @@
                         @foreach (var item in Model.animalData_PicList)
                         {
                             <a class="example-image-link" href="@Html.DisplayFor(modelItem => item.animalPicAddress)" data-lightbox="example-set" data-title="">
-                                <img class="example-image" src="@Html.DisplayFor(modelItem => item.animalPicAddress)" alt="" style="max-height:100px;width:auto"/>
+                                <img class="example-image" src="@Html.DisplayFor(modelItem => item.animalPicAddress)" alt="" style="max-height:100px;width:auto" />
                             </a>
                         }
                     </div>
@@ -137,7 +139,14 @@
         </div>
     </div>
 </section>
+<div class="buttoncenter">
 
+    <button type="button" class="btn btn-primary">加入追蹤</button>
+
+
+    <button type="button" class="btn btn-success">我要認養</button>
+
+</div>
 <section>
     <div class="container">
         <div class="row">
@@ -148,7 +157,7 @@
 
                     <header class="section-header clearfix">
                         <div class="inner">
-                       
+
                             <ul class="tabs-nav tabs3">
                                 <li><a href="#work01">認養條件</a></li>
                                 <li><a href="#work02">留言</a></li>
@@ -195,24 +204,98 @@
 
 
                         </section>
-                        <section class="tabs-panel" id="work02"></section>
+                        <section class="tabs-panel" id="work02">
+                            <script  type="text/javascript">
+                                function addID() {
+                                @foreach (var item in Model.aniDataPicOneList)
+                                {<text>
+                                    var aid = @item.animalID.ToString();
+                                    </text>
+                                }
 
 
 
+
+
+
+
+                                    $('#animalid').val(aid);
+                                };
+
+
+                            </script>
+                            <div>
+
+                            @using (Html.BeginForm("BoardCreate", "aniData", FormMethod.Post, new { }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+                                    <h4>board</h4>
+                                    <hr />
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">使用者ID</label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.board.board_userID, new { htmlAttributes = new { @class = "form-control", @id = "userid" } })
+                                            @Html.ValidationMessageFor(model => model.board.board_userID, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">動物ID</label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.board.board_animalID, new { htmlAttributes = new { @class = "form-control", @id = "animalid" } })
+                                            @Html.ValidationMessageFor(model => model.board.board_animalID, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">留言內容</label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.board.boardContent, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.board.boardContent, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="留言" class="btn btn-default" onclick="addID()" />
+
+                                            <input id="Button1" type="button" value="button" onclick="addID()" />
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            <table class="table" @*style="background-color:#DFEABA"*@>
+
+                                @foreach (var item in Model.boardUserList)
+                                {
+                                    <tr>
+                                        <td class="col-md-2">日期</td>
+                                        <td class="col-md-offset-2 col-md-2">@Html.DisplayFor(modelItem => item.boardTime)</td>
+                                        <td class="col-md-2">留言人</td>
+                                        <td class="col-md-6">@Html.DisplayFor(modelItem => item.UserName)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-2">內容</td>
+                                        <td class="col-md-offset-2 col-md-10" COLSPAN=3>@Html.DisplayFor(modelItem => item.boardContent)</td>
+                                    </tr>
+                                    <tr></tr>
+                                                                   
+
+                                }
+                            </table>
+                                </div>
+                        </section>
                         <section class="tabs-panel" id="work03"></section>
 
                     </div>
 
                 </section>
-                <div class="buttoncenter">
 
-                    <button type="button" class="btn btn-primary">加入追蹤</button>
-
-
-
-                    <button type="button" class="btn btn-success">我要認養</button>
-
-                </div>
             </div>
         </div>
     </div>

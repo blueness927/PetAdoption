@@ -34,7 +34,7 @@ namespace prjPetAdoption
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"
-                      
+
                       ));
             bundles.Add(new ScriptBundle("~/bundles/FAQ/FAQ").Include(
                      "~/Scripts/FAQ/FAQ.js"
@@ -43,7 +43,9 @@ namespace prjPetAdoption
                     "~/Scripts/animalDetailjs/animalDetail.js",
                     "~/Scripts/animalDetailjs/lightbox-plus-jquery.min.js"
                     ));
-
+            bundles.Add(new ScriptBundle("~/bundles/showForAdopt").Include(
+                      "~/Scripts/showForAdopt/AdoptedNavigate.js"                    
+                     )); 
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
@@ -52,6 +54,10 @@ namespace prjPetAdoption
                       "~/Content/jquery-ui.css"
                       ));
 
+            bundles.Add(new StyleBundle("~/Content/showForAdopt").Include(
+                    "~/Content/showForAdopt/AdoptedNavigate.css"
+  
+                        ));
 
         }
     }

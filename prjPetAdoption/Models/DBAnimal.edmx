@@ -126,7 +126,7 @@
             <PropertyRef Name="boardID" />
           </Key>
           <Property Name="boardID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="boardTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="boardTime" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
           <Property Name="board_userID" Type="nvarchar" MaxLength="128" />
           <Property Name="board_animalID" Type="int" />
           <Property Name="boardContent" Type="nvarchar" MaxLength="200" />
@@ -1019,7 +1019,7 @@
             <PropertyRef Name="boardID" />
           </Key>
           <Property Name="boardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="boardTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="boardTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="board_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="board_animalID" Type="Int32" />
           <Property Name="boardContent" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />

@@ -254,6 +254,10 @@
                             <td>@Html.DisplayFor(modelItem => item.shelter_tel)</td>
                         </tr>
                         <tr>
+                            <td>收容區域編號</td>
+                            <td>@Html.DisplayFor(modelItem => item.animal_subid)</td>
+                        </tr>
+                        <tr>
                             <td class="control-label col-md-3">附註</td>
                             <td class="control-label col-md-9">@Html.DisplayFor(modelItem => item.animal_remark)</td>
                         </tr>
@@ -266,13 +270,8 @@
 </section>
 
 <div class="buttoncenter">
-
-    <button type="button" class="btn btn-primary">加入追蹤</button>
-
-
-
+    @*<button type="button" class="btn btn-primary">加入追蹤</button>*@
     <button type="button" class="btn btn-success">我要認養</button>
-
 </div>
 @section Scripts {
     @Scripts.Render("~/bundles/animalDetail/animalDetailJS")

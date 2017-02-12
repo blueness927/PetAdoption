@@ -1,4 +1,4 @@
-/* Preload images */
+﻿/* Preload images */
 
 @charset "UTF-8";
 * {
@@ -366,7 +366,7 @@ img { vertical-align: middle; }
 /* パネル */
 .work-section .section-body {
   
-    height: 400px;
+     height: 100%;
     position: relative;
 }
 .work-section .section-body .image-wrapper {
@@ -390,7 +390,7 @@ img { vertical-align: middle; }
 }
 .no-js .work-section .section-body .image-wrapper,
 .no-js .work-section .section-body .content {
-    height: 400px;
+    height: 100%;
 }
 
 .work-section .section-body .content {

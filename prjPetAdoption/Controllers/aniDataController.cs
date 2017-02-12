@@ -20,7 +20,7 @@ namespace prjPetAdoption.Controllers
 
             AllAniData.animalDataList = aniData;
             AllAniData.animalData_PicList = aniDataPic;
-
+            
             return View(AllAniData);
         }
 
@@ -39,9 +39,10 @@ namespace prjPetAdoption.Controllers
         {
             var aniData = db.animalData_Pic.Where(x => x.animalPic_animalID == id).ToList();
             var myanimalPic = db.aniDataPicOne.Where(x => x.animalID == id).ToList();
+            var board = db.boardUser.Where(x => x.board_animalID == id).ToList();
             AllAniData.animalData_PicList = aniData;
             AllAniData.aniDataPicOneList = myanimalPic;
-
+            AllAniData.boardUserList = board;
             return View(AllAniData);
 
         }
@@ -91,6 +92,29 @@ namespace prjPetAdoption.Controllers
 
 
 
+        public ActionResult BoardCreate()
+        {
+            return RedirectToAction("oneAni", "aniData"/*, new { id = board.board_animalID }*/);
+        }
 
+        // POST: boards/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult BoardCreate([Bind(Include = "boardID,boardTime,board_userID,board_animalID,boardContent")] board board)
+        {
+            if (ModelState.IsValid)
+            {
+                db.board.Add(board);
+                db.SaveChanges();
+                //return View();  
+                return RedirectToAction("oneAni", "aniData", new { id = board.board_animalID });
+            }
+
+            ViewBag.board_animalID = new SelectList(db.animalData, "animalID", "animalKind", board.board_animalID);
+            ViewBag.board_userID = new SelectList(db.AspNetUsers, "Id", "Email", board.board_userID);
+            return RedirectToAction("oneAni", "aniData", new { id = board.board_animalID });
+        }
     }
 }

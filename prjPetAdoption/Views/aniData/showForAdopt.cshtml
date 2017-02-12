@@ -4,12 +4,110 @@
     ViewBag.Title = "showForAdopt";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@Styles.Render("~/Content/showForAdopt")
 
-<h4>目前愛心送養寵物</h4>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1>送養專區</h1>
+                <hr />
+                <p class="lead">本站提供網路送養刊登服務，送養流程、送養需知、平台使用規定請參照下列資訊。</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="adoptnavigate1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="menu">
+                    <li><a href="#" class="font-b">大</a></li>
+                    <li><a href="#" class="font-m">中</a></li>
+                    <li><a href="#" class="font-s">小</a></li>
+                </div>
+                <h1>送養刊登需知</h1>
+                <hr />
+                <div class="content">
+                    <p>
+                        您可以利用iPet 認養大平台刊登動物認養資訊：
+                    </p>
+                    <p>
+                        1.可以刊登貓、狗以及其他物種（兔、鼠、鳥）
+                        <br />
+                        2.每則訊息最多可上載五張圖片，系統將自動縮圖成適當大小，第一張強烈建議為橫幅照片。
+                        <br />
+                        3.每隻動物於本站於兩個月內僅限刊登一筆資料，每筆資料提交後皆由系統自動建立順序無法變更。請勿藉由頻繁重複刊登方式搶佔版面順序，若重複頻繁刊登，新提交的認養資訊將拒絕刊登；本站志工巡察版面時若發現此一情形，將僅保留最早刊登的資料，並得提請使用人注意、限縮刊登權限、刪除資料，情結嚴重時亦得直接刪除。
+                        <br />
+                        4.請提供最新的動物現況照片，幼貓幼犬在經過一個月就會有很大的改變，您也可以適時更新適時圖片，以避免造成認養人對動物現況的誤會。
+                        <br />
+                        5.請不要因為省事提供與現況不符的照片，或盜取他人張貼之照片，明顯不符或經查報，該則訊息將不予刊登或直接移除。
+                        <br />
+                        6.<strong>刊登期限：兩個月，逾期系統將自動刪除資料，若未送出，請重新刊登。</strong>
+                        <br />
+                        7. 認養訊息「標題」部分，為配合版面編排，請勿過長（20～30字間），若過長將予以刪節以利訊息刊登，請送養人以簡潔的標題，並勿重複地點、年齡、結紮、特殊與表情符號等內文已提供欄位之重複訊息。
+                        <br />
+                        8.為保持認養訊息內容之一致性，避免使用者之誤解。每筆認養資訊需保持唯一性，動物送養後請加註記或自行刪除。勿以同筆資料內更換動物認養資訊內容（例：A狗換B狗），新的待認養動物請重新刊登。
+                        <br />
+                        9.送養犬、貓動物，剛出生需斷奶後方能於本站刊登送養，如拾獲餵奶貓狗、自家貓狗懷胎生產等，請養育至斷奶後拍照送養，以送養資料照片進行判別，並且不開放以認養訊息徵求幼奶貓犬中途。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="adoptnavigate1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1>iPet 認養大平台使用規定</h1>
+                <hr />
+                <div class="content">
+                    <p class="lead">當您利用iPet 認養大平台刊登相關資訊時，您即同意下列約定：</p>
+                    <p>
+                        1.本站僅自願提供公益型態認養資訊之刊登服務，對於刊登內容及刊登人之行為均與本站無關，<strong>刊登人對於其刊登內容及送養之行為，負完全之責任</strong>，刊登人並有義務提供最確實之刊登內容及相關情形予以本站，並自行負責存檔備份刊登內容之責。刊登人於傳送刊登資料予以本站時，即同意本規則之內容。
+                        <br />
+                        <br />
+                        2.<strong>本站對於刊登資料保有最終篩選、修改、刊登與否之權利。</strong>
+                        <br />
+                        3.本站拒絕繁殖販賣生命，凡愛心送養刊登實際販賣生命者、要求補貼、認養價、營養費等對價行為，一律禁止！，違者將列入永久拒絕往來名單，並通報各大送養版面及相關網站，串聯抵制。本站有志工執行稽查機制，隨時對於刊登內容做隨機秘密之訪查。
+                        <br />
+                        4.您同意本站就您所張貼的資料內容（圖、文），就公益推廣及分享之精神，無償提供第三者（其他媒體、網站，以及其他訊息流通方式）推廣您的認養訊息，以達本站協助推廣認養之目的。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 @using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-md-4">
+        <a href="@Url.Action("Create", "animalDatas",new { id = User.Identity.GetUserName() })">
+            <span class="grid"><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" /></span>
+        </a>
+        <p>新增送養寵物</p>
+    </div>
+}
+else
+{
+    <div class="col-md-4">
+        <a href="@Url.Action("Login", "Account")">
+            <span class="grid"><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" /></span>
+        </a>
+        <p>請先註冊或登入</p>
+    </div>
+}
 
 
-@if (Model.aniDataPicOneList.Count() != 0)
+
+@*@if (Model.aniDataPicOneList.Count() != 0)
 {
     foreach (var item in Model.aniDataPicOneList)
     {
@@ -23,16 +121,16 @@
     <div class="col-md-12">
         <div class="col-md-4">
             <a href="@Url.Action("index", "animalData")">
-               <img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" />
+                <img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" />
                 <p>編輯送養資料</p>
-                </a>
-</div>
+            </a>
+        </div>
         <div class="col-md-4">
             <a href="@Url.Action("Create", "animalDatas")">
                 <img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" />
-    </a>
-                <p>我要送養寵物</p>
-</div>
+            </a>
+            <p>我要送養寵物</p>
+        </div>
     </div>
 }
 else
@@ -43,31 +141,9 @@ else
     </div>
     <br>
 
+}*@
 
-    if (Request.IsAuthenticated)
-    {
-        @Html.AntiForgeryToken()
+@section Scripts {
 
-    <div class="col-md-4">
-        <a href="@Url.Action("Create", "animalDatas",new { id = User.Identity.GetUserName() })">
-            <span class="grid"><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" /></span>
-        </a>
-        <p>新增送養寵物</p>
-    </div>
-    }
-    else
-    {
-        <div class="col-md-4">
-            <a href="@Url.Action("Login", "Account")">
-                <span class="grid"><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" /></span>
-            </a>
-            <p>請先註冊或登入</p>
-        </div>
-    }
-
-
-
-
+   @Scripts.Render("~/bundles/showForAdopt")
 }
-
-

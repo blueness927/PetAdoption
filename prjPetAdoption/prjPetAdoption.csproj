@@ -194,6 +194,7 @@
     <Compile Include="Controllers\animalData_ConditionController.cs" />
     <Compile Include="Controllers\animalData_Pic1Controller.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\boardsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\opAnimalController.cs" />
@@ -329,6 +330,7 @@
     <Content Include="Content\masonry.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\PetInformationCss\PetInformationCss.css" />
+    <Content Include="Content\showForAdopt\AdoptedNavigate.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -395,6 +397,7 @@
     <Content Include="Scripts\FAQ\FAQ.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\showForAdopt\AdoptedNavigate.js" />
     <Content Include="Views\animalDatas\aniType.json" />
     <EntityDeploy Include="Models\DBAnimal.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -494,6 +497,12 @@
     <Content Include="Views\Home\Help.cshtml" />
     <Content Include="Views\Home\Information.cshtml" />
     <Content Include="Views\Home\Rabbit.cshtml" />
+    <Content Include="Views\boards\Create.cshtml" />
+    <Content Include="Views\boards\Delete.cshtml" />
+    <Content Include="Views\boards\Details.cshtml" />
+    <Content Include="Views\boards\Edit.cshtml" />
+    <Content Include="Views\boards\Index.cshtml" />
+    <Content Include="Views\aniData\BoardCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
