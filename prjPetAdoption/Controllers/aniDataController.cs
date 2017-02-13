@@ -122,15 +122,14 @@ namespace prjPetAdoption.Controllers
                     return RedirectToAction("oneAni", "aniData", new { id = board.board_animalID });
                 }
                 //return View();  
-                return RedirectToAction("oneAni", "aniData", new { id = board.board_animalID });
+                
             }
 
             ViewBag.board_animalID = new SelectList(db.animalData, "animalID", "animalKind", board.board_animalID);
             ViewBag.board_userID = new SelectList(db.AspNetUsers, "Id", "Email", board.board_userID);
             return RedirectToAction("oneAni", "aniData", new { id = board.board_animalID });
         }
-
-
+        
 
 
         public ActionResult followCreate()
@@ -164,6 +163,39 @@ namespace prjPetAdoption.Controllers
             ViewBag.follow_userId = new SelectList(db.AspNetUsers, "Id", "Email", follow.follow_userId);
             return RedirectToAction("oneAni", "aniData", new { id = follow.follow_animalID });
         }
+
+
+
+        // GET: Msgs/Create
+        public ActionResult MsgCreate()
+        {
+            return View();
+        }
+
+        // POST: Msgs/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult MsgCreate([Bind(Include = "msgID,msgTime,msgFrom_userID,msgTo_userID,msgType,msgFromURL,msgContent,msgRead")] Msg msg)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Msg.Add(msg);
+                try
+                {
+                    db.SaveChanges();
+                    return RedirectToAction("oneAni", "aniData", new { id = msg.msgFromURL });
+                }
+                catch (Exception e)
+                {
+                    return RedirectToAction("oneAni", "aniData", new { id = msg.msgFromURL });
+                }
+            }
+
+
+            return View();
+        }
+
+
 
 
     }
