@@ -10,10 +10,9 @@
 <h2>收容所動物資訊</h2>
 <div class="row well">
     <form class="form" role="form">
-        <div class="=col-lg-3">
+        <div class="col-lg-3">
             <div class="input-group">
                 <span class="input-group-addon">縣市</span>
-
                 <select class="form-control" id="Districts" name="Districts">
                     <option value=""> -全部-</option>
                     <option value="2"> 臺北市</option>
@@ -40,24 +39,36 @@
                     <option value="23"> 連江縣</option>
                 </select>
 
-                @*@Html.DropDownList("Districts", null, "-不限-", new { @class = "form-control" })*@
+               
             </div>
         </div>
 
-        <div class="=col-lg-3">
+        <div class="col-lg-3">
             <div class="input-group">
                 <span class="input-group-addon">種類</span>
                 @Html.DropDownList("Types", null, "-全部-", new { @class = "form-control" })
             </div>
         </div>
-        <div class="=col-lg-2">
+        <div class="col-lg-2">
             <button type="submit" id="buttonSubmit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-search">查詢</span>
             </button>
         </div>
 
-
     </form>
+</div>
+<div class="row">
+    <div class="span8 text-center">
+    @Html.PagedListPager((IPagedList)Model,
+        page => Url.Action("opAnimalList", new
+        {
+            page = page,
+            districts = ViewBag.SelectedDistrict,
+            types = ViewBag.SelectedType
+
+        }),
+        PagedListRenderOptions.ClassicPlusFirstAndLast)
+        </div>
 </div>
 
 <div>
@@ -68,9 +79,8 @@
 
 
 </div>
-
-
 <div id="masonry" class="container-fluid">
+
     @foreach (var item in Model)
     {
       
@@ -111,17 +121,6 @@
 
 
 </div>
-@Html.PagedListPager((IPagedList)Model,
-        page => Url.Action("opAnimalList", new
-        {
-            page = page,
-            districts = ViewBag.SelectedDistrict,
-            types = ViewBag.SelectedType
-            
-        }),
-        PagedListRenderOptions.ClassicPlusFirstAndLast)
-
-
 
 @section scripts{
     @Styles.Render("~/Content/masonry.css")

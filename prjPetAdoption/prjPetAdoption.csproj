@@ -197,7 +197,7 @@
     <Compile Include="Controllers\boardsController.cs" />
     <Compile Include="Controllers\followsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\IPetController.cs" />
+    <Compile Include="Controllers\iPetController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MsgsController.cs" />
     <Compile Include="Controllers\opAnimalController.cs" />
@@ -516,7 +516,7 @@
     <Content Include="Views\Msgs\Details.cshtml" />
     <Content Include="Views\Msgs\Edit.cshtml" />
     <Content Include="Views\Msgs\Index.cshtml" />
-    <Content Include="Views\IPet\IPET.cshtml" />
+    <Content Include="Views\iPet\iPetInformation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
