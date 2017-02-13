@@ -1,4 +1,6 @@
-﻿@model IEnumerable<prjPetAdoption.Models.aniDataPicOne>
+﻿@using PagedList
+@using PagedList.Mvc
+@model IEnumerable<prjPetAdoption.Models.aniDataPicOne>
 
 @{
     ViewBag.Title = "IPET";
@@ -7,10 +9,9 @@
 <h2>iPet動物資訊</h2>
 <div class="row well">
     <form class="form" role="form">
-        <div class="=col-lg-3">
+        <div class="col-lg-3">
             <div class="input-group">
                 <span class="input-group-addon">縣市</span>
-
                 <select class="form-control" id="City" name="City">
                     <option value="">全部</option>
                     <option value="臺北市">臺北市</option>
@@ -36,25 +37,41 @@
                     <option value="金門縣">金門縣</option>
                     <option value="連江縣">連江縣</option>
                 </select>
-
-                @*@Html.DropDownList("City", null, "-不限-", new { @class = "form-control" })*@
             </div>
         </div>
-
-        <div class="=col-lg-3">
+        <div class="col-lg-3">
             <div class="input-group">
                 <span class="input-group-addon">種類</span>
-                @*@Html.DropDownList("City", null, "-全部-", new { @class = "form-control" })*@
+                @Html.DropDownList("Kind", null, "全部", new { @class = "form-control" })
             </div>
         </div>
-        <div class="=col-lg-2">
+        <div class="col-lg-4">
+            <div class="input-group">
+                <span class="input-group-addon">品種</span>
+                @Html.DropDownList("Type", null, "全部", new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="col-lg-2">
             <button type="submit" id="buttonSubmit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-search">查詢</span>
             </button>
         </div>
-
-
     </form>
+</div>
+
+<div class="row">
+    <div class="span8 text-center">
+        @Html.PagedListPager((IPagedList)Model,
+        page => Url.Action("iPetInformation", new
+        {
+            page = page,
+            city = ViewBag.SelectedCity,
+            type = ViewBag.SelectedType
+
+        }),
+        PagedListRenderOptions.ClassicPlusFirstAndLast)
+    </div>
 </div>
 
 <div>
@@ -70,44 +87,43 @@
 <div id="masonry" class="container-fluid">
     @foreach (var item in Model)
     {
-
         if (@item.animalPicAddress == "")
         {
-            <div class="thumbnail">
-                <a href=@Url.Action("opAniOne", "opAnimal", new { id = @Html.DisplayFor(modelItem => item.animalID) })>
+            <a href=@Url.Action("oneAni", "aniData", new { id = @Html.DisplayFor(modelItem => item.animalID) })>
+                <div class="thumbnail">
                     <div class="imgs">
-                        <img src="http://i.imgur.com/SfojWcu.png" width="300px" height="auto" />
+                        <img src="http://i.imgur.com/ELgcmBd.png" width="300" />
                     </div>
                     <div class="caption">
                         <div class="title">@Html.DisplayFor(modelItem => item.animalAddress)</div>
                         <div class="content">
+                            @Html.DisplayFor(modelItem => item.animalKind)
+                            @Html.DisplayFor(modelItem => item.animalType)
+                            @Html.DisplayFor(modelItem => item.animalAddress)
                         </div>
                     </div>
-                </a>
-            </div>
+                </div>
+            </a>
         }
-        else
-        {
+        <a href=@Url.Action("oneAni", "aniData", new { id = @Html.DisplayFor(modelItem => item.animalID) })>
             <div class="thumbnail">
-                <a href=@Url.Action("opAniOne", "opAnimal", new { id = @Html.DisplayFor(modelItem => item.animalID) })>
-                    <div class="imgs">
-                        <img src="@Html.DisplayFor(modelItem => item.animalPicAddress)" width="300px" height="auto" />
+
+                <div class="imgs">
+                    <img src="@Html.DisplayFor(modelItem => item.animalPicAddress)" width="300" />
+                </div>
+                <div class="caption">
+                    <div class="title">@Html.DisplayFor(modelItem => item.animalAddress)</div>
+                    <div class="content">
+                        @Html.DisplayFor(modelItem => item.animalKind)
+                        @Html.DisplayFor(modelItem => item.animalType)
+                        @Html.DisplayFor(modelItem => item.animalAddress)
                     </div>
-                    <div class="caption">
-                        <div class="title">@Html.DisplayFor(modelItem => item.animalAddress)</div>
-                        <div class="content">
-                        </div>
-                    </div>
-                </a>
+                </div>
             </div>
-        }
-
-
-
+        </a>
     }
-
-
 </div>
+
 @*@Html.PagedListPager((IPagedList)Model,
         page => Url.Action("opAnimalList", new
         {
