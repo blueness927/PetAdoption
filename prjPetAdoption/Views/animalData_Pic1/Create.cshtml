@@ -17,6 +17,10 @@
     function addID(){
         $('#upID').val(id);
     };
+
+    function iping(){
+        $('#picshow').append("圖片上傳中 請稍後");
+    };
                     
 </script>
 
@@ -29,7 +33,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            <button id="uploadResult" type="button" class="btn uploadBtn btn btn-primary  col-md-2">圖片上傳</button>
+            <button id="uploadResult" type="button" class="btn uploadBtn btn btn-primary  col-md-2" onclick="iping();">圖片上傳</button>
             <label for="comment">已上傳照片預覽如下</label>
 
             <div id="picshow" class="form-group col-md-offset-2 col-md-10" >
