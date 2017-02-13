@@ -89,7 +89,7 @@
     @Html.AntiForgeryToken()
 
     <div class="col-md-4">
-        <a href="@Url.Action("Create", "animalDatas",new { id = User.Identity.GetUserName() })">
+        <a href="@Url.Action("Create", "animalDatas",new { id = User.Identity.GetUserId() })">
             <span class="grid"><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" /></span>
         </a>
         <p>新增送養寵物</p>

@@ -86,7 +86,7 @@ namespace prjPetAdoption.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "登入嘗試失試。");
+                    ModelState.AddModelError("", "登入嘗試失敗。");
                     return View(model);
             }
         }

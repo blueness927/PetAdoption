@@ -96,7 +96,7 @@ function addchg() {
                 </select>
 
 
-                @Html.EditorFor(model => model.animalKind, new { htmlAttributes = new { @class = "form-control  ", @id = "aKind",@style = "visibility:hidden" } })
+                @Html.EditorFor(model => model.animalKind, new { htmlAttributes = new { @class = "form-control  ", @id = "aKind", @style = "display:none" } })
                 @Html.ValidationMessageFor(model => model.animalKind, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -109,7 +109,7 @@ function addchg() {
 
                 </select>
 
-                @Html.EditorFor(model => model.animalType, new { htmlAttributes = new { @class = "form-control  ", @id = "aType", @style = "visibility:hidden" } })
+                @Html.EditorFor(model => model.animalType, new { htmlAttributes = new { @class = "form-control  ", @id = "aType", @style = "display:none" } })
                 @Html.ValidationMessageFor(model => model.animalType, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -151,7 +151,7 @@ function addchg() {
                     <option value="連江縣"> 連江縣</option>
                 </select>
 
-                @Html.EditorFor(model => model.animalAddress, new { htmlAttributes = new { @class = "form-control  ", @id = "aAddress", @style = "visibility:hidden" } })
+                @Html.EditorFor(model => model.animalAddress, new { htmlAttributes = new { @class = "form-control  ", @id = "aAddress", @style = "display:none" } })
                 @Html.ValidationMessageFor(model => model.animalAddress, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -167,7 +167,7 @@ function addchg() {
                     <option value="未知"> 未知</option>
                 </select>
 
-                @Html.EditorFor(model => model.animalGender, new { htmlAttributes = new { @class = "form-control", @id = "aGender", @style = "visibility:hidden" } })
+                @Html.EditorFor(model => model.animalGender, new { htmlAttributes = new { @class = "form-control", @id = "aGender", @style = "display:none" } })
                 @Html.ValidationMessageFor(model => model.animalGender, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -198,7 +198,7 @@ function addchg() {
                     <option value="未知">未知</option>
                 </select>
 
-                @Html.EditorFor(model => model.animalBirth, new { htmlAttributes = new { @class = "form-control  ", @id = "aBirth", @style = "visibility:hidden" } })
+                @Html.EditorFor(model => model.animalBirth, new { htmlAttributes = new { @class = "form-control  ", @id = "aBirth", @style = "display:none" } })
                 @Html.ValidationMessageFor(model => model.animalBirth, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -213,7 +213,7 @@ function addchg() {
                     <option value="未知">未知</option>
                 </select>
 
-                @Html.EditorFor(model => model.animalChip, new { htmlAttributes = new { @class = "form-control  ", @id = "aChip", @style = "visibility:hidden" } })
+                @Html.EditorFor(model => model.animalChip, new { htmlAttributes = new { @class = "form-control  ", @id = "aChip", @style = "display:none" } })
                 @Html.ValidationMessageFor(model => model.animalChip, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -228,7 +228,7 @@ function addchg() {
                     <option value="未知"> 未知</option>
                 </select>
 
-                @Html.EditorFor(model => model.animalHealthy, new { htmlAttributes = new { @class = "form-control  ", @id = "aHealthy", @style = "visibility:hidden" } })
+                @Html.EditorFor(model => model.animalHealthy, new { htmlAttributes = new { @class = "form-control  ", @id = "aHealthy", @style = "display:none" } })
                 @Html.ValidationMessageFor(model => model.animalHealthy, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -279,18 +279,17 @@ function addchg() {
 {
     <text>
         <script type="text/javascript">
-                function addID() {
-                                  
+                function addID() {                                  
                     $('#aOwner_userID').val('@User.Identity.GetUserId().ToString()');
                 };
 
         </script>
     </text>
         <div class="form-group">
-            <label class="control-label col-md-2">送養人ID（系統自動設定）</label> @*待取得會員NAME事件*@
+            @*<label class="control-label col-md-2">送養人ID（系統自動設定）</label> 待取得會員NAME事件*@
             <div class="col-md-10">
-                @Html.EditorFor(model => model.animalOwner_userID, new { htmlAttributes = new { @class = "form-control", @id = "aOwner_userID" } })
-                @Html.ValidationMessageFor(model => model.animalOwner_userID, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.animalOwner_userID, new { htmlAttributes = new { @class = "form-control", @id = "aOwner_userID", @style = "display:none" } })
+                @Html.ValidationMessageFor(model => model.animalOwner_userID, "", new { @class = "text-danger", @style = "display:none" })
             </div>
         </div>
 }

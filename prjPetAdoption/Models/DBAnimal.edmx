@@ -184,7 +184,7 @@
           <Property Name="msgType" Type="nvarchar" MaxLength="50" />
           <Property Name="msgFromURL" Type="nvarchar" MaxLength="200" />
           <Property Name="msgContent" Type="nvarchar" MaxLength="200" />
-          <Property Name="msgRead" Type="nvarchar" MaxLength="50" />
+          <Property Name="msgRead" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="petFAQ">
           <Key>
@@ -1082,7 +1082,7 @@
           <Property Name="msgType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="msgFromURL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="msgContent" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="msgRead" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msgRead" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="AspNetUsers" Relationship="DbAnimalModel.FK__Msg__msgTo_userI__3F9B6DFF" FromRole="Msg" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="petFAQ">
