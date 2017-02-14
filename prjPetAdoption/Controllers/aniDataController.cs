@@ -25,18 +25,23 @@ namespace prjPetAdoption.Controllers
             return View(AllAniData);
         }
 
-
+        //追蹤清單明細
         public ActionResult followAni(string id)
         {
             var followAni = db.followAni.Where(x => x.follow_userId == id).ToList();         
             AllAniData.followAniList = followAni;
-           
+
+            var followAniCount = db.followAni.Where(x => x.follow_userId == id).ToList().Count();
+            if (followAniCount == 0)
+            {
+                ViewBag.noFollow = "http://i.imgur.com/4Ooj5kV.png";
+            }
+            
             return View(AllAniData);
         }
-
+        //追蹤清單刪除
         public ActionResult DelfollowAni(int? id)
         {
-
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -46,9 +51,18 @@ namespace prjPetAdoption.Controllers
             {
                 return HttpNotFound();
             }
-            return View(AllAniData);
+            return RedirectToAction("Index", "Manage");
         }
+        //追蹤清單刪除
 
+        [HttpDelete]
+        public ActionResult DelfollowAniSure(int id)
+        {
+            follow follow = db.follow.Find(id);
+            db.follow.Remove(follow);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Manage");
+        }
 
 
         public ActionResult showForAdopt(string id)   //顯示送養筆數

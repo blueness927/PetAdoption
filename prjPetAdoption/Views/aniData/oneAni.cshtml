@@ -167,17 +167,19 @@
         <text>
             <script type="text/javascript">
                 function addID2() {
-                    @foreach (var item in Model.aniDataPicOneList)
-                    {<text>
+                    @foreach (var item in Model.animalDataList)
+                    {
+                      <text>
                     var aid = @item.animalID.ToString();
-                    </text> }
+                     </text>     
+                        }
 
                     $('#fanimalid').val(aid);
                     $('#fuserid').val('@User.Identity.GetUserId().ToString()');
                 };
 
 
-                function addMsg() {
+                @*function addMsg3() {
                     alert("addMsg");
                     @foreach (var item in Model.aniDataPicOneList)
                                 {<text>
@@ -192,7 +194,7 @@
                     $('#amsgType').val("認養通知");
                     @*$('#amsgContent').val("您好，我是"+'@User.Identity.GetUserName().ToString()'+"我想認養您的寵物，請與我聯絡，謝謝");*@
 
-                };
+                //};
 
             </script>
 

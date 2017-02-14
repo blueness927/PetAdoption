@@ -93,24 +93,7 @@
     </dl>
 </div>
 
-
-<div>
-
-@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
-{
-    <a href="@Url.Action("followAni", "aniData", new {id= @User.Identity.GetUserId()})"><h4>追蹤動物清單</h4></a>
-    <hr />
-
-}
-
-
-
-
-
-</div>
-
-<div>
+<div id="showAdopt">
     <h4>已送養動物管理</h4>
     <hr />
 
@@ -120,3 +103,26 @@
 
 
 </div>
+<div id="showFollow">
+
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    <h4>追蹤動物清單</h4>
+    <hr />
+
+    @section scripts{
+        <script>
+
+    $( function () {
+        $("#showFollow").load("/aniData/followAni/@User.Identity.GetUserId()");
+
+            @*@Html.Partial("followAni", "aniData", new { id = @User.Identity.GetUserId() })*@
+    } );
+        </script>
+    }
+
+}
+
+</div>
+
