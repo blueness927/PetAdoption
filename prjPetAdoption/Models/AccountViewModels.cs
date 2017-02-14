@@ -49,7 +49,7 @@ namespace prjPetAdoption.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "暱稱")]
+        [Display(Name = "名稱")]
         public string UserName { get; set; }
 
         [Required]
@@ -70,7 +70,7 @@ namespace prjPetAdoption.Models
 
         [Required]
         [StringLength(100, ErrorMessage = "{0} 的長度至少必須為 {2} 個字元。", MinimumLength = 2)]
-        [Display(Name = "暱稱")]
+        [Display(Name = "名稱")]
         public string UserName { get; set; }
 
         [Required]
