@@ -473,7 +473,6 @@
     <Content Include="Views\opAnimal\opAnimalList.cshtml" />
     <Content Include="Views\aniData\Index.cshtml" />
     <Content Include="Views\aniData\Create.cshtml" />
-    <Content Include="Views\aniData\showForAdopt.cshtml" />
     <Content Include="Views\animalDatas\Create.cshtml" />
     <Content Include="Views\animalDatas\Delete.cshtml" />
     <Content Include="Views\animalDatas\Details.cshtml" />

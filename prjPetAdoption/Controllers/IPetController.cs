@@ -13,7 +13,7 @@ namespace prjPetAdoption.Controllers
     public class iPetController : BaseController
     {
         // GET: IPet
-        public ActionResult iPetInformation(int? page,string city,string type,string kind)
+        public ActionResult iPetInformation(int? page,string city,string types,string kind)
         {
             var iPet = db.aniDataPicOne;
 
@@ -22,16 +22,14 @@ namespace prjPetAdoption.Controllers
             ViewBag.SelectedCity = city;
 
             //種類查詢
-            var typeSelectList =GetSelectList(this.GetType(), type);
-            ViewBag.Type = typeSelectList.ToList();
-            ViewBag.SelectedType = type;
+            var typeSelectList =GetSelectList(this.GetTypes(), types);
+            ViewBag.Types = typeSelectList.ToList();
+            ViewBag.SelectedType = types;
 
             //品種查詢
             var kindSelectList = GetSelectList(this.GetKind(), kind);
-            ViewBag.Kind = typeSelectList.ToList();
+            ViewBag.Kind = kindSelectList.ToList();
             ViewBag.SelectedKind = kind;
-
-
 
             var source = GetAnimalData();
             source = source.AsQueryable();
@@ -40,20 +38,17 @@ namespace prjPetAdoption.Controllers
             {
                 source = source.Where(x => x.animalAddress == city); 
             }
-            if (!string.IsNullOrWhiteSpace(type))
+            if (!string.IsNullOrWhiteSpace(types))
             {
-                source = source.Where(x => x.animalType == type);
+                source = source.Where(x => x.animalType == types);
             }
               if (!string.IsNullOrWhiteSpace(kind))
             {
-                source = source.Where(x => x.animalKind == kind);
+               
             }
 
-
-
-
             int pageIndex = page ?? 1;
-            int pageSize = 9;
+            int pageSize = 15;
             int totalCount = 0;
 
             totalCount = source.Count();
@@ -108,15 +103,15 @@ namespace prjPetAdoption.Controllers
         }
 
 
-        private List<string> GetType()
+        private List<string> GetTypes()
         {
             var source = db.aniDataPicOne;
             if (source != null)
             {
-                var Type = source.OrderBy(x => x.animalType)
+                var Types = source.OrderBy(x => x.animalType)
                                 .Select(x => x.animalType)
                                 .Distinct();
-                return Type.ToList();
+                return Types.ToList();
             }
             return new List<string>();
         }
