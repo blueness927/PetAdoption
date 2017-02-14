@@ -3,6 +3,7 @@ using prjPetAdoption.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -23,6 +24,32 @@ namespace prjPetAdoption.Controllers
             
             return View(AllAniData);
         }
+
+
+        public ActionResult followAni(string id)
+        {
+            var followAni = db.followAni.Where(x => x.follow_userId == id).ToList();         
+            AllAniData.followAniList = followAni;
+           
+            return View(AllAniData);
+        }
+
+        public ActionResult DelfollowAni(int? id)
+        {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            follow follow = db.follow.Find(id);
+            if (follow == null)
+            {
+                return HttpNotFound();
+            }
+            return View(AllAniData);
+        }
+
+
 
         public ActionResult showForAdopt(string id)   //顯示送養筆數
         {           

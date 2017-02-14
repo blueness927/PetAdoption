@@ -22,26 +22,25 @@
 <section class="pictures h1white" id="section_adopt">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6 showpic1">
-                <div class="text-center text-panel">
-                    <a href="@Url.Action("opAnimalList", "opAnimal")">
-
-
+            <a href="@Url.Action("opAnimalList", "opAnimal")">
+                <div class="col-md-6 showpic1">
+                    <div class="text-center text-panel">
+                        
                         <h1 style="width:300px;">
                             全國收容所認養區
                         </h1>
-                    </a>
-                </div>
-            </div>
-           
-            <div class="col-md-6 showpic2">
-                <div class="text-center text-panel">
-                    <a href="@Url.Action("ShowForAni", "aniData")">
 
-                        <h1>iPet動物認養區</h1>
-                        </a>
+                    </div>
                 </div>
-            </div>
+            </a>
+            <a href="@Url.Action("iPetInformation", "iPet")">
+                <div class="col-md-6 showpic2">
+                    <div class="text-center text-panel">
+                        <h1>iPet動物認養區</h1>
+
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 </section>

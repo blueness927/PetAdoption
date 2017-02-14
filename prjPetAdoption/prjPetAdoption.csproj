@@ -516,6 +516,7 @@
     <Content Include="Views\Msgs\Edit.cshtml" />
     <Content Include="Views\Msgs\Index.cshtml" />
     <Content Include="Views\iPet\iPetInformation.cshtml" />
+    <Content Include="Views\aniData\followAni.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

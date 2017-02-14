@@ -1,0 +1,55 @@
+﻿@model prjPetAdoption.ViewModels.AllAniDataViewModel
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>寵物追蹤清單</h2>
+                <hr />
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<table class="mybid-table">
+    <thead>
+        <tr>
+           
+            <td class="col-photo">照片</td>
+            <td class="col-goods">名稱</td>
+            <td class="col-user ">種類</td>
+            <td class="col-user ">品種</td>
+            <td class="col-width-5x order-desc">動作</td>
+        </tr>
+    </thead>
+    
+@foreach (var item in Model.followAniList)
+{
+    <tbody>
+        <tr class="row-odd">
+           
+            <td><img src="@item.animalPicAddress" style="max-height:250px;"/></td>
+            <td class="col-goods">
+                <a href="#">@item.animalName</a>               
+            </td>
+            <td class="col-user">
+                <a href="#">@item.animalKind</a>                
+            </td>
+            <td class="col-user">
+                <a href="#">@item.animalType</a>
+            </td>
+            <td><a href="@Url.Action("DelfollowAni", "opAnimal",new { id =@item.followID})">刪除</a></td>
+        </tr>
+    </tbody>
+}
+</table>
+
+<div class="function">
+    <input type="submit" class="btn btn-default" value="刪除" />
+</div>
+
+
+
+
