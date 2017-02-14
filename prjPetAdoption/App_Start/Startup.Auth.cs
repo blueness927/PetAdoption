@@ -54,13 +54,15 @@ namespace prjPetAdoption
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "208269922976554",
-            //   appSecret: "20dbe805f01805bf6287d926999da83f");
-
+            //正式環境
             app.UseFacebookAuthentication(
-               appId: "222558511547695",
-               appSecret: "0546799fdfbf65a33eadea610ef1f36e");
+               appId: "208269922976554",
+               appSecret: "20dbe805f01805bf6287d926999da83f");
+
+            //測試
+            //app.UseFacebookAuthentication(
+            //   appId: "222558511547695",
+            //   appSecret: "0546799fdfbf65a33eadea610ef1f36e");
 
 
 
