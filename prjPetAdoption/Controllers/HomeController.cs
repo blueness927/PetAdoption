@@ -10,6 +10,7 @@ namespace prjPetAdoption.Controllers
     {
         public ActionResult Index()
         {
+
             return View();
         }
 

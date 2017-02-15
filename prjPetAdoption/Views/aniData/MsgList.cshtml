@@ -1,0 +1,158 @@
+﻿@model prjPetAdoption.ViewModels.AllAniDataViewModel
+@{
+    ViewBag.Title = "MsgList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>訊息匣</h2>
+
+<div class="col-md-10">
+    
+    
+    <table class="table table-condensed" align="center">
+
+        <thead>
+            <tr align="center" class="info">
+                <th >訊息日期</th>
+                <th >發訊人</th>
+                <th >訊息類別</th>
+                <th>內容</th>
+                <th colspan="2">動作</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model.MsgUserList)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.msgTime)</td>
+
+
+
+                <td>@Html.DisplayFor(modelItem => item.msgFrom_userName)</td>
+
+
+                <td>@Html.DisplayFor(modelItem => item.msgType)</td>
+
+                <td>@Html.DisplayFor(modelItem => item.msgContent)</td>
+                <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="addMsg()">回覆訊息</button></td>
+                <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="addMsg()">刪除訊息</button></td>
+            </tr>
+
+        }
+    </table>
+
+        @using Microsoft.AspNet.Identity
+        @if (Request.IsAuthenticated)
+        {
+            <text>
+                <script type="text/javascript">
+                function addMsg() {
+
+                    @foreach (var item in Model.MsgUserList)
+                    {<text>
+                   
+                    var ownerid ='@item.msgFrom_userID.ToString()';
+
+                    </text>
+        }
+                                       
+                    $('#aFrom_userID').val('@User.Identity.GetUserId().ToString()');
+                    $('#aTo_userID').val(ownerid);
+                    $('#amsgType').val("認養通知");
+
+                    $('#amsgContent').val("您好，我是"+'@User.Identity.GetUserName().ToString()'+"我想認養您的寵物，聯絡方式如下，請與我聯絡，謝謝");
+
+                };
+
+                </script>
+
+
+            </text>
+            <div class="form-group">
+                <div class="col-md-6">
+                   
+                </div>
+            </div>
+                <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">請先詳閱認養條件，確認條件符合。</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>請提供聯絡資訊給送養人，並確認符合認養條件。</p>
+
+                            @using (Html.BeginForm("MsgCreate", "aniData", FormMethod.Post, new { }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="form-horizontal">
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+                                    @Html.EditorFor(model => model.Msg.msgFrom_userID, new { htmlAttributes = new { @class = "form-control", @id = "aFrom_userID", @style = "display:none" } })
+                                    @Html.ValidationMessageFor(model => model.Msg.msgFrom_userID, "", new { @class = "text-danger" })
+
+                                    @Html.EditorFor(model => model.Msg.msgTo_userID, new { htmlAttributes = new { @class = "form-control", @id = "aTo_userID", @style = "display:none" } })
+                                    @Html.ValidationMessageFor(model => model.Msg.msgTo_userID, "", new { @class = "text-danger" })
+
+                                    @Html.EditorFor(model => model.Msg.msgType, new { htmlAttributes = new { @class = "form-control", @id = "amsgType", @style = "display:none" } })
+                                    @Html.ValidationMessageFor(model => model.Msg.msgType, "", new { @class = "text-danger" })
+
+
+                                    @Html.EditorFor(model => model.Msg.msgFromURL, new { htmlAttributes = new { @class = "form-control", @id = "amsgFromURL", @style = "display:none" } })
+                                    @Html.ValidationMessageFor(model => model.Msg.msgFromURL, "", new { @class = "text-danger" })
+
+
+                                    <div class="form-group">
+
+                                        <div class="col-md-12" align="center">
+                                            @Html.TextAreaFor(model => model.Msg.msgContent, new { htmlAttributes = new { @class = "form-control", @rows = "3", @id = "amsgContent", @style = "margin: 0px - 15.8438px 0px 0px; height: 151px; width: 424px; " }, cols = 50, @rows = 4 })
+                                            @Html.ValidationMessageFor(model => model.Msg.msgContent, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-10 col-md-2">
+                                            <input type="submit" value="訊息發送" class="btn btn-success" />
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+                <!-- Modal -->
+        }
+        else
+        {
+        <div class="form-group">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-success" onclick="aler();">請先登入</button>
+
+            </div>
+        </div>
+        }
+
+
+    
+
+</div>
+
+
+

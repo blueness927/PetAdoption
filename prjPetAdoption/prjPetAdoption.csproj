@@ -534,6 +534,8 @@
     <Content Include="Views\aniData\showForAdopt_part.cshtml" />
     <Content Include="Views\animalData_Pic1\picList.cshtml" />
     <Content Include="Views\animalData_Pic1\CreatePart.cshtml" />
+    <Content Include="Views\Shared\_logPartialMSG.cshtml" />
+    <Content Include="Views\aniData\MsgList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

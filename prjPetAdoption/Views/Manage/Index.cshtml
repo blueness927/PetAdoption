@@ -3,7 +3,7 @@
     ViewBag.Title = "管理";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 
@@ -101,7 +101,6 @@
 @using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-
     @*@Html.Partial("followAni", "aniData", new ViewDataDictionary { { "id", User.Identity.GetUserId() } });*@
 
     @*@{Html.RenderPartial("~/aniData/followAni/@User.Identity.GetUserId()")}*@

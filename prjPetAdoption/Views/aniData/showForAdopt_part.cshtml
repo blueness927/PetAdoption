@@ -75,13 +75,15 @@
                 </td>
                 <td>
                     @using (Html.BeginForm("DeleteConfirmed", "animalDatas", new { id = @item.animalID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認刪除送養?');" }))
-                    {
+                    {    
+                        @Html.AntiForgeryToken()
                         @Html.HttpMethodOverride(HttpVerbs.Delete)
                         <button type="submit" class="btn btn-success">取消送養</button>
                     }
 
                     @using (Html.BeginForm("Edit", "animalDatas", new { id = @item.animalID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認編輯送養資訊?');" }))
-                    {
+                    {    
+                        @Html.AntiForgeryToken()
                         @Html.HttpMethodOverride(HttpVerbs.Put)
                         <button type="submit" class="btn btn-success">編輯送養</button>
                     }

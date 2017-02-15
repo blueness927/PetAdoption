@@ -77,6 +77,30 @@ namespace prjPetAdoption.Controllers
         }
 
 
+
+        public ActionResult MsgList(string id)   //顯示訊息夾
+        {
+            var mgs = db.MsgUser.Where(x => x.msgTo_userID == id).ToList();
+            
+            AllAniData.MsgUserList = mgs;
+
+            return View(AllAniData);
+
+        }
+
+
+        public ActionResult _logPartialMSG(string id)   //顯示訊息夾數量
+        {
+            var mgs = db.MsgUser.Where(x => x.msgTo_userID == id).ToList().Count();
+
+           ViewBag.MsgNum = mgs.ToString();
+
+            return PartialView(ViewBag.MsgNum);
+
+        }
+
+
+
         public ActionResult showForAdopt_part(string id)   //顯示送養筆數--會員管理
         {
             var aniData = db.aniDataAll.Where(x => x.animalOwner_userID == id).ToList();

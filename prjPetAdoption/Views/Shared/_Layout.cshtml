@@ -14,6 +14,16 @@
 
   </head>
 <body>
+
+
+    @section scripts{
+        <script>
+            $(function () {
+                $("#showlogin").load("/aniData/_logPartialMSG/@User.Identity.GetUserId()");
+
+    } );
+        </script>
+    }
     <nav class="navbar navbar-default navbar-fixed-top at_top" style="background-color:#38A4D2;">
         <div class="container">
             <div class="navbar-header">
@@ -23,11 +33,11 @@
                 </button>@Html.ActionLink("iPet", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse" id="navbar">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right" >
 
 @using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
-{   
+{
         @Html.AntiForgeryToken()
 
         <li>@Html.ActionLink("關於我們", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
@@ -35,14 +45,20 @@
                     <li>@Html.ActionLink("送養專區", "showForAdopt", "aniData", new { id = User.Identity.GetUserId() }, new { @class = "navbar-brand", title = "showForAdopt" })</li>
                     <li>@Html.ActionLink("寵物幫手", "Help", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                     @*<li>@Html.ActionLink("商 城", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>*@
-                    @Html.Partial("_LoginPartial")           
-                  
-    
+                   
+        @*@Html.Partial("_LoginPartial")*@
+       
+          @Html.Partial(
+                  "_logPartialMSG",
+                          new ViewDataDictionary { { "id", User.Identity.GetUserId() } }
+            );
+
+
 }
 else
 {
-    
-                    <li>@Html.ActionLink("關於我們", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+
+<li>@Html.ActionLink("關於我們", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("認養專區", "show", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("送養專區", "showForAdopt", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("寵物幫手", "Help", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
@@ -76,6 +92,7 @@ else
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 
 
 </body>

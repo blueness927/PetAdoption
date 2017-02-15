@@ -117,7 +117,7 @@ namespace prjPetAdoption.Models
             animalData animalData = db.animalData.Find(id);
             db.animalData.Remove(animalData);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Manage");
         }
 
         protected override void Dispose(bool disposing)
