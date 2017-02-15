@@ -89,7 +89,7 @@ namespace prjPetAdoption.Models
             {
                 db.Entry(animalData).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit", "animalData_Condition",new { id = animalData.animalID });
             }
             return View(animalData);
         }

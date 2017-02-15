@@ -7,18 +7,27 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using prjPetAdoption.Models;
+using prjPetAdoption.ViewModels;
 
 namespace prjPetAdoption.Controllers
 {
     public class animalData_Pic1Controller : Controller
     {
         private DbAnimal db = new DbAnimal();
-
+        AllAniDataViewModel AllAniData = new AllAniDataViewModel();
         // GET: animalData_Pic1
         public ActionResult Index()
         {
             var animalData_Pic = db.animalData_Pic.Include(a => a.animalData);
             return View(animalData_Pic.ToList());
+        }
+
+        //圖片列表
+        public ActionResult picList(int? id)
+        {
+            var animalData_Pic = db.animalData_Pic.Where(x => x.animalPic_animalID == id).ToList();
+            AllAniData.animalData_PicList = animalData_Pic;
+            return View(AllAniData);
         }
 
         // GET: animalData_Pic1/Details/5
@@ -56,6 +65,28 @@ namespace prjPetAdoption.Controllers
                 db.animalData_Pic.Add(animalData_Pic);
                 db.SaveChanges();
                 return RedirectToAction("oneAni","aniData",new { id = animalData_Pic.animalPic_animalID });
+            }
+
+            ViewBag.animalPic_animalID = new SelectList(db.animalData, "animalID", "animalKind", animalData_Pic.animalPic_animalID);
+            return View(animalData_Pic);
+        }
+
+
+        public ActionResult CreatePart()
+        {
+            int? intIdt = db.animalData.Max(u => (int?)u.animalID);
+            ViewBag.animalID = intIdt;
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreatePart([Bind(Include = "animalPicID,animalPic_animalID,animalPicAddress")] animalData_Pic animalData_Pic)
+        {
+            if (ModelState.IsValid)
+            {
+                db.animalData_Pic.Add(animalData_Pic);
+                db.SaveChanges();
+                return RedirectToAction("oneAni", "aniData", new { id = animalData_Pic.animalPic_animalID });
             }
 
             ViewBag.animalPic_animalID = new SelectList(db.animalData, "animalID", "animalKind", animalData_Pic.animalPic_animalID);

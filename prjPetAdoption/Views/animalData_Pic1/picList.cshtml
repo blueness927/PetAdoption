@@ -1,0 +1,92 @@
+﻿@model prjPetAdoption.ViewModels.AllAniDataViewModel
+@{
+    ViewBag.Title = "picList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>圖片編輯</h2>
+<div id="masonry" class="container-fluid">
+
+    @foreach (var item in Model.animalData_PicList)
+    {
+
+        if (@item.animalPicAddress == "")
+        {
+            <div class="thumbnail">
+
+                <div class="imgs">
+                    <img src="http://i.imgur.com/SfojWcu.png" style="max-width:300px;max-height:500px" />
+                </div>
+                <div class="caption">
+                    <div class="title">@Html.DisplayFor(modelItem => item.animalPicAddress)</div>
+                    <div class="content">
+                    </div>
+                </div>
+
+            </div>
+        }
+        else
+        {
+            <div class="thumbnail">
+
+                <div class="imgs">
+                    <img src="@item.animalPicAddress" style="max-width:300px;max-height:300px" />
+                </div>
+                <div class="caption">
+                    <div class="title">@using (Html.BeginForm("DeleteConfirmed", "animalData_Pic1", new { id = @item.animalPicID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認刪除圖片?');" }))
+                    {
+                        @Html.HttpMethodOverride(HttpVerbs.Delete)
+                        <button type="submit" class="btn btn-success">刪除圖片</button>
+                    }
+                    </div>
+                    <div class="content">
+                    </div>
+                </div>
+
+            </div>
+
+        }
+
+
+    }
+
+    @section scripts{
+        <script>
+
+            $(function () {
+                $("#picadd").load("/animalData_Pic1/CreatePart/");
+             @*@Html.Partial("followAni", "aniData", new { id = @User.Identity.GetUserId() })*@
+    } );
+        </script>
+
+
+    <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            var masonryNode = $('#masonry');
+            masonryNode.imagesLoaded(function () {
+                masonryNode.masonry({
+                    itemSelector: '.thumbnail',
+                    isFitWidth: true
+                });
+            });
+
+        });
+    </script>
+
+    }
+   
+
+    </div>
+
+<div id="picadd">
+
+</div>
+
+
+    @Styles.Render("~/Content/masonry.css")
+    @Scripts.Render("~/bundles/masonry")
+   
+
+

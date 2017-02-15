@@ -520,6 +520,8 @@
     <Content Include="Views\aniData\DelfollowAni.cshtml" />
     <Content Include="Views\aniData\showForAdopt.cshtml" />
     <Content Include="Views\aniData\showForAdopt_part.cshtml" />
+    <Content Include="Views\animalData_Pic1\picList.cshtml" />
+    <Content Include="Views\animalData_Pic1\CreatePart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

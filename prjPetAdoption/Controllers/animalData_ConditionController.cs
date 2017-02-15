@@ -71,15 +71,19 @@ namespace prjPetAdoption.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var aniID = db.animalData_Condition.Where(x => x.condition_animalID == id).Select(x=>x.conditionID);
-
-            animalData_Condition animalData_Condition = db.animalData_Condition.Find(aniID);
+            var aniID = db.animalData_Condition.Where(x => x.condition_animalID == id).Select(x => x.conditionID);
+            foreach (var intID in aniID)
+            { 
+                animalData_Condition animalData_Condition = db.animalData_Condition.Find(intID);
+            
             if (animalData_Condition == null)
             {
                 return HttpNotFound();
             }
             ViewBag.condition_animalID = new SelectList(db.animalData, "animalID", "animalKind", animalData_Condition.condition_animalID);
             return View(animalData_Condition);
+            }
+            return View();
         }
 
         // POST: animalData_Condition/Edit/5
@@ -93,7 +97,7 @@ namespace prjPetAdoption.Controllers
             {
                 db.Entry(animalData_Condition).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("picList", "animalData_Pic1", new { id = animalData_Condition.condition_animalID });
             }
             ViewBag.condition_animalID = new SelectList(db.animalData, "animalID", "animalKind", animalData_Condition.condition_animalID);
             return View(animalData_Condition);
