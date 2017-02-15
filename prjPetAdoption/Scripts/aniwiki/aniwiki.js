@@ -93,7 +93,6 @@ var vm=new Vue({
   data: {
     mode_type:  "false",
     mode_detail: false,
-    mode_size: "small",
     pets: petdatas
     
   }

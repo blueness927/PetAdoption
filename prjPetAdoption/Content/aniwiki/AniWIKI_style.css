@@ -1,7 +1,7 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 * {
   text-align: center;
-  font-family: 微軟正黑體;
+  font-family: "微軟正黑體";
 }
 
 body {
@@ -19,7 +19,8 @@ label{
   display: inline-block;
   padding: 10px;
   text-align: center;
-  width: 170px;
+  width: 280px;
+  height: 360px;
   border: solid 1px #bbb;
   line-height: 22px;
 }
@@ -28,6 +29,8 @@ label{
 }
 .pet img {
   width: 100%;
+  margin-bottom: 5px;
+  height:80%;
 }
 .pet .name {
   margin: 0;
@@ -44,37 +47,23 @@ label{
 .pet.detail {
   display: block;
   width: 80%;
+  height:auto;
   text-align: left;
-  padding: 10px;
+  padding: 20px;
   line-height: 24px;
 }
+.pet.detail h4{
+  text-align: left;
+  font-size:16px;
+}
 .pet.detail img {
-  width: 150px;
+  width: 220px;
   display: inline-block;
   vertical-align: middle;
 }
 .pet.detail .infos {
   display: inline-block;
-  width: calc(100% - 150px - 20px);
+  width: calc(100% - 220px - 20px);
   vertical-align: middle;
 }
 
-.big {
-  width: 280px;
-  height: 400px;
-  vertical-align: top;
-}
-.big img {
-  margin-bottom: 5px;
-}
-
-.detail.big {
-  height: initial;
-  padding: 20px;
-}
-.detail.big img {
-  width: 220px;
-}
-.detail.big .infos {
-  width: calc(100% - 220px - 20px);
-}
