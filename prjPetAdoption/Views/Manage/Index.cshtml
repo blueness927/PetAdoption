@@ -94,29 +94,26 @@
 </div>
 
 <div id="showAdopt">
-    <h4>已送養動物管理</h4>
-    <hr />
-
-
-
-
-
-
+ 
 </div>
 <div id="showFollow">
 
 @using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-    <h4>追蹤動物清單</h4>
-    <hr />
 
-    @section scripts{
+    @*@Html.Partial("followAni", "aniData", new ViewDataDictionary { { "id", User.Identity.GetUserId() } });*@
+
+    @*@{Html.RenderPartial("~/aniData/followAni/@User.Identity.GetUserId()")}*@
+
+   @section scripts{
         <script>
 
-    $( function () {
-        $("#showFollow").load("/aniData/followAni/@User.Identity.GetUserId()");
+            $(function () {
+                $("#showAdopt").load("/aniData/showForAdopt_part/@User.Identity.GetUserId()");
+        $("#showFollow").load("/aniData/followAni/@User.Identity.GetUserId()");   
 
+     
             @*@Html.Partial("followAni", "aniData", new { id = @User.Identity.GetUserId() })*@
     } );
         </script>
