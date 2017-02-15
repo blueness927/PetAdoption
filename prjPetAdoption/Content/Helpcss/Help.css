@@ -9,6 +9,7 @@ html, body {
 
 a {
   text-decoration:none !important;
+  color:white;
 }
 .h1white h1{
   color: white ;
