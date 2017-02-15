@@ -519,6 +519,7 @@
     <Content Include="Views\aniData\followAni.cshtml" />
     <Content Include="Views\aniData\DelfollowAni.cshtml" />
     <Content Include="Views\aniData\showForAdopt.cshtml" />
+    <Content Include="Views\aniData\showForAdopt_part.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

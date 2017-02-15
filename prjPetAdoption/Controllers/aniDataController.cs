@@ -37,7 +37,7 @@ namespace prjPetAdoption.Controllers
                 ViewBag.noFollow = "http://i.imgur.com/4Ooj5kV.png";
             }
             
-            return View(AllAniData);
+            return PartialView(AllAniData);
         }
         //追蹤清單刪除
         public ActionResult DelfollowAni(int? id)
@@ -74,6 +74,25 @@ namespace prjPetAdoption.Controllers
                                         
            return View(AllAniData);
             
+        }
+
+
+        public ActionResult showForAdopt_part(string id)   //顯示送養筆數--會員管理
+        {
+            var aniData = db.aniDataAll.Where(x => x.animalOwner_userID == id).ToList();
+            var myanimal = db.aniDataPicOne.Where(x => x.animalOwner_userID.Equals(id)).ToList();
+            AllAniData.aniDataAllList = aniData;
+            AllAniData.aniDataPicOneList = myanimal;
+
+
+            var myanimalCount = db.aniDataPicOne.Where(x => x.animalOwner_userID.Equals(id)).ToList().Count();
+            if (myanimalCount == 0)
+            {
+                ViewBag.noforAdop = "http://i.imgur.com/XsUL2QD.png";
+            }
+            
+            return PartialView(AllAniData);
+
         }
 
         public ActionResult oneAni(int? id)   //顯示送養寵物明細資料

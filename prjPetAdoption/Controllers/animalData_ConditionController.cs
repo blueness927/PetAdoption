@@ -70,7 +70,10 @@ namespace prjPetAdoption.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            animalData_Condition animalData_Condition = db.animalData_Condition.Find(id);
+
+            var aniID = db.animalData_Condition.Where(x => x.condition_animalID == id).Select(x=>x.conditionID);
+
+            animalData_Condition animalData_Condition = db.animalData_Condition.Find(aniID);
             if (animalData_Condition == null)
             {
                 return HttpNotFound();

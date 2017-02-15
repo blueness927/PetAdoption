@@ -32,7 +32,7 @@
 
         <li>@Html.ActionLink("關於我們", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("認養專區", "show", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("送養專區", "showForAdopt", "aniData", new { id = User.Identity.GetUserId() }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("送養專區", "showForAdopt", "aniData", new { id = User.Identity.GetUserId() }, new { @class = "navbar-brand", title = "showForAdopt" })</li>
                     <li>@Html.ActionLink("寵物幫手", "Help", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("商 城", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                     @Html.Partial("_LoginPartial")           
@@ -60,7 +60,7 @@ else
     <div class="container body-content">
         @RenderBody()
     
-        <footer class="col-md-12">
+      <footer class="col-md-12">
             <hr />
             <br>
             <p>&copy; @DateTime.Now.Year - iPet 認養代替購買 動物關懷</p>
@@ -69,7 +69,7 @@ else
           
             @*<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.js'></script>*@
 
-        </footer>
+       </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
