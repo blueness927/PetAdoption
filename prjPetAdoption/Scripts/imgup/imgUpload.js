@@ -119,12 +119,12 @@
                 //$("body").append(JSON.stringify(data));   //顯示全部資料
                 if (data.success == true) {
                     // $('#picshow').prepend($('<img>', { id: 'theImg', src: data.data.link, align: 'middle', width: '150', height: '150' }))
-                    var t = setTimeout("alert('圖片上傳中請稍後')", 2000);
+                    
                     $('#picshow').append("<img src='" + data.data.link + "'  align='middle'  style='max-height:500px'/>");
                     $('#upPic').val(data.data.link);
                     $('#upPic').append(JSON.stringify(data.data.link));
                     
-                    
+                    var r = setTimeout("alert('圖片上傳完成')", 500);
                     //$('#upPic').val(function (index, val) {
                     //    return val + data.data.link;
                     //});

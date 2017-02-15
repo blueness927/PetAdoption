@@ -110,7 +110,7 @@ namespace prjPetAdoption.Models
         }
 
         // POST: animalDatas/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpDelete]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

@@ -34,7 +34,7 @@
                     <li>@Html.ActionLink("認養專區", "show", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("送養專區", "showForAdopt", "aniData", new { id = User.Identity.GetUserId() }, new { @class = "navbar-brand", title = "showForAdopt" })</li>
                     <li>@Html.ActionLink("寵物幫手", "Help", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("商 城", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    @*<li>@Html.ActionLink("商 城", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>*@
                     @Html.Partial("_LoginPartial")           
                   
     
@@ -46,7 +46,7 @@ else
                     <li>@Html.ActionLink("認養專區", "show", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("送養專區", "showForAdopt", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("寵物幫手", "Help", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("商 城", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    @*<li>@Html.ActionLink("商 城", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>*@
                     @Html.Partial("_LoginPartial")
 }
                 </ul>
