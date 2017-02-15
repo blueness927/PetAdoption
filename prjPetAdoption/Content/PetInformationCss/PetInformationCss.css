@@ -11,13 +11,14 @@
     margin: auto;
     width:100%;
 }
-.h1{
-    text-align:center;
-}
+
 .div2{
     -webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
-    background-color:#38A4D2;
+    background-color:white;
     padding:5px 10px 10px 10px;
+}
+.div2 h2{
+    color:black;
 }

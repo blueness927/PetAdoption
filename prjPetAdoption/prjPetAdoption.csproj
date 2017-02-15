@@ -321,11 +321,20 @@
     <Content Include="Content\AdoptNavigatecss\AdoptNavigate.css" />
     <Content Include="Content\animalDetailcss\animalDetail.css" />
     <Content Include="Content\animalDetailcss\jquery-ui.css" />
+    <Content Include="Content\aniwiki\AniWIKI_style.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\FAQ\FAQ.css" />
+    <Content Include="Content\Images\a.png" />
+    <Content Include="Content\Images\bird.jpg" />
+    <Content Include="Content\Images\cat.jpg" />
+    <Content Include="Content\Images\dog.jpg" />
+    <Content Include="Content\Images\dog2.jpg" />
+    <Content Include="Content\Images\b.png" />
+    <Content Include="Content\Images\faq.jpg" />
+    <Content Include="Content\Images\rabbit.jpg" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\Helpcss\Help.css" />
     <Content Include="Content\index.css" />
@@ -397,6 +406,7 @@
       <DependentUpon>DBAnimal.edmx</DependentUpon>
       <LastGenOutput>DBAnimal.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\aniwiki\aniwiki.js" />
     <Content Include="Scripts\FAQ\FAQ.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
@@ -409,6 +419,7 @@
     <Content Include="Models\DBAnimal.edmx.diagram">
       <DependentUpon>DBAnimal.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\aniwiki\aniwiki_style.sass" />
     <None Include="Properties\PublishProfiles\web.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\animalDetailjs\animalDetail.js" />
@@ -519,6 +530,7 @@
     <Content Include="Views\aniData\followAni.cshtml" />
     <Content Include="Views\aniData\DelfollowAni.cshtml" />
     <Content Include="Views\aniData\showForAdopt.cshtml" />
+    <Content Include="Views\Home\aniwiki.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

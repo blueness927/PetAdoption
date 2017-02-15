@@ -1,14 +1,14 @@
 ﻿@charset "UTF-8";
         
         h4 {
-	        background: url(http://i.imgur.com/N32pBt5.png) no-repeat 0 11px;
+	        background: url(../../Images/b.png) no-repeat 0 11px;
 	        padding: 10px 0 0 25px;
 	        cursor: pointer;
             background-color:#ffeee2;
         }
          h4.close {
  
-	        background-image: url(http://i.imgur.com/7CfDZMu.png)
+	        background-image: url(../../Images/a.png)
         }
          .answer {
 	        margin-left: 25px;	

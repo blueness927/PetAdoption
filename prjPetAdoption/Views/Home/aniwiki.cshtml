@@ -1,0 +1,40 @@
+﻿@model prjPetAdoption.Models.IndexViewModel
+
+@{
+    ViewBag.Title = "aniwiki";
+}
+<h2>aniwiki</h2>
+<div id="app">
+    <h1>寵物圖鑑</h1>
+    <h4>關於貓狗的個性、特徵、毛色</h4><br />
+    <label>
+        詳細模式
+        <input type="checkbox" v-model="mode_detail" />
+    </label>
+
+    <label>
+        小呈現
+        <input type="radio" v-model="mode_size" value="small" />
+    </label>
+    <label>
+        大呈現
+        <input type="radio" v-model="mode_size" value="big" />
+    </label></br>
+    <div class="pet {{mode_detail?'detail':''}} {{mode_size}}" v-for="pet in pets">
+        <img src="{{pet.img}}" />
+        <div class="infos">
+            <h2 class="name">{{pet.name}}</h2>
+            <h5 class="personality" v-if="!mode_detail">個性：{{pet.personality.substring(0,5)}}</h5>
+            <h4 class="personality" v-if="mode_detail">
+                個性：{{pet.personality}}</h5>
+                <h5 class="color" v-if="!mode_detail">毛色：{{pet.color.substring(0,5)}}</h5>
+                <h4 class="color" v-if="mode_detail">
+                    毛色：{{pet.color}}</h5>
+                    <h4 class="feature" v-if="mode_detail">特徵：{{pet.feature}}</h5>
+        </div>
+    </div>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.js'></script>
+@Styles.Render("~/Content/aniwiki/AniWIKI_style.css")
+@Scripts.Render("~/Scripts/aniwiki/aniwiki.js")
+

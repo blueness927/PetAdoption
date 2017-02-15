@@ -1,6 +1,7 @@
 ﻿/// <autosync enabled="true" />
 /// <reference path="animaldetailjs/animaldetail.js" />
 /// <reference path="animaldetailjs/lightbox-plus-jquery.min.js" />
+/// <reference path="aniwiki/aniwiki.js" />
 /// <reference path="bootstrap.min.js" />
 /// <reference path="faq/faq.js" />
 /// <reference path="imgup/imgupload.js" />

@@ -74,5 +74,12 @@ namespace prjPetAdoption.Controllers
 
             return View();
         }
+
+        public ActionResult aniwiki()
+        {
+            ViewBag.Message = "WIKI";
+
+            return View();
+        }
     }
 }
