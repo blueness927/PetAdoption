@@ -1,126 +1,195 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-<header id="header_index">
-    <div class="container"><img class="icon" src="http://i.imgur.com/hw602LL.png" /></div>
-    <img class="cat" id="cat_blue" src="http://i.imgur.com/KTIvDTh.png" alt="" />
-    <img class="cat" id="cat_grey" src="http://i.imgur.com/RpFfzSt.png" alt="" />
-    <img class="cat" id="cat_yellow" src="http://i.imgur.com/RAOiF00.png" alt="" />
 
-</header>
-<section id="section_service">
+ 
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+    </ol>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12" data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1">
-                <h1>本站服務</h1>
-                <hr />
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="~/Content/Images/carousel/Carousel_01.png" alt="Carousel01" width="100%" height="200">
+            <div class="carousel-caption">
+                <h2>iPet認養大平台</h2>
             </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="img_wrap" data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1"><img src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/8MNEFJ1N2M.jpg" alt="" /></div><h3 data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1">智慧推薦認養動物</h3>
-                <p data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1">自動推薦合適的動物</p>
+        </div>
+
+        <div class="item">
+            <img src="~/Content/Images/carousel/Carousel_02.png" alt="Carousel01" width="100%" height="200">
+            <div class="carousel-caption">
+                <h2>以認養代替購買</h2>
             </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="img_wrap" data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1"><img src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/NN5ESPDJE8.jpg" alt="" /></div>
-                <h3 data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1">多平台的認送養體驗</h3>
-                <p data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1">客製化送養條件，聰明的認養條件塞選</p>
+        </div>
+
+        <div class="item">
+            <img src="~/Content/Images/carousel/Carousel_03.png" alt="Carousel01" width="100%" height="200">
+            <div class="carousel-caption">
+                <h2>以結紮代替撲殺</h2>
             </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="img_wrap" data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1"><img src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/OJXHDWMWV9.jpg" alt="" /></div>
-                <h3 data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1">便捷的寵物資訊</h3>
-                <p data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1">實用的動物飼養資訊</p>
+        </div>
+
+        <div class="item">
+            <img src="~/Content/Images/carousel/Carousel_04.png" alt="Carousel01" width="100%" height="200">
+            <div class="carousel-caption">
+                <h2>正式動物基本生命權</h2>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="~/Content/Images/carousel/Carousel_05.png" alt="Carousel01" width="100%" height="400">
+            <div class="carousel-caption">
+                <h2>愛牠就是保護牠</h2>
             </div>
         </div>
     </div>
 
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<section id="section_service">
+    <div class="container">
+        <h1>本站服務</h1>
+        <hr />
+        <div class="row">
+            <div class="col-sm-12" >
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="img_wrap">
+                    <img src="~/Content/Images/service/service01.jpg"/>
+                </div><h3>認養平台</h3>
+                <p>提供全台收容所認養資訊及iPet平台認送養資訊</p>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="img_wrap">
+                    <img src="~/Content/Images/service/service02.jpg" />
+                </div>
+                <h3>多平台的認送養體驗</h3>
+                <p>實現Android、iOS、Web三方平台體驗</p>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="img_wrap">
+                    <img src="~/Content/Images/service/service03.png" />
+                </div>
+                <h3>便捷的寵物資訊</h3>
+                <p>寵物小幫手提供實用的動物資訊</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <h1>最新資訊</h1>
+        <hr/>
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#home" data-toggle="tab">最新公告</a></li>
+                    <li><a href="#profile" data-toggle="tab">動保新聞</a></li>
+                    <li class="dropdown">
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active in" id="home">
+                        <table class="table tablehower">
+                            <tr>
+                                <td><a href="#" target="_blank">iPet認養大平台上線</a></td>
+                                <td>2017.02.10</td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" target="_blank">Pet認養大平台Android版上線</a></td>
+                                <td>2017.02.16</td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" target="_blank">Pet認養大平台iOS版上線</a></td>
+                                <td>2017.02.24</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="profile">
+                        <table class="table tablehower">
+                            <tr>
+                                <td><a href="#" target="_blank">零安樂政策正式上路</a></td>
+                                <td>2017.02.04</td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" target="_blank">響應動物零撲殺台南首創7UP動保政策更人性</a></td>
+                                <td>2017.02.04</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.twreporter.org/a/bookreview-animals-pets" target="_blank">從動物到寵物 報導者 The Reporter</a></td>
+                                <td>2017.01.17</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 <section class="pictures" id="section_adopt">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 pic1">
                 <div class="text-center text-panel">
-                    <h1>我要認養</h1>
+                    <a href="#" target="_blank"><h1>我要認養</h1></a>
+
                 </div>
             </div>
             <div class="col-md-6 pic2">
                 <div class="text-center text-panel">
-                    <h1>我要送養</h1>
+                    <a href="#" target="_blank"><h1>我要送養</h1></a>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<section id="footer">
+    <!--cat animate-->
+    <img class="cat" id="cat_blue" src="~/Content/Images/footer/cat01.png" alt="" />
+    <img class="cat" id="cat_grey" src="~/Content/Images/footer/cat02.png" alt="" />
+    <img class="cat" id="cat_yellow" src="~/Content/Images/footer/cat03.png" alt="" />
+    <div id="cross"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" data-bottom-top="transform: translateY(-30px);opacity: 0" data-center="transform: translateY(0px);opacity: 1">
 
-<section id="section_adopted">
-    <div class="container" style="margin-bottom:5px;">
-        <div id="row post">
-            <div class="col-sm-12" data-bottom-top="transform: translateY(-50px);opacity: 0" data-center="transform: translateY(0px);opacity: 1">
-                <h1>最新送養</h1>
-                <hr />
+                <a href="#">
+                    <img class="icon" src="~/Content/Images/footer/LOGO.png" />
+                </a>
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="grid"><a href="#" /><img src="http://i.imgur.com/z55pzpX.jpg" height="300" width="300" /></span>
-                    <h3> 高雄市  性別：女 </h3>
-                    <p>高雄市動物保護教育園區</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="grid"><a href="#" /><img src="http://i.imgur.com/WllEKEJ.jpg" height="300" width="300" /></span>
-                    <h3>台南市  性別：男</h3>
-                    <p>台南市動物之家灣裡站</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="grid"><a href="#" /><img src="http://i.imgur.com/VrJPDhr.jpg" height="300" width="300" /></span>
-                    <h3>高雄市  性別：女</h3>
-                    <p>高雄市動物保護教育園區</p>
-                </div>
+            <div class="col-md-6" data-bottom-top="transform: translateY(-30px);opacity: 0" data-center="transform: translateY(0px);opacity: 1">
+                <a href="#">
+                    <img class="icon2" src="~/Content/Images/footer/01.png" />
+                </a>
+                <a href="#">
+                    <img class="icon2" src="~/Content/Images/footer/02.png" />
+                </a>
+                <a href="#">
+                    <img class="icon2" src="~/Content/Images/footer/03.png" />
+                </a>
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="grid"><a href="#" /><img src="http://i.imgur.com/pBJz0wA.jpg" height="300" width="300" /></span>
-                    <h3>台南市  性別：女</h3>
-                    <p>台南市動物之家灣裡站</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="grid"><a href="#" /><img src="http://i.imgur.com/DZlblrz.jpg" height="300" width="300" /></span>
-                    <h3>高雄市  性別：男</h3>
-                    <p>高雄市動物保護教育園區</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="grid"><a href="#" /><img src="http://i.imgur.com/uxBlDsd.jpg" height="300" width="300" /> </span>
-                    <h3>台南市  性別：女</h3>
-                    <p>台南市動物之家灣裡站</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<footer id="footer">
-    <div class="row">
-        <div class="col-md-6">
-
-            <img class="icon" src="http://i.imgur.com/hw602LL.png" />
-        </div>
-        <div class="col-md-2">
-            <img class="icon2" src="http://i.imgur.com/23AYl21.png" />
-        </div>
-        <div class="col-md-2">
-            <img class="icon2" src="http://i.imgur.com/G3bJh6D.png" />
-        </div>
-        <div class="col-md-2">
-            <img class="icon2" src="http://i.imgur.com/Har19jW.png" />
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            <p class="footerp">i Pet 幸福轉運站</p>
-        </div>
-        <div class="col-md-6">
-            <p class="footerp">資料更新：2017/02/24</p>
-        </div>
-
     </div>
-    </footer>
+    </section>
+    <a href="#" class="scrollToTop"><img src="~/Content/Images/footer/up.png" alt=""></a>
+
     @section scripts{
-    @Scripts.Render("~/Scripts/index.js")
-}   
+        @Scripts.Render("~/Scripts/index.js")
+    }

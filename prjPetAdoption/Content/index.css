@@ -1,25 +1,38 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 * {
-  font-family: 微軟正黑體;
+  font-family: "微軟正黑體";
 }
 html, body {
+  margin: 0; 
+  padding:0; 
+  height: 100%;
   overflow-x: hidden;
   font-size: 16px;
 }
 
-header {
-  position: relative;
-  background-color: #3DB4E7;
-  text-align: center;
-  overflow: hidden;
 
+header .explore {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 16px;
+  color: #f5d061;
+  top: 85%;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
-header .icon {
-  width: 80%;
-  max-width: 350px;
-  padding: 180px 0px;
+header .explore:after {
+  display: block;
+  content: "v";
+  -webkit-transform: scaleX(1.2) scaleY(0.5);
+          transform: scaleX(1.2) scaleY(0.5);
 }
-
+header .explore.at_top {
+  opacity: 1;
+}
 
 nav.navbar {
   -webkit-transition: 0.5s;
@@ -37,22 +50,78 @@ nav.navbar.at_top a, nav.navbar.at_top a:visited {
   color: white;
 }
 
-section {
-  padding: 50px 0px;
+.slider-wrapper{
+  width: 100%;
+  margin: auto;
+  padding-right: 0px ;
+  padding-left: 0px ;
+
+}
+.slider-wrapper img{
+  margin:0px auto;
+}
+
+.carousel-fade .carousel-inner .item {
+  transition-property: opacity;
+}
+.carousel-fade .carousel-inner .item,  
+.carousel-fade .carousel-inner .active.left,  
+.carousel-fade .carousel-inner .active.right {
+   opacity: 0;
+}
+.carousel-fade .carousel-inner .active,  
+.carousel-fade .carousel-inner .next.left,  
+.carousel-fade .carousel-inner .prev.right {
+    opacity: 1; 
+}
+.carousel-fade .carousel-inner .next,  
+.carousel-fade .carousel-inner .prev,  
+.carousel-fade .carousel-inner .active.left,  
+.carousel-fade .carousel-inner .active.right {
+    left: 0;
+    transform: translate3d(0, 0, 0);
+}
+.carousel-fade .carousel-control {
+    z-index: 2;
+}
+
+.tablehower tr:hover{
+
+  background-color: #D7ED90;
+}
+
+.tablehower a:hover{
+  color: #38A4D2;
+  background-color: #D7ED90;
+}
+.tablehower tr a{
+  color:black;
+  text-decoration:none;
 }
 
 
 section#section_service img {
   width: 130%;
 }
+
+section.pictures h1{
+  color: #FAFBF8;
+}
+
 section#section_service .img_wrap {
   height: 220px;
   overflow: hidden;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
 }
 
 section.pictures {
   padding: 0px;
   color: white;
+}
+section.pictures a{
+  text-decoration: none
 }
 section.pictures .col-md-6 {
   padding: 150px;
@@ -80,12 +149,12 @@ section.pictures .col-md-6:before {
   background-position: center center;
 }
 section.pictures .pic1:before {
-  background-image: url(http://i.imgur.com/fj8VOHw.jpg);
-  background-size: 120% auto;
+  background-image: url(../Content/Images/adopt/pic1.jpg);
+  background-size: 100% auto;
 }
 section.pictures .pic2:before {
-  background-image: url(http://i.imgur.com/hSaWWQN.jpg);
-  background-size: 120% auto;
+  background-image: url(../Content/Images/adopt/pic2.jpg);
+  background-size: 100% auto;
 }
 section.pictures p {
   opacity: 0.4;
@@ -93,46 +162,95 @@ section.pictures p {
           transition-duration: 0.5s;
 }
 
-
-header#header_index .cat {
-  width: 120px;
-  position: absolute;
-  bottom: 0px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-header#header_index #cat_blue {
-  right: 240px;
-  z-index: 3;
-}
-header#header_index #cat_grey {
-  right: 100px;
-}
-header#header_index #cat_yellow {
-  right: 170px;
+.morefloat h3{
+  text-decoration: none;
+  float:right;
 }
 
-
-
-
-footer#footer {
-  background-color: #3DB4E7;
+section#footer {
+ 
+  box-sizing: border-box;
+  /*position: absolute;*/
+  bottom: 0;
+  height: 300px;
+  width:100%;
+  background-color: #38A4D2;
   text-align: center;
+  overflow: hidden;
+ 
 }
-footer#footer .icon {
+section#footer p{
+  color:#FAFBF8;
+}
+section#footer img{
+  margin: 20px;
+}
+section#footer .icon {
   width: 80%;
   max-width: 300px;
   padding: 80px 0px;
 }
 
-footer#footer .icon2 {
+
+section#footer .icon2 {
   width: 80%;
   max-width: 70px;
   padding: 80px 0px;
 }
 
-footer#footer .footerp {
-  font-family: 微軟正黑體;
+section #footer .footerp {
+
+  font-family: "微軟正黑體";
   color: #3B5998;
 }
+
+
+/*cat animate*/
+section#footer .cat {
+  
+  width: 150px;
+  position: absolute;
+  bottom: 0px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+section#footer #cat_blue {
+  right: 240px;
+  z-index: 3;
+}
+
+section#footer #cat_grey {
+  right: 100px;
+}
+
+section#footer #cat_yellow {
+  right: 170px;
+}
+
+section#footer #cross {
+  position: absolute;
+}
+
+.push {
+  min-height: 99%;
+  height: auto ;
+  position: relative;
+
+}
+
+
+.scrollToTop{
+  padding:10px; 
+  font-weight:bold;
+  text-decoration:none;
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  display:none;
+}
+.scrollToTop:hover{
+  text-decoration:none;
+}
+
 

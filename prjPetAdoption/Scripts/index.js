@@ -86,5 +86,55 @@ function carouselNormalization() {
     }
 }
 
+//cat animate
+$(window).mousemove(function(evt){  
+  var x = evt.pageX; 
+  var y = evt.pageY; 
+  //console.log( x + "," + y);
+  
+  $("#cross").css("left",x+"px");
+  $("#cross").css("top",y+"px");
+  
+  var catplace = $("#cat_blue").offset().left+$("#cat_blue").width()/2;
+  if (Math.abs(x-catplace)<80){
+    $("#cat_blue").css("bottom","0px");
+  }else{
+    $("#cat_blue").css("bottom","-50px");
+  }
+  
+  var catplace = $("#cat_yellow").offset().left+$("#cat_yellow").width()/2;
+  if (Math.abs(x-catplace)<80){
+    $("#cat_yellow").css("bottom","0px");
+  }else{
+    $("#cat_yellow").css("bottom","-50px");
+  }
+  
+  var catplace = $("#cat_grey").offset().left+$("#cat_grey").width()/2;
+  if (Math.abs(x-catplace)<80){
+    $("#cat_grey").css("bottom","0px");
+  }else{
+    $("#cat_grey").css("bottom","-50px");
+  }
+  
+  
+});
+
+$(document).ready(function(){
+  //Check to see if the window is top if not then display button
+  $(window).scroll(function(){
+    if ($(this).scrollTop() > 100) {
+      $('.scrollToTop').fadeIn();
+    } else {
+      $('.scrollToTop').fadeOut();
+    }
+  });
+ 
+  //Click event to scroll to top
+  $('.scrollToTop').click(function(){
+    $('html, body').animate({scrollTop : 0},500);
+    return false;
+  });
+});
+
 
 
