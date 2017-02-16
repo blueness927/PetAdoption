@@ -267,11 +267,11 @@ namespace prjPetAdoption.Controllers
                 try
                 {
                     db.SaveChanges();
-                    return RedirectToAction("oneAni", "aniData", new { id = msg.msgFromURL });
+                    return RedirectToAction("oneAni", "aniData", new { id = msg.msgFrom_userID });
                 }
                 catch (Exception e)
                 {
-                    return RedirectToAction("oneAni", "aniData", new { id = msg.msgFromURL });
+                    return RedirectToAction("oneAni", "aniData", new { id = msg.msgFrom_userID });
                 }
             }
 
@@ -280,6 +280,34 @@ namespace prjPetAdoption.Controllers
         }
 
 
+        // GET: Msgs/Create
+        public ActionResult MsgCreate2()
+        {
+            return View();
+        }
+
+        // POST: Msgs/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult MsgCreate2([Bind(Include = "msgID,msgTime,msgFrom_userID,msgTo_userID,msgType,msgFromURL,msgContent,msgRead")] Msg msg)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Msg.Add(msg);
+                try
+                {
+                    db.SaveChanges();
+                    return RedirectToAction("MsgList", "aniData", new { id = msg.msgFrom_userID });
+                }
+                catch (Exception e)
+                {
+                    return RedirectToAction("MsgList", "aniData", new { id = msg.msgFrom_userID });
+                }
+            }
+
+
+            return View();
+        }
 
 
     }

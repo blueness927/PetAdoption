@@ -16,7 +16,7 @@
                 <th >訊息日期</th>
                 <th >發訊人</th>
                 <th >訊息類別</th>
-                <th>內容</th>
+                <th colspan="2">內容</th>
                 <th colspan="2">動作</th>
             </tr>
         </thead>
@@ -32,7 +32,7 @@
 
                 <td>@Html.DisplayFor(modelItem => item.msgType)</td>
 
-                <td>@Html.DisplayFor(modelItem => item.msgContent)</td>
+                <td colspan="2">@Html.DisplayFor(modelItem => item.msgContent)</td>
                 <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="addMsg()">回覆訊息</button></td>
                 <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="addMsg()">刪除訊息</button></td>
             </tr>
@@ -57,7 +57,7 @@
                                        
                     $('#aFrom_userID').val('@User.Identity.GetUserId().ToString()');
                     $('#aTo_userID').val(ownerid);
-                    $('#amsgType').val("認養通知");
+                    $('#amsgType').val("訊息回覆");
 
                     $('#amsgContent').val("您好，我是"+'@User.Identity.GetUserName().ToString()'+"我想認養您的寵物，聯絡方式如下，請與我聯絡，謝謝");
 
@@ -80,12 +80,12 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">請先詳閱認養條件，確認條件符合。</h4>
+                            <h4 class="modal-title">回覆訊息</h4>
                         </div>
                         <div class="modal-body">
-                            <p>請提供聯絡資訊給送養人，並確認符合認養條件。</p>
+                            <p>請提供填寫欲回覆之訊息</p>
 
-                            @using (Html.BeginForm("MsgCreate", "aniData", FormMethod.Post, new { }))
+                            @using (Html.BeginForm("MsgCreate2", "aniData", FormMethod.Post, new { }))
                             {
                                 @Html.AntiForgeryToken()
                                 <div class="form-horizontal">
@@ -111,7 +111,7 @@
                                     <div class="form-group">
 
                                         <div class="col-md-12" align="center">
-                                            @Html.TextAreaFor(model => model.Msg.msgContent, new { htmlAttributes = new { @class = "form-control", @rows = "3", @id = "amsgContent", @style = "margin: 0px - 15.8438px 0px 0px; height: 151px; width: 424px; " }, cols = 50, @rows = 4 })
+                                            @Html.TextAreaFor(model => model.Msg.msgContent, new { htmlAttributes = new { @class = "form-control", @rows = "3", @id = "amsgContent", @style = "margin: 0px - 15.8438px 0px 0px; height: 151px; width:500px; " }, cols = 70, @rows = 4 })
                                             @Html.ValidationMessageFor(model => model.Msg.msgContent, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
