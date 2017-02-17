@@ -53,7 +53,7 @@ namespace prjPetAdoption
             // 設定密碼的驗證邏輯
             manager.PasswordValidator = new PasswordValidator
             {
-                RequiredLength = 4, //要求長度
+                RequiredLength = 6, //要求長度
                 RequireNonLetterOrDigit = false,//要數字
                 RequireDigit = false, //特殊字元
                 RequireLowercase = false, //要有大寫

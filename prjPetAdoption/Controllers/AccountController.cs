@@ -343,7 +343,7 @@ namespace prjPetAdoption.Controllers
                     // 若使用者沒有帳戶，請提示使用者建立帳戶
                     ViewBag.ReturnUrl = returnUrl;
                     ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { UserName=loginInfo.DefaultUserName,Email = loginInfo.Email });
             }
         }
 
@@ -367,7 +367,7 @@ namespace prjPetAdoption.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
