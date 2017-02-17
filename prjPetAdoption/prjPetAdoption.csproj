@@ -440,7 +440,6 @@
     <Content Include="Models\DBAnimal.edmx.diagram">
       <DependentUpon>DBAnimal.edmx</DependentUpon>
     </Content>
-    <Content Include="Content\aniwiki\aniwiki_style.sass" />
     <None Include="Properties\PublishProfiles\web.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\animalDetailjs\animalDetail.js" />

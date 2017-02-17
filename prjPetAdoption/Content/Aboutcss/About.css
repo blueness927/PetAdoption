@@ -26,15 +26,7 @@
     color:white;
     padding:5%;
 }
-.fotter{
-       
-       text-align:center;
-       background-color:#9f7e69;
-       width:90%;
-       display:block;
-       margin: auto;
-       -webkit-border-radius: 10px;
-   	   -moz-border-radius: 10px;
-	   border-radius: 10px;
+footer p {
+    text-align: center;
 }
 

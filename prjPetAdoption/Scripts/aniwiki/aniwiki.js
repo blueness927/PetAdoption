@@ -35,6 +35,13 @@ var petdatas=[
     color: "上被毛為筆直的鋼毛，很堅硬。毛色為紅色、芝蔴色、虎斑色與白色等。",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjcTtuul0OHjAs6Rx1Xlazs50tfwsBR20m0kWHOs5ybuB6MD78"
   },{
+    name: "博美犬",
+    type: "dog",
+    personality: "活潑好動 心胸開朗。",
+    feature: "小耳挺立，亮麗的眼晴給人可愛的印象。尾巴覆蓋在背上，身上的毛膨鬆可愛。",
+    color: "具光澤的上毛與短下毛，黃褐色、奶油色、橘色等。",
+    img: "https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-0/p206x206/15541248_10207979238184048_1372971477319696988_n.jpg?oh=ddb62e0bc30f2354574f4901a2fc0a0c&oe=5944E0AB"
+  },{
     name: "日本短尾貓",
     type: "cat",
     personality: "平和的性格和溫馴",
@@ -51,49 +58,82 @@ var petdatas=[
   },{
     name: "雪鞋貓",
     type: "cat",
-    personality: "調皮、依賴",
-    feature: "頭部呈V字型，有一雙大耳朵和杏眼，體型十分流暢且優美，身軀纖細，尾巴長如鞭。",
-    color: "點狀和刺鼠虎斑外的所有毛色均為白色",
+    personality: "安靜、很喜歡人類",
+    feature: "肌肉發達、身軀細長、四肢也很修長。末端變細的尾巴和身軀等長，表現出良好平衡感。",
+    color: "白色 體毛光滑。",
     img: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS98rUThC_awSriHKPsBHDcwv6QKY-TmJJYKphl0CnZCTWbhXMcjA"
   },{
     name: "新加普拉貓",
     type: "cat",
-    personality: "調皮、依賴",
-    feature: "頭部呈V字型，有一雙大耳朵和杏眼，體型十分流暢且優美，身軀纖細，尾巴長如鞭。",
-    color: "點狀和刺鼠虎斑外的所有毛色均為白色",
+    personality: "溫和、愛撒嬌，且好奇心強，動作敏捷",
+    feature: "比例勻稱。頭部又圓又小，眼下的位置有條紋。下顎、胸部、腹部為苔綠色。",
+    color: "柔軟的短體毛叢生體表，黑貂刺鼠虎斑色。",
     img: "http://101570310.weebly.com/uploads/1/5/7/3/15735300/3283089_orig.jpg"
-  },{
-    name: "俄羅斯藍貓",
-    type: "cat",
-    personality: "調皮、依賴",
-    feature: "頭部呈V字型，有一雙大耳朵和杏眼，體型十分流暢且優美，身軀纖細，尾巴長如鞭。",
-    color: "點狀和刺鼠虎斑外的所有毛色均為白色",
-    img: "http://101570310.weebly.com/uploads/1/5/7/3/15735300/4037898_orig.jpg"
   },{
     name: "美國短毛貓",
     type: "cat",
-    personality: "調皮、依賴",
-    feature: "頭部呈V字型，有一雙大耳朵和杏眼，體型十分流暢且優美，身軀纖細，尾巴長如鞭。",
-    color: "點狀和刺鼠虎斑外的所有毛色均為白色",
+    personality: "活潑、溫和、穩重",
+    feature: "具有彈性的四肢和健壯的身軀，頭部為帶有圓形感的長方形，眼睛又大又圓有上揚感。",
+    color: "銀白色和黑色的古典虎斑。",
     img: "http://101570310.weebly.com/uploads/1/5/7/3/15735300/9606179_orig.jpg"
   },{
     name: "挪威森林貓",
     type: "cat",
-    personality: "調皮、依賴",
-    feature: "頭部呈V字型，有一雙大耳朵和杏眼，體型十分流暢且優美，身軀纖細，尾巴長如鞭。",
-    color: "點狀和刺鼠虎斑外的所有毛色均為白色",
+    personality: "溫馴、服從",
+    feature: "耳朵位在頭部的低處，臉型為扁平的三角形。胸部四周的肌肉特別發達 後肢比前肢長。",
+    color: "白色 黑色和虎斑等。下毛十分柔軟，上毛較硬",
     img: "http://101570310.weebly.com/uploads/1/5/7/3/15735300/6285319.jpg?124"
+  },{
+    name: "環頸鸚鵡",
+    type: "bird",
+    personality: "活潑、好奇",
+    feature: "雄鳥頸部呈環狀頸紋，環頸鸚鵡適應能力佳，活潑、好奇心強，6個月大起可學說話，易飼養、易與人親近。",
+    color: "原生種是綠色，黃、藍、白色是常見變種。",
+    img: "http://blog.sina.com.tw/myimages/1/118785/images/20111013094611886.jpg"
+  },{
+    name: "虎皮鸚鵡",
+    type: "bird",
+    personality: "好伺候、好動",
+    feature: "頭部呈圓，喙部有鉤曲，腿較短，有兩腳趾向前，兩腳趾向後，易於攀樹、攀物。",
+    color: "羽毛呈黃色且有黑色條紋。",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Budgerigar-strzelecki-qld.jpg/250px-Budgerigar-strzelecki-qld.jpg"
+  },{
+    name: "綠頰錐尾鸚鵡",
+    type: "bird",
+    personality: "調皮、活潑、好奇、親人",
+    feature: "對人的接受度高，安靜又討喜，所以很適合各種居家環境飼養。",
+    color: "體色較淡較亮，胸前呈灰色，尾部是紅褐色。",
+    img: "http://www.ichong123.com/uploads/2015/8/1263.jpg"
+  },{
+    name: "雀和金絲雀",
+    type: "bird",
+    personality: "膽子小、警覺性高",
+    feature: "體型飽滿結實，目光炯炯有神，愛啼叫，聲音清脆不間斷。",
+    color: "羽毛光亮鮮明柔順。",
+    img: "http://petbird.tw/wp-content/uploads/a7/a773.jpg"
+  },{
+    name: "八哥鳥",
+    type: "bird",
+    personality: "性情溫馴、消化力極強",
+    feature: "生性非常怕冷，善於觀察周遭的變化。",
+    color: "黑色而有光澤。",
+    img: "http://petbird.tw/wp-content/uploads/2014/04/Acrido5874.jpg"
+  },{
+    name: "白頭翁",
+    type: "bird",
+    personality: "活潑、好動",
+    feature: "善於鳴叫，而且聲音婉轉多變化。",
+    color: "頭黑枕部白，背部為黃綠色，胸部大多都是灰褐色，腹部為白色。",
+    img: "http://petbird.tw/wp-content/uploads/2014/02/fh00630.jpg"
   }
    
 ];
-
 
 var vm=new Vue({
   el: "#app", 
   data: {
     mode_type:  "false",
     mode_detail: false,
-    pets: petdatas
-    
+    pets: petdatas  
   }
 });

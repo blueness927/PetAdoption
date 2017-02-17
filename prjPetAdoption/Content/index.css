@@ -10,7 +10,6 @@ html, body {
   font-size: 16px;
 }
 
-
 header .explore {
   position: absolute;
   left: 50%;
@@ -101,12 +100,11 @@ nav.navbar.at_top a, nav.navbar.at_top a:visited {
 
 
 section#section_service img {
+  border-radius:10%;
   width: 130%;
 }
 
-section.pictures h1{
-  color: #FAFBF8;
-}
+
 
 section#section_service .img_wrap {
   height: 220px;
@@ -121,7 +119,7 @@ section.pictures {
   color: white;
 }
 section.pictures a{
-  text-decoration: none
+  text-decoration: none;
 }
 section.pictures .col-md-6 {
   padding: 150px;
