@@ -1,13 +1,21 @@
 ﻿@charset "UTF-8";
 * {
   text-align: center;
-  font-family: "微軟正黑體";
+  font-family: 微軟正黑體;
+}
+
+h5, .h5 {
+    font-size: 16px;
+    color:#4C68A1;
+    text-align:left;
 }
 
 body {
   padding: 20px;
 }
 label{
+   font-size: 16px;
+   color:#4C68A1;
   text-align: right;
 }
 .bkl_icon {
@@ -19,22 +27,23 @@ label{
   display: inline-block;
   padding: 10px;
   text-align: center;
-  width: 280px;
-  height: 360px;
-  border: solid 1px #bbb;
+  width: 170px;
+  background-color:#EFEFEF;
+  border: solid 1px #4C68A1;
   line-height: 22px;
 }
 .pet a {
   color: #555;
 }
 .pet img {
+  border-radius: 10%;
   width: 100%;
-  margin-bottom: 5px;
-  height:80%;
 }
 .pet .name {
   margin: 0;
-  font-size: 18px;
+  color:#4C68A1;
+  font-size: 20px;
+  font-weight:bold;
 }
 .pet .name a {
   color: #222;
@@ -45,25 +54,46 @@ label{
 }
 
 .pet.detail {
-  display: block;
+ 
   width: 80%;
-  height:auto;
   text-align: left;
-  padding: 20px;
+  padding: 10px;
   line-height: 24px;
 }
-.pet.detail h4{
-  text-align: left;
-  font-size:16px;
-}
 .pet.detail img {
-  width: 220px;
+  width: 150px;
+  border-radius: 10%;
   display: inline-block;
   vertical-align: middle;
 }
 .pet.detail .infos {
   display: inline-block;
-  width: calc(100% - 220px - 20px);
+  width: calc(100% - 150px - 20px);
   vertical-align: middle;
 }
 
+.pet.detail .infos h4{
+  text-align:left;
+  display: inline-block;
+  width: calc(100% - 150px - 20px);
+  vertical-align: middle;
+}
+.big {
+  width: 280px;
+  height: 400px;
+  vertical-align: top;
+}
+.big img {
+  margin-bottom: 5px;
+}
+
+.detail.big {
+  height: initial;
+  padding: 20px;
+}
+.detail.big img {
+  width: 220px;
+}
+.detail.big .infos {
+  width: calc(100% - 220px - 20px);
+}

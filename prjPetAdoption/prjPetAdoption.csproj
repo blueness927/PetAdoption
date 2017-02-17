@@ -197,6 +197,7 @@
     <Compile Include="Controllers\boardsController.cs" />
     <Compile Include="Controllers\followsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IActionResult.cs" />
     <Compile Include="Controllers\iPetController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MsgsController.cs" />
@@ -444,7 +445,6 @@
     <Content Include="Models\DBAnimal.edmx.diagram">
       <DependentUpon>DBAnimal.edmx</DependentUpon>
     </Content>
-    <Content Include="Content\aniwiki\aniwiki_style.sass" />
     <None Include="Properties\PublishProfiles\web.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\animalDetailjs\animalDetail.js" />
