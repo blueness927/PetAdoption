@@ -561,6 +561,7 @@
     <Content Include="Views\Shared\_logPartialMSG.cshtml" />
     <Content Include="Views\aniData\MsgList.cshtml" />
     <Content Include="Views\aniData\MsgCreate2.cshtml" />
+    <Content Include="Views\animalData_Pic1\DelpicSure.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

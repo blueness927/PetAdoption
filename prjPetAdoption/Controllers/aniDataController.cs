@@ -180,7 +180,7 @@ namespace prjPetAdoption.Controllers
         }
 
 
-
+        //新增留言板
         public ActionResult BoardCreate()
         {
             return RedirectToAction("oneAni", "aniData"/*, new { id = board.board_animalID }*/);
@@ -218,7 +218,6 @@ namespace prjPetAdoption.Controllers
 
         public ActionResult followCreate()
         {
-
             return View();
         }
 

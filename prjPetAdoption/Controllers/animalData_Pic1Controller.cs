@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using prjPetAdoption.Models;
 using prjPetAdoption.ViewModels;
+using Microsoft.AspNet.Identity;
 
 namespace prjPetAdoption.Controllers
 {
@@ -27,8 +28,21 @@ namespace prjPetAdoption.Controllers
         {
             var animalData_Pic = db.animalData_Pic.Where(x => x.animalPic_animalID == id).ToList();
             AllAniData.animalData_PicList = animalData_Pic;
+            ViewBag.AID = id;
             return View(AllAniData);
         }
+
+        //圖片列表刪除
+        [HttpDelete]
+        public ActionResult DelpicSure(int? id)
+        {
+            animalData_Pic animalData_Pic = db.animalData_Pic.Find(id);
+            db.animalData_Pic.Remove(animalData_Pic);
+            db.SaveChanges();
+            return RedirectToAction("picList", "animalData_Pic1", new { id = animalData_Pic.animalPic_animalID });
+        }
+
+
 
         // GET: animalData_Pic1/Details/5
         public ActionResult Details(int? id)
@@ -73,10 +87,10 @@ namespace prjPetAdoption.Controllers
 
 
         public ActionResult CreatePart()
-        {
-            int? intIdt = db.animalData.Max(u => (int?)u.animalID);
-            ViewBag.animalID = intIdt;
-            return View();
+        {           
+            var intIdt = Session["EditAID"];
+            ViewBag.aID = intIdt;
+            return PartialView();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -86,11 +100,11 @@ namespace prjPetAdoption.Controllers
             {
                 db.animalData_Pic.Add(animalData_Pic);
                 db.SaveChanges();
-                return RedirectToAction("oneAni", "aniData", new { id = animalData_Pic.animalPic_animalID });
+                return RedirectToAction("picList", "animalData_Pic1", new { id = animalData_Pic.animalPic_animalID });
             }
 
             ViewBag.animalPic_animalID = new SelectList(db.animalData, "animalID", "animalKind", animalData_Pic.animalPic_animalID);
-            return View(animalData_Pic);
+            return PartialView(animalData_Pic);
         }
 
         // GET: animalData_Pic1/Edit/5

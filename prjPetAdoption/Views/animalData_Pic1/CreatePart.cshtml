@@ -5,7 +5,7 @@
 
 
 <script type="text/javascript">
-    var id= @ViewBag.animalID;
+    var id= @ViewBag.aID;
     function addID(){
         $('#upID').val(id);
     };
@@ -55,7 +55,7 @@
             </div>
 
             <div class="col-md-10">
-                @Html.EditorFor(model => model.animalPic_animalID, new { htmlAttributes = new { @class = "form-control", @id = "upID", @style = "visibility:hidden" } })
+                @Html.EditorFor(model => model.animalPic_animalID, new { htmlAttributes = new { @class = "form-control", @id = "upID"@*, @style = "visibility:hidden"*@ } })
                 @Html.ValidationMessageFor(model => model.animalPic_animalID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -72,8 +72,8 @@
 
         <div class="form-group">
             <div class="col-md-10">
-                <input type="submit" value="新增圖片  送養完成" class="btn btn-warning" onclick="addID()" />
-
+                <input type="submit" value="新增圖片" class="btn btn-warning" onclick="addID()" />
+                <input type="button" value="addID" class="btn btn-warning" onclick="addID()" />
 
             </div>
         </div>
