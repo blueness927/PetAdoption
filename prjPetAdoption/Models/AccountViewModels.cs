@@ -8,6 +8,11 @@ namespace prjPetAdoption.Models
         [Required]
         [Display(Name = "電子郵件")]
         public string Email { get; set; }
+        [Required]
+        [Display(Name = "名稱")]
+        public string UserName { get; set; }
+
+
     }
 
     public class ExternalLoginListViewModel

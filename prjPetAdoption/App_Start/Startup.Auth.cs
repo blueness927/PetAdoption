@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using prjPetAdoption.Models;
+using Microsoft.Owin.Security.Facebook;
 
 namespace prjPetAdoption
 {
@@ -55,9 +56,19 @@ namespace prjPetAdoption
             //   consumerSecret: "");
 
             //正式環境
-            app.UseFacebookAuthentication(
-               appId: "208269922976554",
-               appSecret: "20dbe805f01805bf6287d926999da83f");
+            //app.UseFacebookAuthentication(
+            //   appId: "208269922976554",
+            //   appSecret: "20dbe805f01805bf6287d926999da83f");
+
+
+            var facebookAuthenticationOptions = new FacebookAuthenticationOptions()
+            {
+                AppId = "222558511547695",
+                AppSecret = "0546799fdfbf65a33eadea610ef1f36e"
+                
+            };
+            facebookAuthenticationOptions.Scope.Add("email");
+            app.UseFacebookAuthentication(facebookAuthenticationOptions);
 
             //測試
             //app.UseFacebookAuthentication(
