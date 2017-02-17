@@ -35,7 +35,7 @@
           <Property Name="animalOwner_userID" Type="nvarchar" MaxLength="128" />
           <Property Name="animalReason" Type="nvarchar" MaxLength="50" />
           <Property Name="animalGetter_userID" Type="nvarchar" MaxLength="128" />
-          <Property Name="animalAdopted" Type="nvarchar" MaxLength="50" />
+          <Property Name="animalAdopted" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
           <Property Name="animalAdoptedDate" Type="nvarchar" MaxLength="50" />
           <Property Name="animalNote" Type="nvarchar(max)" />
         </EntityType>
@@ -917,7 +917,7 @@
           <Property Name="animalOwner_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="animalReason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="animalGetter_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="animalAdopted" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalAdopted" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="animalAdoptedDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="animalNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="animalData_Pic" Relationship="DbAnimalModel.FK__animalDat__anima__19AACF41" FromRole="animalData" ToRole="animalData_Pic" />

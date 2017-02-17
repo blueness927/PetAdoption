@@ -4,12 +4,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>訊息匣</h2>
+<br><br><br><br>
 
-<div class="col-md-10">
+
+<div class="col-md-12"  > 
+    <h2>訊息匣</h2>
     
-    
-    <table class="table table-condensed" align="center">
+    <table class="table table-condensed" align="center" style="max-width:1000px" >
 
         <thead>
             <tr align="center" class="info">
@@ -34,8 +35,15 @@
 
                 <td colspan="2">@Html.DisplayFor(modelItem => item.msgContent)</td>
                 <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="addMsg()">回覆訊息</button></td>
-                <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="addMsg()">刪除訊息</button></td>
-            </tr>
+                
+                <td>
+                    @using (Html.BeginForm("DelfollowAniSure", "aniData", new { id = @item.msgID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認刪除訊息?');" }))
+                {
+                        @Html.HttpMethodOverride(HttpVerbs.Delete)
+                        <button type="submit" class="btn btn-success">取消追蹤</button>
+                    }
+                </td>
+</tr>
 
         }
     </table>

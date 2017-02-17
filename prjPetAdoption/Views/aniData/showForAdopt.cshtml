@@ -6,7 +6,16 @@
 }
 @Styles.Render("~/Content/showForAdopt")
 
-<section>
+
+<div class="col-md-12" style="margin:0px auto;">
+  <br/><br/><br />
+        <span class="grid"><img src="~/Content/Images/allpic/送養專區.png" style="display:block; margin:auto; max-width:1000px;" /></span>
+  
+  
+</div>
+
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -17,7 +26,7 @@
             </div>
         </div>
     </div>
-</section>
+
 <section class="adoptnavigate1">
     <div class="container">
         <div class="row">
@@ -88,20 +97,20 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="col-md-4">
+    <div class="col-md-12" style="margin:0px auto;">
         <a href="@Url.Action("Create", "animalDatas",new { id = User.Identity.GetUserName() })">
-            <span class="grid"><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" /></span>
+            <span class="grid"><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" style="display:block; margin:auto;" /></span>
         </a>
-        <p>新增送養寵物</p>
+        <p  align=center>新增送養寵物</p>
     </div>
 }
 else
 {
-    <div class="col-md-4">
+    <div class="col-md-12"  style="margin:0px auto;">
         <a href="@Url.Action("Login", "Account")">
-            <span class="grid"><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" /></span>
+            <span class="grid"><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" style="display:block; margin:auto;"/></span>
         </a>
-        <p>請先註冊或登入</p>
+        <p  align=center>請先註冊或登入</p>
     </div>
 }
 

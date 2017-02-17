@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>動物資訊</h2>
+<br/><br /><br /><br />
 
 
 @*<link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">*@
@@ -216,21 +216,28 @@
 
 
             <div class="form-group">
-                <div class="col-md-6">
-                    <input type="submit" value="加入追蹤" class="btn btn-primary" onclick="addID2(),alerAdd()" />
+                <div class="col-md-6 "  style="margin:0px auto;">
+                    @*<input type="submit" value="加入追蹤" class="btn btn-primary" onclick="addID2(),alerAdd()" />*@
+                    <br/><br />
 
-                </div>
+                    <input type=image src="~/Content/Images/allpic/追蹤.png" alt="submit" onclick="addID2(),alerAdd()" style="display:block; margin:auto;max-width:180px">
+               
+                    <br /><br />
+                 </div>
             </div>
 
         }
     }
     else
     {
-        <div class="form-group">
-            <div class="col-md-6">
-                <input type="button" value="加入追蹤" class="btn btn-primary" onclick="aler()" />
-            </div>
+
+        <div class="col-md-6" style="margin:0px auto;">
+            @*<input type="button" value="加入追蹤" class="btn btn-primary" onclick="aler()" />*@
+            <br /><br />
+            <input type=image src="~/Content/Images/allpic/追蹤.png" onclick="aler()" style="display:block; margin:auto;max-width:180px">
+            <br /><br />
         </div>
+
 
     }
 
@@ -264,11 +271,14 @@
 
 
         </text>
-        <div class="form-group">
-            <div class="col-md-6">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="addMsg()">我要認養</button>
-            </div>
+
+        <div class="col-md-3">
+            <br /><br />
+            @*<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="addMsg()">我要認養</button>*@
+            <input type=image src="~/Content/Images/allpic/認養.png" data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="addMsg()" style="display:block; margin:auto;max-width:180px">
+            <br /><br />
         </div>
+
                 <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
@@ -337,12 +347,13 @@
                 <!-- Modal -->
     }
     else
-    {  <div class="form-group">
-        <div class="col-md-6">
-            <button type="button" class="btn btn-success" onclick="aler();">我要認養</button>
-
+    {  
+        <div class="col-md-3">
+            <br /><br />
+            <input type=image src="~/Content/Images/allpic/認養.png" data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="aler()" style="display:block; margin:auto;max-width:180px">
+            <br /><br />
         </div>
-    </div>
+ 
     }
 
 
@@ -354,7 +365,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-
 
                         <section class="work-section" id="work">
 
