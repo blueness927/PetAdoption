@@ -656,7 +656,7 @@
     <Content Include="Views\Shared\_logPartialMSG.cshtml" />
     <Content Include="Views\aniData\MsgList.cshtml" />
     <Content Include="Views\aniData\MsgCreate2.cshtml" />
-    <Content Include="Views\Manage\Index - 備份.cshtml" />
+    <Content Include="Views\Manage\備份.cshtml" />
     <Content Include="Views\Shared\_MemberLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>

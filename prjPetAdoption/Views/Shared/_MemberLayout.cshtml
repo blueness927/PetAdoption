@@ -94,18 +94,17 @@
                     <h5 class="centered"> @User.Identity.GetUserName()</h5>
 
                     <li class="mt">
-                        <a class="active" href="index.html">
+                        <a href="@Url.Action("index","Manage")">
                             <i class="fa fa-dashboard"></i>
-                            <span>DashBoard</span>
+                            <span>功能表</span>
                         </a>
                     </li>
 
                     <li class="sub-menu">
-                        <a href="#">
+                        <a href="@Url.Action("ChangePassword","Manage")">
                             <i class="fa fa-desktop"></i>
                             <span>基本資料設定</span>
                         </a>
-
                     </li>
 
                     <li class="sub-menu">
@@ -139,9 +138,6 @@
             <footer class="site-footer">
                 <div class="text-center">
                     Pet Go!!! 認養大平台
-                    <a href="index.html#" class="go-top">
-                        <i class="fa fa-angle-up"></i>
-                    </a>
                 </div>
             </footer>
     </section>
