@@ -53,9 +53,10 @@ namespace prjPetAdoption.Controllers
 
             totalCount = source.Count();
 
-            source = source.OrderBy(x => x.animalAddress)
+            source = source.OrderByDescending(x => x.animalID)
                            .Skip((pageIndex - 1) * pageSize)
-                           .Take(pageSize);
+                           .Take(pageSize)
+;
 
             var pagedResult = new StaticPagedList<aniDataPicOne>(source, pageIndex, pageSize, totalCount);
 

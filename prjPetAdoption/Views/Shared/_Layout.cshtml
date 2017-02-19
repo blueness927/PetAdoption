@@ -9,22 +9,20 @@
     <link rel="stylesheet" href="~/Content/index.css">
 
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr") 
+    @Scripts.Render("~/bundles/modernizr")
 
 
-  </head>
-<body>
-
-
+</head>
+<body style="height:auto">
     @section scripts{
         <script>
             $(function () {
                 $("#showlogin").load("/aniData/_logPartialMSG/@User.Identity.GetUserId()");
 
-    } );
+            });
         </script>
     }
-    <nav class="navbar navbar-default navbar-fixed-top at_top" style="background-color:#38A4D2;">
+    <nav class="navbar navbar-default navbar-fixed-top at_top" style="background-color:#2c3e50;">
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -33,38 +31,38 @@
                 </button>@Html.ActionLink("iPet", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse" id="navbar">
-                <ul class="nav navbar-nav navbar-right" >
+                <ul class="nav navbar-nav navbar-right">
 
-@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
-{
-        @Html.AntiForgeryToken()
+                    @using Microsoft.AspNet.Identity
+                    @if (Request.IsAuthenticated)
+                    {
+                        @Html.AntiForgeryToken()
 
-        <li>@Html.ActionLink("關於我們", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("認養專區", "show", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("送養專區", "showForAdopt", "aniData", new { id = User.Identity.GetUserId() }, new { @class = "navbar-brand", title = "showForAdopt" })</li>
-                    <li>@Html.ActionLink("寵物幫手", "Help", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    @*<li>@Html.ActionLink("商 城", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>*@
-                   
-        @*@Html.Partial("_LoginPartial")*@
-       
-          @Html.Partial(
+                        <li>@Html.ActionLink("關於我們", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                        <li>@Html.ActionLink("認養專區", "show", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
+                        <li>@Html.ActionLink("送養專區", "showForAdopt", "aniData", new { id = User.Identity.GetUserId() }, new { @class = "navbar-brand", title = "showForAdopt" })</li>
+                        <li>@Html.ActionLink("寵物幫手", "Help", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                        @*<li>@Html.ActionLink("商 城", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>*@
+
+                        @*@Html.Partial("_LoginPartial")*@
+
+                        @Html.Partial(
                   "_logPartialMSG",
                           new ViewDataDictionary { { "id", User.Identity.GetUserId() } }
             );
 
 
-}
-else
-{
+                    }
+                    else
+                    {
 
-<li>@Html.ActionLink("關於我們", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("認養專區", "show", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("送養專區", "showForAdopt", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("寵物幫手", "Help", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    @*<li>@Html.ActionLink("商 城", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>*@
-                    @Html.Partial("_LoginPartial")
-}
+                        <li>@Html.ActionLink("關於我們", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                        <li>@Html.ActionLink("認養專區", "show", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
+                        <li>@Html.ActionLink("送養專區", "showForAdopt", "aniData", new { area = "" }, new { @class = "navbar-brand" })</li>
+                        <li>@Html.ActionLink("寵物幫手", "Help", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                        @*<li>@Html.ActionLink("商 城", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>*@
+                        @Html.Partial("_LoginPartial")
+                    }
                 </ul>
             </div>
             <!---->
@@ -73,16 +71,17 @@ else
     </nav>
     <div class="container-fluid" style="padding-top:30px">
         @RenderBody()
-      <footer class="col-lg-12">
-            <hr />
-            <br>
-            <p>&copy; @DateTime.Now.Year - iPet 認養代替購買 動物關懷</p>
-          
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js'></script>
-          
-            @*<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.js'></script>*@
+    </div>
+    <footer class="col-lg-12">
+        <hr />
+        <br>
+        <p>&copy; @DateTime.Now.Year - iPet 認養代替購買 動物關懷</p>
 
-       </footer>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js'></script>
+
+        @*<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.js'></script>*@
+
+    </footer>
 
 
     @Scripts.Render("~/bundles/jquery")

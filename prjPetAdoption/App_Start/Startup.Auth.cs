@@ -63,9 +63,9 @@ namespace prjPetAdoption
 
             var facebookAuthenticationOptions = new FacebookAuthenticationOptions()
             {
-                AppId = "222558511547695",
-                AppSecret = "0546799fdfbf65a33eadea610ef1f36e"
-                
+                AppId = "208269922976554",
+                AppSecret = "20dbe805f01805bf6287d926999da83f"
+
             };
             facebookAuthenticationOptions.Scope.Add("email");
             app.UseFacebookAuthentication(facebookAuthenticationOptions);
