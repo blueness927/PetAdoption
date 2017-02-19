@@ -266,11 +266,11 @@ namespace prjPetAdoption.Controllers
                 try
                 {
                     db.SaveChanges();
-                    return RedirectToAction("oneAni", "aniData", new { id = msg.msgFrom_userID });
+                    return RedirectToAction("oneAni", "aniData", new { id = msg.msgFromURL });
                 }
                 catch (Exception e)
                 {
-                    return RedirectToAction("oneAni", "aniData", new { id = msg.msgFrom_userID });
+                    return RedirectToAction("oneAni", "aniData", new { id = msg.msgFromURL });
                 }
             }
 

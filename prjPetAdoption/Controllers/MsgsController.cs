@@ -111,12 +111,12 @@ namespace prjPetAdoption.Controllers
         // POST: Msgs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int? id)
         {
             Msg msg = db.Msg.Find(id);
             db.Msg.Remove(msg);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("MsgList", "aniData", new { id = msg.msgFrom_userID ,title="Msg" });
         }
 
         protected override void Dispose(bool disposing)

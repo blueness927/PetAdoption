@@ -37,10 +37,11 @@
                 <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="addMsg()">回覆訊息</button></td>
                 
                 <td>
-                    @using (Html.BeginForm("DelfollowAniSure", "aniData", new { id = @item.msgID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認刪除訊息?');" }))
-                {
+                    @using (Html.BeginForm("DeleteConfirmed", "Msgs", new { id = @item.msgID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認刪除訊息?');" }))
+                {@Html.AntiForgeryToken()
                         @Html.HttpMethodOverride(HttpVerbs.Delete)
-                        <button type="submit" class="btn btn-success">取消追蹤</button>
+                        <button type="submit" class="btn btn-success">刪除訊息</button>
+
                     }
                 </td>
 </tr>
