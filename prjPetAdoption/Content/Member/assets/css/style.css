@@ -1,4 +1,4 @@
-/*
+﻿/*
 Template Name: DASHGUM FREE - Bootstrap 3.2 Admin Theme
 Template Version: 1.0
 Author: Carlos Alvarez
@@ -791,7 +791,7 @@ ul.top-menu > li > a {
         line-height: 60px;
         height: 60px;
         margin: 0;
-        background: #ff865c;
+        background: #2c3e50;
         text-align: center;
     }
 
@@ -1371,16 +1371,17 @@ PANELS CONFIGURATIONS
 
 /* Soptify Panel */
 #spotify {
-    background: url(../img/lorde.jpg) no-repeat center top;
+   
     margin-top: -15px;
     background-attachment: relative;
     background-position: center center;
+     background-position: 50% 50%;
     min-height: 220px;
     width: 100%;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
     -o-background-size: 100%;
-    background-size: 100%;
+ background-size: 100% auto;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

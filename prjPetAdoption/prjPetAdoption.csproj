@@ -402,11 +402,11 @@
     <Content Include="Content\Member\assets\img\radio-gray.png" />
     <Content Include="Content\Member\assets\img\ui-danro.jpg" />
     <Content Include="Content\Member\assets\img\ui-divya.jpg" />
-    <Content Include="Content\Member\assets\img\ui-sam.jpg" />
     <Content Include="Content\Member\assets\img\ui-sherman.jpg" />
     <Content Include="Content\Member\assets\img\ui-zac.jpg" />
     <Content Include="Content\Member\assets\img\weather.jpg" />
     <Content Include="Content\Member\assets\img\zoom.png" />
+    <Content Include="Content\Member\assets\img\ui-sam.png" />
     <Content Include="Content\Member\assets\js\bootstrap-inputmask\bootstrap-inputmask.min.js" />
     <Content Include="Content\Member\assets\js\bootstrap-switch.js" />
     <Content Include="Content\Member\assets\js\bootstrap.min.js" />
