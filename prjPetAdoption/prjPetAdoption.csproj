@@ -361,8 +361,6 @@
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\Helpcss\Help.css" />
     <Content Include="Content\information\Information.css" />
-    <Content Include="Content\jquery.nailthumb.1.1.css" />
-    <Content Include="Content\jquery.nailthumb.1.1.min.css" />
     <Content Include="Content\masonry.css" />
     <Content Include="Content\Member\assets\css\bootstrap.css" />
     <Content Include="Content\Member\assets\css\style-responsive.css" />
@@ -522,8 +520,6 @@
     <Content Include="Scripts\FAQ\FAQ.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
-    <Content Include="Scripts\jquery.nailthumb.1.1.js" />
-    <Content Include="Scripts\jquery.nailthumb.1.1.min.js" />
     <Content Include="Scripts\showForAdopt\AdoptedNavigate.js" />
     <Content Include="Views\animalDatas\aniType.json" />
     <EntityDeploy Include="Models\DBAnimal.edmx">
