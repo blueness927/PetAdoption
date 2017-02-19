@@ -24,5 +24,6 @@ namespace prjPetAdoption.Models
         public Nullable<int> animalAge { get; set; }
         public string animalOwner_userID { get; set; }
         public string animalPicAddress { get; set; }
+        public string animalDate { get; set; }
     }
 }

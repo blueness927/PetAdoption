@@ -1,124 +1,270 @@
 ﻿@model prjPetAdoption.Models.IndexViewModel
 @{
-    ViewBag.Title = "管理";
+   
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
 }
-
-<h2>@ViewBag.Title</h2>
-
 <p class="text-success">@ViewBag.StatusMessage</p>
 
-<div>
-帳戶基本資料管理/追蹤動物清單/送養寵物管理
+    <!--sidebar end-->
+    <!-- **********************************************************************************************************************************************************
+    MAIN CONTENT
+    *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-9 main-chart">
+                    <h3>目前正在追蹤的動物</h3>
+                    <div class="row mt">
+                        <!-- SERVER STATUS PANELS -->
+                        <div class="col-md-4 col-sm-4 mb">
+                            <div class="white-panel pn">
+                                <div class="white-header">
+                                    <h5>動物名</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-6 goleft">
+                                        <p><i class="fa fa-heart"></i>追蹤中</p>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-6"></div>
+                                </div>
+                                <div class="thumbnail">
+                                    <img src="http://i.imgur.com/8tnbGMR.jpg" width="120px">
+                               
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p class="small mt">高雄市</p>
+                                            <p>公</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="small mt">健康</p>
+                                            <p>虎斑</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /col-md-4 -->
 
-</div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 mb">
+                            <div class="content-panel pn">
+                                <div id="spotify">
+                                    <div class="col-xs-4 col-xs-offset-8">
+                                        <button class="btn btn-sm btn-clear-g">FOLLOW</button>
+                                    </div>
+                                    <div class="sp-title">
+                                        <h3>名字</h3>
+                                    </div>
+                                    <div class="play">
+                                        <i class="fa fa-play-circle"></i>
+                                    </div>
+                                </div>
+                                <p class="followers"><i class="fa fa-user"></i>高雄市</p>
+                            </div>
+                        </div><! --/col-md-4-->
 
 
-<div>
-    <h4>變更帳戶設定</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>密碼:</dt>
-        <dd>
-            [
-            @if (Model.HasPassword)
-            {
-                @Html.ActionLink("變更密碼", "ChangePassword")
-            }
-            else
-            {
-                @Html.ActionLink("建立", "SetPassword")
-            }
-            ]
-        </dd>
-        <dt>外部登入:</dt>
-        <dd>
-            @Model.Logins.Count [
-            @Html.ActionLink("管理", "ManageLogins") ]
-        </dd>
-        @*
-            電話號碼可以當做雙因素驗證系統中的第二個驗證因素。
-             
-             請參閱<a href="http://go.microsoft.com/fwlink/?LinkId=403804">此文章</a>
-                以了解設定此 ASP.NET 應用程式以支援使用 SMS 進行雙因素驗證的詳細資料。
-             
-            雙因素驗證設定完成之後，請取消註解以下區塊
-        *@
-        @*  
-            <dt>電話號碼:</dt>
-            <dd>
-                @(Model.PhoneNumber ?? "None")
-                @if (Model.PhoneNumber != null)
-                {
-                    <br />
-                    <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
-                    using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>[<input type="submit" value="Remove" class="btn-link" />]</text>
-                    }
-                }
-                else
-                {
-                    <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
-                }
-            </dd>
-        *@
-        @*<dt>雙因素驗證:</dt>
-        <dd>
-            <p>
-                並未設定雙因素驗證提供者。請參閱<a href="http://go.microsoft.com/fwlink/?LinkId=403804">此文章</a>
-                以了解設定此 ASP.NET 應用程式以支援雙因素驗證的詳細資料。
-            </p>*@
-            @*@if (Model.TwoFactor)
-                {
-                    using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>已啟用
-                        <input type="submit" value="停用" class="btn btn-link" />
-                        </text>
-                    }
-                }
-                else
-                {
-                    using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>已停用
-                        <input type="submit" value="啟用" class="btn btn-link" />
-                        </text>
-                    }
-                }*@
-        @*</dd>*@
-    </dl>
-</div>
 
-<div id="showAdopt">
- 
-</div>
-<div id="showFollow">
+                        <div class="col-md-4 col-sm-4 mb">
+                            <div class="white-panel pn">
+                                <div class="white-header">
+                                    <h5>動物名</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-6 goleft">
+                                        <p><i class="fa fa-heart"></i>追蹤中</p>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-6"></div>
+                                </div>
+                                <div class="centered">
+                                    <img src="~/Content/Member/assets/img/product.jpg" width="120">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="small mt">高雄市</p>
+                                        <p>公</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="small mt">健康</p>
+                                        <p>虎斑</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /col-md-4 -->
 
-@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
-{
-    @*@Html.Partial("followAni", "aniData", new ViewDataDictionary { { "id", User.Identity.GetUserId() } });*@
+                    </div><!-- /row -->
 
-    @*@{Html.RenderPartial("~/aniData/followAni/@User.Identity.GetUserId()")}*@
 
-   @section scripts{
-        <script>
+                    <div class="row">
+                        <!-- TWITTER PANEL -->
+                        <div class="col-md-4 col-sm-4 mb">
+                            <div class="white-panel pn">
+                                <div class="white-header">
+                                    <h5>動物名</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-6 goleft">
+                                        <p><i class="fa fa-heart"></i>追蹤中</p>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-6"></div>
+                                </div>
+                                <div class="centered">
+                                    <img src="assets/img/product.png" width="120">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="small mt">高雄市</p>
+                                        <p>公</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="small mt">健康</p>
+                                        <p>虎斑</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /col-md-4 -->
 
-            $(function () {
-                $("#showAdopt").load("/aniData/showForAdopt_part/@User.Identity.GetUserId()");
-        $("#showFollow").load("/aniData/followAni/@User.Identity.GetUserId()");   
 
-     
-            @*@Html.Partial("followAni", "aniData", new { id = @User.Identity.GetUserId() })*@
-    } );
-        </script>
-    }
+                        <div class="col-md-4 col-sm-4 mb">
+                            <div class="white-panel pn">
+                                <div class="white-header">
+                                    <h5>動物名</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-6 goleft">
+                                        <p><i class="fa fa-heart"></i>追蹤中</p>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-6"></div>
+                                </div>
+                                <div class="centered">
+                                    <img src="assets/img/product.png" width="120">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="small mt">高雄市</p>
+                                        <p>公</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="small mt">健康</p>
+                                        <p>虎斑</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /col-md-4 -->
 
-}
+                        <div class="col-md-4 col-sm-4 mb">
+                            <div class="white-panel pn">
+                                <div class="white-header">
+                                    <h5>動物名</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-6 goleft">
+                                        <p><i class="fa fa-heart"></i>追蹤中</p>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-6"></div>
+                                </div>
+                                <div class="centered">
+                                    <img src="assets/img/product.png" width="120">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="small mt">高雄市</p>
+                                        <p>公</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="small mt">健康</p>
+                                        <p>虎斑</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /col-md-4 -->
+                    </div><!-- /row -->
+                    <div class="row mt">
+                        <!--CUSTOM CHART START -->
+                        <div class="border-head">
+                            <h3></h3>
+                        </div>
+                        <!--custom chart end-->
+                    </div><!-- /row -->
 
-</div>
+                </div><!-- /col-lg-9 END SECTION MIDDLE -->
+                <!-- **********************************************************************************************************************************************************
+                RIGHT SIDEBAR CONTENT
+                *********************************************************************************************************************************************************** -->
 
+                <div class="col-lg-3 ds">
+                    <!--COMPLETED ACTIONS DONUTS CHART-->
+                    <h3>訊息推撥</h3>
+                    <!-- First Action -->
+                    <div class="desc">
+                        <div class="thumb">
+                            <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+                        </div>
+                        <div class="details">
+                            <p>
+                                <muted>2017/02/18</muted><br />
+                                <a href="#">【系統通知】</a>您有一封認養通知<br />
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Second Action -->
+                    <div class="desc">
+                        <div class="thumb">
+                            <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+                        </div>
+                        <div class="details">
+                            <p>
+                                <muted>2017/02/18</muted><br />
+                                <a href="#">【系統通知】</a>您有一封認養通知<br />
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Third Action -->
+                    <div class="desc">
+                        <div class="thumb">
+                            <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+                        </div>
+                        <div class="details">
+                            <p>
+                                <muted>2017/02/18</muted><br />
+                                <a href="#">【系統通知】</a>您有一封認養通知<br />
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Fourth Action -->
+                    <div class="desc">
+                        <div class="thumb">
+                            <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+                        </div>
+                        <div class="details">
+                            <p>
+                                <muted>2017/02/18</muted><br />
+                                <a href="#">【系統通知】</a>您有一封認養通知<br />
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Fifth Action -->
+                    <div class="desc">
+                        <div class="thumb">
+                            <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+                        </div>
+                        <div class="details">
+                            <p>
+                                <muted>2017/02/18</muted><br />
+                                <a href="#">【系統通知】</a>您有一封認養通知<br />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!--main content end-->
+    <script type="application/javascript">
+        $(document).ready(function () {
+            $("#date-popover").popover({html: true, trigger: "manual"});
+            $("#date-popover").hide();
+            $("#date-popover").click(function (e) {
+                $(this).hide();
+            });
+        }
+    </script>

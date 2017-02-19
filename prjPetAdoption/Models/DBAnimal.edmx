@@ -318,6 +318,7 @@
         <EntityType Name="aniDataPicOne">
           <Key>
             <PropertyRef Name="animalID" />
+            
           </Key>
           <Property Name="animalID" Type="int" Nullable="false" />
           <Property Name="animalName" Type="nvarchar" MaxLength="50" />
@@ -325,10 +326,11 @@
           <Property Name="animalType" Type="nvarchar" MaxLength="50" />
           <Property Name="animalColor" Type="nvarchar" MaxLength="50" />
           <Property Name="animalGender" Type="nvarchar" MaxLength="50" />
+          <Property Name="animalDate" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
           <Property Name="animalAddress" Type="nvarchar" MaxLength="50" />
           <Property Name="animalAge" Type="int" />
           <Property Name="animalOwner_userID" Type="nvarchar" MaxLength="128" />
-          <Property Name="animalPicAddress" Type="nvarchar" MaxLength="200" />
+          <Property Name="animalPicAddress" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <!--產生期間發現錯誤:
 警告 6002: 資料表/檢視 'petstation.dbo.boardUser' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
@@ -338,7 +340,7 @@
             <PropertyRef Name="UserName" />
           </Key>
           <Property Name="boardID" Type="int" Nullable="false" />
-          <Property Name="boardTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="boardTime" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
           <Property Name="board_userID" Type="nvarchar" MaxLength="128" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="256" />
@@ -350,8 +352,9 @@
         <EntityType Name="followAni">
           <Key>
             <PropertyRef Name="testID" />
-            <PropertyRef Name="animalID" />
+            
             <PropertyRef Name="followID" />
+            <PropertyRef Name="animalID" />
           </Key>
           <Property Name="testID" Type="int" Nullable="false" />
           <Property Name="follow_userId" Type="nvarchar" MaxLength="128" />
@@ -364,7 +367,7 @@
           <Property Name="animalAddress" Type="nvarchar" MaxLength="50" />
           <Property Name="animalAge" Type="int" />
           <Property Name="animalOwner_userID" Type="nvarchar" MaxLength="128" />
-          <Property Name="animalPicAddress" Type="nvarchar" MaxLength="200" />
+          <Property Name="animalPicAddress" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="followID" Type="int" Nullable="false" />
         </EntityType>
         <!--產生期間發現錯誤:
@@ -375,7 +378,7 @@
             <PropertyRef Name="msgFrom_userName" />
           </Key>
           <Property Name="msgID" Type="int" Nullable="false" />
-          <Property Name="msgTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="msgTime" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
           <Property Name="msgFrom_userID" Type="nvarchar" MaxLength="128" />
           <Property Name="msgFrom_userName" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="msgTo_userID" Type="nvarchar" MaxLength="128" />
@@ -480,7 +483,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Msg__msgTo_userI__3F9B6DFF">
+        <Association Name="FK__Msg__msgTo_userI__45544755">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -680,6 +683,7 @@
     [aniDataPicOne].[animalType] AS [animalType], 
     [aniDataPicOne].[animalColor] AS [animalColor], 
     [aniDataPicOne].[animalGender] AS [animalGender], 
+    [aniDataPicOne].[animalDate] AS [animalDate], 
     [aniDataPicOne].[animalAddress] AS [animalAddress], 
     [aniDataPicOne].[animalAge] AS [animalAge], 
     [aniDataPicOne].[animalOwner_userID] AS [animalOwner_userID], 
@@ -755,7 +759,7 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="forum" EntitySet="forum" />
           </AssociationSet>
-          <AssociationSet Name="FK__Msg__msgTo_userI__3F9B6DFF" Association="Self.FK__Msg__msgTo_userI__3F9B6DFF">
+          <AssociationSet Name="FK__Msg__msgTo_userI__45544755" Association="Self.FK__Msg__msgTo_userI__45544755">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Msg" EntitySet="Msg" />
           </AssociationSet>
@@ -1226,7 +1230,8 @@
           <Property Name="animalAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="animalAge" Type="Int32" />
           <Property Name="animalOwner_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="animalDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="boardUser">
           <Key>
@@ -1234,7 +1239,7 @@
             <PropertyRef Name="UserName" />
           </Key>
           <Property Name="boardID" Type="Int32" Nullable="false" />
-          <Property Name="boardTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="boardTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="board_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
@@ -1258,7 +1263,7 @@
           <Property Name="animalAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="animalAge" Type="Int32" />
           <Property Name="animalOwner_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="followID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="MsgUser">
@@ -1267,7 +1272,7 @@
             <PropertyRef Name="msgFrom_userName" />
           </Key>
           <Property Name="msgID" Type="Int32" Nullable="false" />
-          <Property Name="msgTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msgTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="msgFrom_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="msgFrom_userName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="msgTo_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
@@ -1800,6 +1805,7 @@
           <EntitySetMapping Name="aniDataPicOne">
             <EntityTypeMapping TypeName="DbAnimalModel.aniDataPicOne">
               <MappingFragment StoreEntitySet="aniDataPicOne">
+                <ScalarProperty Name="animalDate" ColumnName="animalDate" />
                 <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
                 <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
                 <ScalarProperty Name="animalAge" ColumnName="animalAge" />

@@ -1,11 +1,8 @@
 ﻿@charset "UTF-8";
-* {
-  font-family: "微軟正黑體";
-}
 html, body {
   margin: 0; 
   padding:0; 
-  height: 100%;
+  height: auto;
   overflow-x: hidden;
   font-size: 16px;
 }
@@ -36,10 +33,16 @@ header .explore.at_top {
 nav.navbar {
   -webkit-transition: 0.5s;
   transition: 0.5s;
+   font-size:15px;
+    font-weight:bold;
+    font-family:'Microsoft JhengHei UI';
 }
 nav.navbar a {
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  font-size:15px;
+   font-weight:bold;
+   font-family:'Microsoft JhengHei UI';
 }
 
 nav.navbar.at_top {
@@ -47,6 +50,10 @@ nav.navbar.at_top {
 }
 nav.navbar.at_top a, nav.navbar.at_top a:visited {
   color: white;
+  font-size:15px;
+  font-weight:bold;
+  font-family:'Microsoft JhengHei UI';
+
 }
 
 .slider-wrapper{
