@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using prjPetAdoption.Models;
+using Microsoft.AspNet.Identity;
 
 namespace prjPetAdoption.Controllers
 {
@@ -116,8 +117,23 @@ namespace prjPetAdoption.Controllers
             Msg msg = db.Msg.Find(id);
             db.Msg.Remove(msg);
             db.SaveChanges();
-            return RedirectToAction("MsgList", "aniData", new { id = msg.msgFrom_userID ,title="Msg" });
+            return RedirectToAction("MsgList", "aniData", new { id = User.Identity.GetUserId(), title="Msg" });
         }
+
+
+
+        //追蹤清單刪除
+
+        [HttpDelete]
+        public ActionResult Deletesure(int? id)
+        {
+            Msg msg = db.Msg.Find(id);
+            db.Msg.Remove(msg);
+            db.SaveChanges();
+            return RedirectToAction("MsgList", "aniData", new { id = User.Identity.GetUserId(), title = "Msg" });
+        }
+
+
 
         protected override void Dispose(bool disposing)
         {

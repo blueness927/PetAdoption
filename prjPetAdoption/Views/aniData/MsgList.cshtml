@@ -20,7 +20,7 @@
                                 <th><i class="fa fa-bookmark"></i> 發訊人</th>
                                 <th><i class="fa fa-bookmark"></i> 訊息類別</th>
                                 <th><i class="fa fa-bookmark"></i> 內容</th>
-                                <th><i class="fa fa-map-marker"></i> 動作</th>
+                                <th> </th>
                       
                                 <th></th>
                             </tr>
@@ -30,18 +30,19 @@
                             @foreach (var item in Model.MsgUserList)
                             {
                                 <tr>
-                                    <td>@Html.DisplayFor(modelItem => item.msgTime)</td>
+                                    <td style="max-width:150px">@Html.DisplayFor(modelItem => item.msgTime)</td>
                                     <td>@Html.DisplayFor(modelItem => item.msgFrom_userName)</td>
 
 
                                     <td>@Html.DisplayFor(modelItem => item.msgType)</td>
 
-                                    <td colspan="2">@Html.DisplayFor(modelItem => item.msgContent)</td>
+                                    <td colspan="2" style="max-width:50%">@Html.DisplayFor(modelItem => item.msgContent)</td>
                                     <td><button class="btn btn-primary btn-xs"  data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="addMsg(@item.msgFrom_userID)"><i class="fa fa-pencil"></i></button></td>
                                     @*<td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="addMsg()">回覆訊息</button></td>*@
                                     <td>
-                                        @using (Html.BeginForm("DeleteConfirmed", "Msgs", new { id = @item.msgID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認刪除訊息?');" }))
-                                        {@Html.AntiForgeryToken()
+                                        @using (Html.BeginForm("Deletesure", "Msgs", new { id = @item.msgID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認刪除訊息?');" }))
+                                        {
+                                            @Html.AntiForgeryToken()
                                             @Html.HttpMethodOverride(HttpVerbs.Delete)
                                             <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
 
@@ -71,7 +72,7 @@
             </div><!-- /col-md-12 -->
         </div><!-- /row -->
 
-    </section><! --/wrapper -->
+    </section><!--/wrapper -->
 </section><!-- /MAIN CONTENT -->
 
 
@@ -107,7 +108,9 @@
                 <!-- Modal -->
                                     <div class="modal fade" id="myModal" role="dialog">
                                         <div class="modal-dialog">
-
+@using (Html.BeginForm("MsgCreate2", "aniData", FormMethod.Post, new { }))
+{
+    @Html.AntiForgeryToken()
                                             <!-- Modal content-->
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -117,9 +120,7 @@
                                                 <div class="modal-body">
                                                     <p>請提供填寫欲回覆之訊息</p>
 
-                                                    @using (Html.BeginForm("MsgCreate2", "aniData", FormMethod.Post, new { }))
-                                                    {
-                                                        @Html.AntiForgeryToken()
+                                                    
                                                         <div class="form-horizontal">
 
                                                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -150,21 +151,23 @@
 
                                                             <div class="form-group">
                                                                 <div class="col-md-offset-10 col-md-2">
-                                                                    <input type="submit" value="訊息發送" class="btn btn-success" />
+                                                                   
 
 
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    }
+                                                   
 
                                                 </div>
                                                 <div class="modal-footer">
+                                                     <input type="submit" value="訊息發送" class="btn btn-success" />
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
 
                                                 </div>
-
+                                                    
                                             </div>
+}
                                         </div>
 
                                     </div>

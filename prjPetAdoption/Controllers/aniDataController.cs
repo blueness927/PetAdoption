@@ -279,13 +279,13 @@ namespace prjPetAdoption.Controllers
         }
 
 
-        // GET: Msgs/Create
+        // GET: Msgs/Create2訊息夾用
         public ActionResult MsgCreate2()
         {
             return View();
         }
 
-        // POST: Msgs/Create
+        // POST: Msgs/Create2訊息夾用
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult MsgCreate2([Bind(Include = "msgID,msgTime,msgFrom_userID,msgTo_userID,msgType,msgFromURL,msgContent,msgRead")] Msg msg)

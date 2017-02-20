@@ -107,10 +107,10 @@
                                         @using (Html.BeginForm("EditAdopt", "animalDatas", new { id = @item.animalID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認刪除送養?');" }))
                                         {
                                             @Html.AntiForgeryToken()
-                                            @Html.HttpMethodOverride(HttpVerbs.Delete)
+                                            @Html.HttpMethodOverride(HttpVerbs.Put)
 
-                                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                            @*<button type="submit" class="btn btn-success">取消送養</button>*@
+                                            <button type="submit" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-gift "></i></button>
+                                            @*<button type="submit" class="btn btn-success">送養成功</button>*@
                                         }
                                     </td>
                                     <td></td>
