@@ -328,6 +328,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\FAQ\FAQ.css" />
     <Content Include="Content\Images\a.png" />
+    <Content Include="Content\Images\about.png" />
     <Content Include="Content\Images\adopt\pic1.jpg" />
     <Content Include="Content\Images\adopt\pic2.jpg" />
     <Content Include="Content\Images\allpic\認養.png" />
@@ -341,7 +342,6 @@
     <Content Include="Content\Images\carousel\Carousel_04.png" />
     <Content Include="Content\Images\carousel\Carousel_05.png" />
     <Content Include="Content\Images\cat.jpg" />
-    <Content Include="Content\Images\dog.jpg" />
     <Content Include="Content\Images\dog2.jpg" />
     <Content Include="Content\Images\b.png" />
     <Content Include="Content\Images\faq.jpg" />
