@@ -28,7 +28,7 @@ namespace prjPetAdoption.Controllers
             ViewBag.Types = typeSelectList.ToList();
             ViewBag.SelectedType = types;
 
-            var source = await this.GetOPAnimalData();
+              var source = await this.GetOPAnimalData();
             source = source.AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(districts))
@@ -145,31 +145,7 @@ namespace prjPetAdoption.Controllers
 
         private async Task<IEnumerable<SelectListItem>> GetSelectList(IEnumerable<string>source,string selectedItem)
         {
-            //List<SelectListItem> items = new List<SelectListItem>();
-            //items.Add(new SelectListItem { Text = "台北", Value = "2" });
-            //items.Add(new SelectListItem { Text = "新北", Value = "3" });
-            //items.Add(new SelectListItem { Text = "基隆", Value = "4" });
-            //items.Add(new SelectListItem { Text = "宜蘭", Value = "5" });
-            //items.Add(new SelectListItem { Text = "桃園", Value = "6" });
-            //items.Add(new SelectListItem { Text = "新竹縣", Value = "7" });
-            //items.Add(new SelectListItem { Text = "新竹市", Value = "8" });
-            //items.Add(new SelectListItem { Text = "苗栗縣", Value = "9" });
-            //items.Add(new SelectListItem { Text = "台中", Value = "10" });
-            //items.Add(new SelectListItem { Text = "彰化", Value = "11" });
-            //items.Add(new SelectListItem { Text = "南投", Value = "12" });
-            //items.Add(new SelectListItem { Text = "雲林", Value = "13" });
-            //items.Add(new SelectListItem { Text = "嘉義縣", Value = "14" });
-            //items.Add(new SelectListItem { Text = "嘉義市", Value = "15" });
-            //items.Add(new SelectListItem { Text = "台南市", Value = "16" });
-            //items.Add(new SelectListItem { Text = "高雄市", Value = "17" });
-            //items.Add(new SelectListItem { Text = "屏東縣", Value = "18" });
-            //items.Add(new SelectListItem { Text = "花蓮縣", Value = "19" });
-            //items.Add(new SelectListItem { Text = "台東縣", Value = "20" });
-            //items.Add(new SelectListItem { Text = "澎湖", Value = "21" });
-            //items.Add(new SelectListItem { Text = "金門", Value = "22" });
-            //items.Add(new SelectListItem { Text = "連江", Value = "23" });
-            //this.ViewData["list"] = items;
-
+          
             var selectList = source.Select(item => new SelectListItem()
             {
                 Text = item,
@@ -179,7 +155,5 @@ namespace prjPetAdoption.Controllers
             });
             return selectList;
         }
-
-
     }
 }

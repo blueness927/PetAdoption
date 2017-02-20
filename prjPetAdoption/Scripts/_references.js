@@ -36,6 +36,7 @@
 /// <reference path="imgup/imgupload.js" />
 /// <reference path="index.js" />
 /// <reference path="jquery.lazyload.min.js" />
+/// <reference path="jquery.mu.image.resize.js" />
 /// <reference path="jquery.validate.min.js" />
 /// <reference path="jquery.validate.unobtrusive.js" />
 /// <reference path="jquery-3.1.1.js" />

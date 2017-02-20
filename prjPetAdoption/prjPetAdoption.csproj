@@ -354,7 +354,7 @@
     <Content Include="Content\Images\footer\LOGO.png" />
     <Content Include="Content\Images\footer\up.png" />
     <Content Include="Content\Images\rabbit.jpg" />
-    <Content Include="Content\Images\service\service01.jpg" />
+    <Content Include="Content\Images\service\service.jpg" />
     <Content Include="Content\Images\service\service02.jpg" />
     <Content Include="Content\Images\service\service03.png" />
     <Content Include="Content\index.css" />
@@ -520,6 +520,7 @@
     <Content Include="Scripts\FAQ\FAQ.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery.mu.image.resize.js" />
     <Content Include="Scripts\showForAdopt\AdoptedNavigate.js" />
     <Content Include="Views\animalDatas\aniType.json" />
     <EntityDeploy Include="Models\DBAnimal.edmx">
