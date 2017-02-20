@@ -262,6 +262,9 @@ section#footer #cross {
 
 /* Common style */
 .grid figure {
+  border-width:9px;
+  border-color:#EFEFEF;
+  border-style:solid;
   position: relative;
   z-index: 1;
   display: inline-block;
