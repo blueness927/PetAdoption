@@ -1,25 +1,152 @@
 ﻿@model prjPetAdoption.ViewModels.AllAniDataViewModel
 
+@{
+    ViewBag.Title = "MsgList";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
 
 <script type="text/javascript">
-   function Delete(id) {
-       if (confirm('你確定要刪除嗎 ?')) {
-           $.post('<%= Url.Action("DelfollowAniSure","aniData") %>', { id: id },
-                    function(data, textStatus) {
-                        if (data == "1") {
-                            alert('刪除成功!');
-                            location.reload(true);
-                        }
-                        else {
-                            alert('Error');
-                        }
-                    }, "text");
-       }
-   }
+    function Delete(id) {
+        if (confirm('你確定要刪除嗎 ?')) {
+            $.post('<%= Url.Action("DelfollowAniSure","aniData") %>', { id: id },
+                     function (data, textStatus) {
+                         if (data == "1") {
+                             alert('刪除成功!');
+                             location.reload(true);
+                         }
+                         else {
+                             alert('Error');
+                         }
+                     }, "text");
+        }
+    }
 </script>
 
 
-<section>
+
+
+<section id="main-content">
+    <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i>送養管理</h3>
+        <div class="row mt">
+            <div class="col-md-12">
+                <div class="content-panel">
+                    <table class="table table-striped table-advance table-hover" style="max-width:85%" align="center">
+                        <h4><i class="fa fa-angle-right"></i>送養動物清單</h4>
+                        <hr>
+                        <thead>
+                            <tr>
+                                <th><i class="glyphicon glyphicon-picture"></i> 圖片</th>
+                                <th><i class="fa fa-bookmark"></i> 姓名</th>
+                                <th><i class="fa fa-bookmark"></i> 種類</th>
+                                <th><i class="fa fa-bookmark"></i> 品種</th>
+                                <th><i class="fa fa-map-marker"></i> 送養狀態</th>
+                                <th><i class="fa fa-map-marker"></i> 收養人</th>
+                                <th colspan="3"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @if (@ViewBag.noforAdop != null)
+                            {
+                                <tr class="row-odd">
+                                    <td colspan="5" align="center">
+                                        <a href="#">
+                                            <img src="@ViewBag.noforAdop" style="max-width:800px" />
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            }
+
+                            @foreach (var item in Model.aniDataPicOneList)
+            {
+                                <tr class="row-odd">
+
+                                    <td width="150px">
+                                        <a href="@Url.Action("oneAni", "aniData",new { id = @item.animalID})">
+                                            <img src="@item.animalPicAddress" style="max-height:150px;max-width:150px" />
+                                        </a>
+                                    </td>
+                                    <td >
+                                        <a href="@Url.Action("oneAni", "aniData",new { id = @item.animalID})">@item.animalName</a>
+                                    </td>
+                                    <td >
+                                        <a href="#">@item.animalKind</a>
+                                    </td>
+                                    <td>
+                                       @item.animalType
+                                    </td>
+                                    <td>
+                                        尚未被認養
+                                    </td>
+                                    <td>
+                                        尚未被認養
+                                    </td>
+                                    <td>
+
+                                        @using (Html.BeginForm("Edit", "animalDatas", new { id = @item.animalID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認編輯送養資訊?');" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            @Html.HttpMethodOverride(HttpVerbs.Put)
+                                            <button type="submit" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                            @*<button type="submit" class="btn btn-success">編輯送養</button>*@
+                                        }
+                                    </td>
+                                    <td>
+                                        @using (Html.BeginForm("DeleteConfirmed", "animalDatas", new { id = @item.animalID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認刪除送養?');" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            @Html.HttpMethodOverride(HttpVerbs.Delete)
+                                         
+                                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                            @*<button type="submit" class="btn btn-success">取消送養</button>*@
+                                        }
+                                    </td>
+                                    <td>
+                                        @using (Html.BeginForm("EditAdopt", "animalDatas", new { id = @item.animalID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認刪除送養?');" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            @Html.HttpMethodOverride(HttpVerbs.Delete)
+
+                                            <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                            @*<button type="submit" class="btn btn-success">取消送養</button>*@
+                                        }
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                            }
+
+
+                            @*<tr>
+                                    <td width="150px"><img src="http://www.mrleung.com/i/14525950109180.jpg" alumb="true" _w="100" _h="100" /></td>
+                                    <td>佐藤和真</td>
+                                    <td>宅男</td>
+                                    <td>盜賊</td>
+                                    <td>美好的世界小鎮</td>
+                                    <td><div class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok"></span></div></td>
+                                    <td><span class="label label-info label-mini">健康</span></td>
+                                    <td>
+                                        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                    </td>
+                                </tr>*@
+                        </tbody>
+                    </table>
+                </div><!-- /content-panel -->
+            </div><!-- /col-md-12 -->
+        </div><!-- /row -->
+
+    </section><! --/wrapper -->
+</section><!-- /MAIN CONTENT -->
+
+
+
+
+
+
+@*<section>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -48,7 +175,7 @@
             <tr class="row-odd">
                 <td colspan="5" align="center">
                     <a href="#">
-                        <img src="@ViewBag.noforAdop" style="max-width:90%" />
+                        <img src="@ViewBag.noforAdop" style="max-width:800px" />
                     </a>
                 </td>
 
@@ -75,14 +202,14 @@
                 </td>
                 <td>
                     @using (Html.BeginForm("DeleteConfirmed", "animalDatas", new { id = @item.animalID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認刪除送養?');" }))
-                    {    
+                    {
                         @Html.AntiForgeryToken()
                         @Html.HttpMethodOverride(HttpVerbs.Delete)
                         <button type="submit" class="btn btn-success">取消送養</button>
                     }
 
                     @using (Html.BeginForm("Edit", "animalDatas", new { id = @item.animalID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認編輯送養資訊?');" }))
-                    {    
+                    {
                         @Html.AntiForgeryToken()
                         @Html.HttpMethodOverride(HttpVerbs.Put)
                         <button type="submit" class="btn btn-success">編輯送養</button>
@@ -93,7 +220,7 @@
 
         }
     </tbody>
-</table>
+</table>*@
 
 
 

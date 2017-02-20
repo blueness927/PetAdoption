@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using prjPetAdoption.Models;
+using prjPetAdoption.ViewModels;
 
 namespace prjPetAdoption.Controllers
 {
@@ -15,6 +16,8 @@ namespace prjPetAdoption.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        AllAniDataViewModel AllAniData = new AllAniDataViewModel();
+        private DbAnimal db = new DbAnimal();
 
         public ManageController()
         {

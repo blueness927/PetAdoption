@@ -95,6 +95,21 @@ namespace prjPetAdoption.Models
             return View(animalData);
         }
 
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditAdopt([Bind(Include = "animalID,animalGetter_userID,animalAdopted,animalAdoptedDate")] animalData animalData)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(animalData).State = EntityState.Modified;
+                db.SaveChanges();
+                Session["EditAID"] = animalData.animalID;
+                return RedirectToAction("Edit", "animalData_Condition", new { id = animalData.animalID });
+            }
+            return View(animalData);
+        }
+
         // GET: animalDatas/Delete/5
         public ActionResult Delete(int? id)
         {

@@ -108,21 +108,21 @@
                     </li>
 
                     <li class="sub-menu">
-                        <a href="#">
+                        <a href="@Url.Action("showForAdopt_part","aniData",new { id = @User.Identity.GetUserId()})">
                             <i class="fa fa-cogs"></i>
                             <span>送養管理</span>
                         </a>
 
                     </li>
                     <li class="sub-menu">
-                        <a href="#">
+                        <a href="@Url.Action("followAni","aniData",new { id = @User.Identity.GetUserId()})">
                             <i class="fa fa-book"></i>
                             <span>追蹤管理</span>
                         </a>
 
                     </li>
                     <li class="sub-menu">
-                        <a href="#">
+                        <a href="@Url.Action("MsgList","aniData",new { id = @User.Identity.GetUserId()})">
                             <i class="fa fa-tasks"></i>
                             <span>訊息匣</span>
                         </a>

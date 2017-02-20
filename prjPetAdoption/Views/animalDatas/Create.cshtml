@@ -358,7 +358,7 @@ function addchg() {
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2">健診情形</label>   @*待完成checkbox事件*@
+            <label class="control-label col-md-2">健診狀況</label>   @*待完成checkbox事件*@
             <div class="col-md-10">健診快選清單：（若有其他可自行加載下方欄位）<br/>
                 <input id="sDisease_Other" name="Health_Other" type="checkbox" value="已施打預防針" onchange="test()" />已施打預防接種疫苗
                 <input id="sDisease_Other" name="Health_Other" type="checkbox" value="除蚤" onchange="test()" />除蚤
@@ -382,10 +382,10 @@ function addchg() {
                         $('#aDisease_Other').val('');
                         var check = '';
                         for (var i = 0; i < len; i++) {
-                            check += (cboxes[i].checked ? cboxes[i].value+'\\' : '');
+                            check += (cboxes[i].checked ? cboxes[i].value+'，' : '');
                         }
                         for (var i = 0; i < len2; i++) {
-                            check += (cboxes2[i].checked ? cboxes2[i].value + '\\' : '');
+                            check += (cboxes2[i].checked ? cboxes2[i].value + '，' : '');
                         }
                         $('#animalDisease_Other').val(check);
                     }

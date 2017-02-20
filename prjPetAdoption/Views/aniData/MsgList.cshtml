@@ -1,167 +1,189 @@
 ﻿@model prjPetAdoption.ViewModels.AllAniDataViewModel
 @{
     ViewBag.Title = "MsgList";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
 }
 
-<br><br><br><br>
+
+<section id="main-content">
+    <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i>訊息匣</h3>
+        <div class="row mt">
+            <div class="col-md-12">
+                <div class="content-panel">
+                    <table class="table table-striped table-advance table-hover">
+                        <h4><i class="fa fa-angle-right"></i>訊息匣清單</h4>
+                        <hr>
+                        <thead>
+                            <tr>
+                                <th><i class="glyphicon glyphicon-picture"></i> 訊息日期</th>
+                                <th><i class="fa fa-bookmark"></i> 發訊人</th>
+                                <th><i class="fa fa-bookmark"></i> 訊息類別</th>
+                                <th><i class="fa fa-bookmark"></i> 內容</th>
+                                <th><i class="fa fa-map-marker"></i> 動作</th>
+                      
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model.MsgUserList)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.msgTime)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.msgFrom_userName)</td>
 
 
-<div class="col-md-12"  > 
-    <h2>訊息匣</h2>
-    
-    <table class="table table-condensed" align="center" style="max-width:1000px" >
+                                    <td>@Html.DisplayFor(modelItem => item.msgType)</td>
 
-        <thead>
-            <tr align="center" class="info">
-                <th >訊息日期</th>
-                <th >發訊人</th>
-                <th >訊息類別</th>
-                <th colspan="2">內容</th>
-                <th colspan="2">動作</th>
-            </tr>
-        </thead>
-        @foreach (var item in Model.MsgUserList)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.msgTime)</td>
+                                    <td colspan="2">@Html.DisplayFor(modelItem => item.msgContent)</td>
+                                    <td><button class="btn btn-primary btn-xs"  data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="addMsg(@item.msgFrom_userID)"><i class="fa fa-pencil"></i></button></td>
+                                    @*<td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="addMsg()">回覆訊息</button></td>*@
+                                    <td>
+                                        @using (Html.BeginForm("DeleteConfirmed", "Msgs", new { id = @item.msgID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認刪除訊息?');" }))
+                                        {@Html.AntiForgeryToken()
+                                            @Html.HttpMethodOverride(HttpVerbs.Delete)
+                                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+
+                                        }
+                                    </td>
+                                </tr>
+
+                            }
+                            
+
+                            @*<tr>
+                                <td width="150px"><img src="http://www.mrleung.com/i/14525950109180.jpg" alumb="true" _w="100" _h="100" /></td>
+                                <td>佐藤和真</td>
+                                <td>宅男</td>
+                                <td>盜賊</td>
+                                <td>美好的世界小鎮</td>
+                                <td><div class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok"></span></div></td>
+                                <td><span class="label label-info label-mini">健康</span></td>
+                                <td>
+                                    <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                </td>
+                            </tr>*@
+                        </tbody>
+                    </table>
+                </div><!-- /content-panel -->
+            </div><!-- /col-md-12 -->
+        </div><!-- /row -->
+
+    </section><! --/wrapper -->
+</section><!-- /MAIN CONTENT -->
 
 
 
-                <td>@Html.DisplayFor(modelItem => item.msgFrom_userName)</td>
-
-
-                <td>@Html.DisplayFor(modelItem => item.msgType)</td>
-
-                <td colspan="2">@Html.DisplayFor(modelItem => item.msgContent)</td>
-                <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="addMsg()">回覆訊息</button></td>
-                
-                <td>
-                    @using (Html.BeginForm("DeleteConfirmed", "Msgs", new { id = @item.msgID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認刪除訊息?');" }))
-                {@Html.AntiForgeryToken()
-                        @Html.HttpMethodOverride(HttpVerbs.Delete)
-                        <button type="submit" class="btn btn-success">刪除訊息</button>
-
-                    }
-                </td>
-</tr>
-
-        }
-    </table>
-
-        @using Microsoft.AspNet.Identity
-        @if (Request.IsAuthenticated)
-        {
-            <text>
-                <script type="text/javascript">
+    @using Microsoft.AspNet.Identity
+    @if (Request.IsAuthenticated)
+    {
+        <text>
+            <script type="text/javascript">
                 function addMsg() {
 
                     @foreach (var item in Model.MsgUserList)
                     {<text>
-                   
-                    var ownerid ='@item.msgFrom_userID.ToString()';
-
+                    var ownerid = '@item.msgFrom_userID.ToString()';
                     </text>
         }
-                                       
                     $('#aFrom_userID').val('@User.Identity.GetUserId().ToString()');
                     $('#aTo_userID').val(ownerid);
                     $('#amsgType').val("訊息回覆");
-
-                    $('#amsgContent').val("您好，我是"+'@User.Identity.GetUserName().ToString()'+"我想認養您的寵物，聯絡方式如下，請與我聯絡，謝謝");
+                    $('#amsgContent').val("您好，我是" + '@User.Identity.GetUserName().ToString()' + "我想認養您的寵物，聯絡方式如下，請與我聯絡，謝謝");
 
                 };
 
-                </script>
+            </script>
 
 
-            </text>
-            <div class="form-group">
-                <div class="col-md-6">
-                   
-                </div>
-            </div>
-                <!-- Modal -->
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">回覆訊息</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>請提供填寫欲回覆之訊息</p>
-
-                            @using (Html.BeginForm("MsgCreate2", "aniData", FormMethod.Post, new { }))
-                            {
-                                @Html.AntiForgeryToken()
-                                <div class="form-horizontal">
-
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-
-
-                                    @Html.EditorFor(model => model.Msg.msgFrom_userID, new { htmlAttributes = new { @class = "form-control", @id = "aFrom_userID", @style = "display:none" } })
-                                    @Html.ValidationMessageFor(model => model.Msg.msgFrom_userID, "", new { @class = "text-danger" })
-
-                                    @Html.EditorFor(model => model.Msg.msgTo_userID, new { htmlAttributes = new { @class = "form-control", @id = "aTo_userID", @style = "display:none" } })
-                                    @Html.ValidationMessageFor(model => model.Msg.msgTo_userID, "", new { @class = "text-danger" })
-
-                                    @Html.EditorFor(model => model.Msg.msgType, new { htmlAttributes = new { @class = "form-control", @id = "amsgType", @style = "display:none" } })
-                                    @Html.ValidationMessageFor(model => model.Msg.msgType, "", new { @class = "text-danger" })
-
-
-                                    @Html.EditorFor(model => model.Msg.msgFromURL, new { htmlAttributes = new { @class = "form-control", @id = "amsgFromURL", @style = "display:none" } })
-                                    @Html.ValidationMessageFor(model => model.Msg.msgFromURL, "", new { @class = "text-danger" })
-
-
-                                    <div class="form-group">
-
-                                        <div class="col-md-12" align="center">
-                                            @Html.TextAreaFor(model => model.Msg.msgContent, new { htmlAttributes = new { @class = "form-control", @rows = "3", @id = "amsgContent", @style = "margin: 0px - 15.8438px 0px 0px; height: 151px; width:500px; " }, cols = 70, @rows = 4 })
-                                            @Html.ValidationMessageFor(model => model.Msg.msgContent, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="col-md-offset-10 col-md-2">
-                                            <input type="submit" value="訊息發送" class="btn btn-success" />
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
-
-                        </div>
-
-                    </div>
-                </div>
+        </text>
+        <div class="form-group">
+            <div class="col-md-6">
 
             </div>
+        </div>
+                <!-- Modal -->
+                                    <div class="modal fade" id="myModal" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">回覆訊息</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>請提供填寫欲回覆之訊息</p>
+
+                                                    @using (Html.BeginForm("MsgCreate2", "aniData", FormMethod.Post, new { }))
+                                                    {
+                                                        @Html.AntiForgeryToken()
+                                                        <div class="form-horizontal">
+
+                                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+                                                            @Html.EditorFor(model => model.Msg.msgFrom_userID, new { htmlAttributes = new { @class = "form-control", @id = "aFrom_userID", @style = "display:none" } })
+                                                            @Html.ValidationMessageFor(model => model.Msg.msgFrom_userID, "", new { @class = "text-danger" })
+
+                                                            @Html.EditorFor(model => model.Msg.msgTo_userID, new { htmlAttributes = new { @class = "form-control", @id = "aTo_userID", @style = "display:none" } })
+                                                            @Html.ValidationMessageFor(model => model.Msg.msgTo_userID, "", new { @class = "text-danger" })
+
+                                                            @Html.EditorFor(model => model.Msg.msgType, new { htmlAttributes = new { @class = "form-control", @id = "amsgType", @style = "display:none" } })
+                                                            @Html.ValidationMessageFor(model => model.Msg.msgType, "", new { @class = "text-danger" })
+
+
+                                                            @Html.EditorFor(model => model.Msg.msgFromURL, new { htmlAttributes = new { @class = "form-control", @id = "amsgFromURL", @style = "display:none" } })
+                                                            @Html.ValidationMessageFor(model => model.Msg.msgFromURL, "", new { @class = "text-danger" })
+
+
+                                                            <div class="form-group">
+
+                                                                <div class="col-md-12" align="center">
+                                                                    @Html.TextAreaFor(model => model.Msg.msgContent, new { htmlAttributes = new { @class = "form-control", @rows = "3", @id = "amsgContent", @style = "margin: 0px - 15.8438px 0px 0px; height: 151px; width:500px; " }, cols = 70, @rows = 4 })
+                                                                    @Html.ValidationMessageFor(model => model.Msg.msgContent, "", new { @class = "text-danger" })
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <div class="col-md-offset-10 col-md-2">
+                                                                    <input type="submit" value="訊息發送" class="btn btn-success" />
+
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    }
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
 
                 <!-- Modal -->
-        }
-        else
-        {
+    }
+    else
+    {
         <div class="form-group">
             <div class="col-md-6">
                 <button type="button" class="btn btn-success" onclick="aler();">請先登入</button>
 
             </div>
         </div>
-        }
+    }
 
 
-    
 
-</div>
+
 
 
 

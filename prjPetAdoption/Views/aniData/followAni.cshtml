@@ -24,7 +24,7 @@
 </script> 
 
 
-<section>
+@*<section>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -53,7 +53,7 @@
         <tr class="row-odd">
             <td colspan="5" align="center">
                 <a href="#">
-                    <img src="@ViewBag.noFollow" style="max-width:90%" />
+                    <img src="@ViewBag.noFollow" style="max-width:700px" />
                 </a>
             </td>
 
@@ -86,7 +86,7 @@
 
         }
     </tbody>
-</table>
+</table>*@
 
 
 <section id="main-content">
@@ -105,13 +105,64 @@
                                 <th><i class="fa fa-bookmark"></i> 種類</th>
                                 <th><i class="fa fa-bookmark"></i> 品種</th>
                                 <th><i class="fa fa-map-marker"></i> 地區</th>
-                                <th><i class="fa fa-magic"></i> 晶片</th>
-                                <th><i class="fa fa-edit"></i> 狀態</th>
+                                <th><i class="fa fa-magic"></i> 毛色</th>
+                                <th><i class="fa fa-edit"></i> 認養狀態</th>
+                                <th><i class="fa fa-edit"></i> 認養人</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+
+                            @if (@ViewBag.noFollow != null)
+                            {
+                                <tr class="row-odd">
+                                    <td colspan="5" align="center">
+                                        <a href="#">
+                                            <img src="@ViewBag.noFollow" style="max-width:700px" />
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            }
+
+                            @foreach (var item in Model.followAniList)
+                             {
+                                <tr class="row-odd">
+
+                                    <td width="150px">
+                                        <a href="@Url.Action("oneAni", "aniData",new { id = @item.animalID})">
+                                            <img src="@item.animalPicAddress" alumb="true" _w="100" _h="100" />                                            
+                                        </a>
+                                    </td>
+                                    <td >
+                                        <a href="@Url.Action("oneAni", "aniData",new { id = @item.animalID})">@item.animalName</a>
+                                    </td>
+                                    <td >
+                                        <a href="@Url.Action("oneAni", "aniData",new { id = @item.animalID})">@item.animalKind</a>
+                                    </td>
+                                    <td >
+                                       @item.animalType
+                                    </td>
+                                    <td>
+                                        @item.animalAddress
+                                    </td>
+                                    <td>
+                                        @item.animalColor
+                                    </td>
+                                    <td>
+                                        尚未被認養
+                                    </td>
+                                    <td>
+                                        @using (Html.BeginForm("DelfollowAniSure", "aniData", new { id = @item.followID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認取消追蹤?');" }))
+                                        {
+                                            @Html.HttpMethodOverride(HttpVerbs.Delete)
+                                            <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                        }
+                                    </td>
+                                </tr>
+
+                            }
+                            @*<tr>
                                 <td width="150px"><img src="http://www.mrleung.com/i/14525950109180.jpg" alumb="true" _w="100" _h="100" /></td>
                                 <td>佐藤和真</td>
                                 <td>宅男</td>
@@ -123,59 +174,8 @@
                                     <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
                                     <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td width="150px"><img src="http://www.mrleung.com/i/14525950109180.jpg" alumb="true" _w="100" _h="100" /></td>
-                                <td>佐藤和真</td>
-                                <td>宅男</td>
-                                <td>盜賊</td>
-                                <td>美好的世界小鎮</td>
-                                <td><div class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok"></span></div></td>
-                                <td><span class="label label-info label-mini">健康</span></td>
-                                <td>
-                                    <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="150px"><img src="http://www.mrleung.com/i/14525950109180.jpg" alumb="true" _w="100" _h="100" /></td>
-                                <td>佐藤和真</td>
-                                <td>宅男</td>
-                                <td>盜賊</td>
-                                <td>美好的世界小鎮</td>
-                                <td><div class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok"></span></div></td>
-                                <td><span class="label label-info label-mini">健康</span></td>
-                                <td>
-                                    <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="150px"><img src="http://www.mrleung.com/i/14525950109180.jpg" alumb="true" _w="100" _h="100" /></td>
-                                <td>佐藤和真</td>
-                                <td>宅男</td>
-                                <td>盜賊</td>
-                                <td>美好的世界小鎮</td>
-                                <td><div class="btn btn-success btn-xs"><span class="glyphicon glyphicon-remove"></span></div></td>
-                                <td><span class="label label-info label-mini">健康</span></td>
-                                <td>
-                                    <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="150px"><img src="http://www.mrleung.com/i/14525950109180.jpg" alumb="true" _w="100" _h="100" /></td>
-                                <td>佐藤和真</td>
-                                <td>宅男</td>
-                                <td>盜賊</td>
-                                <td>美好的世界小鎮</td>
-                                <td><div class="btn btn-success btn-xs"><span class="glyphicon glyphicon-remove"></span></div></td>
-                                <td><span class="label label-info label-mini">健康</span></td>
-                                <td>
-                                    <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                </td>
-                            </tr>
+                            </tr>*@
+                           
                         </tbody>
                     </table>
                 </div><!-- /content-panel -->
