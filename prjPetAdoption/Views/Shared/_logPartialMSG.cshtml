@@ -6,19 +6,19 @@
     {
         @Html.AntiForgeryToken()
 
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav">
             <li>
                 @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "navbar-brand", title = "Manage" })
             </li>
-            <li><a href="@Url.Action( "MsgList", "aniData", new { id = User.Identity.GetUserId() })" class="navbar-brand" title="MSG">訊息匣&nbsp;<span class="badge">@ViewBag.MsgNum</span></a></li>
-            <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+            @*<li><a href="@Url.Action( "MsgList", "aniData", new { id = User.Identity.GetUserId() })" class="navbar-brand" title="MSG">訊息匣&nbsp;<span class="badge">@ViewBag.MsgNum</span></a></li>*@
+            @*<li>&nbsp;&nbsp;&nbsp;&nbsp;</li>*@
             <li><a href="javascript:document.getElementById('logoutForm').submit()" class="navbar-brand">登出</a></li>
         </ul>
     }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav">
         <li>@Html.ActionLink("註冊", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "navbar-brand" })</li>
         <li>@Html.ActionLink("登入", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "navbar-brand" })</li>
     </ul>

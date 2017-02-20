@@ -22,13 +22,13 @@
             });
         </script>
     }
-    <nav class="navbar navbar-default navbar-fixed-top at_top" style="background-color:#2c3e50;">
+    <div class="navbar navbar-default navbar-fixed-top at_top" style="background-color:#2c3e50;">
         <div class="container">
             <div class="navbar-header">
-                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span><span class="icon-bar">
                     </span><span class="icon-bar"></span><span class="icon-bar"></span>
-                </button>@Html.ActionLink("iPet", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </button>@Html.ActionLink("PetGo!!", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
@@ -68,7 +68,7 @@
             <!---->
             <!-- /.nav-collapse-->
         </div>
-    </nav>
+    </div>
     <div class="container-fluid" style="padding-top:30px">
         @RenderBody()
     </div>
