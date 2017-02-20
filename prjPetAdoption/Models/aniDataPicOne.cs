@@ -25,5 +25,6 @@ namespace prjPetAdoption.Models
         public string animalOwner_userID { get; set; }
         public string animalPicAddress { get; set; }
         public string animalDate { get; set; }
+        public string animalAdopted { get; set; }
     }
 }

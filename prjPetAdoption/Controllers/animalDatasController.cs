@@ -55,6 +55,7 @@ namespace prjPetAdoption.Models
         {
             if (ModelState.IsValid)
             {
+                
                 db.animalData.Add(animalData);
                 db.SaveChanges();
                 return RedirectToAction("Create", "animalData_Condition");

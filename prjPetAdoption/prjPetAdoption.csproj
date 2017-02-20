@@ -660,6 +660,8 @@
     <Content Include="Views\Shared\_MemberLayout.cshtml" />
     <Content Include="Views\Msgs\Deletesure.cshtml" />
     <Content Include="Views\aniData\oneAni - 複製.cshtml" />
+    <Content Include="Views\animalData_Pic1\picList2.cshtml" />
+    <Content Include="Views\animalData_Pic1\CreatePart2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

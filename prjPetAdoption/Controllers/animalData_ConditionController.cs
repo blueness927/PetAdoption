@@ -54,9 +54,10 @@ namespace prjPetAdoption.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.animalData_Condition.Add(animalData_Condition);
+                Session["CreateAID"] = animalData_Condition.condition_animalID;
+                   db.animalData_Condition.Add(animalData_Condition);
                 db.SaveChanges();
-                return RedirectToAction("Create", "animalData_Pic1");
+                return RedirectToAction("picList2", "animalData_Pic1",new {id = animalData_Condition.condition_animalID });
             }
 
             ViewBag.condition_animalID = new SelectList(db.animalData, "animalID", "animalKind", animalData_Condition.condition_animalID);
@@ -80,7 +81,7 @@ namespace prjPetAdoption.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.condition_animalID = new SelectList(db.animalData, "animalID", "animalKind", animalData_Condition.condition_animalID);
+            //ViewBag.condition_animalID = new SelectList(db.animalData, "animalID", "animalKind", animalData_Condition.condition_animalID);
             return View(animalData_Condition);
             }
             return View();
@@ -93,14 +94,17 @@ namespace prjPetAdoption.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "conditionID,condition_animalID,conditionAge,conditionEconomy,conditionHome,conditionFamily,conditionReply,conditionPaper,conditionFee,conditionOther")] animalData_Condition animalData_Condition)
         {
+            var intIdt = Session["EditAID"];
             if (ModelState.IsValid)
             {
+               
+                ViewBag.aID = intIdt;
                 db.Entry(animalData_Condition).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("picList", "animalData_Pic1", new { id = animalData_Condition.condition_animalID });
+                return RedirectToAction("picList", "animalData_Pic1", new { id = intIdt });
             }
             ViewBag.condition_animalID = new SelectList(db.animalData, "animalID", "animalKind", animalData_Condition.condition_animalID);
-            return View(animalData_Condition);
+            return RedirectToAction("picList", "animalData_Pic1", new { id = intIdt });
         }
 
         // GET: animalData_Condition/Delete/5

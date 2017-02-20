@@ -5,13 +5,10 @@
 
 
 <script type="text/javascript">
-    var id= @ViewBag.aID;
-    function addID(){
-        $('#upID').val(id);
-    };
+  
 
     function iping(){
-        $('#Msgshow').append("圖片上傳中 請稍後");
+        var t = setTimeout("alert('圖片上傳中請稍後')",5000);
     };
     function iping2(){
         alert("ip2");
@@ -29,13 +26,17 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            <button id="uploadResult" type="button" class="btn uploadBtn btn btn-primary  col-md-2" onclick="iping();">圖片上傳</button>
+            <button id="uploadResult" type="button" class="btn uploadBtn  btn-info  col-md-" onclick="iping();">請選擇圖片上傳</button>
             <label for="comment">已上傳照片預覽如下</label>
-            <div id="Msgshow" class="form-group col-md-offset-2 col-md-10">
+            <div id="Msgshow" class="col-md-offset-2 col-md-10">
             </div>
-            <div id="picshow" class="form-group col-md-offset-2 col-md-10">
+            <div id="picshow" class="col-md-offset-2 form-group">
 
-                <script type="text/javascript">
+
+            </div>
+
+
+            <script type="text/javascript">
             $(function(){
 	            //用來顯示上傳結果的 textarea
 	            var uploadResult = document.getElementById('uploadResult');
@@ -49,13 +50,17 @@
 	            });
 
             });
-                </script>
 
+            var id= @ViewBag.aID;
+            function addID(){
+                $('#upID').val(id);
+            };
+            </script>
 
-            </div>
+        
 
             <div class="col-md-10">
-                @Html.EditorFor(model => model.animalPic_animalID, new { htmlAttributes = new { @class = "form-control", @id = "upID"@*, @style = "visibility:hidden"*@ } })
+                @Html.EditorFor(model => model.animalPic_animalID, new { htmlAttributes = new { @class = "form-control", @id = "upID", @style = "visibility:hidden"}})
                 @Html.ValidationMessageFor(model => model.animalPic_animalID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -73,7 +78,7 @@
         <div class="form-group">
             <div class="col-md-10">
                 <input type="submit" value="新增圖片" class="btn btn-warning" onclick="addID()" />
-                <input type="button" value="addID" class="btn btn-warning" onclick="addID()" />
+                @*<input type="button" value="addID" class="btn btn-warning" onclick="addID()" />*@
 
             </div>
         </div>

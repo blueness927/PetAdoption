@@ -55,10 +55,12 @@ namespace prjPetAdoption
                       ));
 
             bundles.Add(new StyleBundle("~/Content/showForAdopt").Include(
-                    "~/Content/showForAdopt/AdoptedNavigate.css"
-  
+                    "~/Content/showForAdopt/AdoptedNavigate.css"  
                         ));
 
+            bundles.Add(new StyleBundle("~/Content/anidetail").Include(
+                    "~/Content/animalDetailcss/animalDetails.css"
+                        ));
         }
     }
 }

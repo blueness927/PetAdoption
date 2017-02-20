@@ -120,7 +120,7 @@
                 if (data.success == true) {
                     // $('#picshow').prepend($('<img>', { id: 'theImg', src: data.data.link, align: 'middle', width: '150', height: '150' }))
                     
-                    $('#picshow').append("<img src='" + data.data.link + "'  align='middle'  style='max-height:500px'/>");
+                    $('#picshow').append("<img src='" + data.data.link + "'  align='middle'  style='max-height:500px;position:absolute;top:15px;left:20px;'/>");
                     $('#upPic').val(data.data.link);
                     $('#upPic').append(JSON.stringify(data.data.link));
                     

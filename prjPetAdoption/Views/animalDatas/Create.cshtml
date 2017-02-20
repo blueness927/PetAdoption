@@ -2,467 +2,472 @@
 
 @{
     ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
 }
 
 <h2>新增送養寵物</h2>
 
-
-@*<section id="main-content">
+<section id="main-content">
     <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i> 新增送養寵物</h3>
+        @*<section id="main-content">
+                <section class="wrapper">
+                    <h3><i class="fa fa-angle-right"></i> 新增送養寵物</h3>
 
-        <!-- BASIC FORM ELELEMNTS -->
-        <div class="row mt">
-            <div class="col-lg-12">
-                <div class="form-panel">
-                    <h4 class="mb"><i class="fa fa-angle-right"></i> 填寫動物基本資料</h4>
-                    <form class="form-horizontal style-form" method="get">
-                        <div class="form-group">
-                            <label class="col-sm-2 col-sm-2 control-label">動物種類(一般預設文字輸入框)</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control">
+                    <!-- BASIC FORM ELELEMNTS -->
+                    <div class="row mt">
+                        <div class="col-lg-12">
+                            <div class="form-panel">
+                                <h4 class="mb"><i class="fa fa-angle-right"></i> 填寫動物基本資料</h4>
+                                <form class="form-horizontal style-form" method="get">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">動物種類(一般預設文字輸入框)</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">動物種類(一般文字輸入框+提示詞)</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control">
+                                            <span class="help-block">I have a pen </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">動物種類(一般文字輸入框+Placeholder)</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" placeholder="This is Placeholder!!!!!!!!!!!!!!!">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">取消送養</button>
+                                    <button type="submit" class="btn btn-theme">下一步填寫認養條件</button>
+                                    <div class="showback">
+                                        <h4><i class="fa fa-angle-right"></i> Basic Buttons</h4>
+                                        <button type="button" class="btn btn-default">Default</button>
+                                        <button type="button" class="btn btn-primary">Primary</button>
+                                        <button type="button" class="btn btn-success">Success</button>
+                                        <button type="button" class="btn btn-info">Info</button>
+                                        <button type="button" class="btn btn-warning">Warning</button>
+                                        <button type="button" class="btn btn-danger">Danger</button>
+                                    </div><!-- /showback -->
+                                </form>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 col-sm-2 control-label">動物種類(一般文字輸入框+提示詞)</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control">
-                                <span class="help-block">I have a pen </span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 col-sm-2 control-label">動物種類(一般文字輸入框+Placeholder)</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="This is Placeholder!!!!!!!!!!!!!!!">
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">取消送養</button>
-                        <button type="submit" class="btn btn-theme">下一步填寫認養條件</button>
-                        <div class="showback">
-                            <h4><i class="fa fa-angle-right"></i> Basic Buttons</h4>
-                            <button type="button" class="btn btn-default">Default</button>
-                            <button type="button" class="btn btn-primary">Primary</button>
-                            <button type="button" class="btn btn-success">Success</button>
-                            <button type="button" class="btn btn-info">Info</button>
-                            <button type="button" class="btn btn-warning">Warning</button>
-                            <button type="button" class="btn btn-danger">Danger</button>
-                        </div><!-- /showback -->
-                    </form>
-                </div>
-            </div><!-- col-lg-12-->
-        </div><!-- /row -->
-        <!-- INLINE FORM ELELEMNTS -->
-        <div class="row mt">
-            <div class="col-lg-12">
-                <div class="form-panel">
-                    <h4 class="mb"><i class="fa fa-angle-right"></i> Inline Form</h4>
-                    <form class="form-inline" role="form">
-                        <div class="form-group">
-                            <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
-                        </div>
-                        <div class="form-group">
-                            <label class="sr-only" for="exampleInputPassword2">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-                        </div>
-                        <button type="submit" class="btn btn-theme">下一步填寫認養條件</button>
-                    </form>
-                </div><!-- /form-panel -->
-            </div><!-- /col-lg-12 -->
-        </div><!-- /row -->
-        <!-- INPUT MESSAGES -->
-        <!-- INPUT MESSAGES -->
-        <div class="row mt">
-            <div class="col-lg-12">
-                <div class="form-panel">
-                    <h4 class="mb"><i class="fa fa-angle-right"></i> Checkboxes, Radios & Selects</h4>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" value="">
-                            是否施打疫苗
-                        </label>
+                        </div><!-- col-lg-12-->
+                    </div><!-- /row -->
+                    <!-- INLINE FORM ELELEMNTS -->
+                    <div class="row mt">
+                        <div class="col-lg-12">
+                            <div class="form-panel">
+                                <h4 class="mb"><i class="fa fa-angle-right"></i> Inline Form</h4>
+                                <form class="form-inline" role="form">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                                    </div>
+                                    <button type="submit" class="btn btn-theme">下一步填寫認養條件</button>
+                                </form>
+                            </div><!-- /form-panel -->
+                        </div><!-- /col-lg-12 -->
+                    </div><!-- /row -->
+                    <!-- INPUT MESSAGES -->
+                    <!-- INPUT MESSAGES -->
+                    <div class="row mt">
+                        <div class="col-lg-12">
+                            <div class="form-panel">
+                                <h4 class="mb"><i class="fa fa-angle-right"></i> Checkboxes, Radios & Selects</h4>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="">
+                                        是否施打疫苗
+                                    </label>
+                                </div>
+
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                        是否植入晶片
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                        是否結紮
+                                    </label>
+                                </div>
+
+                                <hr>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox1" value="option1">某人UX是否很差
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox2" value="option2">某人是不是講話讓人火大
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox3" value="option3">某人都穿灰色衣服
+                                </label>
+
+                                <hr>
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                                <br>
+                                <select multiple class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div><!-- /form-panel -->
+                        </div><!-- /col-lg-12 -->
                     </div>
-
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                            是否植入晶片
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                            是否結紮
-                        </label>
-                    </div>
-
-                    <hr>
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox1" value="option1">某人UX是否很差
-                    </label>
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox2" value="option2">某人是不是講話讓人火大
-                    </label>
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox3" value="option3">某人都穿灰色衣服
-                    </label>
-
-                    <hr>
-                    <select class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                    <br>
-                    <select multiple class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div><!-- /form-panel -->
-            </div><!-- /col-lg-12 -->
-        </div>
-    </section>
-</section>*@
+                </section>
+            </section>*@
 
 
 
-<script type="text/javascript">  //取得下拉選單值的方法
-
-var $ = function(e){ return document.getElementById(e); }
-var swap = function (val, input) {
-    var txt = $(input);
-    txt.val(val);
-  
-};
-//function select() {
-
-//    var selectV = document.getElementById('sKind').value;
-//    var txt = $('#aKind');
-//    txt.val(selectV);
-//    alert(selectV)
-    //};
-
-    //動態更新的方法
-function aler() {
-    alert("請先登入會員。");
-}
-function chn() {
-    
-    addchg();
-}
-//下拉選單後的事件
-function addchg() {
-    $("#sType").html("");
-    //alert(document.getElementById("sKind").value);
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "http://twpetanimal.ddns.net:9487/api/v1/animalData_Type",
-        success: function (data) {
-
-            $("#sType").append("<option value=''>-請選擇品種-</option> ");
-            $.each(data, function (index, value) { //index: Emp物件之相關陣列索引   value:Emp物件
-                //$("#SelectCategory").append("<option>" + value.animalKind + "</option> ");
-                var type = '';
-                if (document.getElementById("sKind").value == '貓')
-                    type = 'CAT';
-                else if (document.getElementById("sKind").value == '狗')
-                    type = 'DOG';
-                else if (document.getElementById("sKind").value == '鼠')
-                    type = 'MICE';
-                else if (document.getElementById("sKind").value == '兔')
-                    type = 'RABBIT';
-                else if (document.getElementById("sKind").value == '鳥')
-                    type = 'BIRD';
-                else if (document.getElementById("sKind").value == '其他')
-                    type = 'OTHER';
-
-                if (value.animalKind == type) {
-                    $("#sType").append("<option value='" + value.animalType + "'>" + value.animalType + "</option> ");
-                  
-                }
-
-            });
-        }
-    });
-}   
-</script>
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>animalData</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-           
-            <label class="control-label col-md-2">動物種類</label>
-
-            <div class="col-md-10">
-                <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aKind'),chn()">
-                    @*select()*@
-                    <option value=""> -請選擇動物種類-</option>
-                    <option value="貓"> 貓</option>
-                    <option value="狗"> 狗</option>
-                    <option value="鼠"> 鼠</option>
-                    <option value="兔"> 兔</option>
-                    <option value="鳥"> 鳥</option>
-                    <option value="其他"> 其他</option>
-
-                </select>
-
-
-                @Html.EditorFor(model => model.animalKind, new { htmlAttributes = new { @class = "form-control  ", @id = "aKind", @style = "display:none" } })
-                @Html.ValidationMessageFor(model => model.animalKind, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2">動物品種</label>
-            <div class="col-md-10">
-                <select class="form-control col-md-10" id="sType" onChange="swap(this.value, '#aType')">
-                    <option value=""> -請選擇動物品種-</option>
-
-                </select>
-
-                @Html.EditorFor(model => model.animalType, new { htmlAttributes = new { @class = "form-control  ", @id = "aType", @style = "display:none" } })
-                @Html.ValidationMessageFor(model => model.animalType, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2">動物名稱</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.animalName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.animalName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-             <label class="control-label col-md-2">所在縣市</label>
-            <div class="col-md-10">
-                <select class="form-control col-md-10" id="sAddress" onChange="swap(this.value, '#aAddress')">
-                    <option value=""> -全部-</option>
-                    <option value="臺北市"> 臺北市</option>
-                    <option value="新北市"> 新北市</option>
-                    <option value="基隆市"> 基隆市</option>
-                    <option value="宜蘭縣"> 宜蘭縣</option>
-                    <option value="桃園市"> 桃園市</option>
-                    <option value="新竹縣"> 新竹縣</option>
-                    <option value="新竹市"> 新竹市</option>
-                    <option value="苗栗縣"> 苗栗縣</option>
-                    <option value="臺中市"> 臺中市</option>
-                    <option value="彰化縣"> 彰化縣</option>
-                    <option value="南投縣"> 南投縣</option>
-                    <option value="雲林縣"> 雲林縣</option>
-                    <option value="嘉義縣"> 嘉義縣</option>
-                    <option value="嘉義市"> 嘉義市</option>
-                    <option value="臺南市"> 臺南市</option>
-                    <option value="高雄市"> 高雄市</option>
-                    <option value="屏東縣"> 屏東縣</option>
-                    <option value="花蓮縣"> 花蓮縣</option>
-                    <option value="臺東縣"> 臺東縣</option>
-                    <option value="澎湖縣"> 澎湖縣</option>
-                    <option value="金門縣"> 金門縣</option>
-                    <option value="連江縣"> 連江縣</option>
-                </select>
-
-                @Html.EditorFor(model => model.animalAddress, new { htmlAttributes = new { @class = "form-control  ", @id = "aAddress", @style = "display:none" } })
-                @Html.ValidationMessageFor(model => model.animalAddress, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            <label class="control-label col-md-2">動物性別</label>
-            <div class="col-md-10">
-                <select class="form-control col-md-10" id="sGender" onChange="swap(this.value, '#aGender')">
-                    <option value=""> -請選擇動物性別-</option>
-                    <option value="公"> 公</option>
-                    <option value="母"> 母</option>
-                    <option value="未知"> 未知</option>
-                </select>
-
-                @Html.EditorFor(model => model.animalGender, new { htmlAttributes = new { @class = "form-control", @id = "aGender", @style = "display:none" } })
-                @Html.ValidationMessageFor(model => model.animalGender, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2">動物年紀（月份）</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.animalAge, new { htmlAttributes = new { @class = "form-control", @id = "aAge" } })
-                @Html.ValidationMessageFor(model => model.animalAge, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2">動物毛色花紋描述</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.animalColor, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.animalColor, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2">是否已節育</label>
-            <div class="col-md-10">
-                <select class="form-control col-md-10" id="sBirth" onChange="swap(this.value, '#aBirth')">
-                    <option value=""> -請選擇節育狀態-</option>
-                    <option value="是"> 是</option>
-                    <option value="否"> 否</option>
-                    <option value="未知">未知</option>
-                </select>
-
-                @Html.EditorFor(model => model.animalBirth, new { htmlAttributes = new { @class = "form-control  ", @id = "aBirth", @style = "display:none" } })
-                @Html.ValidationMessageFor(model => model.animalBirth, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2">是否已植入晶片</label>
-            <div class="col-md-10">
-                <select class="form-control col-md-10" id="sChip" onChange="swap(this.value, '#aChip')">
-                    <option value=""> -請選擇晶片狀態-</option>
-                    <option value="是"> 是</option>
-                    <option value="否"> 否</option>
-                    <option value="未知">未知</option>
-                </select>
-
-                @Html.EditorFor(model => model.animalChip, new { htmlAttributes = new { @class = "form-control  ", @id = "aChip", @style = "display:none" } })
-                @Html.ValidationMessageFor(model => model.animalChip, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2">健康狀態</label>
-            <div class="col-md-10">
-                <select class="form-control col-md-10" id="sHealthy" onChange="swap(this.value, '#aHealthy')">
-                    <option value=""> -請選擇健康狀態-</option>
-                    <option value="健康"> 健康</option>
-                    <option value="疾病"> 疾病</option>
-                    <option value="未知"> 未知</option>
-                </select>
-
-                @Html.EditorFor(model => model.animalHealthy, new { htmlAttributes = new { @class = "form-control  ", @id = "aHealthy", @style = "display:none" } })
-                @Html.ValidationMessageFor(model => model.animalHealthy, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-2">健診狀況</label>   @*待完成checkbox事件*@
-            <div class="col-md-10">健診快選清單：（若有其他可自行加載下方欄位）<br/>
-                <input id="sDisease_Other" name="Health_Other" type="checkbox" value="已施打預防針" onchange="test()" />已施打預防接種疫苗
-                <input id="sDisease_Other" name="Health_Other" type="checkbox" value="除蚤" onchange="test()" />除蚤
-                <input id="sDisease_Other" name="Health_Other" type="checkbox" value="已體內外驅蟲" onchange="test()" />體內外驅蟲
-                <input id="sDisease_Other" name="Health_Other" type="checkbox" value="接種十合一疫苗" onchange="test()" />接種十合一疫苗
-                <input id="sDisease_Other" name="Health_Other" type="checkbox" value="接種七合一疫苗" onchange="test()" />接種七合一疫苗
-                <input id="sDisease_Other" name="Health_Other" type="checkbox" value="接種狂犬病疫苗" onchange="test()" />接種狂犬病疫苗
-                <input id="sDisease_Other" name="Health_Other" type="checkbox" value="三合一快篩" onchange="test()" />三合一快篩
-                <br />病況快選清單：（若有其他說明可自行加載下方欄位）<br />
-                <input id="sDisease_Other" name="Disease_Other" type="checkbox" value="癱瘓" onchange="test()" />癱瘓
-                <input id="sDisease_Other" name="Disease_Other" type="checkbox" value="愛滋病" onchange="test()" />愛滋病
-                <input id="sDisease_Other" name="Disease_Other" type="checkbox" value="皮膚病" onchange="test()" />皮膚病
-                <input id="sDisease_Other" name="Disease_Other" type="checkbox" value="心絲蟲" onchange="test()" />心絲蟲
-                <script language="Javascript">
-
-                    function test() {
-                        var cboxes = document.getElementsByName('Health_Other');
-                        var cboxes2 = document.getElementsByName('Disease_Other');
-                        var len = cboxes.length;
-                        var len2 = cboxes2.length;
-                        $('#aDisease_Other').val('');
-                        var check = '';
-                        for (var i = 0; i < len; i++) {
-                            check += (cboxes[i].checked ? cboxes[i].value+'，' : '');
-                        }
-                        for (var i = 0; i < len2; i++) {
-                            check += (cboxes2[i].checked ? cboxes2[i].value + '，' : '');
-                        }
-                        $('#animalDisease_Other').val(check);
-                    }
-
-                </script>
-                </div>
-                <div class="col-md-offset-2 col-md-10">
-                    @Html.TextAreaFor(model => model.animalDisease_Other, new { cols = 40, @rows = 3, htmlAttributes = new { @class = "form-control", @id = "aDisease_Other" } })
-                    @Html.ValidationMessageFor(model => model.animalDisease_Other, "", new { @class = "text-danger" })
-                </div>
-        </div>
-
-@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
-{
-    <text>
         <script type="text/javascript">
-                function addID() {                                  
-                    $('#aOwner_userID').val('@User.Identity.GetUserId().ToString()');
-                };
+  //取得下拉選單值的方法
 
+            var $ = function (e) { return document.getElementById(e); }
+            var swap = function (val, input) {
+                var txt = $(input);
+                txt.val(val);
+
+            };
+            //function select() {
+
+            //    var selectV = document.getElementById('sKind').value;
+            //    var txt = $('#aKind');
+            //    txt.val(selectV);
+            //    alert(selectV)
+            //};
+
+            //動態更新的方法
+            function aler() {
+                alert("請先登入會員。");
+            }
+            function chn() {
+
+                addchg();
+            }
+            //下拉選單後的事件
+            function addchg() {
+                $("#sType").html("");
+                //alert(document.getElementById("sKind").value);
+                $.ajax({
+                    type: "GET",
+                    dataType: "json",
+                    url: "http://twpetanimal.ddns.net:9487/api/v1/animalData_Type",
+                    success: function (data) {
+
+                        $("#sType").append("<option value=''>-請選擇品種-</option> ");
+                        $.each(data, function (index, value) { //index: Emp物件之相關陣列索引   value:Emp物件
+                            //$("#SelectCategory").append("<option>" + value.animalKind + "</option> ");
+                            var type = '';
+                            if (document.getElementById("sKind").value == '貓')
+                                type = 'CAT';
+                            else if (document.getElementById("sKind").value == '狗')
+                                type = 'DOG';
+                            else if (document.getElementById("sKind").value == '鼠')
+                                type = 'MICE';
+                            else if (document.getElementById("sKind").value == '兔')
+                                type = 'RABBIT';
+                            else if (document.getElementById("sKind").value == '鳥')
+                                type = 'BIRD';
+                            else if (document.getElementById("sKind").value == '其他')
+                                type = 'OTHER';
+
+                            if (value.animalKind == type) {
+                                $("#sType").append("<option value='" + value.animalType + "'>" + value.animalType + "</option> ");
+
+                            }
+
+                        });
+                    }
+                });
+            }
         </script>
-    </text>
-        <div class="form-group">
-            @*<label class="control-label col-md-2">送養人ID（系統自動設定）</label> 待取得會員NAME事件*@
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.animalOwner_userID, new { htmlAttributes = new { @class = "form-control", @id = "aOwner_userID", @style = "display:none" } })
-                @Html.ValidationMessageFor(model => model.animalOwner_userID, "", new { @class = "text-danger", @style = "display:none" })
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h3>送養動物新增</h3>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+
+                    <label class="control-label col-md-2">動物種類</label>
+
+                    <div class="col-md-10">
+                        <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aKind'),chn()">
+                            @*select()*@
+                            <option value=""> -請選擇動物種類-</option>
+                            <option value="貓"> 貓</option>
+                            <option value="狗"> 狗</option>
+                            <option value="鼠"> 鼠</option>
+                            <option value="兔"> 兔</option>
+                            <option value="鳥"> 鳥</option>
+                            <option value="其他"> 其他</option>
+
+                        </select>
+
+
+                        @Html.EditorFor(model => model.animalKind, new { htmlAttributes = new { @class = "form-control  ", @id = "aKind", @style = "display:none" } })
+                        @Html.ValidationMessageFor(model => model.animalKind, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">動物品種</label>
+                    <div class="col-md-10">
+                        <select class="form-control col-md-10" id="sType" onChange="swap(this.value, '#aType')">
+                            <option value=""> -請選擇動物品種-</option>
+
+                        </select>
+
+                        @Html.EditorFor(model => model.animalType, new { htmlAttributes = new { @class = "form-control  ", @id = "aType", @style = "display:none" } })
+                        @Html.ValidationMessageFor(model => model.animalType, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">動物名稱</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.animalName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.animalName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">所在縣市</label>
+                    <div class="col-md-10">
+                        <select class="form-control col-md-10" id="sAddress" onChange="swap(this.value, '#aAddress')">
+                            <option value=""> -全部-</option>
+                            <option value="臺北市"> 臺北市</option>
+                            <option value="新北市"> 新北市</option>
+                            <option value="基隆市"> 基隆市</option>
+                            <option value="宜蘭縣"> 宜蘭縣</option>
+                            <option value="桃園市"> 桃園市</option>
+                            <option value="新竹縣"> 新竹縣</option>
+                            <option value="新竹市"> 新竹市</option>
+                            <option value="苗栗縣"> 苗栗縣</option>
+                            <option value="臺中市"> 臺中市</option>
+                            <option value="彰化縣"> 彰化縣</option>
+                            <option value="南投縣"> 南投縣</option>
+                            <option value="雲林縣"> 雲林縣</option>
+                            <option value="嘉義縣"> 嘉義縣</option>
+                            <option value="嘉義市"> 嘉義市</option>
+                            <option value="臺南市"> 臺南市</option>
+                            <option value="高雄市"> 高雄市</option>
+                            <option value="屏東縣"> 屏東縣</option>
+                            <option value="花蓮縣"> 花蓮縣</option>
+                            <option value="臺東縣"> 臺東縣</option>
+                            <option value="澎湖縣"> 澎湖縣</option>
+                            <option value="金門縣"> 金門縣</option>
+                            <option value="連江縣"> 連江縣</option>
+                        </select>
+
+                        @Html.EditorFor(model => model.animalAddress, new { htmlAttributes = new { @class = "form-control  ", @id = "aAddress", @style = "display:none" } })
+                        @Html.ValidationMessageFor(model => model.animalAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">動物性別</label>
+                    <div class="col-md-10">
+                        <select class="form-control col-md-10" id="sGender" onChange="swap(this.value, '#aGender')">
+                            <option value=""> -請選擇動物性別-</option>
+                            <option value="公"> 公</option>
+                            <option value="母"> 母</option>
+                            <option value="未知"> 未知</option>
+                        </select>
+
+                        @Html.EditorFor(model => model.animalGender, new { htmlAttributes = new { @class = "form-control", @id = "aGender", @style = "display:none" } })
+                        @Html.ValidationMessageFor(model => model.animalGender, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">動物年紀（月份）</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.animalAge, new { htmlAttributes = new { @class = "form-control", @id = "aAge" } })
+                        @Html.ValidationMessageFor(model => model.animalAge, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">動物毛色花紋描述</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.animalColor, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.animalColor, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">是否已節育</label>
+                    <div class="col-md-10">
+                        <select class="form-control col-md-10" id="sBirth" onChange="swap(this.value, '#aBirth')">
+                            <option value=""> -請選擇節育狀態-</option>
+                            <option value="是"> 是</option>
+                            <option value="否"> 否</option>
+                            <option value="未知">未知</option>
+                        </select>
+
+                        @Html.EditorFor(model => model.animalBirth, new { htmlAttributes = new { @class = "form-control  ", @id = "aBirth", @style = "display:none" } })
+                        @Html.ValidationMessageFor(model => model.animalBirth, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">是否已植入晶片</label>
+                    <div class="col-md-10">
+                        <select class="form-control col-md-10" id="sChip" onChange="swap(this.value, '#aChip')">
+                            <option value=""> -請選擇晶片狀態-</option>
+                            <option value="是"> 是</option>
+                            <option value="否"> 否</option>
+                            <option value="未知">未知</option>
+                        </select>
+
+                        @Html.EditorFor(model => model.animalChip, new { htmlAttributes = new { @class = "form-control  ", @id = "aChip", @style = "display:none" } })
+                        @Html.ValidationMessageFor(model => model.animalChip, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">健康狀態</label>
+                    <div class="col-md-10">
+                        <select class="form-control col-md-10" id="sHealthy" onChange="swap(this.value, '#aHealthy')">
+                            <option value=""> -請選擇健康狀態-</option>
+                            <option value="健康"> 健康</option>
+                            <option value="疾病"> 疾病</option>
+                            <option value="未知"> 未知</option>
+                        </select>
+
+                        @Html.EditorFor(model => model.animalHealthy, new { htmlAttributes = new { @class = "form-control  ", @id = "aHealthy", @style = "display:none" } })
+                        @Html.ValidationMessageFor(model => model.animalHealthy, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">健診狀況</label>   
+                    <div class="col-md-10">
+                        健診快選清單：（若有其他可自行加載下方欄位）<br />
+                        <input id="sDisease_Other" name="Health_Other" type="checkbox" value="已施打預防針" onchange="test()" />已施打預防接種疫苗
+                        <input id="sDisease_Other" name="Health_Other" type="checkbox" value="除蚤" onchange="test()" />除蚤
+                        <input id="sDisease_Other" name="Health_Other" type="checkbox" value="已體內外驅蟲" onchange="test()" />體內外驅蟲
+                        <input id="sDisease_Other" name="Health_Other" type="checkbox" value="接種十合一疫苗" onchange="test()" />接種十合一疫苗
+                        <input id="sDisease_Other" name="Health_Other" type="checkbox" value="接種七合一疫苗" onchange="test()" />接種七合一疫苗
+                        <input id="sDisease_Other" name="Health_Other" type="checkbox" value="接種狂犬病疫苗" onchange="test()" />接種狂犬病疫苗
+                        <input id="sDisease_Other" name="Health_Other" type="checkbox" value="三合一快篩" onchange="test()" />三合一快篩
+                        <br />病況快選清單： <br />
+                        <input id="sDisease_Other" name="Disease_Other" type="checkbox" value="癱瘓" onchange="test()" />癱瘓
+                        <input id="sDisease_Other" name="Disease_Other" type="checkbox" value="愛滋病" onchange="test()" />愛滋病
+                        <input id="sDisease_Other" name="Disease_Other" type="checkbox" value="皮膚病" onchange="test()" />皮膚病
+                        <input id="sDisease_Other" name="Disease_Other" type="checkbox" value="心絲蟲" onchange="test()" />心絲蟲
+                        <script language="Javascript">
+
+                            function test() {
+                                var cboxes = document.getElementsByName('Health_Other');
+                                var cboxes2 = document.getElementsByName('Disease_Other');
+                                var len = cboxes.length;
+                                var len2 = cboxes2.length;
+                                $('#aDisease_Other').val('');
+                                var check = '';
+                                for (var i = 0; i < len; i++) {
+                                    check += (cboxes[i].checked ? cboxes[i].value + '，' : '');
+                                }
+                                for (var i = 0; i < len2; i++) {
+                                    check += (cboxes2[i].checked ? cboxes2[i].value + '，' : '');
+                                }
+                                $('#animalDisease_Other').val(check);
+                            }
+
+                        </script>
+                    </div>
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.TextAreaFor(model => model.animalDisease_Other, new { cols = 480, @rows = 3, htmlAttributes = new { @class = "form-control", @id = "aDisease_Other" , @style = "margin: 0px - 15.8438px 0px 0px; height: 151px; width:500px; " } })
+                        @Html.ValidationMessageFor(model => model.animalDisease_Other, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @using Microsoft.AspNet.Identity
+                @if (Request.IsAuthenticated)
+                {
+                    <text>
+                        <script type="text/javascript">
+                            function addID() {
+                                $('#aOwner_userID').val('@User.Identity.GetUserId().ToString()');
+                            };
+
+                        </script>
+                    </text>
+                    <div class="form-group">
+                        @*<label class="control-label col-md-2">送養人ID（系統自動設定）</label> 待取得會員NAME事件*@
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.animalOwner_userID, new { htmlAttributes = new { @class = "form-control", @id = "aOwner_userID", @style = "display:none" } })
+                            @Html.ValidationMessageFor(model => model.animalOwner_userID, "", new { @class = "text-danger", @style = "display:none" })
+                        </div>
+                    </div>
+                }
+                <div class="form-group">
+                    <label class="control-label col-md-2">送養理由</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.animalReason, new { htmlAttributes = new { @class = "form-control", @id = "aReason" } })
+                        @Html.ValidationMessageFor(model => model.animalReason, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">其他備註</label>
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.animalNote, new { cols =480, @rows = 4, htmlAttributes = new { @class = "form-control", @id = "aNote", @style = "margin: 0px - 15.8438px 0px 0px; height: 151px; width:500px; " } })
+                        @Html.ValidationMessageFor(model => model.animalNote, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.ActionLink("取消送養", "Index", "Home", new { area = "" }, new { @class = "btn btn-default" })
+                        @using Microsoft.AspNet.Identity
+                        @if (Request.IsAuthenticated)
+                        {
+                            <input type="submit" value="下一步 填寫認養條件" class="btn btn-warning " onclick="addID();" />
+                        }
+                        else
+                        {
+                            <input type="button" value="下一步 填寫認養條件" class="btn btn-warning " onclick="aler();" />
+                        }
+
+
+                    </div>
+                </div>
             </div>
-        </div>
-}
-        <div class="form-group">
-            <label class="control-label col-md-2">送養理由</label> 
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.animalReason, new { htmlAttributes = new { @class = "form-control", @id = "aReason" } })
-                @Html.ValidationMessageFor(model => model.animalReason, "", new { @class = "text-danger" })
-            </div>
+        }
+
+        <div>
+
         </div>
 
 
-
-        <div class="form-group">
-            <label class="control-label col-md-2">其他送養備註</label> 
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.animalNote, new { cols = 40, @rows = 4, htmlAttributes = new {  @class = "form-control", @id = "aNote",@style = "max-width:60%;max-height:200px" } })
-                @Html.ValidationMessageFor(model => model.animalNote, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                @Html.ActionLink("取消送養", "Index", "Home", new { area = "" }, new { @class = "btn btn-default" })
-               @using Microsoft.AspNet.Identity
-            @if (Request.IsAuthenticated)
-            {
-                 <input type="submit" value="下一步 填寫認養條件" class="btn btn-warning " onclick="addID();" />
-            }
-            else
-            {
-                <input type="button" value="下一步 填寫認養條件" class="btn btn-warning " onclick="aler();" />
-            }
-
-
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-  
-</div>
-
-
+    </section><!--/wrapper -->
+</section><!-- /MAIN CONTENT -->
 
 
 
 @section Scripts {
-@*@Scripts.Render("~/bundles/jqueryval")*@
+    @*@Scripts.Render("~/bundles/jqueryval")*@
 
 }

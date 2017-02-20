@@ -118,22 +118,12 @@
 
                             }
 
-
-                            @*<tr>
-                                    <td width="150px"><img src="http://www.mrleung.com/i/14525950109180.jpg" alumb="true" _w="100" _h="100" /></td>
-                                    <td>佐藤和真</td>
-                                    <td>宅男</td>
-                                    <td>盜賊</td>
-                                    <td>美好的世界小鎮</td>
-                                    <td><div class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok"></span></div></td>
-                                    <td><span class="label label-info label-mini">健康</span></td>
-                                    <td>
-                                        <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                        <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                    </td>
-                                </tr>*@
                         </tbody>
                     </table>
+                <br/><hr />
+                    @using Microsoft.AspNet.Identity
+                    @Html.ActionLink("新增送養", "Create", "animalDatas", new { id = User.Identity.GetUserId() }, new { @class = "btn btn-warning col-md-offset-1 col-md-1 " })
+                    <br /><br /><br />
                 </div><!-- /content-panel -->
             </div><!-- /col-md-12 -->
         </div><!-- /row -->

@@ -37,7 +37,7 @@
                                     <td>@Html.DisplayFor(modelItem => item.msgType)</td>
 
                                     <td colspan="2" style="max-width:50%">@Html.DisplayFor(modelItem => item.msgContent)</td>
-                                    <td><button class="btn btn-primary btn-xs"  data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="addMsg(@item.msgFrom_userID)"><i class="fa fa-pencil"></i></button></td>
+                                    <td><button class="btn btn-primary btn-xs"  data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="addMsg()"><i class="fa fa-pencil"></i></button></td>
                                     @*<td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" id="wantAdopt" onclick="addMsg()">回覆訊息</button></td>*@
                                     <td>
                                         @using (Html.BeginForm("Deletesure", "Msgs", new { id = @item.msgID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認刪除訊息?');" }))
@@ -108,9 +108,7 @@
                 <!-- Modal -->
                                     <div class="modal fade" id="myModal" role="dialog">
                                         <div class="modal-dialog">
-@using (Html.BeginForm("MsgCreate2", "aniData", FormMethod.Post, new { }))
-{
-    @Html.AntiForgeryToken()
+
                                             <!-- Modal content-->
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -119,8 +117,10 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <p>請提供填寫欲回覆之訊息</p>
+                                                @using (Html.BeginForm("MsgCreate2", "aniData", FormMethod.Post, new { }))
+                                                {
+                                                    @Html.AntiForgeryToken()
 
-                                                    
                                                         <div class="form-horizontal">
 
                                                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -150,24 +150,24 @@
                                                             </div>
 
                                                             <div class="form-group">
-                                                                <div class="col-md-offset-10 col-md-2">
-                                                                   
+                                                                <div class="col-md-offset-9 col-md-2">
+                                                                    <input type="submit" value="訊息發送" class="btn btn-success" />
 
 
                                                                 </div>
                                                             </div>
                                                         </div>
                                                    
-
+                                                    }
                                                 </div>
                                                 <div class="modal-footer">
-                                                     <input type="submit" value="訊息發送" class="btn btn-success" />
+                                                   
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
 
                                                 </div>
                                                     
                                             </div>
-}
+
                                         </div>
 
                                     </div>

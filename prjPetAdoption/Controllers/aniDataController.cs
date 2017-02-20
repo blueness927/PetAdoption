@@ -300,7 +300,7 @@ namespace prjPetAdoption.Controllers
                 }
                 catch (Exception e)
                 {
-                    return RedirectToAction("MsgList", "aniData", new { id = msg.msgFrom_userID });
+                    return RedirectToAction("oneAni", "aniData");
                 }
             }
 

@@ -39,11 +39,8 @@
         <div class="row mt">
             <div class="col-lg-12">
                 <div class="form-panel">
-                    <h4 class="mb"><i class="fa fa-angle-right"></i> 填寫動物基本資料</h4>
-
-
-
-
+                    <h4 class="mb"><i class="fa fa-angle-right"></i> 填寫動物送養條件</h4>
+                    
 
                     @using (Html.BeginForm())
                     {
@@ -65,6 +62,7 @@
                                         <option value="不限"> -不限-</option>
                                         <option value="需年滿20歲以上"> 需年滿20歲以上</option>
                                         <option value="需年滿25歲以上"> 需年滿25歲以上</option>
+                                        <option value="需年滿30歲以上"> 需年滿30歲以上</option>
                                     </select>
                                     @Html.EditorFor(model => model.conditionAge, new { htmlAttributes = new { @class = "form-control", @id = "aAge", @style = "display:none" } })
                                     @Html.ValidationMessageFor(model => model.conditionAge, "", new { @class = "text-danger" })
@@ -77,8 +75,8 @@
                                     <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aEconomy') ">
                                         <option value="不限"> -不限-</option>
                                         <option value="需有穩定工作"> 需有穩定工作</option>
-                                        <option value="需年滿25歲以上"> 需年滿25歲以上</option>
-
+                                        <option value="需年收30萬以上"> 需年收30萬以上</option>
+                                        <option value="需年收50萬以上"> 需年收50萬以上</option>
                                     </select>
                                     @Html.EditorFor(model => model.conditionEconomy, new { htmlAttributes = new { @class = "form-control", @id = "aEconomy", @style = "display:none" } })
                                     @Html.ValidationMessageFor(model => model.conditionEconomy, "", new { @class = "text-danger" })
@@ -91,7 +89,7 @@
                                     <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aHome') ">
                                         <option value="不限"> -不限-</option>
                                         <option value="需先提供環境照片"> 需先提供環境照片</option>
-
+                                        <option value="能不關籠子飼養"> 能不關籠子飼養</option>
 
                                     </select>
                                     @Html.EditorFor(model => model.conditionHome, new { htmlAttributes = new { @class = "form-control", @id = "aHome", @style = "display:none" } })
@@ -105,7 +103,7 @@
                                     <select class="form-control col-md-10" id="sKind" onChange="swap(this.value, '#aFamily') ">
                                         <option value="不限"> -不限-</option>
                                         <option value="需經同意">需經同意 </option>
-
+                                        <option value="不需經同意">不需經同意 </option>
                                     </select>
                                     @Html.EditorFor(model => model.conditionFamily, new { htmlAttributes = new { @class = "form-control", @id = "aFamily", @style = "display:none" } })
                                     @Html.ValidationMessageFor(model => model.conditionFamily, "", new { @class = "text-danger" })
@@ -140,25 +138,26 @@
 
                             <div class="form-group">
 
-                                <label class="control-label col-md-2">是否需負擔其他費用:（若有請填寫說明）</label>
-                                <div class="col-md-10">
-                                    <select class="form-control  col-md-10" id="sKind" onChange="swap(this.value, '#aFee') ">
+                                <label class="control-label col-md-2">是否需負擔其他費用</label>
+                              
+                                    @*<select class="form-control  col-md-10" id="sKind" onChange="swap(this.value, '#aFee') ">
                                         <option value="不限"> -不限-</option>
                                         <option value="是">是 </option>
                                         <option value="否">否 </option>
-                                    </select>
+                                    </select>*@
+                               
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.conditionFee, new { htmlAttributes = new { @class = "form-control  col-md-10", @id = "aFee", placeholder = "若有請填寫說明" } })
+                                        @Html.ValidationMessageFor(model => model.conditionFee, "", new { @class = "text-danger" })
 
-                                    @Html.EditorFor(model => model.conditionFee, new { htmlAttributes = new { @class = "form-control  col-md-10", @id = "aFee" } })
-                                    @Html.ValidationMessageFor(model => model.conditionFee, "", new { @class = "text-danger" })
-
-                                </div>
+                                    </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label col-md-2">是否有其他條件：（若有請填寫說明）</label>
+                                <label class="control-label col-md-2">其他條件</label>
 
                                 <div class="col-md-10">
-                                    @Html.EditorFor(model => model.conditionOther, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.conditionOther, new { htmlAttributes = new { @class = "form-control", placeholder = "若有請填寫說明" } })
                                     @Html.ValidationMessageFor(model => model.conditionOther, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -180,7 +179,7 @@
 
                                 </div>
                             </div>
-                        </div>
+                       </div>
                     }
 
                     <div>
@@ -191,7 +190,7 @@
 
 
 
-                    <form class="form-horizontal style-form" method="get">
+                    @*<form class="form-horizontal style-form" method="get">
                         <div class="form-group">
                             <label class="col-sm-2 col-sm-2 control-label">動物種類(一般預設文字輸入框)</label>
                             <div class="col-sm-10">
@@ -279,7 +278,7 @@
                         <input type="checkbox" id="inlineCheckbox2" value="option2">某人是不是講話讓人火大
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox3" value="option3">某人都穿灰色衣服
+                        <input type="checkbox" id="inlineCheckbox3" value="option3">
                     </label>
 
                     <hr>
@@ -297,7 +296,10 @@
                         <option>3</option>
                         <option>4</option>
                         <option>5</option>
-                    </select>
+                    </select>*@
+
+
+
                 </div><!-- /form-panel -->
             </div><!-- /col-lg-12 -->
         </div>

@@ -32,6 +32,16 @@ namespace prjPetAdoption.Controllers
             return View(AllAniData);
         }
 
+
+        //圖片列表
+        public ActionResult picList2(int? id)
+        {
+            var animalData_Pic = db.animalData_Pic.Where(x => x.animalPic_animalID == id).ToList();
+            AllAniData.animalData_PicList = animalData_Pic;
+            ViewBag.AID = id;
+            return View(AllAniData);
+        }
+
         //圖片列表刪除
         [HttpDelete]
         public ActionResult DelpicSure(int? id)
@@ -85,7 +95,7 @@ namespace prjPetAdoption.Controllers
             return View(animalData_Pic);
         }
 
-
+        //編輯圖片用的
         public ActionResult CreatePart()
         {           
             var intIdt = Session["EditAID"];
@@ -106,6 +116,31 @@ namespace prjPetAdoption.Controllers
             ViewBag.animalPic_animalID = new SelectList(db.animalData, "animalID", "animalKind", animalData_Pic.animalPic_animalID);
             return PartialView(animalData_Pic);
         }
+
+
+        //上傳圖片用的
+        public ActionResult CreatePart2()
+        {
+            var intIdt = Session["CreateAID"];
+            ViewBag.aID = intIdt;
+            return PartialView();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreatePart2([Bind(Include = "animalPicID,animalPic_animalID,animalPicAddress")] animalData_Pic animalData_Pic)
+        {
+            if (ModelState.IsValid)
+            {
+                db.animalData_Pic.Add(animalData_Pic);
+                db.SaveChanges();
+                return RedirectToAction("picList2", "animalData_Pic1", new { id = animalData_Pic.animalPic_animalID });
+            }
+
+            ViewBag.animalPic_animalID = new SelectList(db.animalData, "animalID", "animalKind", animalData_Pic.animalPic_animalID);
+            return PartialView(animalData_Pic);
+        }
+
+
 
         // GET: animalData_Pic1/Edit/5
         public ActionResult Edit(int? id)

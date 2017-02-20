@@ -33,7 +33,7 @@
           <Property Name="animalHealthy" Type="nvarchar" MaxLength="50" />
           <Property Name="animalDisease_Other" Type="nvarchar" MaxLength="200" />
           <Property Name="animalOwner_userID" Type="nvarchar" MaxLength="128" />
-          <Property Name="animalReason" Type="nvarchar" MaxLength="50" />
+          <Property Name="animalReason" Type="nvarchar(max)" />
           <Property Name="animalGetter_userID" Type="nvarchar" MaxLength="128" />
           <Property Name="animalAdopted" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
           <Property Name="animalAdoptedDate" Type="nvarchar" MaxLength="50" />
@@ -327,6 +327,7 @@
           <Property Name="animalColor" Type="nvarchar" MaxLength="50" />
           <Property Name="animalGender" Type="nvarchar" MaxLength="50" />
           <Property Name="animalDate" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
+          <Property Name="animalAdopted" Type="nvarchar" MaxLength="50" />
           <Property Name="animalAddress" Type="nvarchar" MaxLength="50" />
           <Property Name="animalAge" Type="int" />
           <Property Name="animalOwner_userID" Type="nvarchar" MaxLength="128" />
@@ -684,6 +685,7 @@
     [aniDataPicOne].[animalColor] AS [animalColor], 
     [aniDataPicOne].[animalGender] AS [animalGender], 
     [aniDataPicOne].[animalDate] AS [animalDate], 
+    [aniDataPicOne].[animalAdopted] AS [animalAdopted], 
     [aniDataPicOne].[animalAddress] AS [animalAddress], 
     [aniDataPicOne].[animalAge] AS [animalAge], 
     [aniDataPicOne].[animalOwner_userID] AS [animalOwner_userID], 
@@ -919,7 +921,7 @@
           <Property Name="animalHealthy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="animalDisease_Other" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="animalOwner_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="animalReason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="animalGetter_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="animalAdopted" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="animalAdoptedDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -1232,6 +1234,7 @@
           <Property Name="animalOwner_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="animalDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="animalAdopted" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="boardUser">
           <Key>
@@ -1805,6 +1808,7 @@
           <EntitySetMapping Name="aniDataPicOne">
             <EntityTypeMapping TypeName="DbAnimalModel.aniDataPicOne">
               <MappingFragment StoreEntitySet="aniDataPicOne">
+                <ScalarProperty Name="animalAdopted" ColumnName="animalAdopted" />
                 <ScalarProperty Name="animalDate" ColumnName="animalDate" />
                 <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
                 <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />

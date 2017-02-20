@@ -2,101 +2,114 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
 }
 
-<h2>Edit</h2>
+<section id="main-content">
+    <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i> 送養動物編輯</h3>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>animalData_Condition</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.conditionID)
+        <!-- BASIC FORM ELELEMNTS -->
+        <div class="row mt">
+            <div class="col-lg-12">
+                <div class="form-panel">
+                    <h4 class="mb"><i class="fa fa-angle-right"></i> 編輯動物送養條件</h4>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.condition_animalID, "condition_animalID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("condition_animalID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.condition_animalID, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.conditionAge, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.conditionAge, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.conditionAge, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                        <div class="form-horizontal">
+                 
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.conditionID)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.conditionEconomy, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.conditionEconomy, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.conditionEconomy, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.conditionHome, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.conditionHome, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.conditionHome, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.conditionFamily, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.conditionFamily, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.conditionFamily, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.conditionReply, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.conditionReply, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.conditionReply, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.conditionPaper, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.conditionPaper, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.conditionPaper, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.conditionFee, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.conditionFee, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.conditionFee, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.conditionOther, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.conditionOther, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.conditionOther, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+                            <div class="form-group">
+        @Html.LabelFor(model => model.condition_animalID, "condition_animalID", htmlAttributes: new { @class = "control-label col-md-2", @style = "display:none" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.condition_animalID, new { htmlAttributes = new { @class = "form-control", @style = "display:none" } })
+            @Html.ValidationMessageFor(model => model.condition_animalID, "", new { @class = "text-danger", @style = "display:none" })
         </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">認養者年齡限制</label>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.conditionAge, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.conditionAge, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">認養者經濟條件</label>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.conditionEconomy, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.conditionEconomy, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">認養者環境狀況</label>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.conditionHome, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.conditionHome, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">是否需經家人或室友同意</label>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.conditionFamily, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.conditionFamily, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">是否需願意回報飼育狀況</label>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.conditionReply, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.conditionReply, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">是否需簽訂切結書</label>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.conditionPaper, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.conditionPaper, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">是否需負擔其他費用</label>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.conditionFee, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.conditionFee, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">其他條件</label>
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.conditionOther, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.conditionOther, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="下一步 編輯圖片" class="btn btn-info" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <div>
+                        @Html.ActionLink("取消編輯", "Index", "Manage", new { area = "" }, new { @class = "btn btn-default" })
+                    </div>
+                </div><!-- /form-panel -->
+            </div><!-- /col-lg-12 -->
+        </div>
+    </section>
+</section>
