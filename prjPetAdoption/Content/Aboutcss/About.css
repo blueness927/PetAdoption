@@ -1,4 +1,6 @@
 ﻿
+
+
 .img{
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -13,20 +15,31 @@
     height:20%;
 }
 
-.div2{
-    -webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-    background-color:white;
-    width:90%;
-    margin:0px auto;
-    
+
+.point{
+    float:left;
 }
-.div3{
-    color:white;
-    padding:5%;
+
+.descr{
+    float:left;
 }
+
 footer p {
     text-align: center;
 }
 
+
+section#section_service img {
+  border-radius:10px;
+  width: 130%;
+}
+
+
+
+section#section_service .img_wrap {
+  height: 220px;
+  overflow: hidden;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
