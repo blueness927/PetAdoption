@@ -2372,6 +2372,7 @@ nav.navbar {
     transition: 0.5s;
     font-size: 15px;
     font-family:'Microsoft JhengHei UI';
+    font-weight:bold;
 
 }
 
@@ -2379,6 +2380,7 @@ nav.navbar {
         -webkit-transition: 0.5s;
         transition: 0.5s;
         font-size: 15px;
+        font-weight:bold;
 }
  nav.navbar.at_top {
         background-color: transparent;
@@ -2387,5 +2389,6 @@ nav.navbar {
             color: white;
             font-size: 15px;
             font-family:'Microsoft JhengHei UI';
+            font-weight:bold;
 
  }
