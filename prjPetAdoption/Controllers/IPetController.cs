@@ -44,7 +44,7 @@ namespace prjPetAdoption.Controllers
             }
               if (!string.IsNullOrWhiteSpace(kind))
             {
-               
+                source = source.Where(x => x.animalKind == kind);
             }
 
             int pageIndex = page ?? 1;

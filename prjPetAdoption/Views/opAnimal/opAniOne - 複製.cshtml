@@ -1,0 +1,289 @@
+﻿@model IEnumerable<prjPetAdoption.Models.OpenData>
+@{
+    ViewBag.Title = "opAniOne";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br /><br /><br /><br />
+
+
+
+@*<link rel="stylesheet" href="~/Content/animalDetailcss/animalDetail.css">
+<link rel="stylesheet" type="text/css" href="~/Content/animalDetailcss/jquery-ui.css" />*@
+<br />
+<br />
+<br />
+<section>
+    <div class="container">
+        <div class="row fbshare">
+            <div class="col-md-12">
+                <!--Facebook Share-->
+                <div id="fb-root"></div>
+                <script>
+                    (function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+                <script language="javascript">
+                    function fbshareCurrentPage()
+                    {window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(window.location.href)+"&t="+document.title, '',
+				    'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+                        return false; }
+                </script>
+                <div class="fb-share-button" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a href="javascript:fbshareCurrentPage()" target="_blank" alt="Share on Facebook" class="facebookshare "><i class="fa fa-facebook-square " aria-hidden="true"></i>分享</a></div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" style="border:solid;border-color:aliceblue;border-width:2px">
+
+                @foreach (var item in Model)
+                {
+                    <a class="example-image-link" href="@Html.DisplayFor(modelItem => item.album_file)" data-lightbox="example-set" data-title=".">
+                        <img class="example-image" src="@Html.DisplayFor(modelItem => item.album_file)" alt="" style="display:block; margin:auto; width:350px;height:auto" />
+                    </a>
+
+                }
+                @*<div class="row animal_small">
+                        <div class="col-md-12">
+
+                            @foreach (var item in Model)
+                            {
+                                <a class="example-image-link" href="@Html.DisplayFor(modelItem => item.album_file)" data-lightbox="example-set" data-title="">
+                                    <img class="example-image" src="@Html.DisplayFor(modelItem => item.album_file)" alt="" style="max-height:100px;width:auto" />
+                                </a>
+                            }
+                        </div>
+                    </div>*@
+            </div>
+
+            <div class="col-md-6">
+
+                <h3 class="data">動物基本資料</h3>
+
+                @foreach (var item in Model)
+                {
+                    <table class="table table-condensed">
+                        <tr>
+                            <td>資料更新日期</td>
+                            <td>@Html.DisplayFor(modelItem => item.animal_update)</td>
+                        </tr>
+                        <tr>
+                            <td>動物種類</td>
+                            <td>@Html.DisplayFor(modelItem => item.animal_kind)</td>
+                        </tr>
+                        <tr>
+                            <td>動物性別</td>
+                            <td>
+                                @if ((@Html.DisplayFor(modelItem => item.animal_sex).ToString().Equals("M")))
+                                {
+                                    @("公");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_sex).ToString().Equals("F")))
+                                {
+                                    @("母");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_sex).ToString().Equals("N")))
+                                {
+                                    @("未輸入");
+                                }
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>體型</td>
+                            <td>
+                                @if ((@Html.DisplayFor(modelItem => item.animal_bodytype).ToString().Equals("MINI")))
+                                {                                        @("迷你");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_bodytype).ToString().Equals("SMALL")))
+                                {                                        @("小型");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_bodytype).ToString().Equals("MEDIUM")))
+                                {                                        @("中型");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_bodytype).ToString().Equals("BIG")))
+                                {                                        @("大型");
+                                }
+
+
+                        </tr>
+                        <tr>
+                            <td>花色</td>
+                            <td>@Html.DisplayFor(modelItem => item.animal_colour)</td>
+                        </tr>
+                        <tr>
+                            <td>年齡</td>
+                            <td>
+                                @if ((@Html.DisplayFor(modelItem => item.animal_age).ToString().Equals("CHILD")))
+                                {
+                                    @("幼年");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_age).ToString().Equals("ADULT")))
+                                {
+                                    @("成年");
+                                }
+
+
+                        </tr>
+                        <tr>
+                            <td>是否絕育</td>
+
+                            <td>
+                                @if ((@Html.DisplayFor(modelItem => item.animal_sterilization).ToString().Equals("T")))
+                                {  @("是");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_sterilization).ToString().Equals("F")))
+                                {  @("否");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_sterilization).ToString().Equals("N")))
+                                {  @("無資訊");
+                                }
+
+                        </tr>
+
+                        <tr>
+                            <td class="control-label col-md-4">是否施打狂犬病疫苗</td>
+                            <td class="control-label col-md-8">
+
+                                @if ((@Html.DisplayFor(modelItem => item.animal_bacterin).ToString().Equals("T")))
+                                {  @("是");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_bacterin).ToString().Equals("F")))
+                                {  @("否");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_bacterin).ToString().Equals("N")))
+                                {  @("無資訊");
+                                }
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>動物所屬縣市</td>
+                            <td>
+                                @if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("2")))
+                                {  @("臺北市");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("3")))
+                                {  @("新北市");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("4")))
+                                {  @("基隆市");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("5")))
+                                {  @("宜蘭縣");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("6")))
+                                {  @("桃園縣");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("7")))
+                                {  @("新竹縣");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("8")))
+                                {  @("新竹市");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("9")))
+                                {  @("苗栗縣");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("10")))
+                                {  @("臺中市");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("11")))
+                                {  @("彰化縣");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("12")))
+                                {  @("南投縣");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("13")))
+                                {  @("雲林縣");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("14")))
+                                {  @("嘉義縣");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("15")))
+                                {  @("嘉義市");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("16")))
+                                {  @("臺南市");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("17")))
+                                {  @("高雄市");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("18")))
+                                {  @("屏東縣");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("19")))
+                                {  @("花蓮縣");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("20")))
+                                {  @("臺東縣");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("21")))
+                                {  @("澎湖縣");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("22")))
+                                {  @("金門縣");
+                                }
+                                else if ((@Html.DisplayFor(modelItem => item.animal_area_pkid).ToString().Equals("23")))
+                                {  @("連江縣");
+                                }
+
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>動物所屬收容所</td>
+                            <td>@Html.DisplayFor(modelItem => item.shelter_name)</td>
+                        </tr>
+                        <tr>
+                            <td>動物所在地</td>
+                            <td>@Html.DisplayFor(modelItem => item.animal_place)</td>
+                        </tr>
+
+                        <tr>
+                            <td>收容所地址</td>
+                            <td>@Html.DisplayFor(modelItem => item.shelter_address)</td>
+                        </tr>
+                        <tr>
+                            <td>收容所電話</td>
+                            <td>@Html.DisplayFor(modelItem => item.shelter_tel)</td>
+                        </tr>
+                        <tr>
+                            <td>收容區域編號</td>
+                            <td>@Html.DisplayFor(modelItem => item.animal_subid)</td>
+                        </tr>
+                        <tr>
+                            <td class="control-label col-md-3">附註</td>
+                            <td class="control-label col-md-9">@Html.DisplayFor(modelItem => item.animal_remark)</td>
+                        </tr>
+                    </table>
+                }
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="buttoncenter">
+    @*<button type="button" class="btn btn-primary">加入追蹤</button>*@
+    <button type="button" class="btn btn-success">我要認養</button>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/animalDetail/animalDetailJS")
+
+}
+
+
+
+
+

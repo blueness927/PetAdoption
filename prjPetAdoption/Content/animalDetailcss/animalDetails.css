@@ -121,8 +121,7 @@ footer{
 }
 
 
-.thumbnail {
-  width: 100%;
+.thumbnail {;
   animation-name: opacity;
   animation-duration: .3s;
 
