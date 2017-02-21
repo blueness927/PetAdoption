@@ -110,21 +110,21 @@ var petdatas=[
     personality: "膽子小、警覺性高",
     feature: "體型飽滿結實，目光炯炯有神，愛啼叫，聲音清脆不間斷。",
     color: "羽毛光亮鮮明柔順。",
-    img: "http://petbird.tw/wp-content/uploads/a7/a773.jpg"
+    img: "../Content/Images/bird1.jpg"
   },{
     name: "八哥鳥",
     type: "bird",
     personality: "性情溫馴、消化力極強",
     feature: "生性非常怕冷，善於觀察周遭的變化。",
     color: "黑色而有光澤。",
-    img: "http://petbird.tw/wp-content/uploads/2014/04/Acrido5874.jpg"
+    img: "../Content/Images/bird2.jpg"
   },{
     name: "白頭翁",
     type: "bird",
     personality: "活潑、好動",
     feature: "善於鳴叫，而且聲音婉轉多變化。",
     color: "頭黑枕部白，背部為黃綠色，胸部大多都是灰褐色，腹部為白色。",
-    img: "http://petbird.tw/wp-content/uploads/2014/02/fh00630.jpg"
+    img: "../Content/Images/bird3.jpg"
   }
    
 ];
@@ -133,7 +133,7 @@ var vm=new Vue({
   el: "#app", 
   data: {
     mode_type:  "false",
-    mode_detail: false,
+    mode_detail: true,
     pets: petdatas  
   }
 });

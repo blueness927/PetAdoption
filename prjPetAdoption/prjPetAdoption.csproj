@@ -337,6 +337,9 @@
     <Content Include="Content\Images\allpic\認養專區.png" />
     <Content Include="Content\Images\allpic\送養專區.png" />
     <Content Include="Content\Images\bird.jpg" />
+    <Content Include="Content\Images\bird1.jpg" />
+    <Content Include="Content\Images\bird2.jpg" />
+    <Content Include="Content\Images\bird3.jpg" />
     <Content Include="Content\Images\carousel\Carousel_01.png" />
     <Content Include="Content\Images\carousel\Carousel_02.png" />
     <Content Include="Content\Images\carousel\Carousel_03.png" />
