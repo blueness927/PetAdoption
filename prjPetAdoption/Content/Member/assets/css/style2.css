@@ -1,0 +1,97 @@
+﻿/*
+Template Name: DASHGUM FREE - Bootstrap 3.2 Admin Theme
+Template Version: 1.0
+Author: Carlos Alvarez
+Website: http://blacktie.co
+Premium: http://www.gridgum.com
+*/
+
+/* Import fonts */
+@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
+
+/* BASIC THEME CONFIGURATION */
+@charset "UTF-8";
+
+/* Soptify Panel */
+#spotify {
+   
+    margin-top: -15px;
+    background-attachment: relative;
+    background-position: center center;
+     background-position: 50% 50%;
+    min-height: 220px;
+    width: 100%;
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    -o-background-size: 100%;
+ background-size: 100% auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+    #spotify .btn-clear-g {
+        top: 15%;
+        right: 10px;
+        position: absolute;
+        margin-top: 5px;
+    }
+
+    #spotify .sp-title {
+        bottom: 15%;
+        left: 25px;
+        position: absolute;
+        color: #efefef;
+    }
+
+        #spotify .sp-title h3 {
+            font-weight: 900;
+        }
+
+    #spotify .play {
+        bottom: 18%;
+        right: 25px;
+        position: absolute;
+        color: #efefef;
+        font-size: 20px;
+    }
+
+.followers {
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+
+.btn-clear-g {
+    color: #48bcb4;
+    background: transparent;
+    border-color: #48bcb4;
+}
+
+    .btn-clear-g:hover {
+        color: white;
+    }
+
+/*Content Panel*/
+.content-panel {
+    background: #ffffff;
+    box-shadow: 0px 3px 2px #aab2bd;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+    .content-panel h4 {
+        margin-left: 10px;
+    }
+    
+/*Panel Size*/
+
+.pn {
+    height: 250px;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+    .pn:hover {
+        box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3);
+    }

@@ -81,16 +81,23 @@
                                         @item.animalType
                                     </td>
                                     <td>
-                                        @item.animalAdopted
-                                    </td>
-                                    <td>
-                                        @if (@item.animalAdopted.Equals("尚未被認養"))
+                                        @if (@item.animalGetter_userID == null)
                                         {
                                             <text>尚未被認養</text>
                                         }
                                         else
                                         {
-
+                                            <text>已被認養</text>
+}
+                                    </td>
+                                    <td>
+                                        @if (@item.animalGetter_userID == null)
+                                        {
+                                            <text>尚未被認養</text>
+                                        }
+                                        else
+                                        {
+                                            @item.animalGetter_userID
                                         }
 
 

@@ -75,7 +75,14 @@ namespace prjPetAdoption.Controllers
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
-            return View(model);
+            var Id = User.Identity.GetUserId().ToString();
+            var followAni = db.followAni.Where(x => x.follow_userId.Equals(Id)).ToList();
+            AllAniData.followAniList = followAni;
+            var msglist = db.MsgUser.Where(x => x.msgTo_userID.Equals(Id)).ToList();
+            AllAniData.MsgUserList = msglist;
+
+
+            return View(AllAniData);
         }
 
         //

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using prjPetAdoption.Models;
+using prjPetAdoption.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,17 @@ namespace prjPetAdoption.Controllers
 {
     public class HomeController : Controller
     {
+        AllAniDataViewModel AllAniData = new AllAniDataViewModel();
+        private DbAnimal db = new DbAnimal();
+
         public ActionResult Index()
         {
+            var list = (from t in db.aniDataPicOne
+                        orderby t.animalID descending
+                        select t).Take(6);
 
-            return View();
+            AllAniData.aniDataPicOneList = list;
+            return View(AllAniData);
         }
 
         public ActionResult About()

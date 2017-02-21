@@ -1,8 +1,9 @@
-﻿@{
+﻿@model prjPetAdoption.ViewModels.AllAniDataViewModel
+@{
     ViewBag.Title = "Home Page";
 }
+<link href="~/Content/Member/assets/css/style2.css" rel="stylesheet">
 
- 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -68,8 +69,8 @@
 </div>
 <section>
     <div class="container">
-        <h1 style="font-family:微軟正黑體;">最新資訊</h1>
-        <hr/>
+        <h2 style="font-family:微軟正黑體;">最新資訊</h2>
+        <hr />
         <div class="row">
             <div class="col-sm-12">
                 <ul class="nav nav-tabs">
@@ -120,18 +121,25 @@
 <section class="pictures" id="section_adopt">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6 pic1">
-                <div class="text-center text-panel">
-                    <a href="@Url.Action("show", "aniData")" target="_blank" style="text-decoration: none;"><h1 style="color:#FFFFFF; font-weight:bold; font-family:微軟正黑體;">我要認養</h1></a>
+            <a href="@Url.Action("show", "aniData")" target="_blank" style="text-decoration: none;">
+                <div class="col-md-6 pic1">
+                    <div class="text-center text-panel">
+                        <h1 style="color:#FFFFFF; font-weight:bold; font-family:微軟正黑體;">我要認養</h1>
 
+
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6 pic2">
-                <div class="text-center text-panel">
-                    <a href="@Url.Action("showForAdopt", "aniData")" target="_blank" style="text-decoration: none;"><h1 style="color:#FFFFFF; font-weight:bold; font-family:微軟正黑體;">我要送養</h1></a>
+            </a>
+            <a href="@Url.Action("showForAdopt", "aniData")" target="_blank" style="text-decoration: none;">
+                <div class="col-md-6 pic2">
+                    <div class="text-center text-panel">
+                        <h1 style="color:#FFFFFF; font-weight:bold; font-family:微軟正黑體;">我要送養</h1>
+
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
+        
     </div>
 </section>
 
@@ -140,7 +148,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 ">
-                <h1 style="font-family:微軟正黑體;">本站最新送養 </h1>
+                <h2 style="font-family:微軟正黑體;">最新送養資訊 </h2>
                 <hr />
             </div>
             <div class="col-md-6  morefloat">
@@ -154,166 +162,74 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
 
-                <div class="grid">
-                    <figure class="effect-lily">
-                        <img class="alignright abcdresize" src="http://placehold.it/500x600" alt="img14" />
-                        <figcaption>
-                            <h2 class="animalname" style="font-family:微軟正黑體;">小火龍</h2>
+            @*@{int i = 0;}
+            @foreach (var item in Model.aniDataPicOneList)
+            {
+                i++;
 
+                <div class="col-md-3">
+                    <a href=@Url.Action("oneAni", "aniData", new { id = @Html.DisplayFor(modelItem => item.animalID) })>
+                        <div class="grid">
+                            <figure class="effect-lily">
+                                <img class="alignright abcdresize" src="@item.animalPicAddress" alt="img14" />
+                                <figcaption>
+                                    <h2 class="animalname" style="font-family:微軟正黑體;">@item.animalName</h2>
 
-                            <p style="font-size: 16px; color:#4c68a1; font-family:微軟正黑體;"> 性別: 母</p>
-                            <p style="font-size: 16px; color:#4c68a1; font-family:微軟正黑體;"> 地區: 高雄</p>
+                                    <p style="font-size: 16px; color:#4c68a1; font-family:微軟正黑體;"> 品種: @item.animalType</p>
+                                    <p style="font-size: 16px; color:#4c68a1; font-family:微軟正黑體;"> 地區: @item.animalAddress</p>
 
-
-                            <a href="#" target="_blank">View more</a>
-
-                        </figcaption>
-                    </figure>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </a>
                 </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="grid">
-                    <figure class="effect-lily">
-                        <img class="abcdresize" src="http://placehold.it/500x500" alt="img14" />
-                        <figcaption>
-                            <h2 class="animalname" style="font-family:微軟正黑體;">比卡丘</h2>
-
-                            <p style="font-size: 16px; color:#4c68a1; font-family:微軟正黑體;"> 性別: 公</p>
-                            <p style="font-size: 16px; color:#4c68a1; font-family:微軟正黑體;"> 地區: 高雄</p>
-                            <a href="#" target="_blank">View more</a>
-                        </figcaption>
-                    </figure>
-
-                    </figure>
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="grid">
-                    <figure class="effect-lily">
-                        <img class="resize1" src="http://placehold.it/300x300" alt="img14" />
-                        <figcaption>
-                            <h2 class="animalname" style="font-family:微軟正黑體;">比卡丘</h2>
-
-                            <p style="font-size: 16px; color:#4c68a1; font-family:微軟正黑體;"> 性別: 公</p>
-                            <p style="font-size: 16px; color:#4c68a1; font-family:微軟正黑體;"> 地區: 高雄</p>
-                            <a href="#" target="_blank">View more</a>
-                        </figcaption>
-                    </figure>
-
-                    </figure>
-                </div>
-            </div>
-
-
-            <div class="col-md-3">
-                <div class="grid">
-                    <figure class="effect-lily">
-                        <img class="resize1" src="http://placehold.it/500x600" alt="img14" />
-                        <figcaption>
-                            <h2 class="animalname" style="font-family:微軟正黑體;">麻雀</h2>
-
-                            <p style="font-size: 16px; color:#4c68a1; font-family:微軟正黑體;"> 性別: 母</p>
-                            <p style="font-size: 16px; color:#4c68a1; font-family:微軟正黑體;"> 地區: 高雄</p>
-                            <a href="#" target="_blank">View more</a>
-                        </figcaption>
-                    </figure>
-                </div>
-
-            </div>
-        </div>
-    </div>
+               
+                if (i == 4)
+                {
+                <section>
+                    <div class="col-md-12"> <br></div>
 </section>
-<br/>
-<br/>
-<section>
+                }
+            }*@
 
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
+            @foreach (var item in Model.aniDataPicOneList)
+            {
+                <a href=@Url.Action("oneAni", "aniData", new { id = @Html.DisplayFor(modelItem => item.animalID) })>
+                    <div class="col-lg-4 col-md-4 col-sm-4 mb">
+                        <div class="content-panel pn">
+                            <div id="spotify" style="background: url(@item.animalPicAddress) no-repeat center top;
+                                    background-position: 50% 50%;
+                                    background-size: 100% auto;">
+                                <div class="col-xs-4 col-xs-offset-8">
+                                    <div class="btn btn-sm btn-clear-g" ;> <span class="glyphicon glyphicon-star"></span></div>
+                                </div>
+                                <div class="sp-title">
+                                    <h3 style="color:#0fb97a">@item.animalName - @item.animalType</h3>
+                                </div>
 
-                <div class="grid">
-                    <figure class="effect-lily">
-                        <img class="alignright" src="http://placehold.it/1000x1000" alt="img14" />
-                        <figcaption>
-                            <h2 class="animalname" style="font-family:微軟正黑體;">小熊</h2>
+                            </div>
+                            <p class="followers"><i class="fa fa-map-marker"></i> @item.animalAddress</p>
+                        </div>
+                    </div><!--/col-md-4-->
+                </a>
+            }
 
-                            <p style="font-size: 16px; color:#4c68a1; font-family:微軟正黑體;"> 性別: 公</p>
-                            <p style="font-size: 16px; color:#4c68a1; font-family:微軟正黑體;"> 地區: 桃園</p>
-                            <a href="#" target="_blank">View more</a>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="grid">
-                    <figure class="effect-lily">
-                        <img src="http://placehold.it/300x300" alt="img14" />
-                        <figcaption>
-                            <h2 class="animalname abcresize" style="font-family:微軟正黑體;">比卡丘</h2>
-
-                            <p style="font-size: 16px; color:#4c68a1; font-family:微軟正黑體;"> 性別: 公</p>
-                            <p style="font-size: 16px; color:#4c68a1; font-family:微軟正黑體;"> 地區: 高雄</p>
-                            <a href="#" target="_blank">View more</a>
-                        </figcaption>
-                    </figure>
-
-                    </figure>
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="grid">
-                    <figure class="effect-lily">
-                        <img class="abcresize" data-w="300" data-html="300" src="http://placehold.it/300x350" alt="img14" />
-                        <figcaption>
-                            <h2 class="animalname" style="font-family:微軟正黑體;">小貓</h2>
-
-                            <p style="font-size: 16px; color:#4c68a1; font-family:微軟正黑體;"> 性別: 公</p>
-                            <p style="font-size: 16px; color:#4c68a1; font-family:微軟正黑體;"> 地區: 台南</p>
-                            <a href="#" target="_blank">View more</a>
-                        </figcaption>
-                    </figure>
-
-                    </figure>
-                </div>
-            </div>
-
-
-            <div class="col-md-3">
-                <div class="grid">
-                    <figure class="effect-lily">
-                        <img class="abcresize" data-w="300" data-h="300" src="http://placehold.it/450x450" alt="img14" />
-                        <figcaption>
-                            <h2 class="animalname" style="font-family:微軟正黑體;">小狗</h2>
-
-                            <p style="font-size: 16px; color:#4c68a1; font-family:微軟正黑體;"> 性別: 公</p>
-                            <p style="font-size: 16px; color:#4c68a1;font-family:微軟正黑體;"> 地區: 台中</p>
-
-                            <a href="#" target="_blank">View more</a>
-                        </figcaption>
-                    </figure>
-                </div>
 
             </div>
-        </div>
-    </div>
-</section>
-    <a href="#" class="scrollToTop"><img src="~/Content/Images/footer/up.png" alt=""></a>
+            </div>
+            </section>
+            <a href="#" class="scrollToTop"><img src="~/Content/Images/footer/up.png" alt=""></a>
 
-<script>
-    $(function () {
-        $('.abcresize').muImageResize();
-        $('.abcdresize').muImageResize({ width: 300, height: 500 });
-    });
+            <script>
+                $(function () {
+                    $('.abcresize').muImageResize();
+                    $('.abcdresize').muImageResize({ width: 300, height: 500 });
+                });
 
-</script>
-    @section scripts{
-        @Scripts.Render("~/Scripts/index.js")
-        @Scripts.Render("~/Scripts/jquery.mu.image.resize.js")
-    }
+            </script>
+            @section scripts{
+                @Scripts.Render("~/Scripts/index.js")
+                @Scripts.Render("~/Scripts/jquery.mu.image.resize.js")
+            }

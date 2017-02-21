@@ -1,215 +1,91 @@
-﻿@model prjPetAdoption.Models.IndexViewModel
+﻿@model prjPetAdoption.ViewModels.AllAniDataViewModel
 @{
-   
     Layout = "~/Views/Shared/_MemberLayout.cshtml";
 }
 <p class="text-success">@ViewBag.StatusMessage</p>
 
-    <section id="main-content">
-        <section class="wrapper">
-            <div class="row">
-                <div class="col-lg-9 main-chart">
-                    <h3>目前正在追蹤的動物</h3>
-                    <div class="row mt">
-                        <!-- SERVER STATUS PANELS -->
-                        <div class="col-lg-4 col-md-4 col-sm-4 mb">
-                            <div class="content-panel pn">
-                                <div id="spotify" style="background: url(http://i.imgur.com/8tnbGMR.jpg) no-repeat center top;
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-9 main-chart">
+                <h3>目前正在追蹤的動物</h3>
+                <div class="row mt">
+                    <!-- SERVER STATUS PANELS -->
+
+                    @foreach (var item in Model.followAniList)
+                    {
+                        <a href=@Url.Action("oneAni", "aniData", new { id = @Html.DisplayFor(modelItem => item.animalID) })>
+                    <div class="col-lg-4 col-md-4 col-sm-4 mb">
+                        <div class="content-panel pn">
+                            <div id="spotify" style="background: url(@item.animalPicAddress) no-repeat center top;
                                     background-position: 50% 50%;
                                     background-size: 100% auto;">
-                                    <div class="col-xs-4 col-xs-offset-8">
-                                        <div class="btn btn-sm btn-clear-g" ;>FOLLOW</div>
-                                    </div>
-                                    <div class="sp-title">
-                                        <h3 style="color:#000">名字</h3>
-                                    </div>
-
+                                <div class="col-xs-4 col-xs-offset-8">
+                                    <div class="btn btn-sm btn-clear-g" ;>FOLLOW</div>
                                 </div>
-                                <p class="followers"><i class="fa fa-map-marker"></i> 高雄市</p>
-                            </div>
-                        </div><! --/col-md-4-->
-
-
-                        <div class="col-lg-4 col-md-4 col-sm-4 mb">
-                            <div class="content-panel pn">
-                                <div id="spotify" style="background: url(http://i.imgur.com/8tnbGMR.jpg) no-repeat center top; 
-                                    background-position: 50% 50%;
-                                    background-size: 100% auto;">
-                                    <div class="col-xs-4 col-xs-offset-8">
-                                        <div class="btn btn-sm btn-clear-g";>FOLLOW</div>
-                                    </div>
-                                    <div class="sp-title">
-                                        <h3 style="color:#000">名字</h3>
-                                    </div>
-       
+                                <div class="sp-title">
+                                    <h3 style="color:#000">@item.animalName -- @item.animalType</h3>
                                 </div>
-                                <p class="followers"><i class="fa fa-map-marker"></i> 高雄市</p>
+
                             </div>
-                        </div><! --/col-md-4-->
-
-
-
-                        <div class="col-lg-4 col-md-4 col-sm-4 mb">
-                            <div class="content-panel pn">
-                                <div id="spotify" style="background: url(http://i.imgur.com/8tnbGMR.jpg) no-repeat center top;
-                                    background-position: 50% 50%;
-                                    background-size: 100% auto;">
-                                    <div class="col-xs-4 col-xs-offset-8">
-                                        <div class="btn btn-sm btn-clear-g" ;>FOLLOW</div>
-                                    </div>
-                                    <div class="sp-title">
-                                        <h3 style="color:#000">名字</h3>
-                                    </div>
-
-                                </div>
-                                <p class="followers"><i class="fa fa-map-marker"></i> 高雄市</p>
-                            </div>
-                        </div><! --/col-md-4-->
-
-                        <div class="col-lg-4 col-md-4 col-sm-4 mb">
-                            <div class="content-panel pn">
-                                <div id="spotify" style="background: url(http://i.imgur.com/8tnbGMR.jpg) no-repeat center top;
-                                    background-position: 50% 50%;
-                                    background-size: 100% auto;">
-                                    <div class="col-xs-4 col-xs-offset-8">
-                                        <div class="btn btn-sm btn-clear-g" ;>FOLLOW</div>
-                                    </div>
-                                    <div class="sp-title">
-                                        <h3 style="color:#000">名字</h3>
-                                    </div>
-
-                                </div>
-                                <p class="followers"><i class="fa fa-map-marker"></i> 高雄市</p>
-                            </div>
-                        </div><! --/col-md-4-->
-
-                        <div class="col-lg-4 col-md-4 col-sm-4 mb">
-                            <div class="content-panel pn">
-                                <div id="spotify" style="background: url(http://i.imgur.com/8tnbGMR.jpg) no-repeat center top;
-                                    background-position: 50% 50%;
-                                    background-size: 100% auto;">
-                                    <div class="col-xs-4 col-xs-offset-8">
-                                        <div class="btn btn-sm btn-clear-g" ;>FOLLOW</div>
-                                    </div>
-                                    <div class="sp-title">
-                                        <h3 style="color:#000">名字</h3>
-                                    </div>
-
-                                </div>
-                                <p class="followers"><i class="fa fa-map-marker"></i> 高雄市</p>
-                            </div>
-                        </div><! --/col-md-4-->
-
-                        <div class="col-lg-4 col-md-4 col-sm-4 mb">
-                            <div class="content-panel pn">
-                                <div id="spotify" style="background: url(http://i.imgur.com/8tnbGMR.jpg) no-repeat center top;
-                                    background-position: 50% 50%;
-                                    background-size: 100% auto;">
-                                    <div class="col-xs-4 col-xs-offset-8">
-                                        <div class="btn btn-success";>FOLLOW</div>
-                                    </div>
-                                    <div class="sp-title">
-                                        <h3 style="color:#000">名字</h3>
-                                    </div>
-
-                                </div>
-                                <p class="followers"><i class="fa fa-map-marker"></i> 高雄市</p>
-                            </div>
-                        </div><! --/col-md-4-->
-
-
-                    </div><!-- /row -->
-                    <div class="row mt">
-                        <!--CUSTOM CHART START -->
-                        <div class="border-head">
-                            <h3></h3>
+                            <p class="followers"><i class="fa fa-map-marker"></i> @item.animalAddress</p>
                         </div>
-                        <!--custom chart end-->
-                    </div><!-- /row -->
+                    </div><!--/col-md-4-->
+                    </a>
+                    }
 
-                </div><!-- /col-lg-9 END SECTION MIDDLE -->
-                <!-- **********************************************************************************************************************************************************
-                RIGHT SIDEBAR CONTENT
-                *********************************************************************************************************************************************************** -->
 
-                <div class="col-lg-3 ds">
-                    <!--COMPLETED ACTIONS DONUTS CHART-->
-                    <h3>訊息推撥</h3>
-                    <!-- First Action -->
+
+</div><!-- /row -->
+                <div class="row mt">
+                    <!--CUSTOM CHART START -->
+                    <div class="border-head">
+                        <h3></h3>
+                    </div>
+                    <!--custom chart end-->
+                </div><!-- /row -->
+
+            </div><!-- /col-lg-9 END SECTION MIDDLE -->
+            <!-- **********************************************************************************************************************************************************
+            RIGHT SIDEBAR CONTENT
+            *********************************************************************************************************************************************************** -->
+
+            <div class="col-lg-3 ds">
+                <!--COMPLETED ACTIONS DONUTS CHART-->
+                <h3>訊息匣</h3>
+                <!-- First Action -->
+                @foreach (var item in Model.MsgUserList)
+                {
                     <div class="desc">
                         <div class="thumb">
                             <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
                         </div>
                         <div class="details">
                             <p>
-                                <muted>2017/02/18</muted><br />
-                                <a href="#">【系統通知】</a>您有一封認養通知<br />
+                                <muted>@item.msgTime</muted><br />
+                                <a href="#">@item.msgType</a>@item.msgContent<br />
                             </p>
                         </div>
                     </div>
-                    <!-- Second Action -->
-                    <div class="desc">
-                        <div class="thumb">
-                            <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                        </div>
-                        <div class="details">
-                            <p>
-                                <muted>2017/02/18</muted><br />
-                                <a href="#">【系統通知】</a>您有一封認養通知<br />
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Third Action -->
-                    <div class="desc">
-                        <div class="thumb">
-                            <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                        </div>
-                        <div class="details">
-                            <p>
-                                <muted>2017/02/18</muted><br />
-                                <a href="#">【系統通知】</a>您有一封認養通知<br />
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Fourth Action -->
-                    <div class="desc">
-                        <div class="thumb">
-                            <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                        </div>
-                        <div class="details">
-                            <p>
-                                <muted>2017/02/18</muted><br />
-                                <a href="#">【系統通知】</a>您有一封認養通知<br />
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Fifth Action -->
-                    <div class="desc">
-                        <div class="thumb">
-                            <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                        </div>
-                        <div class="details">
-                            <p>
-                                <muted>2017/02/18</muted><br />
-                                <a href="#">【系統通知】</a>您有一封認養通知<br />
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                }
+                <!-- Second Action -->
+
+
             </div>
-        </section>
+        </div>
     </section>
+</section>
 
 
-    
-    <!--main content end-->
-    <script type="application/javascript">
-        $(document).ready(function () {
-            $("#date-popover").popover({html: true, trigger: "manual"});
-            $("#date-popover").hide();
-            $("#date-popover").click(function (e) {
-                $(this).hide();
-            });
-        }
-    </script>
+
+<!--main content end-->
+<script type="application/javascript">
+    $(document).ready(function () {
+        $("#date-popover").popover({html: true, trigger: "manual"});
+        $("#date-popover").hide();
+        $("#date-popover").click(function (e) {
+            $(this).hide();
+        });
+    }
+</script>
 

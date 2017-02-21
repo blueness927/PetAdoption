@@ -366,6 +366,7 @@
     <Content Include="Content\information\Information.css" />
     <Content Include="Content\masonry.css" />
     <Content Include="Content\Member\assets\css\bootstrap.css" />
+    <Content Include="Content\Member\assets\css\style2.css" />
     <Content Include="Content\Member\assets\css\style-responsive.css" />
     <Content Include="Content\Member\assets\css\style.css" />
     <Content Include="Content\Member\assets\css\table-responsive.css" />
@@ -669,6 +670,7 @@
     <Content Include="Views\animalData_Pic1\CreatePart2.cshtml" />
     <Content Include="Views\opAnimal\opAniOne - 複製.cshtml" />
     <Content Include="Views\animalDatas\EditAdopt.cshtml" />
+    <Content Include="Views\Account\Login - 複製.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
