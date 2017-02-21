@@ -354,7 +354,7 @@
     <Content Include="Content\Images\footer\LOGO.png" />
     <Content Include="Content\Images\footer\up.png" />
     <Content Include="Content\Images\rabbit.jpg" />
-    <Content Include="Content\Images\service\service.jpg" />
+    <Content Include="Content\Images\service\service.png" />
     <Content Include="Content\Images\service\service02.jpg" />
     <Content Include="Content\Images\service\service03.png" />
     <Content Include="Content\index.css" />
