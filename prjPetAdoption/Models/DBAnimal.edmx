@@ -318,7 +318,7 @@
         <EntityType Name="aniDataPicOne">
           <Key>
             <PropertyRef Name="animalID" />
-            
+            <PropertyRef Name="animalPicAddress" />
           </Key>
           <Property Name="animalID" Type="int" Nullable="false" />
           <Property Name="animalName" Type="nvarchar" MaxLength="50" />
@@ -326,11 +326,12 @@
           <Property Name="animalType" Type="nvarchar" MaxLength="50" />
           <Property Name="animalColor" Type="nvarchar" MaxLength="50" />
           <Property Name="animalGender" Type="nvarchar" MaxLength="50" />
-          <Property Name="animalDate" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
-          <Property Name="animalAdopted" Type="nvarchar" MaxLength="50" />
+          <Property Name="animalDate" Type="nvarchar" MaxLength="50" />
           <Property Name="animalAddress" Type="nvarchar" MaxLength="50" />
           <Property Name="animalAge" Type="int" />
           <Property Name="animalOwner_userID" Type="nvarchar" MaxLength="128" />
+          <Property Name="animalGetter_userID" Type="nvarchar" MaxLength="128" />
+          <Property Name="animalAdopted" Type="nvarchar" MaxLength="50" />
           <Property Name="animalPicAddress" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <!--產生期間發現錯誤:
@@ -685,10 +686,11 @@
     [aniDataPicOne].[animalColor] AS [animalColor], 
     [aniDataPicOne].[animalGender] AS [animalGender], 
     [aniDataPicOne].[animalDate] AS [animalDate], 
-    [aniDataPicOne].[animalAdopted] AS [animalAdopted], 
     [aniDataPicOne].[animalAddress] AS [animalAddress], 
     [aniDataPicOne].[animalAge] AS [animalAge], 
     [aniDataPicOne].[animalOwner_userID] AS [animalOwner_userID], 
+    [aniDataPicOne].[animalGetter_userID] AS [animalGetter_userID], 
+    [aniDataPicOne].[animalAdopted] AS [animalAdopted], 
     [aniDataPicOne].[animalPicAddress] AS [animalPicAddress]
     FROM [dbo].[aniDataPicOne] AS [aniDataPicOne]</DefiningQuery>
           </EntitySet>
@@ -827,8 +829,6 @@
           <EntitySet Name="sysdiagrams" EntityType="DbAnimalModel.sysdiagrams" />
           <EntitySet Name="todoData" EntityType="DbAnimalModel.todoData" />
           <EntitySet Name="aniDataAll" EntityType="DbAnimalModel.aniDataAll" />
-          <EntitySet Name="aniDataPic" EntityType="DbAnimalModel.aniDataPic" />
-          <EntitySet Name="aniDataPicOne" EntityType="DbAnimalModel.aniDataPicOne" />
           <EntitySet Name="boardUser" EntityType="DbAnimalModel.boardUser" />
           <EntitySet Name="followAni" EntityType="DbAnimalModel.followAni" />
           <EntitySet Name="MsgUser" EntityType="DbAnimalModel.MsgUser" />
@@ -892,6 +892,8 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="search" EntitySet="search" />
           </AssociationSet>
+          <EntitySet Name="aniDataPic" EntityType="DbAnimalModel.aniDataPic" />
+          <EntitySet Name="aniDataPicOne" EntityType="DbAnimalModel.aniDataPicOne" />
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -1204,38 +1206,6 @@
           <Property Name="conditionOther" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="aniDataPic">
-          <Key>
-            <PropertyRef Name="animalID" />
-          </Key>
-          <Property Name="animalID" Type="Int32" Nullable="false" />
-          <Property Name="animalName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalKind" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalAge" Type="Int32" />
-          <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="animalOwner_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="aniDataPicOne">
-          <Key>
-            <PropertyRef Name="animalID" />
-          </Key>
-          <Property Name="animalID" Type="Int32" Nullable="false" />
-          <Property Name="animalName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalKind" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalAge" Type="Int32" />
-          <Property Name="animalOwner_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="animalDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="animalAdopted" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="boardUser">
           <Key>
             <PropertyRef Name="boardID" />
@@ -1482,6 +1452,40 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="aniDataPic">
+          <Key>
+            <PropertyRef Name="animalID" />
+          </Key>
+          <Property Name="animalID" Type="Int32" Nullable="false" />
+          <Property Name="animalName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalKind" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalAge" Type="Int32" />
+          <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="animalOwner_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="aniDataPicOne">
+          <Key>
+            <PropertyRef Name="animalID" />
+            <PropertyRef Name="animalPicAddress" />
+          </Key>
+          <Property Name="animalID" Type="Int32" Nullable="false" />
+          <Property Name="animalName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalKind" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalAge" Type="Int32" />
+          <Property Name="animalOwner_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="animalGetter_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="animalAdopted" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalPicAddress" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1789,40 +1793,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="aniDataPic">
-            <EntityTypeMapping TypeName="DbAnimalModel.aniDataPic">
-              <MappingFragment StoreEntitySet="aniDataPic">
-                <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
-                <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
-                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
-                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
-                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
-                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
-                <ScalarProperty Name="animalType" ColumnName="animalType" />
-                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
-                <ScalarProperty Name="animalName" ColumnName="animalName" />
-                <ScalarProperty Name="animalID" ColumnName="animalID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aniDataPicOne">
-            <EntityTypeMapping TypeName="DbAnimalModel.aniDataPicOne">
-              <MappingFragment StoreEntitySet="aniDataPicOne">
-                <ScalarProperty Name="animalAdopted" ColumnName="animalAdopted" />
-                <ScalarProperty Name="animalDate" ColumnName="animalDate" />
-                <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
-                <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
-                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
-                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
-                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
-                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
-                <ScalarProperty Name="animalType" ColumnName="animalType" />
-                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
-                <ScalarProperty Name="animalName" ColumnName="animalName" />
-                <ScalarProperty Name="animalID" ColumnName="animalID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="boardUser">
             <EntityTypeMapping TypeName="DbAnimalModel.boardUser">
               <MappingFragment StoreEntitySet="boardUser">
@@ -1878,6 +1848,41 @@
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="aniDataPic">
+            <EntityTypeMapping TypeName="DbAnimalModel.aniDataPic">
+              <MappingFragment StoreEntitySet="aniDataPic">
+                <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
+                <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
+                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
+                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
+                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
+                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
+                <ScalarProperty Name="animalType" ColumnName="animalType" />
+                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
+                <ScalarProperty Name="animalName" ColumnName="animalName" />
+                <ScalarProperty Name="animalID" ColumnName="animalID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aniDataPicOne">
+            <EntityTypeMapping TypeName="DbAnimalModel.aniDataPicOne">
+              <MappingFragment StoreEntitySet="aniDataPicOne">
+                <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
+                <ScalarProperty Name="animalAdopted" ColumnName="animalAdopted" />
+                <ScalarProperty Name="animalGetter_userID" ColumnName="animalGetter_userID" />
+                <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
+                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
+                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
+                <ScalarProperty Name="animalDate" ColumnName="animalDate" />
+                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
+                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
+                <ScalarProperty Name="animalType" ColumnName="animalType" />
+                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
+                <ScalarProperty Name="animalName" ColumnName="animalName" />
+                <ScalarProperty Name="animalID" ColumnName="animalID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

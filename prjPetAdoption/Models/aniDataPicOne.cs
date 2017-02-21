@@ -20,11 +20,12 @@ namespace prjPetAdoption.Models
         public string animalType { get; set; }
         public string animalColor { get; set; }
         public string animalGender { get; set; }
+        public string animalDate { get; set; }
         public string animalAddress { get; set; }
         public Nullable<int> animalAge { get; set; }
         public string animalOwner_userID { get; set; }
-        public string animalPicAddress { get; set; }
-        public string animalDate { get; set; }
+        public string animalGetter_userID { get; set; }
         public string animalAdopted { get; set; }
+        public string animalPicAddress { get; set; }
     }
 }
