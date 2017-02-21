@@ -104,6 +104,11 @@ nav.navbar.at_top a, nav.navbar.at_top a:visited {
   text-decoration:none;
 }
 
+@media (max-width:1100px) {
+ .pictures{
+  display: none;
+ }
+}
 
 section#section_service img {
   border-radius:10%;
