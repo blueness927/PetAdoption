@@ -1,9 +1,9 @@
 ﻿
 
-
+body{
+    font-family:微軟正黑體;
+}
 .img{
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
 	border-radius: 10px;
     display:block;
     margin: auto;
@@ -32,8 +32,8 @@ footer p {
 
 
 section#section_service img {
-  border-radius:10%;
-  width: 130%;
+  border-radius:10px;
+  width: 100%;
 }
 
 
@@ -41,7 +41,5 @@ section#section_service img {
 section#section_service .img_wrap {
   height: 220px;
   overflow: hidden;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
+  border-radius: 10px;
 }

@@ -5,27 +5,28 @@
 }
 <br/>
 <div id="app">
-    <h1>寵物圖鑑</h1>
-    <h4>關於貓、狗與鳥類的個性、特徵、毛色</h4><br />
-    <label>
+    <h1 style="font-family:微軟正黑體;">寵物圖鑑</h1>
+    <hr/>
+    <h4 style="font-family:微軟正黑體;">理解動物 善待彼此</h4><br/>
+    <label style="font-family:微軟正黑體;">
         詳細模式
         <input type="checkbox" v-model="mode_detail" />
     </label>
 
     </br>
-    <div class="pet {{mode_detail?'detail':''}} " v-for="pet in pets">
+    <div class="pet {{mode_detail?'detail':''}} " v-for="pet in pets" >
         <img src="{{pet.img}}" />
         <div class="infos">
-            <h2 class="name">{{pet.name}}</h2>
-            <h5 class="personality" v-if="!mode_detail">個性：{{pet.personality.substring(0,5)}}</h5>
-            <h4 class="personality" v-if="mode_detail">
+            <h2 class="name" style="font-family:微軟正黑體;">{{pet.name}}</h2>
+            <h5 class="personality" v-if="!mode_detail" style="font-family:微軟正黑體;">個性：{{pet.personality.substring(0,5)}}</h5>
+            <h4 class="personality" v-if="mode_detail" style="font-family:微軟正黑體;">
                 個性：{{pet.personality}}
             </h4>
-            <h5 class="color" v-if="!mode_detail">毛色：{{pet.color.substring(0,5)}}</h5>
-            <h4 class="color" v-if="mode_detail">
+            <h5 class="color" v-if="!mode_detail" style="font-family:微軟正黑體;">毛色：{{pet.color.substring(0,5)}}</h5>
+            <h4 class="color" v-if="mode_detail" style="font-family:微軟正黑體;">
                 毛色：{{pet.color}}
             </h4>
-            <h4 class="feature" v-if="mode_detail">特徵：{{pet.feature}}</h4>
+            <h4 class="feature" v-if="mode_detail" style="font-family:微軟正黑體;">特徵：{{pet.feature}}</h4>
         </div>
     </div>
 </div>
