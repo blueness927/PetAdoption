@@ -229,12 +229,6 @@
                                 <td class="col-md-3 table2">@Html.DisplayFor(modelItem => item.shelter_name)</td>
                             </tr>
                             <tr>
-                                <td class="col-md-3 table1">收容所地址：</td>
-                                <td class="col-md-offset-3  table2">@Html.DisplayFor(modelItem => item.shelter_address)</td>
-                                <td class="col-md-3 table1">收容所電話:</td>
-                                <td class="col-md-3 table2">@Html.DisplayFor(modelItem => item.shelter_tel)</td>
-                            </tr>
-                            <tr>
                                 <td class="col-md-3 table1">收容所區編：</td>
                                 <td class="col-md-offset-3  table2">@Html.DisplayFor(modelItem => item.animal_subid)</td>
                                 <td class="col-md-3 table1">更新日期：</td>
@@ -242,10 +236,17 @@
 
                             </tr>
                             <tr>
+                                <td class="col-md-3 table1">收容所地址：</td>
+                                <td class="col-md-offset-3  table2">@Html.DisplayFor(modelItem => item.shelter_address)</td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-3 table1">收容所電話:</td>
+                                <td class="col-md-3 table2">@Html.DisplayFor(modelItem => item.shelter_tel)</td>
+                            </tr>
+                            <tr>
                                 <td class="col-md-3 table1">附註:</td>
                                 <td class="col-md-3 table2" colspan="3">@Html.DisplayFor(modelItem => item.animal_remark)</td>
                             </tr>
-
                         }
                     </table>
 
