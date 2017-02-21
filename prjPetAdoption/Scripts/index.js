@@ -137,4 +137,7 @@ $(document).ready(function(){
 });
 
 
-
+//圖片縮圖置中
+$(function () {
+    $('.resize').muImageResize();
+});
