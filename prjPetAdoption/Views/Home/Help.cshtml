@@ -1,10 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-@Styles.Render("~/Content/Helpcss/Help.css")
-
+@Styles.Render("~/Content/Helpcss/help.css")
 
 
 <section>
@@ -12,103 +9,49 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>寵物幫手</h2>
-                <hr />
+                <hr/>
                 <p class="lead">本站提供新手照顧寵物的相關資訊，以及動物醫院的位置。</p>
             </div>
         </div>
     </div>
 </section>
-<section class="pictures h1white" id="section_adopt">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 showpic1">
-                <div class="text-center text-panel">
-                    <a href="@Url.Action("aniwiki", "Home")">
-                        <h1>寵物圖鑑</h1>
-                    </a>
-                </div>
+<div class="container  text-center">
+    <div class="col-sm-6">
+        <a href="@Url.Action("Information", "Home")">
+            <div class="weather pn">
+                <i class="fa  fa-4x"></i>
+                <h2>寵物圖鑑</h2>
             </div>
-            <div class="col-md-6 showpic2">
-                <div class="text-center text-panel">
-                    <a href="@Url.Action("FAQ", "Home")">
-                        <h1>FAQ</h1>
-                    </a>
-                </div>
-            </div>
-        </div>
+        </a>
     </div>
-</section>
-<section class="pictures h1white" id="section_adopt">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 showpic3">
-                <div class="text-center text-panel">
-                    <a href="@Url.Action("Information", "Home")">
-                      <h1>照護須知</h1>
-                    </a>
-                    </div>
+    <div class="col-sm-6">
+       <a href="@Url.Action("FAQ", "Home")">
+            <div class="weather pn">
+                <i class="fa  fa-4x"></i>
+                   <h2>FAQ</h2>
             </div>
-            <div class="col-md-6 showpic4">
-                <div class="text-center text-panel">
-                    @*<a href="@Url.Action("", "Home")">*@
-                        <h1>動物醫院</h1>
-                    @*</a>*@
-                </div>
-            </div>
-        </div>
+        </a>
     </div>
-</section>
+    <div class="col-sm-6">
 
-
-
-<section id="main-content">
-    <section class="wrapper site-min-height">
-        <div class="row mt">
-            <div class="col-lg-6">
-                <div class="row">
-                    <!-- pic1 -->
-                    <div class="col-md-6 col-sm-6 mb">
-                        <!--圖片放在style.css裡的weather-->
-                        <a href="">
-                            <div class="weather pn">
-                                <i class="fa  fa-4x"></i>
-                                <h2><br />寵物百科</h2>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- /pic1-->
-                    <!-- pic2 -->
-                    <div class="col-md-6 col-sm-6 mb">
-                        <a href="">
-                            <div class="weather pn">
-                                <i class="fa  fa-4x"></i>
-                                <h2><br />FAQ</h2>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- /pic2-->
-                    <!-- pic3 -->
-                    <div class="col-md-6 col-sm-6 mb">
-                        <a href="">
-                            <div class="weather pn">
-                                <i class="fa  fa-4x"></i>
-                                <h2><br />寵物醫院</h2>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- pic3-->
-                    <!-- pic4 -->
-                    <div class="col-md-6 col-sm-6 mb">
-                        <a href="">
-                            <div class="weather pn">
-                                <i class="fa fa-4x"></i>
-                                <h2><br />寵物醫院</h2>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- pic14-->
-                </div>
+        <a href="@Url.Action("aniwiki", "Home")">
+            <div class="weather pn">
+                <i class="fa  fa-4x"></i>
+                <h2>照護須知</h2>
             </div>
-        </div>
-    </section>
-</section>
+        </a>
+    </div>
+    <div class="col-sm-6">
+
+        <a href="">
+            <div class="weather pn">
+                <i class="fa  fa-4x"></i>
+                <h2>動物醫院</h2>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+
+
