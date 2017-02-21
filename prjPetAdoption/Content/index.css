@@ -158,7 +158,7 @@ section.pictures .col-md-6:before {
   background-position: center center;
 }
 section.pictures .pic1:before {
-  background-image: url(../Content/Images/adopt/pic1.jpg);
+  background-image: url(../Content/Images/adopt/pic1.png);
   background-size: 100% auto;
 }
 section.pictures .pic2:before {
@@ -267,7 +267,7 @@ section#footer #cross {
 /* Common style */
 .grid figure {
   border-width:9px;
-  border-color:#EFEFEF;
+  border-color:#D2F3E8;
   border-style:solid;
   position: relative;
   z-index: 1;
@@ -359,7 +359,7 @@ figure.effect-lily img {
 figure.effect-lily figcaption {
   top: auto;
   bottom: 0;
-  height: 50%;
+  height: 70%;
   text-align: left;
 }
 
