@@ -23,9 +23,36 @@
                 <h1>送養專區</h1>
                 <hr />
                 <p class="lead">本站提供網路送養刊登服務，送養流程、送養需知、平台使用規定請參照下列資訊。</p>
+
+
+                @using Microsoft.AspNet.Identity
+                @if (Request.IsAuthenticated)
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="col-md-12" style="margin:0px auto;">
+                        <a href="@Url.Action("Create", "animalDatas",new { id = User.Identity.GetUserName() })">
+                            <input type="button" class="btn btn-info btn-lg" value="新增送養寵物">
+                        </a>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-md-12" style="margin:0px auto;">
+                        <a href="@Url.Action("Login", "Account")">
+                            <input type="button" class="btn btn-info btn-lg" value="請先註冊或登入">
+                        </a>
+
+                    </div>
+                }
+
+
             </div>
         </div>
     </div>
+
+
+
 
 <section class="adoptnavigate1">
     <div class="container">
@@ -91,28 +118,6 @@
     </div>
 </section>
 
-
-@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
-{
-    @Html.AntiForgeryToken()
-
-    <div class="col-md-12" style="margin:0px auto;">
-        <a href="@Url.Action("Create", "animalDatas",new { id = User.Identity.GetUserName() })">
-            <span class="grid"><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" style="display:block; margin:auto;" /></span>
-        </a>
-        <p  align=center>新增送養寵物</p>
-    </div>
-}
-else
-{
-    <div class="col-md-12"  style="margin:0px auto;">
-        <a href="@Url.Action("Login", "Account")">
-            <span class="grid"><img src="http://i.imgur.com/z55pzpX.jpg" height="150" width="150" style="display:block; margin:auto;"/></span>
-        </a>
-        <p  align=center>請先註冊或登入</p>
-    </div>
-}
 
 
 
