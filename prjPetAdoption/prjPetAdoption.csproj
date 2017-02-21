@@ -664,6 +664,7 @@
     <Content Include="Views\animalData_Pic1\picList2.cshtml" />
     <Content Include="Views\animalData_Pic1\CreatePart2.cshtml" />
     <Content Include="Views\opAnimal\opAniOne - 複製.cshtml" />
+    <Content Include="Views\animalDatas\EditAdopt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

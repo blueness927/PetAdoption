@@ -124,13 +124,12 @@
                                 </div>
                             </div>
 
-                            @*<div class="form-group">
-                                @Html.LabelFor(model => model.animalOwner_userID, htmlAttributes: new { @class = "control-label col-md-2" })
+                           
                                 <div class="col-md-10">
-                                    @Html.EditorFor(model => model.animalOwner_userID, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.animalOwner_userID, new { htmlAttributes = new { @class = "form-control",@id= "aOwner_userID", @style = "display:none" } })
                                     @Html.ValidationMessageFor(model => model.animalOwner_userID, "", new { @class = "text-danger" })
                                 </div>
-                            </div>*@
+                          
 
                             <div class="form-group">
                                 <label class="control-label col-md-2">送養理由</label>
@@ -174,11 +173,23 @@
 
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
-                                    <input type="submit" value="下一步 編輯送養條件" class="btn btn-info" />
+                                    <input type="submit" value="下一步 編輯送養條件" class="btn btn-info" onclick="addID()" />
                                 </div>
                             </div>
                         </div>
-                    }
+                        @using Microsoft.AspNet.Identity
+                        <text>
+                            <script type="text/javascript">
+                            function addID() {
+                                $('#aOwner_userID').val('@User.Identity.GetUserId().ToString()');
+                            };
+
+                            </script>
+                        </text>
+
+
+
+}
                     <div>
                         @Html.ActionLink("取消編輯", "Index", "Manage", new { area = "" }, new { @class = "btn btn-default" })
                     </div>

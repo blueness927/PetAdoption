@@ -1,4 +1,5 @@
-﻿using prjPetAdoption.Controllers;
+﻿using Microsoft.AspNet.Identity;
+using prjPetAdoption.Controllers;
 using prjPetAdoption.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -96,19 +97,35 @@ namespace prjPetAdoption.Models
             return View(animalData);
         }
 
-        
+
+
+        //編輯送養狀態
+        public ActionResult EditAdopt(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            animalData animalData = db.animalData.Find(id);
+            if (animalData == null)
+            {
+                return HttpNotFound();
+            }
+            return PartialView(animalData);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditAdopt([Bind(Include = "animalID,animalGetter_userID,animalAdopted,animalAdoptedDate")] animalData animalData)
+        public ActionResult EditAdopt([Bind(Include = "animalID,animalKind,animalType,animalName,animalAddress,animalDate,animalGender,animalAge,animalColor,animalBirth,animalChip,animalHealthy,animalDisease_Other,animalOwner_userID,animalReason,animalGetter_userID,animalAdopted,animalAdoptedDate,animalNote")] animalData animalData)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(animalData).State = EntityState.Modified;
                 db.SaveChanges();
                 Session["EditAID"] = animalData.animalID;
-                return RedirectToAction("Edit", "animalData_Condition", new { id = animalData.animalID });
+                return RedirectToAction("showForAdopt_part", "aniData", new { id = @User.Identity.GetUserId() ,title="showForAdopt_part" });
             }
-            return View(animalData);
+            return PartialView(animalData);
         }
 
         // GET: animalDatas/Delete/5
