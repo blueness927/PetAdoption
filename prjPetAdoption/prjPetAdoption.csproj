@@ -334,6 +334,8 @@
     <Content Include="Content\Images\adopt\adopt2.jpg" />
     <Content Include="Content\Images\adopt\pic1.png" />
     <Content Include="Content\Images\adopt\pic2.jpg" />
+    <Content Include="Content\Images\allpic\adoptway1.png" />
+    <Content Include="Content\Images\allpic\adoptway2.png" />
     <Content Include="Content\Images\allpic\認養專區.png" />
     <Content Include="Content\Images\allpic\送養專區.png" />
     <Content Include="Content\Images\bird.jpg" />
