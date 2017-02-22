@@ -6,11 +6,13 @@
     ViewBag.Title = "opAnimal";
 }
 
-
+<br/>
+<br />
 <h2>收容所動物資訊</h2>
+<hr>
 <div class="row well">
     <form class="form" role="form">
-        <div class="col-lg-3">
+        <div class="col-lg-2">
             <div class="input-group">
                 <span class="input-group-addon">縣市</span>
                 <select class="form-control" id="Districts" name="Districts">
@@ -43,17 +45,35 @@
             </div>
         </div>
 
-        <div class="col-lg-3">
+        <div class="col-lg-2">
             <div class="input-group">
                 <span class="input-group-addon">種類</span>
                 @Html.DropDownList("Types", null, "-全部-", new { @class = "form-control" })
             </div>
         </div>
+
+
+        <div class="col-lg-2">
+            <div class="input-group">
+                <span class="input-group-addon">性別</span>
+                <select class="form-control" id="Sex" name="Sex">
+                    <option value=""> -全部-</option>
+                    <option value="M"> 公</option>
+                    <option value="F"> 母</option>
+                    <option value="N"> 未知</option>
+            
+                </select>
+            </div>
+        </div>
+
+
         <div class="col-lg-2">
             <button type="submit" id="buttonSubmit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-search">查詢</span>
             </button>
         </div>
+
+     
 
     </form>
 </div>

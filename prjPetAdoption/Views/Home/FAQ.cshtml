@@ -3,129 +3,320 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div>
-    <img class="zxc" src="~/Content/Images/faq.jpg" />
-</div>
 
-<div class="div1" id="tabs">
-    <ul>
-        <li><a href="#p1">Cat</a></li>
-        <li><a href="#p2">Dog</a></li>
-        <li><a href="#p3">Bird</a></li>
-        <li><a href="#p4">Fish</a></li>
+<br />
+<br />
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-12" style="margin:0px auto;">
+                    <span class="grid"><img src="~/Content/Images/helper/faq.png" style="display:block; margin:auto; max-width:100%;" /></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="container">
+    <br />
+    <br />
+    <h2>FAQ</h2>
+
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#Dog">Dog</a></li>
+        <li><a data-toggle="tab" href="#Cat">Cat</a></li>
+        <li><a data-toggle="tab" href="#Bird">Bird</a></li>
+        <li><a data-toggle="tab" href="#Fish">Fish</a></li>
     </ul>
+    <br />
     <!--dog-->
-    <div id="p2">
-        <h2>Dog FAQ</h2>
-        <h4>Q1:飼料可以當主食嗎？</h4>
-        <div class="answer">
-            <p>飼料是可以當做主食的，因為飼料的熱量；營養成份及口味別，都是經由狗醫師或研發團隊調配過的，其優點是可添加針對毛髮的照顧的食材，或以優質的蛋白和膳食纖維來讓狗狗做最健康及最完整的吸收，如果是用人在吃的食物給寵物吃的話，會有，太咸，太辣或太甜和其他不可預期的問題出現，所以還是給寵物吃飼料是比較好的。</p>
+    <div class="tab-content">
+        <div id="Dog" class="tab-pane fade in active">
+            <div class="container">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#dog1" style="font-family:微軟正黑體;">Q1:飼料可以當主食嗎？</a>
+                            </h4>
+                        </div>
+                        <div id="dog1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                飼料是可以當做主食的，因為飼料的熱量；營養成份及口味別，都是經由狗醫師或研發團隊調配過的，其優點是可添加針對毛髮的照顧的食材，或以優質的蛋白和膳食纖維來讓狗狗做最健康及最完整的吸收，如果是用人在吃的食物給寵物吃的話，會有，太咸，太辣或太甜和其他不可預期的問題出現，所以還是給寵物吃飼料是比較好的。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#dog2" style="font-family:微軟正黑體;">Q2:如何換算狗的年龄呢?</a>
+                            </h4>
+                        </div>
+                        <div id="dog2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                狗的年齡就是依照其發育、成熟、衰退期，比照人類模式的比例下去計算的，當然不同種類的貓狗平均壽命也會有長短之分，影響動物壽命長短的因素實在太多、太複雜，所以換算年齡是以平均值去計算的，僅供參考。<br />
+                                <img class="faq" src="http://i.imgur.com/FGyt7kV.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#dog3">Q3:狗狗一天要吃多少飼料才好呢?</a>
+                            </h4>
+                        </div>
+                        <div id="dog3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                狗狗一天到底要吃多少飼料呢？這是每一個剛開始飼養寵物的主人都會問的問題，然而，答案是依照年齡；或是生活習慣與運動量的不同也有所差異。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#dog4">Q4:該如何更換新飼料，有哪些地方要注意的?</a>
+                            </h4>
+                        </div>
+                        <div id="dog4" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>1.更换新饲料前的注意事项:</p>
+                                <p>要替寵物換飼料時，盡可能不要一次就完全替換成新飼料，否則寵物不一定會吃喔，更換飼料前也有注意事項，必須要先瞭解寵物的身體狀況，如在生病當中，或是抵抗力弱時，受孕中、生產後不到2個月時，均不適合更換飼料。</p>
+                                <p>2.如何更換飼料:</p>
+                                <p>開始換飼料時、我們要將原本吃的飼料留一部份起來，將原來所吃的飼料跟新的飼料混在一起給寵物吃。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#dog5">Q5:為什麼狗剛换飼料会吐或是拉肚子?</a>
+                            </h4>
+                        </div>
+                        <div id="dog5" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                如果更換飼料的比例太快，腸胃功能一開始一定無法適應，有可能會造成拉肚子或是嘔吐方面等問題。所以我們建議，將原來所吃的飼料跟新的飼料混在一起給寵物吃(可參考Q4)，腸胃健康照顧好的話，免疫力也才會跟著提升喔。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h4>Q2:如何換算狗的年龄呢?</h4>
-        <div class="answer">
-            <p>狗的年齡就是依照其發育、成熟、衰退期，比照人類模式的比例下去計算的，當然不同種類的貓狗平均壽命也會有長短之分，影響動物壽命長短的因素實在太多、太複雜，所以換算年齡是以平均值去計算的，僅供參考。</p>
-            <img src="http://i.imgur.com/FGyt7kV.png" />
+        <!--cat-->
+        <div id="Cat" class="tab-pane fade">
+            <div class="container">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#cat1">Q1:該怎麼選擇貓飼料??</a>
+                            </h4>
+                        </div>
+                        <div id="cat1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                不同廠牌的飼料，配方都略有差異，飼主可以依年紀或是體重來選擇，或是依照功能性的需求來選購，例如容易讓貓咪吸收營養的高消化蛋白配方，可預防泌尿道結石發生的泌尿道健康配方，有助於排除累積在貓咪體內毛球的化毛配方等等，所以我們可以依照貓咪目前的狀況來選擇適當的飼料喔。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#cat2">Q2:如何換算貓的年齡?</a>
+                            </h4>
+                        </div>
+                        <div id="cat2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                貓的年齡就是依照其發育、成熟、衰退期，比照人類模式的比例下去計算的，當然不同種類的貓狗平均壽命也會有長短之分，影響動物壽命長短的因素實在太多、太複雜，所以換算年齡是以平均值去計算的，僅供參考。<br />
+                                <img class="faq" src="http://i.imgur.com/FGyt7kV.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#cat3">Q3:貓咪一天要吃幾餐才好呢?</a>
+                            </h4>
+                        </div>
+                        <div id="cat3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>餵養貓咪建議採用「任食制」，即讓貓咪想吃就吃。初期先由少量多餐餵食，例如每日2-3回再逐漸增加次數（當回沒有吃完時不要馬上收走），讓貓咪覺得隨時有食物可吃而不用一下吃太多導致胃脹氣、嘔吐、腸胃不適或影響尿液pH值。</p>
+                                <p>如擔心食物變質時，採用每日早晚各供應足量貓食（視貓咪的胃口與體態調整配給量），習慣一次足量與長時間供應後，貓咪才可以慢慢享受美食，想吃就吃，但隔夜請更換新飼料。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#cat4">Q4:貓咪不愛喝水怎麼辦?</a>
+                            </h4>
+                        </div>
+                        <div id="cat4" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>1.在貓咪的食物裡加水，不論罐裝食品或乾料。從少量的水開始，隨著貓咪接受度增加。</p>
+                                <p>2.將水盆放在食物旁，即在貓咪可到之處多放幾個水盆，讓貓咪玩到哪喝到哪。</p>
+                                <p>3.貓咪水盆的水要新鮮，要定期換水。</p>
+                                <p>4.使用動物自動飲水器，貓咪會對流動的水感興趣，而增加飲水。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#cat5">Q5:貓咪愛吃魚肉嗎?</a>
+                            </h4>
+                        </div>
+                        <div id="cat5" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                貓咪喜歡吃魚和雞肉，尤其是魚肉所含的氨基酸營養成份，更好消化與吸收，是對貓咪有益處的，所以我們可以選擇含有魚肉配方的飼料，他們含有豐富的氨基酸與均衡的Omega3&6不飽和脂肪酸，可以照顧貓咪皮膚與毛髮。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h4>Q3:狗狗一天要吃多少飼料才好呢?</h4>
-        <div class="answer">
-            <p>狗狗一天到底要吃多少飼料呢？這是每一個剛開始飼養寵物的主人都會問的問題，然而，答案是依照年齡；或是生活習慣與運動量的不同也有所差異。</p>
+        <div id="Bird" class="tab-pane fade">
+            <div class="container">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#bird1">Q1:鳥能吃人類的食物?</a>
+                            </h4>
+                        </div>
+                        <div id="bird1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                油、鹽、糖等人類的調味料會對鳥身體造成很大的負擔，另外鳥不能吃含有巧克力、咖啡因、的食物，乳製品、水果的籽和酪梨等，鳥也不能吃。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#bird2">Q2:需要定期帶鳥散步?</a>
+                            </h4>
+                        </div>
+                        <div id="bird2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                鳥兒不是關在籠子裡就可以了，在舒適的環境下，牠們也需要出去外面透透氣，任何生物都是不能常關在房子裡頭，而要讓牠們接近大自然，這樣能讓牠們更開心更活躍。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#bird3">Q3:如何分辨鳥生病了嗎?</a>
+                            </h4>
+                        </div>
+                        <div id="bird3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                通常如果鳥兒的羽毛膨脹，將頭蜷縮在翅下，待在角落而且食慾減低，活力不佳時，就表示牠生病了。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#bird4">Q4:鳥只吃穀物就可以了嗎?</a>
+                            </h4>
+                        </div>
+                        <div id="bird4" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                鳥在野外的飲食非常多元，長期攝取單一的飲食會導致鳥營養失調，甚至生病死亡。均衡的飲食非常重要，健康的鳥抵抗力好就更不容易生病，預防勝於治療。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#bird5">Q5:鳥有羽毛保暖就夠了嗎?</a>
+                            </h4>
+                        </div>
+                        <div id="bird5" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>鳥有羽毛不怕冷，這絕對是錯誤的。</p>
+                                <p>每隻鳥都有個體差異，不同鳥種、生活環境、健康狀態、飲食習慣和年齡都會影響到鳥適應溫度的能力，應該依鳥的狀況和溫度濕度變化去判斷採取適合的應變措施。</p>
+                                <p>
+                                    冷的時候羽毛會澎起來，沒有足夠經驗的話可透過觀察鳥是否澎毛來決定要不要保溫了。
+                                    但是無論如何，冬天絕對不可以放著吹冷風。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h4>Q4:該如何更換新飼料，有哪些地方要注意的?</h4>
-        <div class="answer">
-            <p>1.更换新饲料前的注意事项:</p>
-            <p>要替寵物換飼料時，盡可能不要一次就完全替換成新飼料，否則寵物不一定會吃喔，更換飼料前也有注意事項，必須要先瞭解寵物的身體狀況，如在生病當中，或是抵抗力弱時，受孕中、生產後不到2個月時，均不適合更換飼料。</p>
-            <p>2.如何更換飼料:</p>
-            <p>開始換飼料時、我們要將原本吃的飼料留一部份起來，將原來所吃的飼料跟新的飼料混在一起給寵物吃。</p>
-        </div>
-        <h4>Q5:為什么狗剛换飼料会吐或是拉肚子?</h4>
-        <div class="answer">
-            <p>如果更換飼料的比例太快，腸胃功能一開始一定無法適應，有可能會造成拉肚子或是嘔吐方面等問題。所以我們建議，將原來所吃的飼料跟新的飼料混在一起給寵物吃(可參考Q4)，腸胃健康照顧好的話，免疫力也才會跟著提升喔。</p>
-        </div>
-    </div>
-    <!--cat-->
-    <div id="p1">
-        <h2>Cat FAQ</h2>
-        <h4>Q1:該怎麼選擇貓飼料??</h4>
-        <div class="answer">
-            <p>不同廠牌的飼料，配方都略有差異，飼主可以依年紀或是體重來選擇，或是依照功能性的需求來選購，例如容易讓貓咪吸收營養的高消化蛋白配方，可預防泌尿道結石發生的泌尿道健康配方，有助於排除累積在貓咪體內毛球的化毛配方等等，所以我們可以依照貓咪目前的狀況來選擇適當的飼料喔。</p>
-        </div>
-        <h4>Q2:如何換算貓的年齡?</h4>
-        <div class="answer">
-            <p>貓的年齡就是依照其發育、成熟、衰退期，比照人類模式的比例下去計算的，當然不同種類的貓狗平均壽命也會有長短之分，影響動物壽命長短的因素實在太多、太複雜，所以換算年齡是以平均值去計算的，僅供參考。</p>
-            <img src="http://i.imgur.com/FGyt7kV.png" />
-        </div>
-        <h4>Q3:貓咪一天要吃幾餐才好呢?</h4>
-        <div class="answer">
-            <p>餵養貓咪建議採用「任食制」，即讓貓咪想吃就吃。初期先由少量多餐餵食，例如每日2-3回再逐漸增加次數（當回沒有吃完時不要馬上收走），讓貓咪覺得隨時有食物可吃而不用一下吃太多導致胃脹氣、嘔吐、腸胃不適或影響尿液pH值。</p>
-            <p>如擔心食物變質時，採用每日早晚各供應足量貓食（視貓咪的胃口與體態調整配給量），習慣一次足量與長時間供應後，貓咪才可以慢慢享受美食，想吃就吃，但隔夜請更換新飼料。</p>
-        </div>
-        <h4>Q4:貓咪不愛喝水怎麼辦?</h4>
-        <div class="answer">
-            <p>1.在貓咪的食物裡加水，不論罐裝食品或乾料。從少量的水開始，隨著貓咪接受度增加。</p>
-            <p>2.將水盆放在食物旁，即在貓咪可到之處多放幾個水盆，讓貓咪玩到哪喝到哪。</p>
-            <p>3.貓咪水盆的水要新鮮，要定期換水。</p>
-            <p>4.使用動物自動飲水器，貓咪會對流動的水感興趣，而增加飲水。</p>
-        </div>
-        <h4>Q5:貓咪愛吃魚肉嗎?</h4>
-        <div class="answer">
-            <p>貓咪喜歡吃魚和雞肉，尤其是魚肉所含的氨基酸營養成份，更好消化與吸收，是對貓咪有益處的，所以我們可以選擇含有魚肉配方的飼料，他們含有豐富的氨基酸與均衡的Omega3&6不飽和脂肪酸，可以照顧貓咪皮膚與毛髮。</p>
-        </div>
-
-    </div>
-    <!--bird-->
-    <div id="p3">
-        <h2>Bird FAQ</h2>
-        <h4>Q1:鳥能吃人類的食物?</h4>
-        <div class="answer">
-            <p>油、鹽、糖等人類的調味料會對鳥身體造成很大的負擔，另外鳥不能吃含有巧克力、咖啡因、的食物，乳製品、水果的籽和酪梨等，鳥也不能吃。</p>
-        </div>
-        <h4>Q2:需要定期帶鳥散步?</h4>
-        <div class="answer">
-            <p>鳥兒不是關在籠子裡就可以了，在舒適的環境下，牠們也需要出去外面透透氣，任何生物都是不能常關在房子裡頭，而要讓牠們接近大自然，這樣能讓牠們更開心更活躍。</p>
-        </div>
-        <h4>Q3:如何分辨鳥生病了嗎?</h4>
-        <div class="answer">
-            <p>通常如果鳥兒的羽毛膨脹，將頭蜷縮在翅下，待在角落而且食慾減低，活力不佳時，就表示牠生病了。</p>
-        </div>
-        <h4>Q4:鳥只吃穀物就可以了嗎?</h4>
-        <div class="answer">
-            <p>鳥在野外的飲食非常多元，長期攝取單一的飲食會導致鳥營養失調，甚至生病死亡。均衡的飲食非常重要，健康的鳥抵抗力好就更不容易生病，預防勝於治療。</p>
-        </div>
-        <h4>Q5:鳥有羽毛保暖就夠了嗎?</h4>
-        <div class="answer">
-            <p>鳥有羽毛不怕冷，這絕對是錯誤的。</p>
-            <p>每隻鳥都有個體差異，不同鳥種、生活環境、健康狀態、飲食習慣和年齡都會影響到鳥適應溫度的能力，應該依鳥的狀況和溫度濕度變化去判斷採取適合的應變措施。</p>
-            <p>
-                冷的時候羽毛會澎起來，沒有足夠經驗的話可透過觀察鳥是否澎毛來決定要不要保溫了。
-                但是無論如何，冬天絕對不可以放著吹冷風。
-            </p>
-        </div>
-    </div>
-    <!--fish-->
-    <div id="p4">
-        <h2>Fish FAQ</h2>
-        <h4>Q1:魚缸多久換一次水?</h4>
-        <div class="answer">
-            <p> 一般新缸前一個月每一週換1/3水,先以專用的磁力刷清除缸壁藻類,再以虹吸管將水及底部的髒污吸除就可以了,要注意吸出的水量不可以超過魚缸水量的1/3,之後添加硝化菌及水質穩定劑,再加入自來水就可以了!</p>
-        </div>
-        <h4>Q2:每天要餵幾次飼料?</h4>
-        <div class="answer">
-            <p>每天餵食1~3次,以魚隻一分鐘內吃完的份量為限,而且要注意,一定要使用每種魚專用飼料!</p>
-        </div>
-        <h4>Q3:為什麼我的魚最近沒有精神?</h4>
-        <div class="answer">
-            <p>季節轉換或天氣的變化常常會導致水質大幅污染造成魚隻生病,過多的飼料也是造成污染的來源,魚隻生病時一定要找專業的水族館診斷並且對症下藥</p>
-        </div>
-        <h4>Q4:水溫在幾度才最適當?</h4>
-        <div class="answer">
-            <p>一般的標準水溫為25~27度,過高會造成溶氧不足,過低會造成魚隻代謝不正常,都很容易生病,平常除了使用加溫器防止溫度過低,還可以用冷卻機或專用的降溫風扇來防止溫度過高,平常要保持水溫恆定,一天內有5度的溫差魚隻就會適應不良</p>
-        </div>
-        <h4>Q5:種植水草需要什麼設備?</h4>
-        <div class="answer">
-            <p>水草跟魚隻不同,需要特殊的肥料與添加二氧化碳,並配合適當的燈光才能成長,肥料包括基肥,液肥,鐵肥……等等二氧化碳則使用專用的二氧化碳組合,包括鋼瓶,電磁調節閥,止逆閥,計泡器,細化器就可以計算並添加適當的二氧化碳進入水族箱了</p>
+        <div id="Fish" class="tab-pane fade">
+            <div class="container">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#fish1">Q1:魚缸多久換一次水?</a>
+                            </h4>
+                        </div>
+                        <div id="fish1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                一般新缸前一個月每一週換1/3水,先以專用的磁力刷清除缸壁藻類,再以虹吸管將水及底部的髒污吸除就可以了,要注意吸出的水量不可以超過魚缸水量的1/3,之後添加硝化菌及水質穩定劑,再加入自來水就可以了!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#fish2">Q2:每天要餵幾次飼料?</a>
+                            </h4>
+                        </div>
+                        <div id="fish2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                每天餵食1~3次,以魚隻一分鐘內吃完的份量為限,而且要注意,一定要使用每種魚專用飼料!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#fish3">Q3:為什麼我的魚最近沒有精神?</a>
+                            </h4>
+                        </div>
+                        <div id="fish3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                季節轉換或天氣的變化常常會導致水質大幅污染造成魚隻生病,過多的飼料也是造成污染的來源,魚隻生病時一定要找專業的水族館診斷並且對症下藥
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#fish4">Q4:水溫在幾度才最適當?</a>
+                            </h4>
+                        </div>
+                        <div id="fish4" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                一般的標準水溫為25~27度,過高會造成溶氧不足,過低會造成魚隻代謝不正常,都很容易生病,平常除了使用加溫器防止溫度過低,還可以用冷卻機或專用的降溫風扇來防止溫度過高,平常要保持水溫恆定,一天內有5度的溫差魚隻就會適應不良
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#fish5">Q5:種植水草需要什麼設備?</a>
+                            </h4>
+                        </div>
+                        <div id="fish5" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                水草跟魚隻不同,需要特殊的肥料與添加二氧化碳,並配合適當的燈光才能成長,肥料包括基肥,液肥,鐵肥……等等二氧化碳則使用專用的二氧化碳組合,包括鋼瓶,電磁調節閥,止逆閥,計泡器,細化器就可以計算並添加適當的二氧化碳進入水族箱了
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
 
 @section Scripts {
     @Styles.Render("~/Content/FAQ/FAQ.css")
