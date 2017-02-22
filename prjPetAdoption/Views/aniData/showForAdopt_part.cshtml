@@ -63,7 +63,7 @@
                             {
 
                                 <tr class="row-odd">
-                                  
+
                                     <td width="150px">
 
 
@@ -88,7 +88,7 @@
                                         else
                                         {
                                             <text>已被認養</text>
-}
+                                        }
                                     </td>
                                     <td>
                                         @if (@item.animalGetter_userID == null)
@@ -126,17 +126,17 @@
                                     <td>
 
                                         <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal" onclick="addpart();"><i class="glyphicon glyphicon-gift "></i></button>
-                                       
 
-                                            <script>
-                                                function addpart() {
-                                                    $("#editAdopt").empty();
-                                                    $("#editAdopt").load("/animalDatas/EditAdopt/@item.animalID");
 
-                                                };
-                                            </script>
+                                        <script>
+                                            function addpart() {
+                                                $("#editAdopt").empty();
+                                                $("#editAdopt").load("/animalDatas/EditAdopt/@item.animalID");
 
-                                        
+                                            };
+                                        </script>
+
+
 
                                         <!-- Modal -->
                                         <div class="modal fade" id="myModal" role="dialog">
@@ -147,10 +147,10 @@
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                         <h4 class="modal-title">確認送養</h4>
-                                                    
+
                                                     </div>
                                                     <div class="modal-body" id="editAdopt">
-                                                        <p>請填入收養者名稱</p>
+
 
                                                     </div>
                                                     <div class="modal-footer">
@@ -174,8 +174,92 @@
                             }
                         </tbody>
                     </table>
+                    <br /><hr />
+
+                    <h4><i class="fa fa-angle-right"></i>已送養動物清單</h4>
+                    <table class="table table-striped table-advance table-hover" style="max-width:85%" align="center">
+
+                        <thead>
+                            <tr>
+                                <th><i class="glyphicon glyphicon-picture"></i> 圖片</th>
+                                <th><i class="fa fa-bookmark"></i> 姓名</th>
+                                <th><i class="fa fa-bookmark"></i> 種類</th>
+                                <th><i class="fa fa-bookmark"></i> 品種</th>
+                                <th><i class="fa fa-map-marker"></i> 送養狀態</th>
+                                <th><i class="fa fa-map-marker"></i> 收養人</th>
+                                <th colspan="3"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @if (@ViewBag.noforAdop == null)
+                            {
+
+                                foreach (var item in Model.aniDataPicOneList2)
+                                {
+
+                                    <tr class="row-odd">
+
+                                        <td width="150px">
 
 
+                                            <a href="@Url.Action("oneAni", "aniData",new { id = @item.animalID})">
+                                                <img src="@item.animalPicAddress" style="max-height:150px;max-width:150px" />
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="@Url.Action("oneAni", "aniData",new { id = @item.animalID})">@item.animalName</a>
+                                        </td>
+                                        <td>
+                                            <a href="#">@item.animalKind</a>
+                                        </td>
+                                        <td>
+                                            @item.animalType
+                                        </td>
+                                        <td>
+                                            @if (@item.animalGetter_userID == null)
+                                            {
+                                                <text>尚未被認養</text>
+                                            }
+                                            else
+                                            {
+                                                <text>已被認養</text>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (@item.animalGetter_userID == null)
+                                            {
+                                                <text>尚未被認養</text>
+                                            }
+                                            else
+                                            {
+                                                @item.animalGetter_userID
+                                            }
+
+
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>  </td>
+                                    </tr>
+
+                                }
+                            }
+                            else
+                            {
+                                <tr class="row-odd">
+                                    <td colspan="5" align="center">
+                                        <a href="#">
+                                            <img src="@ViewBag.noforAdop" style="max-width:800px" />
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
 
                     <br /><hr />
                     @using Microsoft.AspNet.Identity

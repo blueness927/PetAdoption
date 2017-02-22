@@ -33,6 +33,7 @@ namespace prjPetAdoption.ViewModels
         public  todoData  todoData { get; set; }
         public  aniDataAll  aniDataAll { get; set; }
         public aniDataPicOne aniDataPicOne { get; set; }
+        public aniDataPicOne2 aniDataPicOne2 { get; set; }
         public followAni followAni { get; set; }
         public MsgUser MsgUser { get; set; }
 
@@ -41,6 +42,7 @@ namespace prjPetAdoption.ViewModels
         public IEnumerable<aniDataAll> aniDataAllList { get; set; }
         public IEnumerable<aniDataPic> aniDataPicList { get; set; }
         public IEnumerable<aniDataPicOne> aniDataPicOneList { get; set; }
+        public IEnumerable<aniDataPicOne2> aniDataPicOneList2 { get; set; }
         public IEnumerable<map> mapList { get; set; }
         public IEnumerable<boardUser> boardUserList { get; set; }
         public IEnumerable<animalData_Condition> animalData_ConList { get; set; }

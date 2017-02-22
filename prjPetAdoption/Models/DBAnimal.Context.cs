@@ -54,5 +54,6 @@ namespace prjPetAdoption.Models
         public virtual DbSet<MsgUser> MsgUser { get; set; }
         public virtual DbSet<aniDataPic> aniDataPic { get; set; }
         public virtual DbSet<aniDataPicOne> aniDataPicOne { get; set; }
+        public virtual DbSet<aniDataPicOne2> aniDataPicOne2 { get; set; }
     }
 }

@@ -535,7 +535,7 @@
                                     <div class="col-md-6">
                                         @*<textarea class="form-control text-box single-line" rows="3" id="board_boardContent" name="board.boardContent" type="text" value="" style="float:left; " />*@
                                         @*new { htmlAttributes = new { @class = "form-control", @rows = "3", @id = "amsgContent", @style = "margin: 0px - 15.8438px 0px 0px; height: 151px; width:500px; " }*@
-                                        @Html.TextAreaFor(model => model.board.boardContent, new { htmlAttributes = new { @class = "form-control text-box single-line", rows = "3", id = "board_boardContent", name = "board.boardContent", @style = "float:left; " }, cols = 250, @rows = 2 })
+                                        @Html.TextAreaFor(model => model.board.boardContent, new { htmlAttributes = new { @class = "form-control single-line", rows = "3", id = "board_boardContent", name = "board.boardContent", @style = "float:left; " }, cols = 250, @rows = 2 })
                                         @Html.ValidationMessageFor(model => model.board.boardContent, "", new { @class = "text-danger" })
                                     </div>
 

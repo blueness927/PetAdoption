@@ -1,4 +1,5 @@
-﻿using prjPetAdoption.Models;
+﻿using Microsoft.AspNet.Identity;
+using prjPetAdoption.Models;
 using prjPetAdoption.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -105,18 +106,50 @@ namespace prjPetAdoption.Controllers
         {
             var aniData = db.aniDataAll.Where(x => x.animalOwner_userID == id).ToList();
             var myanimal = db.aniDataPicOne.Where(x => x.animalOwner_userID.Equals(id)).ToList();
+            var myanimal2 = db.aniDataPicOne2.Where(x => x.animalOwner_userID.Equals(id)).ToList();
             AllAniData.aniDataAllList = aniData;
             AllAniData.aniDataPicOneList = myanimal;
-
+            AllAniData.aniDataPicOneList2 = myanimal2;
 
             var myanimalCount = db.aniDataPicOne.Where(x => x.animalOwner_userID.Equals(id)).ToList().Count();
+            var myanimalCount2 = db.aniDataPicOne2.Where(x => x.animalOwner_userID.Equals(id)).ToList().Count();
             if (myanimalCount == 0)
             {
                 ViewBag.noforAdop = "http://i.imgur.com/XsUL2QD.png";
             }
-            
+
+            if (myanimalCount2 == 0)
+            {
+                ViewBag.noforAdop = "http://i.imgur.com/XsUL2QD.png";
+            }
+
             return PartialView(AllAniData);
 
+        }
+
+        
+            public ActionResult getAni(string id)   //顯示已收養動物
+        {
+            var Name = User.Identity.GetUserName();
+            //var uName = db.AspNetUsers.Where(x => x.Id.Equals(id)).Select(x=>x.UserName).ToList();
+            //foreach(var Name in uName)
+            //{
+                var aniData = db.animalData.Where(x => x.animalGetter_userID.Equals(Name)).ToList();
+                var myanimal = db.aniDataPicOne2.Where(x => x.animalGetter_userID.Equals(Name)).ToList();            
+            
+                AllAniData.animalDataList = aniData;
+                AllAniData.aniDataPicOneList2 = myanimal;
+
+
+                var myanimalCount = db.aniDataPicOne2.Where(x => x.animalGetter_userID.Equals("KIN777")).ToList().Count();
+                if (myanimalCount == 0)
+                {
+                    ViewBag.noforAdop = "http://i.imgur.com/AU6T9qb.png";
+                }
+
+                return PartialView(AllAniData);
+            //}
+            //return PartialView(AllAniData);
         }
 
         public ActionResult oneAni(int? id)   //顯示送養寵物明細資料

@@ -11,58 +11,58 @@
         @Html.HiddenFor(model => model.animalID)
 
 
-                @Html.HiddenFor(model => model.animalKind, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.animalKind, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.animalKind, "", new { @class = "text-danger" })
 
-                @Html.HiddenFor(model => model.animalType, new { htmlAttributes = new { @class = "form-control", @style = " " } })
+                @Html.EditorFor(model => model.animalType, new { htmlAttributes = new { @class = "form-control", @style = " " } })
                 @Html.ValidationMessageFor(model => model.animalType, "", new { @class = "text-danger" })
 
-                @Html.HiddenFor(model => model.animalName, new { htmlAttributes = new { @class = "form-control", @style = " " } })
+                @Html.EditorFor(model => model.animalName, new { htmlAttributes = new { @class = "form-control", @style = " " } })
                 @Html.ValidationMessageFor(model => model.animalName, "", new { @class = "text-danger" })
 
-                @Html.HiddenFor(model => model.animalAddress, new { htmlAttributes = new { @class = "form-control", @style = " " } })
+                @Html.EditorFor(model => model.animalAddress, new { htmlAttributes = new { @class = "form-control", @style = " " } })
                 @Html.ValidationMessageFor(model => model.animalAddress, "", new { @class = "text-danger" })
 
 
-                @Html.HiddenFor(model => model.animalDate, new { htmlAttributes = new { @class = "form-control", @style = " " } })
+                @Html.EditorFor(model => model.animalDate, new { htmlAttributes = new { @class = "form-control", @style = " " } })
                 @Html.ValidationMessageFor(model => model.animalDate, "", new { @class = "text-danger" })
 
-                @Html.HiddenFor(model => model.animalGender, new { htmlAttributes = new { @class = "form-control", @style = " " } })
+                @Html.EditorFor(model => model.animalGender, new { htmlAttributes = new { @class = "form-control", @style = " " } })
                 @Html.ValidationMessageFor(model => model.animalGender, "", new { @class = "text-danger" })
 
 
-                @Html.HiddenFor(model => model.animalAge, new { htmlAttributes = new { @class = "form-control", @style = " " } })
+                @Html.EditorFor(model => model.animalAge, new { htmlAttributes = new { @class = "form-control", @style = " " } })
                 @Html.ValidationMessageFor(model => model.animalAge, "", new { @class = "text-danger" })
 
 
-                @Html.HiddenFor(model => model.animalColor, new { htmlAttributes = new { @class = "form-control", @style = " " } })
+                @Html.EditorFor(model => model.animalColor, new { htmlAttributes = new { @class = "form-control", @style = " " } })
                 @Html.ValidationMessageFor(model => model.animalColor, "", new { @class = "text-danger" })
 
 
-                @Html.HiddenFor(model => model.animalBirth, new { htmlAttributes = new { @class = "form-control", @style = " " } })
+                @Html.EditorFor(model => model.animalBirth, new { htmlAttributes = new { @class = "form-control", @style = " " } })
                 @Html.ValidationMessageFor(model => model.animalBirth, "", new { @class = "text-danger" })
 
-                @Html.HiddenFor(model => model.animalChip, new { htmlAttributes = new { @class = "form-control", @style = " " } })
+                @Html.EditorFor(model => model.animalChip, new { htmlAttributes = new { @class = "form-control", @style = " " } })
                 @Html.ValidationMessageFor(model => model.animalChip, "", new { @class = "text-danger" })
 
-                @Html.HiddenFor(model => model.animalHealthy, new { htmlAttributes = new { @class = "form-control", @style = " " } })
+                @Html.EditorFor(model => model.animalHealthy, new { htmlAttributes = new { @class = "form-control", @style = " " } })
                 @Html.ValidationMessageFor(model => model.animalHealthy, "", new { @class = "text-danger" })
  
 
-                @Html.HiddenFor(model => model.animalDisease_Other, new { htmlAttributes = new { @class = "form-control", @style = " " } })
+                @Html.EditorFor(model => model.animalDisease_Other, new { htmlAttributes = new { @class = "form-control", @style = " " } })
                 @Html.ValidationMessageFor(model => model.animalDisease_Other, "", new { @class = "text-danger" })
     
-                @Html.HiddenFor(model => model.animalOwner_userID, new { htmlAttributes = new { @class = "form-control", @style = " " } })
+                @Html.EditorFor(model => model.animalOwner_userID, new { htmlAttributes = new { @class = "form-control", @style = " " } })
                 @Html.ValidationMessageFor(model => model.animalOwner_userID, "", new { @class = "text-danger" })
 
-                @Html.HiddenFor(model => model.animalReason, new { htmlAttributes = new { @class = "form-control", @style = " " } })
+                @Html.EditorFor(model => model.animalReason, new { htmlAttributes = new { @class = "form-control", @style = " " } })
                 @Html.ValidationMessageFor(model => model.animalReason, "", new { @class = "text-danger" })
 
      
 
         <div class="form-group">
-            <label class="control-label col-md-2">收養人名稱</label>
-            <div class="col-md-10">
+            <label class="control-label col-md-3">收養人名稱</label>
+            <div class="col-md-9">
                 @Html.EditorFor(model => model.animalGetter_userID, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.animalGetter_userID, "", new { @class = "text-danger" })
             </div>
@@ -70,15 +70,15 @@
 
 
   
-                @Html.HiddenFor(model => model.animalAdopted, new { htmlAttributes = new { @class = "form-control" ,id="adopt"} })
+                @Html.EditorFor(model => model.animalAdopted, new { htmlAttributes = new { @class = "form-control" ,id="adopt"} })
                 @Html.ValidationMessageFor(model => model.animalAdopted, "", new { @class = "text-danger" })
   
 
-                @Html.HiddenFor(model => model.animalAdoptedDate, new { htmlAttributes = new { @class = "form-control", @style = " " } })
+                @Html.EditorFor(model => model.animalAdoptedDate, new { htmlAttributes = new { @class = "form-control", @style = " " } })
                 @Html.ValidationMessageFor(model => model.animalAdoptedDate, "", new { @class = "text-danger" })
 
 
-                @Html.HiddenFor(model => model.animalNote, new { htmlAttributes = new { @class = "form-control", @style = " " } })
+                @Html.EditorFor(model => model.animalNote, new { htmlAttributes = new { @class = "form-control", @style = " " } })
                 @Html.ValidationMessageFor(model => model.animalNote, "", new { @class = "text-danger" })
 
 

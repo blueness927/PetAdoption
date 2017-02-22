@@ -47,9 +47,10 @@ namespace prjPetAdoption.Controllers
         public ActionResult DelpicSure(int? id)
         {
             animalData_Pic animalData_Pic = db.animalData_Pic.Find(id);
+            var aID = db.animalData_Pic.Find(id).animalPic_animalID;
             db.animalData_Pic.Remove(animalData_Pic);
             db.SaveChanges();
-            return RedirectToAction("picList", "animalData_Pic1", new { id = animalData_Pic.animalPic_animalID });
+            return RedirectToAction("picList", "animalData_Pic1", new { id = aID });
         }
 
 

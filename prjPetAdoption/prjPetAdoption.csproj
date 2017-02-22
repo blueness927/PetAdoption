@@ -216,6 +216,9 @@
     <Compile Include="Models\aniDataPicOne.cs">
       <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\aniDataPicOne2.cs">
+      <DependentUpon>DBAnimal.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\animalData.cs">
       <DependentUpon>DBAnimal.tt</DependentUpon>
     </Compile>
@@ -455,6 +458,7 @@
     <Content Include="Content\PetInformationCss\PetInformationCss.css" />
     <Content Include="Content\showForAdopt\AdoptedNavigate.css" />
     <Content Include="Content\showForAdopt\show.css" />
+    <Content Include="Content\showForAdopt\UNADP.png" />
     <Content Include="Content\style.css" />
     <Content Include="Content\style2.css" />
     <Content Include="Content\style3.css" />
@@ -671,6 +675,7 @@
     <Content Include="Views\opAnimal\opAniOne - 複製.cshtml" />
     <Content Include="Views\animalDatas\EditAdopt.cshtml" />
     <Content Include="Views\Account\Login - 複製.cshtml" />
+    <Content Include="Views\aniData\getAni.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
