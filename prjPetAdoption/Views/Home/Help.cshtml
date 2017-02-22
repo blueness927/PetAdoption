@@ -8,6 +8,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <br/>
+                <br />
+                <br />
                 <h2>寵物幫手</h2>
                 <hr/>
                 <p class="lead">本站提供新手照顧寵物的相關資訊，以及動物醫院的位置。</p>
@@ -15,40 +18,30 @@
         </div>
     </div>
 </section>
-<div class="container  text-center">
-    <div class="col-sm-6">
-        <a href="@Url.Action("aniwiki", "Home")">
-            <div class="weather pn">
-                <i class="fa  fa-4x"></i>
-                <h2>寵物圖鑑</h2>
-            </div>
-        </a>
-    </div>
-    <div class="col-sm-6">
-       <a href="@Url.Action("FAQ", "Home")">
-            <div class="weather pn">
-                <i class="fa  fa-4x"></i>
-                   <h2>FAQ</h2>
-            </div>
-        </a>
-    </div>
-    <div class="col-sm-6">
 
-        <a href="@Url.Action("Information", "Home")">
-            <div class="weather pn">
-                <i class="fa  fa-4x"></i>
-                <h2>照護須知</h2>
-            </div>
-        </a>
-    </div>
-    <div class="col-sm-6">
+<div class="container text-center">
+    <div class="row">
+        <div class="col-sm-6">
+            <span class="glyphicon glyphicon-book logo-small"></span>
+            <a href="@Url.Action("aniwiki", "Home")"><h2>動物百科</h2> </a>
+</div>
+        <div class="col-sm-6">
+            <span class="glyphicon glyphicon-question-sign logo-small"></span>
+            <a href="@Url.Action("FAQ", "Home")"> <h2>FAQ</h2></a>
 
-        <a href="">
-            <div class="weather pn">
-                <i class="fa  fa-4x"></i>
-                <h2>動物醫院</h2>
-            </div>
-        </a>
+</div>
+    </div>
+    <br><br><br><br>
+    <div class="row">
+        <div class="col-sm-6">
+            <span class="glyphicon glyphicon-leaf logo-small"></span>
+            <a href="@Url.Action("Information", "Home")">
+                <h2>照護須知</h2></a>
+</div>
+        <div class="col-sm-6">
+            <span class="glyphicon glyphicon-map-marker logo-small"></span>
+            <a href="@Url.Action("Information", "Home")"> <h2>動物醫院</h2></a>
+</div>
     </div>
 </div>
 
