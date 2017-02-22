@@ -48,5 +48,6 @@ namespace prjPetAdoption.ViewModels
         public IEnumerable<animalData_Condition> animalData_ConList { get; set; }
         public IEnumerable<followAni> followAniList { get; set; }
         public IEnumerable<MsgUser> MsgUserList { get; set; }
+       
     }
 }

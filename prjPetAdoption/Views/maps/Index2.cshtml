@@ -1,0 +1,150 @@
+﻿@model prjPetAdoption.ViewModels.AllAniDataViewModel
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <br/><br /><br />
+        <div class="col-md-4">
+            @Html.ActionLink("動物醫院", "Index2", "maps", new { id = "動物醫院" }, new { @class = "btn btn-info " })
+        </div>
+        <div class="col-md-4">
+            @Html.ActionLink("狂犬病注射站", "Index2", "maps", new { id = "狂犬病注射站" }, new { @class = "btn btn-info " })
+        </div>
+        <div class="col-md-4">
+            @Html.ActionLink("合格寵物業者", "Index2", "maps", new { id = "合格寵物業者" }, new { @class = "btn btn-info " })
+        </div>
+        <br /><br /><br />
+        <div id="map" style="width:90%;min-height:600px;"></div>
+
+
+        <script>
+
+            function initMap() {
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 16,
+                    center: { lat: 22.628140, lng: 120.292874 }
+                });
+
+                setMarkers(map);
+            }
+
+            // Data for the markers consisting of a name, a LatLng and a zIndex for the
+            // order in which these markers should display on top of each other.
+            var beaches = [
+                      @foreach (var item in Model.mapList)
+                                  {<Text>
+                             ['@item.mapType--@item.mapName', @item.maplatitude,  @item.maplongitude,@item.mapID, '@item.mapContent'],
+                                  </Text>}
+
+              ['Maroubra Beach', -33.950198, 151.259302, 19999, 'XX']
+            ];
+
+            function setMarkers(map) {
+                // Adds markers to the map.
+
+                // Marker sizes are expressed as a Size of X,Y where the origin of the image
+                // (0,0) is located in the top left of the image.
+
+                // Origins, anchor positions and coordinates of the marker increase in the X
+                // direction to the right and in the Y direction down.
+                var image = {
+                    url: 'http://imgur.com/WtLHSm5.png',
+                    // This marker is 20 pixels wide by 32 pixels high.
+                    size: new google.maps.Size(32, 32),
+                    // The origin for this image is (0, 0).
+                    origin: new google.maps.Point(0, 0),
+                    // The anchor for this image is the base of the flagpole at (0, 32).
+                    anchor: new google.maps.Point(0, 32)
+                };
+                // Shapes define the clickable region of the icon. The type defines an HTML
+                // <area> element 'poly' which traces out a polygon as a series of X,Y points.
+                // The final coordinate closes the poly by connecting to the first coordinate.
+                var shape = {
+                    coords: [1, 1, 1, 20, 18, 20, 18, 1],
+                    type: 'poly'
+                };
+                for (var i = 0; i < beaches.length; i++) {
+                    var beach = beaches[i];
+                    var marker = new google.maps.Marker({
+                        position: { lat: beach[1], lng: beach[2] },
+                        map: map,
+                        icon: image,
+                        shape: shape,
+                        title: beach[0],
+                        zIndex: beach[3]
+                    });
+
+                    var content = '<div class="panel panel-success">  <div class="panel-heading"> <h3 class="panel-title">'+ beach[0] + '</h3>  </div>  <div class="panel-body">   '+beach[4]+'  </div></div>'  ;
+
+                    var infowindow = new google.maps.InfoWindow()
+
+                    google.maps.event.addListener(marker, 'click', (function (marker, content, infowindow) {
+                        return function () {
+                            infowindow.setContent(content);
+                            infowindow.open(map, marker);
+                        };
+                    })(marker, content, infowindow));
+
+                }
+            }
+            
+
+        </script>
+
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLTe7fkAMt6xY27_TIQGBhoYY7No6DZoA&callback=initMap"></script>
+
+
+        <br /><hr>
+
+
+
+        <table class="table table-striped table-advance table-hover" style="max-width:95%" align="left">
+
+
+            <thead>
+                <tr>
+                    <th><i class="glyphicon glyphicon-picture"></i> 類型</th>
+                    <th><i class="fa fa-bookmark"></i> 名稱</th>
+                    <th><i class="fa fa-bookmark"></i> 內容</th>
+                    <th><i class="fa fa-bookmark"></i> 縣市</th>
+                    <th><i class="fa fa-map-marker"></i> 區域</th>
+                    <th><i class="fa fa-map-marker"></i> 地址</th>
+                    
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.mapList)
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mapType)
+                        </td>
+                        <td style="max-width:130px">
+                            @Html.DisplayFor(modelItem => item.mapName)
+                        </td>
+                        <td style="max-width:350px">
+                            @Html.DisplayFor(modelItem => item.mapContent)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mapAddressCity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mapAddressTown)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mapAddressDetail)
+                        </td>
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

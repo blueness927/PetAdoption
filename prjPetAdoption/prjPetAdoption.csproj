@@ -197,6 +197,7 @@
     <Compile Include="Controllers\boardsController.cs" />
     <Compile Include="Controllers\followsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\mapsController.cs" />
     <Compile Include="Controllers\PetController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MsgsController.cs" />
@@ -664,9 +665,9 @@
     <Content Include="Views\follows\Index.cshtml" />
     <Content Include="Views\Msgs\Create.cshtml" />
     <Content Include="Views\Msgs\Delete.cshtml" />
-    <Content Include="Views\Msgs\Details.cshtml" />
+    <Content Include="Views\Msgs\Details---.cshtml" />
     <Content Include="Views\Msgs\Edit.cshtml" />
-    <Content Include="Views\Msgs\Index.cshtml" />
+    <Content Include="Views\Msgs\Index---.cshtml" />
     <Content Include="Views\Pet\PetInformation.cshtml" />
     <Content Include="Views\aniData\followAni.cshtml" />
     <Content Include="Views\aniData\DelfollowAni.cshtml" />
@@ -688,6 +689,8 @@
     <Content Include="Views\animalDatas\EditAdopt.cshtml" />
     <Content Include="Views\Account\Login - 複製.cshtml" />
     <Content Include="Views\aniData\getAni.cshtml" />
+    <Content Include="Views\maps\Index.cshtml" />
+    <Content Include="Views\maps\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

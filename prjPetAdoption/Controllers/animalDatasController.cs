@@ -151,7 +151,7 @@ namespace prjPetAdoption.Models
             animalData animalData = db.animalData.Find(id);
             db.animalData.Remove(animalData);
             db.SaveChanges();
-            return RedirectToAction("Index", "Manage");
+            return RedirectToAction("showForAdopt_part", "aniData", new { id = @User.Identity.GetUserId(), title = "showForAdopt_part" });
         }
 
         protected override void Dispose(bool disposing)

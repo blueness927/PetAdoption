@@ -104,13 +104,15 @@ namespace prjPetAdoption.Controllers
 
         public ActionResult showForAdopt_part(string id)   //顯示送養筆數--會員管理
         {
+            var name = User.Identity.GetUserName();
             var aniData = db.aniDataAll.Where(x => x.animalOwner_userID == id).ToList();
-            var myanimal = db.aniDataPicOne.Where(x => x.animalOwner_userID.Equals(id)).ToList();
-            var myanimal2 = db.aniDataPicOne2.Where(x => x.animalOwner_userID.Equals(id)).ToList();
+            var myanimal = db.aniDataPicOne.Where(x => x.animalOwner_userID.Equals(id)).ToList();//正在送養中
+            var myanimal2 = db.aniDataPicOne2.Where(x => x.animalOwner_userID.Equals(id)).ToList();//已送養成功清單
             AllAniData.aniDataAllList = aniData;
             AllAniData.aniDataPicOneList = myanimal;
             AllAniData.aniDataPicOneList2 = myanimal2;
 
+           
             var myanimalCount = db.aniDataPicOne.Where(x => x.animalOwner_userID.Equals(id)).ToList().Count();
             var myanimalCount2 = db.aniDataPicOne2.Where(x => x.animalOwner_userID.Equals(id)).ToList().Count();
             if (myanimalCount == 0)
@@ -120,7 +122,7 @@ namespace prjPetAdoption.Controllers
 
             if (myanimalCount2 == 0)
             {
-                ViewBag.noforAdop = "http://i.imgur.com/XsUL2QD.png";
+                ViewBag.nofor = "http://i.imgur.com/XsUL2QD.png";
             }
 
             return PartialView(AllAniData);
