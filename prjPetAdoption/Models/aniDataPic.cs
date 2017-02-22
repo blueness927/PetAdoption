@@ -14,7 +14,8 @@ namespace prjPetAdoption.Models
     
     public partial class aniDataPic
     {
-        public int animalID { get; set; }
+        public int animalPicID { get; set; }
+        public Nullable<int> animalID { get; set; }
         public string animalName { get; set; }
         public string animalKind { get; set; }
         public string animalType { get; set; }

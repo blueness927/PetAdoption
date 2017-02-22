@@ -47,9 +47,9 @@
         <AssociationConnector Association="DbAnimalModel.FK__Msg__msgTo_userI__3F9B6DFF" />
         <AssociationConnector Association="DbAnimalModel.FK__remind__remind_u__3335971A" />
         <AssociationConnector Association="DbAnimalModel.FK__search__Search_u__30592A6F" />
-        <EntityTypeShape EntityType="DbAnimalModel.aniDataPic" Width="1.5" PointX="15.375" PointY="6.75" />
         <EntityTypeShape EntityType="DbAnimalModel.aniDataPicOne" Width="1.5" PointX="8.375" PointY="15.75" />
         <EntityTypeShape EntityType="DbAnimalModel.aniDataPicOne2" Width="2" PointX="10.375" PointY="16.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.aniDataPic" Width="1.5" PointX="15.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
