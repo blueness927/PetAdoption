@@ -10,10 +10,10 @@ using System.Web.Mvc;
 
 namespace prjPetAdoption.Controllers
 {
-    public class iPetController : BaseController
+    public class PetController : BaseController
     {
         // GET: IPet
-        public ActionResult iPetInformation(int? page,string city,string types,string kind)
+        public ActionResult PetInformation(int? page,string city,string types,string kind,string gender)
         {
             var iPet = db.aniDataPicOne;
 
@@ -31,6 +31,13 @@ namespace prjPetAdoption.Controllers
             ViewBag.Kind = kindSelectList.ToList();
             ViewBag.SelectedKind = kind;
 
+            //性別查詢
+            var genderSelectList = GetSelectList(this.GetGender(), gender);
+            ViewBag.Gender = genderSelectList.ToList();
+            ViewBag.SelectedGender = gender;
+
+
+
             var source = GetAnimalData();
             source = source.AsQueryable();
 
@@ -45,6 +52,12 @@ namespace prjPetAdoption.Controllers
               if (!string.IsNullOrWhiteSpace(kind))
             {
                 source = source.Where(x => x.animalKind == kind);
+            }
+
+
+            if (!string.IsNullOrWhiteSpace(gender))
+            {
+                source = source.Where(x => x.animalGender == gender);
             }
 
             int pageIndex = page ?? 1;
@@ -116,6 +129,21 @@ namespace prjPetAdoption.Controllers
             }
             return new List<string>();
         }
+
+
+        private List<string> GetGender()
+        {
+            var source = db.aniDataPicOne;
+            if (source != null)
+            {
+                var Sex = source.OrderBy(x => x.animalGender)
+                                .Select(x => x.animalGender)
+                                .Distinct();
+                return Sex.ToList();
+            }
+            return new List<string>();
+        }
+
 
 
 

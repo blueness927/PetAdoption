@@ -197,7 +197,7 @@
     <Compile Include="Controllers\boardsController.cs" />
     <Compile Include="Controllers\followsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\iPetController.cs" />
+    <Compile Include="Controllers\PetController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MsgsController.cs" />
     <Compile Include="Controllers\opAnimalController.cs" />
@@ -327,6 +327,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\FAQ\FAQ.css" />
+    <Content Include="Content\font-awesome.css" />
     <Content Include="Content\Helpcss\help.css" />
     <Content Include="Content\Images\a.png" />
     <Content Include="Content\Images\about.png" />
@@ -500,6 +501,7 @@
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -545,6 +547,10 @@
     <Content Include="Content\Member\assets\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\Member\assets\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\Member\assets\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\web.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\animalDetailjs\animalDetail.js" />
@@ -651,7 +657,7 @@
     <Content Include="Views\Msgs\Details.cshtml" />
     <Content Include="Views\Msgs\Edit.cshtml" />
     <Content Include="Views\Msgs\Index.cshtml" />
-    <Content Include="Views\iPet\iPetInformation.cshtml" />
+    <Content Include="Views\Pet\PetInformation.cshtml" />
     <Content Include="Views\aniData\followAni.cshtml" />
     <Content Include="Views\aniData\DelfollowAni.cshtml" />
     <Content Include="Views\aniData\showForAdopt.cshtml" />

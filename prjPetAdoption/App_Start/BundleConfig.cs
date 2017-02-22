@@ -51,7 +51,8 @@ namespace prjPetAdoption
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/masonry.css",
-                      "~/Content/jquery-ui.css"
+                      "~/Content/jquery-ui.css",
+                      "~/Content/font-awesome.css"
                       ));
 
             bundles.Add(new StyleBundle("~/Content/showForAdopt").Include(

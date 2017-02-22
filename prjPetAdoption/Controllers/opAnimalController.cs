@@ -17,7 +17,7 @@ namespace prjPetAdoption.Controllers
     {
         string targetURI = "http://data.coa.gov.tw/Service/OpenData/AnimalOpenData.aspx?";
 
-        public async Task<ActionResult>opAnimalList(int? page, string districts, string types)  //篩選後倒資料
+        public async Task<ActionResult>opAnimalList(int? page, string districts, string types,string sex)  //篩選後倒資料
         {
             ViewBag.Districts =
             await this.GetSelectList(await this.GetDistricts(), districts);
@@ -28,7 +28,16 @@ namespace prjPetAdoption.Controllers
             ViewBag.Types = typeSelectList.ToList();
             ViewBag.SelectedType = types;
 
-              var source = await this.GetOPAnimalData();
+
+            var sexSelectList =
+           await this.GetSelectList(await this.GetSex(), sex);
+            ViewBag.Sex = sexSelectList.ToList();
+            ViewBag.SelectedType = sex;
+
+
+
+
+            var source = await this.GetOPAnimalData();
             source = source.AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(districts))
@@ -37,8 +46,16 @@ namespace prjPetAdoption.Controllers
             }
             if (!string.IsNullOrWhiteSpace(types))
             {
-                source = source.Where(x => x.animal_kind == types);
+                source = source.Where(x => x.animal_kind== types);
             }
+
+            if (!string.IsNullOrWhiteSpace(sex))
+            {
+                source = source.Where(x => x.animal_sex == sex);
+            }
+
+
+
             if (source.Count() == 0)
             {
                 ViewBag.IMG = "http://i.imgur.com/8P7z9ys.png";
@@ -84,7 +101,13 @@ namespace prjPetAdoption.Controllers
             source = source.AsQueryable();
 
             source = source.Where(x => x.animal_id.Equals(id));
-            
+
+            if (source.Count() == 0)
+            {
+                ViewBag.IMG = "http://i.imgur.com/8P7z9ys.png";
+                source.OrderBy(x => x.animal_area_pkid).ToList();
+            }
+
             return View( source.OrderBy(x => x.animal_area_pkid).ToList());
         }
 
@@ -142,6 +165,24 @@ namespace prjPetAdoption.Controllers
             }
             return new List<string>();
         }
+
+        private async Task<List<string>> GetSex()  //動物類型分類
+        {
+            var source = await this.GetOPAnimalData();
+            if (source != null)
+            {
+                var Sex = source.OrderBy(x => x.animal_sex)
+                                              .Select(x => x.animal_sex)
+                                              .Distinct();
+
+                return Sex.ToList();
+            }
+            return new List<string>();
+        }
+
+
+
+
 
         private async Task<IEnumerable<SelectListItem>> GetSelectList(IEnumerable<string>source,string selectedItem)
         {
