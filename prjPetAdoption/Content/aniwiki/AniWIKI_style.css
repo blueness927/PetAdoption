@@ -54,7 +54,6 @@ label{
 }
 
 .pet.detail {
- 
   width: 80%;
   text-align: left;
   padding: 10px;
@@ -96,4 +95,19 @@ label{
 }
 .detail.big .infos {
   width: calc(100% - 220px - 20px);
+}
+
+
+@media (max-width:375px) {
+ .vuedisplay{
+  display: none;
+ }
+
+.pet.detail .infos h4{
+    display: none;
+}
+.pet.detail .infos h5{
+    display: none;
+}
+
 }

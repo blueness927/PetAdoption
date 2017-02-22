@@ -350,7 +350,6 @@
     <Content Include="Content\Images\cat.jpg" />
     <Content Include="Content\Images\dog2.jpg" />
     <Content Include="Content\Images\b.png" />
-    <Content Include="Content\Images\faq.jpg" />
     <Content Include="Content\Images\footer\01.png" />
     <Content Include="Content\Images\footer\02.png" />
     <Content Include="Content\Images\footer\03.png" />
@@ -359,6 +358,11 @@
     <Content Include="Content\Images\footer\cat03.png" />
     <Content Include="Content\Images\footer\LOGO.png" />
     <Content Include="Content\Images\footer\up.png" />
+    <Content Include="Content\Images\helper\animalhospital.png" />
+    <Content Include="Content\Images\helper\care.png" />
+    <Content Include="Content\Images\helper\faq.png" />
+    <Content Include="Content\Images\helper\helper.png" />
+    <Content Include="Content\Images\helper\wiki.png" />
     <Content Include="Content\Images\rabbit.jpg" />
     <Content Include="Content\Images\service\service.png" />
     <Content Include="Content\Images\service\service02.jpg" />
