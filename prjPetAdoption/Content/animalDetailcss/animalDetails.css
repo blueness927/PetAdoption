@@ -137,27 +137,43 @@ footer{
 
 /** LIGHTBOX MARKUP **/
 
-#lightbox .modal-content {
-    display: inline-block;
-    text-align: center;   
+.lightbox {
+  /** Default lightbox to hidden */
+  display: none;
+
+  /** Position and style */
+  position: fixed;
+  z-index: 999;
+ 
+  height: 100%;
+  text-align: center;
+  top: 30%;
+  left: 0;
+  background: #0;
+   width: 100%;
+    -webkit-animation-name: opacity;
+            animation-name: opacity;
+    -webkit-animation-duration: .3s;
+            animation-duration: .3s;
 }
 
-#lightbox .close {
-    opacity: 1;
-    color: rgb(255, 255, 255);
-    background-color: rgb(25, 25, 25);
-    padding: 5px 8px;
-    border-radius: 30px;
-    border: 2px solid rgb(255, 255, 255);
-    position: absolute;
-    top: -15px;
-    right: -55px;
-    
-    z-index:1032;
+.lightbox img {
+  /** Pad the lightbox image */
+  max-width: 100%;
+  max-height: 100%;
+  margin-top: 2%;
+}
+
+.lightbox:target {
+  /** Remove default browser outline */
+  outline: none;
+
+  /** Unhide lightbox **/
+  display: block;
 }
 
 .imginlineblock img{
-  border-radius: 20px;
+  /* border-radius: 20px; */
 }
 
 .animal_small{
