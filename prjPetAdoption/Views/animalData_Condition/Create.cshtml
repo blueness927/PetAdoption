@@ -165,7 +165,8 @@
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
                                     @Html.ActionLink("取消送養", "Index", "Home", new { area = "" }, new { @class = "btn btn-default" })
-                                    @using Microsoft.AspNet.Identity
+                                   
+                                     @using Microsoft.AspNet.Identity
                                     @if (Request.IsAuthenticated)
                 {
                                         <input type="submit" value="下一步 圖片上傳" class="btn btn-warning " onclick="addID()" />
