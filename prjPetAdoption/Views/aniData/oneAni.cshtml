@@ -78,8 +78,9 @@
                     @*大燈箱*@
                     <div class="imginlineblock">
 
-                        @foreach (var item in Model.aniDataPicOneList)
-                        {
+                        @foreach (var item in Model.animalData_PicList.Take(1))
+                         {
+                                
                             <a href="#img1">
                                 <img class="thumbnail" src="@Html.DisplayFor(modelItem => item.animalPicAddress)" />
                             </a>
@@ -88,6 +89,8 @@
                             <a href="#_" class="lightbox" id="img1">
                                 <img src="@Html.DisplayFor(modelItem => item.animalPicAddress)">
                             </a>
+                            
+                              
                         }
                     </div>
 
@@ -141,7 +144,7 @@
                                 <td class="col-md-3 table1">性別:</td>
                                 <td class="col-md-offset-3 table2">@Html.DisplayFor(modelItem => item.animalGender)</td>
                                 <td class="col-md-3 table1">年齡(月):</td>
-                                <td class="col-md-3 table2">@Html.DisplayFor(modelItem => item.animalAge)</td>
+                                <td class="col-md-3 table2">@Html.DisplayFor(modelItem => item.animalAge)  <label>個月</label></td>
                             </tr>
                             <tr>
                                 <td class="col-md-3 table1">毛色:</td>
