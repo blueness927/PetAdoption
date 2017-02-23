@@ -128,13 +128,38 @@
 
                     </li>
                     <li class="sub-menu">
-                        <a href="@Url.Action("getAni","aniData",new { id = @User.Identity.GetUserId()})">
-                            <i class="fa fa-cogs"></i>
-                            <span>已認養管理</span>
-                        </a>
+                         
+                             
+                            <span> </span>
+                         
 
                     </li>
-             
+                    <li class="sub-menu">
+                       
+                            <span> </span>
+                         
+
+                    </li>
+                    <li class="sub-menu">
+                        
+                            <span> </span>
+                         
+
+                    </li>
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+
+    if (User.Identity.GetUserName().Equals("cr4iii9204"))
+    {
+                    <li class="sub-menu">
+                        <a href="@Url.Action("mgIndex", "Home", new { id = @User.Identity.GetUserId() })">
+                            <i class="fa fa-cogs"></i>
+                            <span>系統後台管理</span>
+                        </a>
+                    </li>
+    }
+}
 
                 </ul>
                 <!-- sidebar menu end-->

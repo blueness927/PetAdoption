@@ -19,7 +19,7 @@ namespace prjPetAdoption.Models
         AllAniDataViewModel AllAniData = new AllAniDataViewModel();
 
         // GET: animalDatas
-        public ActionResult Index()
+        public ActionResult AmgIndex()
         {
             return View(db.animalData.ToList());
         }

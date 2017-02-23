@@ -93,47 +93,61 @@
 
                     <h5 class="centered"> @User.Identity.GetUserName()</h5>
 
-                    <li class="mt">
-                        <a href="@Url.Action("index","Manage")">
-                            <i class="fa fa-dashboard"></i>
-                            <span>功能表</span>
-                        </a>
-                    </li>
 
-                    <li class="sub-menu">
-                        <a href="@Url.Action("ChangePassword","Manage")">
-                            <i class="fa fa-desktop"></i>
-                            <span>基本資料設定</span>
-                        </a>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="@Url.Action("MsgList","aniData",new { id = @User.Identity.GetUserId()})">
-                            <i class="fa fa-tasks"></i>
-                            <span>訊息匣</span>
-                        </a>
+                    @using Microsoft.AspNet.Identity
+                    @if (Request.IsAuthenticated)
+                    {
 
-                    </li>
-                    <li class="sub-menu">
-                        <a href="@Url.Action("followAni","aniData",new { id = @User.Identity.GetUserId()})">
+                        if (User.Identity.GetUserName().Equals("cr4iii9204"))
+                        {
+
+                            <li class="mt">
+                                <a href=@Url.Action("mgIndex", "Home")>
+                                    <i class="fa fa-dashboard"></i>
+                                    <span>管理首頁</span>
+                                </a>
+                            </li>
+
+                            <li class="mt">
+                                <a href=@Url.Action("aniIndex", "Home")>
+                                    <i class="fa fa-dashboard"></i>
+                                    <span>動物基本資料管理</span>
+                                </a>
+                            </li>
+
+                            <li class="sub-menu">
+                                <a href=@Url.Action("mgIndex", "Home")>
+                                    <i class="fa fa-desktop"></i>
+                                    <span>會員資料管理</span>
+                                </a>
+                            </li>
+                            <li class="sub-menu">
+                                <a href=@Url.Action("mgIndex", "Home")>
+                                    <i class="fa fa-tasks"></i>
+                                    <span>寵物幫手管理</span>
+                                </a>
+
+                            </li>
+                            <li class="sub-menu">
+                                <a href=@Url.Action("mgIndex", "Home")>
+                                    <i class="fa fa-book"></i>
+                                    <span>其他資料管理</span>
+                                </a>
+
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="sub-menu">
+
                             <i class="fa fa-book"></i>
-                            <span>追蹤管理</span>
-                        </a>
+                            <span>非管理者</span>
 
-                    </li>
-                    <li class="sub-menu">
-                        <a href="@Url.Action("showForAdopt_part","aniData",new { id = @User.Identity.GetUserId()})">
-                            <i class="fa fa-cogs"></i>
-                            <span>送養管理</span>
-                        </a>
 
-                    </li>
-                    <li class="sub-menu">
-                        <a href="@Url.Action("getAni","aniData",new { id = @User.Identity.GetUserId()})">
-                            <i class="fa fa-cogs"></i>
-                            <span>已認養管理</span>
-                        </a>
+                        </li>
+                    }
 
-                    </li>
              
 
                 </ul>
