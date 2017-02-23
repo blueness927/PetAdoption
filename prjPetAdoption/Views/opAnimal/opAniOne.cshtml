@@ -71,13 +71,14 @@
                             }
                             else
                             {
-                            <a href="#img1">
-                                <img src="@Html.DisplayFor(modelItem => item.album_file)" class="thumbnail ">
-                            </a>
-                            }
-                        }
+                                <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+                                    <img src="@Html.DisplayFor(modelItem => item.album_file)">
+                                </a>
 
-                    </div>
+                                }
+                                }
+
+                            </div>
                 </div>
 
 
