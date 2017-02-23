@@ -15,7 +15,7 @@ namespace prjPetAdoption.Controllers
 {
     public class opAnimalController : Controller
     {
-        string targetURI = "http://data.coa.gov.tw/Service/OpenData/AnimalOpenData.aspx?";
+        string targetURI = "http://data.coa.gov.tw/Service/OpenData/AnimalOpenData.aspx?$top=150";
 
         public async Task<ActionResult>opAnimalList(int? page, string districts, string types,string sex)  //篩選後倒資料
         {
@@ -115,7 +115,7 @@ namespace prjPetAdoption.Controllers
 
         private async Task<IEnumerable<OpenData>> RetriveOPAnimalData(string cacheName)  //連線OP DATA
         {
-             targetURI = "http://data.coa.gov.tw/Service/OpenData/AnimalOpenData.aspx?";
+             targetURI = "http://data.coa.gov.tw/Service/OpenData/AnimalOpenData.aspx?$top=150";
             HttpClient client = new HttpClient();
             client.MaxResponseContentBufferSize = Int32.MaxValue;
             var response = await client.GetStringAsync(targetURI);
