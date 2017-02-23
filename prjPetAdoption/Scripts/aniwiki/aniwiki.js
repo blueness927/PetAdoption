@@ -1,4 +1,4 @@
-$(window).load(function () {
+
     var petdatas = [
       {
           name: "拉布拉多",
@@ -129,7 +129,6 @@ $(window).load(function () {
       }
 
     ];
-
     var vm = new Vue({
         el: "#app",
         data: {
@@ -138,5 +137,3 @@ $(window).load(function () {
             pets: petdatas
         }
     });
-
-});

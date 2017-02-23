@@ -7,12 +7,12 @@
 }
     <br/>
     <br />
-<h2>Pet Go 動物認養資訊</h2>
+<h2 style=" font-family:微軟正黑體; text-align:center;">Pet Go 動物認養資訊</h2>
 <hr>
 <div class="row well">
     <form class="form" role="form">
         <div class="col-lg-2">
-            <div class="input-group">
+            <div class="input-group" style=" font-family:微軟正黑體; font-size:16px; text-align:center; ">
                 <span class="input-group-addon">縣市</span>
                 <select class="form-control" id="City" name="City">
                     <option value="">全部</option>
@@ -42,25 +42,25 @@
             </div>
         </div>
         <div class="col-lg-2">
-            <div class="input-group">
+            <div class="input-group" style=" font-family:微軟正黑體; font-size:16px; text-align:center; ">
                 <span class="input-group-addon">種類</span>
                 @Html.DropDownList("Kind", null, "全部", new { @class = "form-control" })
             </div>
         </div>
         <div class="col-lg-2">
-            <div class="input-group">
+            <div class="input-group" style=" font-family:微軟正黑體; font-size:16px; text-align:center; ">
                 <span class="input-group-addon">品種</span>
                 @Html.DropDownList("Types", null, "全部", new { @class = "form-control" })
             </div>
         </div>
         <div class="col-lg-2">
-            <div class="input-group">
+            <div class="input-group" style=" font-family:微軟正黑體; font-size:16px; text-align:center; ">
                 <span class="input-group-addon">性別</span>
                 @Html.DropDownList("Gender", null, "全部", new { @class = "form-control" })
             </div>
         </div>
 
-        <div class="col-lg-2" style="">
+        <div class="col-lg-2" style=" font-family:微軟正黑體; font-size:16px; text-align:center; ">
             <button type="submit" id="buttonSubmit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-search">查詢</span>
             </button>
@@ -102,8 +102,8 @@
                         <img src="http://i.imgur.com/ELgcmBd.png" width="300" />
                     </div>
                     <div class="caption">
-                        <div class="title">@Html.DisplayFor(modelItem => item.animalAddress)</div>
-                        <div class="content">
+                        <div class="title" >@Html.DisplayFor(modelItem => item.animalAddress)</div>
+                        <div class="content" >
                             @Html.DisplayFor(modelItem => item.animalKind)
                             @Html.DisplayFor(modelItem => item.animalType)
                             @Html.DisplayFor(modelItem => item.animalAddress)
@@ -119,8 +119,8 @@
                     <img src="@Html.DisplayFor(modelItem => item.animalPicAddress)" width="300" />
                 </div>
                 <div class="caption">
-                    <div class="title">@Html.DisplayFor(modelItem => item.animalAddress)</div>
-                    <div class="content">
+                    <div class="title" style=" font-family:微軟正黑體; font-size:16px; text-align:center; color:#3B5998;">@Html.DisplayFor(modelItem => item.animalAddress)</div>
+                    <div class="content"  style=" font-family:微軟正黑體; font-size:14px; text-align:center; color:#3B5998;">
                         @Html.DisplayFor(modelItem => item.animalKind)
                         @Html.DisplayFor(modelItem => item.animalType)
                         @Html.DisplayFor(modelItem => item.animalAddress)
