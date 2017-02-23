@@ -428,7 +428,7 @@
             <div class="wrapper row">
                 @foreach (var item in Model.animalData_ConList)
                 {
-                    <div class="preview col-md-6">
+                    <div class="preview col-md-12">
                         <h3 class="product-title"><i class="fa fa-list-alt" aria-hidden="true"></i> &nbsp &nbsp認養條件</h3>
                         <hr color="black" />
                         <table class="table">
@@ -436,46 +436,31 @@
                             <tr>
                                 <td class="table3">年齡限制</td>
                                 <td class="table4">@Html.DisplayFor(modelItem => item.conditionAge)</td>
-                            </tr>
-
-                            <tr>
-                                <td class="table3">認養環境</td>
-                                <td class="table4">@Html.DisplayFor(modelItem => item.conditionHome)</td>
-                            </tr>
-
-                            <tr>
-                                <td class="table3">切結書</td>
-                                <td class="table4">@Html.DisplayFor(modelItem => item.conditionPaper)</td>
-                            </tr>
-
-                            <tr>
-                                <td class="table3">其它條件</td>
-                                <td class="table4">@Html.DisplayFor(modelItem => item.conditionOther)</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="preview col-md-6">
-                        <h3 class="product-title"> &nbsp &nbsp </h3>
-                        <table class="table">
-
-                            <tr>
                                 <td class="table3">經濟條件</td>
                                 <td class="table4">@Html.DisplayFor(modelItem => item.conditionEconomy)</td>
                             </tr>
 
                             <tr>
+                                <td class="table3">認養環境</td>
+                                <td class="table4">@Html.DisplayFor(modelItem => item.conditionHome)</td>
                                 <td class="table3">願意回報狀態</td>
                                 <td class="table4">@Html.DisplayFor(modelItem => item.conditionReply)</td>
                             </tr>
 
                             <tr>
+                                <td class="table3">切結書</td>
+                                <td class="table4">@Html.DisplayFor(modelItem => item.conditionPaper)</td>
                                 <td class="table3">補助金額</td>
                                 <td class="table4">@Html.DisplayFor(modelItem => item.conditionFee)</td>
                             </tr>
 
+                            <tr>
+                                <td class="table3">其它條件</td>
+                                <td class="table4" colspan="3">@Html.DisplayFor(modelItem => item.conditionOther)</td>
+                            </tr>
                         </table>
-
                     </div>
+                 
                 }
             </div>
         </div>
@@ -631,9 +616,10 @@
     </div>
 </div>
 
+<div class="container">
+    <br>
+</div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/animalDetail/animalDetailJS")
 
-
-@section Scripts {
-    @Scripts.Render("~/bundles/animalDetail/animalDetailJS")
-
-}
+    }
