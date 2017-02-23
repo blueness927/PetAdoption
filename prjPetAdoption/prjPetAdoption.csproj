@@ -693,6 +693,7 @@
     <Content Include="Views\aniData\getAni.cshtml" />
     <Content Include="Views\maps\Index.cshtml" />
     <Content Include="Views\maps\Index2.cshtml" />
+    <Content Include="Views\Shared\_MGLayout .cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
