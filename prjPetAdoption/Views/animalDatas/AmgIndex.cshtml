@@ -1,0 +1,133 @@
+﻿@model IEnumerable<prjPetAdoption.Models.animalData>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MGLayout .cshtml";
+}
+
+
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+
+    if (User.Identity.GetUserName().Equals("cr4iii9204@gmail.com"))
+    {
+
+
+<section id="main-content">
+    <section class="wrapper">
+        <br />
+        <p>
+            @Html.ActionLink("新增資料", "Create", "animalData", new { area = "" }, new { @class = "btn btn-info " })
+
+        </p>
+        <h3><i class="fa fa-angle-right"></i>動物基本資料</h3>
+        <div class="row mt">
+            <div class="col-md-12">
+                <div class="content-panel">
+                    <table class="table table-striped table-advance table-hover">
+                        <h4><i class="fa fa-angle-right"></i>基本資料清單</h4>
+
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.animalID)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.animalKind)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.animalType)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.animalName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.animalAddress)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.animalDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.animalGender)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.animalAge)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.animalColor)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.animalBirth)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.animalChip)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.animalHealthy)
+                                </th>
+
+
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.animalID)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.animalKind)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.animalType)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.animalName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.animalAddress)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.animalDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.animalGender)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.animalAge)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.animalColor)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.animalBirth)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.animalChip)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.animalHealthy)
+                                    </td>
+
+                                    <td>
+                                        @Html.ActionLink("編輯", "Edit", new { id = item.animalID }) |
+                                        @Html.ActionLink("檢視", "Details", new { id = item.animalID }) |
+                                        @Html.ActionLink("刪除", "Delete", new { id = item.animalID })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div><!-- /content-panel -->
+            </div><!-- /col-md-12 -->
+        </div><!-- /row -->
+
+    </section><!--/wrapper -->
+</section><!-- /MAIN CONTENT -->
+    }
+}

@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "aniIndex";
+    Layout = "~/Views/Shared/_MGLayout .cshtml";
+}
+
+
+
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-9 main-chart">
+                <h3>動物基本資料管理</h3>
+                <div class="row mt">
+                    <!-- SERVER STATUS PANELS -->
+                    <a href=@Url.Action("AmgIndex", "animalDatas")>
+                        <div class="col-lg-6 col-md-6 col-sm-6 mb">
+                            <div class="content-panel pn">
+                                <div id="spotify" style="background: url(http://i.imgur.com/OA08tTx.jpg) no-repeat center top;
+                                    background-position: 50% 50%;
+                                    background-size: 100% auto;">
+                                    <div class="col-xs-4 col-xs-offset-8">
+                                        <div class="btn btn-sm btn-clear-g" ;> Manage</div>
+                                    </div>
+                                    <div class="sp-title">
+                                        <h3 style="color:#000"></h3>
+                                    </div>
+
+                                </div>
+                                <p class="followers"><i class="fa fa-map-marker"></i><h3 style="color:#000">基本資料管理</h3></p>
+                            </div>
+                        </div><!--/col-md-4-->
+                    </a>
+
+                    <a href=@Url.Action("Index", "aniDataPics")>
+                        <div class="col-lg-6 col-md-6 col-sm-6 mb">
+                            <div class="content-panel pn">
+                                <div id="spotify" style="background: url(http://i.imgur.com/W5X0vKO.jpg) no-repeat center top;
+                                    background-position: 50% 50%;
+                                    background-size: 100% auto;">
+                                    <div class="col-xs-4 col-xs-offset-8">
+                                        <div class="btn btn-sm btn-clear-g" ;> Manage</div>
+                                    </div>
+                                    <div class="sp-title">
+                                        <h3 style="color:#000"></h3>
+                                    </div>
+
+                                </div>
+                                <p class="followers"><i class="fa fa-map-marker"></i><h3 style="color:#000">圖片管理</h3></p>
+                            </div>
+                        </div><!--/col-md-4-->
+                    </a>
+                    <div class="col-lg-12 col-md-12 col-sm-12 mb">
+                        <br /><hr>
+                    </div>
+
+
+                    @*<a href=@Url.Action("oneAni", "aniData", new { id = @Html.DisplayFor(modelItem => item.animalID) })>*@
+                    <div class="col-lg-6 col-md-6 col-sm-6 mb">
+                        <div class="content-panel pn">
+                            <div id="spotify" style="background: url(http://i.imgur.com/HtawHll.jpg) no-repeat center top;
+                                    background-position: 50% 50%;
+                                    background-size: 100% auto;">
+                                <div class="col-xs-4 col-xs-offset-8">
+                                    <div class="btn btn-sm btn-clear-g" ;> Manage</div>
+                                </div>
+                                <div class="sp-title">
+                                    <h3 style="color:#000"></h3>
+                                </div>
+
+                            </div>
+                            <p class="followers"><i class="fa fa-map-marker"></i><h3 style="color:#000">其他資料管理</h3></p>
+                        </div>
+                    </div><!--/col-md-4-->
+                    @*</a>*@
+
+
+
+
+
+                </div><!-- /row -->
+                <div class="row mt">
+                    <!--CUSTOM CHART START -->
+                    <div class="border-head">
+                        <h3></h3>
+                    </div>
+                    <!--custom chart end-->
+                </div><!-- /row -->
+
+            </div><!-- /col-lg-9 END SECTION MIDDLE -->
+
+
+        </div>
+    </section>
+</section>
+
+
+
+

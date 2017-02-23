@@ -1,0 +1,99 @@
+﻿@model prjPetAdoption.Models.aniDataPic
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MGLayout .cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>aniDataPic</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.animalID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalKind)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalKind)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalColor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalColor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalGender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalGender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalPicAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalPicAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.animalOwner_userID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.animalOwner_userID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.animalPicID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

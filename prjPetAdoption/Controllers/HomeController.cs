@@ -91,5 +91,17 @@ namespace prjPetAdoption.Controllers
 
             return View();
         }
+
+
+        public ActionResult mgIndex()
+        {
+           
+            return View();
+        }
+
+        public ActionResult aniIndex()
+        {
+            return View();
+        }
     }
 }

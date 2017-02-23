@@ -191,6 +191,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\aniDataController.cs" />
+    <Compile Include="Controllers\aniDataPicsController.cs" />
     <Compile Include="Controllers\animalData_ConditionController.cs" />
     <Compile Include="Controllers\animalData_Pic1Controller.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -632,7 +633,7 @@
     <Content Include="Views\animalDatas\Delete.cshtml" />
     <Content Include="Views\animalDatas\Details.cshtml" />
     <Content Include="Views\animalDatas\Edit.cshtml" />
-    <Content Include="Views\animalDatas\Index.cshtml" />
+    <Content Include="Views\animalDatas\AmgIndex.cshtml" />
     <Content Include="Views\aniData\showForAni.cshtml" />
     <Content Include="Views\aniData\oneAni.cshtml" />
     <Content Include="Views\opAnimal\opAniOne.cshtml" />
@@ -641,12 +642,12 @@
     <Content Include="Views\animalData_Condition\Delete.cshtml" />
     <Content Include="Views\animalData_Condition\Details.cshtml" />
     <Content Include="Views\animalData_Condition\Edit.cshtml" />
-    <Content Include="Views\animalData_Condition\Index.cshtml" />
+    <Content Include="Views\animalData_Condition\Index--.cshtml" />
     <Content Include="Views\animalData_Pic1\Create.cshtml" />
     <Content Include="Views\animalData_Pic1\Delete.cshtml" />
     <Content Include="Views\animalData_Pic1\Details.cshtml" />
     <Content Include="Views\animalData_Pic1\Edit.cshtml" />
-    <Content Include="Views\animalData_Pic1\Index.cshtml" />
+    <Content Include="Views\animalData_Pic1\Index--.cshtml" />
     <Content Include="Views\Home\Bird.cshtml" />
     <Content Include="Views\Home\Cat.cshtml" />
     <Content Include="Views\Home\Dog.cshtml" />
@@ -662,9 +663,9 @@
     <Content Include="Views\aniData\BoardCreate.cshtml" />
     <Content Include="Views\follows\Create.cshtml" />
     <Content Include="Views\follows\Delete.cshtml" />
-    <Content Include="Views\follows\Details.cshtml" />
+    <Content Include="Views\follows\__Details.cshtml" />
     <Content Include="Views\follows\Edit.cshtml" />
-    <Content Include="Views\follows\Index.cshtml" />
+    <Content Include="Views\follows\__Index.cshtml" />
     <Content Include="Views\Msgs\Create.cshtml" />
     <Content Include="Views\Msgs\Delete.cshtml" />
     <Content Include="Views\Msgs\Details---.cshtml" />
@@ -693,6 +694,14 @@
     <Content Include="Views\aniData\getAni.cshtml" />
     <Content Include="Views\maps\Index.cshtml" />
     <Content Include="Views\maps\Index2.cshtml" />
+    <Content Include="Views\Shared\_MGLayout .cshtml" />
+    <Content Include="Views\Home\mgIndex.cshtml" />
+    <Content Include="Views\Home\aniIndex.cshtml" />
+    <Content Include="Views\aniDataPics\Create.cshtml" />
+    <Content Include="Views\aniDataPics\Delete.cshtml" />
+    <Content Include="Views\aniDataPics\Details.cshtml" />
+    <Content Include="Views\aniDataPics\Edit.cshtml" />
+    <Content Include="Views\aniDataPics\picMGIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

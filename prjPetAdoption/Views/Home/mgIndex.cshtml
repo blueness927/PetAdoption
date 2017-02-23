@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "mgIndex";
+    Layout = "~/Views/Shared/_MGLayout .cshtml";
+}
+
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-9 main-chart">
+                <h3>PETGO管理頁面</h3>
+                <div class="row mt">
+                    <!-- SERVER STATUS PANELS -->
+                    @using Microsoft.AspNet.Identity
+                    @if (Request.IsAuthenticated)
+                    {
+
+                        if (User.Identity.GetUserName().Equals("cr4iii9204"))
+                        {
+                            <a href=@Url.Action("aniIndex", "Home")>
+                                <div class="col-lg-6 col-md-6 col-sm-6 mb">
+                                    <div class="content-panel pn">
+                                        <div id="spotify" style="background: url(http://i.imgur.com/nWPJSGc.jpg) no-repeat center top;
+                                    background-position: 50% 50%;
+                                    background-size: 100% auto;">
+                                            <div class="col-xs-4 col-xs-offset-8">
+                                                <div class="btn btn-sm btn-clear-g" ;> Manage</div>
+                                            </div>
+                                            <div class="sp-title">
+                                                <h3 style="color:#000"></h3>
+                                            </div>
+
+                                        </div>
+                                        <p class="followers"><i class="fa fa-map-marker"></i><h3 style="color:#000">動物基本資料管理</h3></p>
+                                    </div>
+                                </div><!--/col-md-4-->
+                            </a>
+
+                            @*<a href=@Url.Action("oneAni", "aniData", new { id = @Html.DisplayFor(modelItem => item.animalID) })>*@
+                            <div class="col-lg-6 col-md-6 col-sm-6 mb">
+                                <div class="content-panel pn">
+                                    <div id="spotify" style="background: url(http://i.imgur.com/1h9iw1X.jpg) no-repeat center top;
+                                    background-position: 50% 50%;
+                                    background-size: 100% auto;">
+                                        <div class="col-xs-4 col-xs-offset-8">
+                                            <div class="btn btn-sm btn-clear-g" ;> Manage</div>
+                                        </div>
+                                        <div class="sp-title">
+                                            <h3 style="color:#000"></h3>
+                                        </div>
+
+                                    </div>
+                                    <p class="followers"><i class="fa fa-map-marker"></i><h3 style="color:#000">會員資料管理</h3></p>
+                                </div>
+                            </div><!--/col-md-4-->
+                            @*</a>*@
+                            <div class="col-lg-12 col-md-12 col-sm-12 mb">
+                                <br /><hr>
+                            </div>
+                            @*<a href=@Url.Action("oneAni", "aniData", new { id = @Html.DisplayFor(modelItem => item.animalID) })>*@
+                            <div class="col-lg-6 col-md-6 col-sm-6 mb">
+                                <div class="content-panel pn">
+                                    <div id="spotify" style="background: url(http://i.imgur.com/j0jMxhe.jpg) no-repeat center top;
+                                    background-position: 50% 50%;
+                                    background-size: 100% auto;">
+                                        <div class="col-xs-4 col-xs-offset-8">
+                                            <div class="btn btn-sm btn-clear-g" ;> Manage</div>
+                                        </div>
+                                        <div class="sp-title">
+                                            <h3 style="color:#000"></h3>
+                                        </div>
+
+                                    </div>
+                                    <p class="followers"><i class="fa fa-map-marker"></i><h3 style="color:#000">寵物幫手管理</h3></p>
+                                </div>
+                            </div><!--/col-md-4-->
+                            @*</a>*@
+
+
+                            @*<a href=@Url.Action("oneAni", "aniData", new { id = @Html.DisplayFor(modelItem => item.animalID) })>*@
+                            <div class="col-lg-6 col-md-6 col-sm-6 mb">
+                                <div class="content-panel pn">
+                                    <div id="spotify" style="background: url(http://i.imgur.com/fnaobtS.jpg) no-repeat center top;
+                                    background-position: 50% 50%;
+                                    background-size: 100% auto;">
+                                        <div class="col-xs-4 col-xs-offset-8">
+                                            <div class="btn btn-sm btn-clear-g" ;> Manage</div>
+                                        </div>
+                                        <div class="sp-title">
+                                            <h3 style="color:#000"></h3>
+                                        </div>
+
+                                    </div>
+                                    <p class="followers"><i class="fa fa-map-marker"></i><h3 style="color:#000">其他資料管理</h3></p>
+                                </div>
+                            </div><!--/col-md-4-->
+                            @*</a>*@
+
+
+                        }
+                    }
+                    else
+                    {
+                        <a href=@Url.Action("Login", "Account")>
+                            <div class="col-lg-6 col-md-6 col-sm-6 mb">
+                                <div class="content-panel pn">
+                                    <div id="spotify" style="background: url(http://i.imgur.com/nWPJSGc.jpg) no-repeat center top;
+                                    background-position: 50% 50%;
+                                    background-size: 100% auto;">
+                                        <div class="col-xs-4 col-xs-offset-8">
+                                            <div class="btn btn-sm btn-clear-g" ;> Manage</div>
+                                        </div>
+                                        <div class="sp-title">
+                                            <h3 style="color:#000"></h3>
+                                        </div>
+
+                                    </div>
+                                    <p class="followers"><i class="fa fa-map-marker"></i><h3 style="color:#000">請先登入帳號</h3></p>
+                                </div>
+                            </div><!--/col-md-4-->
+                        </a>
+
+                    }
+
+                </div><!-- /row -->
+
+            </div><!-- /col-lg-9 END SECTION MIDDLE -->
+
+
+        </div>
+    </section>
+</section>
