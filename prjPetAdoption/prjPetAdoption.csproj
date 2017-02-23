@@ -648,13 +648,9 @@
     <Content Include="Views\animalData_Pic1\Details.cshtml" />
     <Content Include="Views\animalData_Pic1\Edit.cshtml" />
     <Content Include="Views\animalData_Pic1\Index--.cshtml" />
-    <Content Include="Views\Home\Bird.cshtml" />
-    <Content Include="Views\Home\Cat.cshtml" />
-    <Content Include="Views\Home\Dog.cshtml" />
     <Content Include="Views\Home\FAQ.cshtml" />
     <Content Include="Views\Home\Help.cshtml" />
     <Content Include="Views\Home\Information.cshtml" />
-    <Content Include="Views\Home\Rabbit.cshtml" />
     <Content Include="Views\boards\Create.cshtml" />
     <Content Include="Views\boards\Delete.cshtml" />
     <Content Include="Views\boards\Details.cshtml" />

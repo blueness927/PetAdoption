@@ -4,14 +4,14 @@ $(document).ready(function() {
   $('.font-b').click(function(event) {
     /* Act on the event */
     event.preventDefault();
-    $('.content p').css('font-size','20px');
+    $('.content p').css('font-size','24px');
   });
 
   // 字體放中
   $('.font-m').click(function(event) {
     /* Act on the event */
     event.preventDefault();
-    $('.content p').css('font-size','16px');
+    $('.content p').css('font-size','18px');
   });
 
   // 字體放小

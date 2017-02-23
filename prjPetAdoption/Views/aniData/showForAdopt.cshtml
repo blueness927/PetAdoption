@@ -19,7 +19,9 @@
     </div>
 </section>
 
-
+<br/>
+<br />
+<br />
 <section>
     <div class="container">
         <div class="row">
@@ -60,9 +62,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="menu">
-                        @*<li><a href="#" class="font-b">大</a></li>
-                            <li><a href="#" class="font-m">中</a></li>
-                            <li><a href="#" class="font-s">小</a></li>*@
+                            <li><a href="#" class="font-b">A+</a></li>
+                            <li><a href="#" class="font-m">A</a></li>        
                     </div>
                     <h1 style="color:black; font-family:微軟正黑體;">送養刊登需知</h1>
                     <hr />
@@ -120,7 +121,26 @@
     </section>
 
 
+<script>
+    $(document).ready(function () {
 
+        // 字體放大
+        $('.font-b').click(function (event) {
+            /* Act on the event */
+            event.preventDefault();
+            $('.content p').css('font-size', '24px');
+        });
+
+        // 字體放中
+        $('.font-m').click(function (event) {
+            /* Act on the event */
+            event.preventDefault();
+            $('.content p').css('font-size', '18px');
+        });
+
+    });
+
+</script>
 
     @*@if (Model.aniDataPicOneList.Count() != 0)
         {

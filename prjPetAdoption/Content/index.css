@@ -380,7 +380,7 @@ figure.effect-lily:hover p {
 @import url(http://fonts.googleapis.com/css?family=Fjalla+One);
 @import url(http://fonts.googleapis.com/css?family=Gudea);
 .footer1 {
-    background: #fff url("../images/footer/footer-bg.png") repeat scroll left top;
+    background-color:#EFEFEF;
 	padding-top: 40px;
 	padding-right: 0;
 	padding-bottom: 20px;
@@ -515,4 +515,9 @@ figure.effect-lily:hover p {
 }
 .design a {
     color: #fff;
+}
+
+.footer1list{
+    font-family:微軟正黑體; 
+    color:#4C6891;
 }
