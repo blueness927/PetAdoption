@@ -17,7 +17,7 @@ body {
     font-family: 'Ruda', sans-serif;
     padding: 0px !important;
     margin: 0px !important;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 ul li {
@@ -361,7 +361,9 @@ ul.sidebar-menu li {
         text-decoration: none;
         display: block;
         padding: 15px 0 15px 10px;
-        font-size: 12px;
+        font-size: 16px;
+        font-weight:bold;
+        font-family:'Microsoft JhengHei UI';
         outline: none;
         -webkit-transition: all 0.3s ease;
         -moz-transition: all 0.3s ease;
@@ -2370,25 +2372,26 @@ label {
 nav.navbar {
     -webkit-transition: 0.5s;
     transition: 0.5s;
-    font-size: 15px;
+    font-size: 18px;
     font-family:'Microsoft JhengHei UI';
-    font-weight:bold;
+  
 
 }
 
     nav.navbar a {
         -webkit-transition: 0.5s;
         transition: 0.5s;
-        font-size: 15px;
-        font-weight:bold;
+      font-size: 18px;
+    font-family:'Microsoft JhengHei UI';
+  
 }
  nav.navbar.at_top {
         background-color: transparent;
     }
  nav.navbar.at_top a, nav.navbar.at_top a:visited {
             color: white;
-            font-size: 15px;
+            font-size: 18px;
             font-family:'Microsoft JhengHei UI';
-            font-weight:bold;
+            
 
  }
