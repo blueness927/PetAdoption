@@ -367,7 +367,9 @@
     <Content Include="Content\Images\helper\care.png" />
     <Content Include="Content\Images\helper\faq.png" />
     <Content Include="Content\Images\helper\helper.png" />
+    <Content Include="Content\Images\helper\maphelper.png" />
     <Content Include="Content\Images\helper\wiki.png" />
+    <Content Include="Content\Images\petlogo.png" />
     <Content Include="Content\Images\rabbit.jpg" />
     <Content Include="Content\Images\service\service.png" />
     <Content Include="Content\Images\service\service02.jpg" />

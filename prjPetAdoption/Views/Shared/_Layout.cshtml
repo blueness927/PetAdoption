@@ -5,7 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Go認養大平台</title>
-
+    <link rel="shortcut icon" type="image/x-icon" href="../Content/Images/petlogo.png" >
+    <link rel="icon" type="image/png" href="../Content/Images/petlogo.png" >
     <link rel="stylesheet" href="~/Content/index.css">
 
     @Styles.Render("~/Content/css")
@@ -73,8 +74,152 @@
     <div class="container-fluid" style="padding-top:30px">
         @RenderBody()
     </div>
+
+    <footer class="footer1">
+        <div class="container">
+            <div class="row">
+                <!-- row -->
+                <hr/>
+                <br>
+                <div class="col-lg-3 col-md-3">
+                    <!-- widgets column left -->
+                    <ul class="list-unstyled clear-margins">
+                        <!-- widgets -->
+
+                        <li class="widget-container widget_nav_menu">
+                            <!-- widgets list -->
+
+                            <h1 class="title-widget"  style="font-family:微軟正黑體;">認養專區</h1>
+
+                            <ul style="font-family:微軟正黑體;">
+                                <li><a href="@Url.Action("opAnimalList", "opAnimal")"><i class="fa fa-angle-double-right"></i> 認養收容所動物</a></li>
+                                <li><a href="@Url.Action("PetInformation", "Pet")"><i class="fa fa-angle-double-right"></i> 認養Pet Go動物</a></li> 
+                            </ul>
+
+                        </li>
+
+                    </ul>
+
+
+                </div><!-- widgets column left end -->
+
+
+
+                <div class="col-lg-3 col-md-3">
+                    <!-- widgets column left -->
+
+                    <ul class="list-unstyled clear-margins">
+                        <!-- widgets -->
+
+                        <li class="widget-container widget_nav_menu">
+                            <!-- widgets list -->
+
+                            <h1 class="title-widget"  style="font-family:微軟正黑體;">送養專區</h1>
+
+                            <ul  style="font-family:微軟正黑體;">
+                                <li><a href="@Url.Action("showForAdopt", "aniData",new { id = User.Identity.GetUserName() })"><i class="fa fa-angle-double-right"></i>  我要送養寵物</a></li>
+                            </ul>
+
+                        </li>
+                
+                    </ul>
+
+
+                </div><!-- widgets column left end -->
+
+
+
+                <div class="col-lg-3 col-md-3">
+                    <!-- widgets column left -->
+
+                    <ul class="list-unstyled clear-margins">
+                        <!-- widgets -->
+
+                        <li class="widget-container widget_nav_menu">
+                            <!-- widgets list -->
+
+                            <h1 class="title-widget"  style="font-family:微軟正黑體;">寵物幫手</h1>
+
+                            <ul  style="font-family:微軟正黑體;">
+                                <li><a href="@Url.Action("aniwiki", "Home")"><i class="fa fa-angle-double-right"></i> 動物圖鑑</a></li>
+                                <li><a href="@Url.Action("FAQ", "Home")"><i class="fa fa-angle-double-right"></i> FAQ</a></li>
+                                <li><a href="@Url.Action("Information", "Home")"><i class="fa fa-angle-double-right"></i> 照護須知</a></li>
+                                <li><a href="@Url.Action("Index", "maps")"><i class="fa fa-angle-double-right"></i> 地圖幫手</a></li>
+                            </ul>
+
+                        </li>
+
+                    </ul>
+
+
+                </div><!-- widgets column left end -->
+
+
+                <div class="col-lg-3 col-md-3">
+                    <!-- widgets column center -->
+
+
+
+                    <ul class="list-unstyled clear-margins">
+                        <!-- widgets -->
+
+                        <li class="widget-container widget_recent_news">
+                            <!-- widgets list -->
+
+                            <h1 class="title-widget"  style="font-family:微軟正黑體;">聯繫我們</h1>
+
+                            <div class="footerp">
+
+                                <h2 class="title-median"  style="font-family:微軟正黑體;">Pet Go認養大平台</h2>
+                                <p  style="font-family:微軟正黑體; text-align:left;"><b>Phone :</b> 07-969-9885</p>
+                                <p  style="font-family:微軟正黑體; text-align:left;"><b>Email :</b> <a href="mailto:cr4iii9204@gmail.com"> cr4iii9204@gmail.com</a></p>
+                                <p  style="font-family:微軟正黑體; text-align:left;">
+                                    <b>Corp Office :</b><br/>
+                                      高雄市前金區中正四路211號8樓之1
+                                </p> 
+                               
+                            </div>
+
+                            <div class="social-icons">
+
+                                <ul class="nomargin">
+
+                                    <a href=""><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                                    <a href=""><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+                                    <a href=""><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+                                    <a href="mailto:cr4iii9204@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
+
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="copyright">
+                       <p  style="font-family:微軟正黑體;"> &copy; @DateTime.Now.Year - Pet Go</p> 
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="design">
+                       <p  style="font-family:微軟正黑體;">以認養代替購買 動物關懷</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!--
     <footer class="col-lg-12">
-        <hr />
+        <hr/>
         <br>
         <p style="font-family:微軟正黑體; text-align:center;">&copy; @DateTime.Now.Year - Pet Go 以認養代替購買 動物關懷</p>
 
@@ -83,7 +228,7 @@
         @*<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.js'></script>*@
 
     </footer>
-
+-->
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
