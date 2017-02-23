@@ -16,7 +16,7 @@ namespace prjPetAdoption.Models
     {
         public int testID { get; set; }
         public string follow_userId { get; set; }
-        public int animalID { get; set; }
+        public Nullable<int> animalID { get; set; }
         public string animalName { get; set; }
         public string animalKind { get; set; }
         public string animalType { get; set; }
@@ -25,6 +25,7 @@ namespace prjPetAdoption.Models
         public string animalAddress { get; set; }
         public Nullable<int> animalAge { get; set; }
         public string animalOwner_userID { get; set; }
+        public string animalGetter_userID { get; set; }
         public string animalPicAddress { get; set; }
         public int followID { get; set; }
     }

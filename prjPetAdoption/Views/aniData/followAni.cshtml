@@ -150,7 +150,14 @@
                                         @item.animalColor
                                     </td>
                                     <td>
-                                        尚未被認養
+                                        @if (@item.animalGetter_userID == null)
+                                        {
+                                            <text>尚未被認養</text>
+                                        }
+                                        else
+                                        {
+                                            <text>已被認養</text>
+                                        }
                                     </td>
                                     <td>
                                         @using (Html.BeginForm("DelfollowAniSure", "aniData", new { id = @item.followID }, FormMethod.Post, new { onsubmit = "return confirm('是否確認取消追蹤?');" }))

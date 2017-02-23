@@ -30,7 +30,6 @@
         <EntityTypeShape EntityType="DbAnimalModel.todoData" Width="1.5" PointX="3.75" PointY="5.75" />
         <EntityTypeShape EntityType="DbAnimalModel.aniDataAll" Width="1.5" PointX="14.75" PointY="0.75" />
         <EntityTypeShape EntityType="DbAnimalModel.boardUser" Width="1.5" PointX="14.75" PointY="11.75" />
-        <EntityTypeShape EntityType="DbAnimalModel.followAni" Width="1.5" PointX="5.75" PointY="15.75" />
         <EntityTypeShape EntityType="DbAnimalModel.MsgUser" Width="1.5" PointX="14.75" PointY="15.75" />
         <AssociationConnector Association="DbAnimalModel.FK__animalDat__anima__19AACF41" />
         <AssociationConnector Association="DbAnimalModel.FK__animalDat__condi__251C81ED" />
@@ -50,6 +49,7 @@
         <EntityTypeShape EntityType="DbAnimalModel.aniDataPicOne" Width="1.5" PointX="8.375" PointY="15.75" />
         <EntityTypeShape EntityType="DbAnimalModel.aniDataPicOne2" Width="2" PointX="10.375" PointY="16.75" />
         <EntityTypeShape EntityType="DbAnimalModel.aniDataPic" Width="1.5" PointX="15.375" PointY="7.75" />
+        <EntityTypeShape EntityType="DbAnimalModel.followAni" Width="1.5" PointX="5.375" PointY="15.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

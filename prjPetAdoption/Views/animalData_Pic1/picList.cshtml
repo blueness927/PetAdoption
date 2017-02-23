@@ -66,7 +66,7 @@
                             </div>
                             <hr />
                             <div>
-                                @Html.ActionLink("結束上傳", "oneAni", "aniData", new { id = @ViewBag.AID }, new { @class = "btn btn-default" })
+                                @Html.ActionLink("完成送養", "oneAni", "aniData", new { id = @ViewBag.AID }, new { @class = "btn btn-default" , onclick = "return confirm('請確認圖片是否完成上傳，確認結束送養?');" })
                             </div>
 
                         </div>
@@ -84,6 +84,9 @@
                 $("#picadd").load("/animalData_Pic1/CreatePart/");
 
             });
+
+
+         
 
         </script>
 

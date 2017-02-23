@@ -377,13 +377,12 @@
         <EntityType Name="followAni">
           <Key>
             <PropertyRef Name="testID" />
-            
+            <PropertyRef Name="animalPicAddress" />
             <PropertyRef Name="followID" />
-            <PropertyRef Name="animalID" />
           </Key>
           <Property Name="testID" Type="int" Nullable="false" />
           <Property Name="follow_userId" Type="nvarchar" MaxLength="128" />
-          <Property Name="animalID" Type="int" Nullable="false" />
+          <Property Name="animalID" Type="int" />
           <Property Name="animalName" Type="nvarchar" MaxLength="50" />
           <Property Name="animalKind" Type="nvarchar" MaxLength="50" />
           <Property Name="animalType" Type="nvarchar" MaxLength="50" />
@@ -392,6 +391,7 @@
           <Property Name="animalAddress" Type="nvarchar" MaxLength="50" />
           <Property Name="animalAge" Type="int" />
           <Property Name="animalOwner_userID" Type="nvarchar" MaxLength="128" />
+          <Property Name="animalGetter_userID" Type="nvarchar" MaxLength="128" />
           <Property Name="animalPicAddress" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="followID" Type="int" Nullable="false" />
         </EntityType>
@@ -760,6 +760,7 @@
     [followAni].[animalAddress] AS [animalAddress], 
     [followAni].[animalAge] AS [animalAge], 
     [followAni].[animalOwner_userID] AS [animalOwner_userID], 
+    [followAni].[animalGetter_userID] AS [animalGetter_userID], 
     [followAni].[animalPicAddress] AS [animalPicAddress], 
     [followAni].[followID] AS [followID]
     FROM [dbo].[followAni] AS [followAni]</DefiningQuery>
@@ -872,7 +873,6 @@
           <EntitySet Name="todoData" EntityType="DbAnimalModel.todoData" />
           <EntitySet Name="aniDataAll" EntityType="DbAnimalModel.aniDataAll" />
           <EntitySet Name="boardUser" EntityType="DbAnimalModel.boardUser" />
-          <EntitySet Name="followAni" EntityType="DbAnimalModel.followAni" />
           <EntitySet Name="MsgUser" EntityType="DbAnimalModel.MsgUser" />
           <AssociationSet Name="FK__animalDat__anima__19AACF41" Association="DbAnimalModel.FK__animalDat__anima__19AACF41">
             <End Role="animalData" EntitySet="animalData" />
@@ -937,6 +937,7 @@
           <EntitySet Name="aniDataPicOne" EntityType="DbAnimalModel.aniDataPicOne" />
           <EntitySet Name="aniDataPicOne2" EntityType="DbAnimalModel.aniDataPicOne2" />
           <EntitySet Name="aniDataPic" EntityType="DbAnimalModel.aniDataPic" />
+          <EntitySet Name="followAni" EntityType="DbAnimalModel.followAni" />
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -1262,26 +1263,6 @@
           <Property Name="board_animalID" Type="Int32" />
           <Property Name="boardContent" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="followAni">
-          <Key>
-            <PropertyRef Name="testID" />
-            <PropertyRef Name="animalID" />
-            <PropertyRef Name="followID" />
-          </Key>
-          <Property Name="testID" Type="Int32" Nullable="false" />
-          <Property Name="follow_userId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="animalID" Type="Int32" Nullable="false" />
-          <Property Name="animalName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalKind" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="animalAge" Type="Int32" />
-          <Property Name="animalOwner_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="followID" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="MsgUser">
           <Key>
             <PropertyRef Name="msgID" />
@@ -1549,6 +1530,27 @@
           <Property Name="animalAge" Type="Int32" />
           <Property Name="animalPicAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="animalOwner_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="followAni">
+          <Key>
+            <PropertyRef Name="testID" />
+            <PropertyRef Name="animalPicAddress" />
+            <PropertyRef Name="followID" />
+          </Key>
+          <Property Name="testID" Type="Int32" Nullable="false" />
+          <Property Name="follow_userId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="animalID" Type="Int32" />
+          <Property Name="animalName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalKind" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="animalAge" Type="Int32" />
+          <Property Name="animalOwner_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="animalGetter_userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="animalPicAddress" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="followID" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1870,25 +1872,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="followAni">
-            <EntityTypeMapping TypeName="DbAnimalModel.followAni">
-              <MappingFragment StoreEntitySet="followAni">
-                <ScalarProperty Name="followID" ColumnName="followID" />
-                <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
-                <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
-                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
-                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
-                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
-                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
-                <ScalarProperty Name="animalType" ColumnName="animalType" />
-                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
-                <ScalarProperty Name="animalName" ColumnName="animalName" />
-                <ScalarProperty Name="animalID" ColumnName="animalID" />
-                <ScalarProperty Name="follow_userId" ColumnName="follow_userId" />
-                <ScalarProperty Name="testID" ColumnName="testID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="MsgUser">
             <EntityTypeMapping TypeName="DbAnimalModel.MsgUser">
               <MappingFragment StoreEntitySet="MsgUser">
@@ -1965,6 +1948,26 @@
                 <ScalarProperty Name="animalName" ColumnName="animalName" />
                 <ScalarProperty Name="animalID" ColumnName="animalID" />
                 <ScalarProperty Name="animalPicID" ColumnName="animalPicID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="followAni">
+            <EntityTypeMapping TypeName="DbAnimalModel.followAni">
+              <MappingFragment StoreEntitySet="followAni">
+                <ScalarProperty Name="followID" ColumnName="followID" />
+                <ScalarProperty Name="animalPicAddress" ColumnName="animalPicAddress" />
+                <ScalarProperty Name="animalGetter_userID" ColumnName="animalGetter_userID" />
+                <ScalarProperty Name="animalOwner_userID" ColumnName="animalOwner_userID" />
+                <ScalarProperty Name="animalAge" ColumnName="animalAge" />
+                <ScalarProperty Name="animalAddress" ColumnName="animalAddress" />
+                <ScalarProperty Name="animalGender" ColumnName="animalGender" />
+                <ScalarProperty Name="animalColor" ColumnName="animalColor" />
+                <ScalarProperty Name="animalType" ColumnName="animalType" />
+                <ScalarProperty Name="animalKind" ColumnName="animalKind" />
+                <ScalarProperty Name="animalName" ColumnName="animalName" />
+                <ScalarProperty Name="animalID" ColumnName="animalID" />
+                <ScalarProperty Name="follow_userId" ColumnName="follow_userId" />
+                <ScalarProperty Name="testID" ColumnName="testID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

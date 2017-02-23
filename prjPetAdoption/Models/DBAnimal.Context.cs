@@ -50,10 +50,10 @@ namespace prjPetAdoption.Models
         public virtual DbSet<todoData> todoData { get; set; }
         public virtual DbSet<aniDataAll> aniDataAll { get; set; }
         public virtual DbSet<boardUser> boardUser { get; set; }
-        public virtual DbSet<followAni> followAni { get; set; }
         public virtual DbSet<MsgUser> MsgUser { get; set; }
         public virtual DbSet<aniDataPicOne> aniDataPicOne { get; set; }
         public virtual DbSet<aniDataPicOne2> aniDataPicOne2 { get; set; }
         public virtual DbSet<aniDataPic> aniDataPic { get; set; }
+        public virtual DbSet<followAni> followAni { get; set; }
     }
 }
