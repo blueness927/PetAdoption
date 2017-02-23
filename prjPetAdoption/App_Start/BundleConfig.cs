@@ -41,7 +41,8 @@ namespace prjPetAdoption
                      ));
             bundles.Add(new ScriptBundle("~/bundles/animalDetail/animalDetailJS").Include(
                     "~/Scripts/animalDetailjs/animalDetail.js",
-                    "~/Scripts/animalDetailjs/lightbox-plus-jquery.min.js"
+                    "~/Scripts/animalDetailjs/bootstrap-lightbox.js",
+                    "~/Scripts/animalDetailjs/bootstrap-lightbox.min.js"
                     ));
             bundles.Add(new ScriptBundle("~/bundles/showForAdopt").Include(
                       "~/Scripts/showForAdopt/AdoptedNavigate.js"                    
@@ -60,7 +61,9 @@ namespace prjPetAdoption
                         ));
 
             bundles.Add(new StyleBundle("~/Content/anidetail").Include(
-                    "~/Content/animalDetailcss/animalDetails.css"
+                    "~/Content/animalDetailcss/animalDetails.css",
+                    "~/Content/animalDetailcss/bootstrap-lightbox.css",
+                    "~/Content/animalDetailcss/bootstrap-lightbox.min.css"
                         ));
         }
     }

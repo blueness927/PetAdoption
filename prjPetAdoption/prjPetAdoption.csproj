@@ -377,6 +377,8 @@
     <Content Include="Content\index.css" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\information\Information.css" />
+    <Content Include="Content\lightbox\bootstrap-lightbox.css" />
+    <Content Include="Content\lightbox\bootstrap-lightbox.min.css" />
     <Content Include="Content\masonry.css" />
     <Content Include="Content\Member\assets\css\bootstrap.css" />
     <Content Include="Content\Member\assets\css\style2.css" />
@@ -566,8 +568,6 @@
     <Content Include="fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\web.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
-    <Content Include="Scripts\animalDetailjs\animalDetail.js" />
-    <Content Include="Scripts\animalDetailjs\lightbox-plus-jquery.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\imgup\imgUpload.js" />
@@ -697,6 +697,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\JSON\" />
+    <Folder Include="Scripts\animalDetailjs\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\ViewTest\" />
   </ItemGroup>
