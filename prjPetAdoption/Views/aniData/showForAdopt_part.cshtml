@@ -23,7 +23,18 @@
 </script>
 
 
+<script type="text/javascript">
+@foreach (var item in Model.aniDataPicOneList)
+{
+    <text>
+                                            function addpart() {
+                                                $("#editAdopt_@item.animalID").empty();
+                                                $("#editAdopt_@item.animalID").load("/animalDatas/EditAdopt/@item.animalID");
 
+                                            };
+    </text>
+}
+</script>
 
 <section id="main-content">
     <section class="wrapper">
@@ -130,21 +141,21 @@
                                     </td>
                                     <td>
 
-                                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal" onclick="addpart();"><i class="glyphicon glyphicon-gift "></i></button>
+                                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal_@item.animalID" onclick="addpart();"><i class="glyphicon glyphicon-gift "></i></button>
 
 
-                                        <script>
+                                        @*<script>
                                             function addpart() {
-                                                $("#editAdopt").empty();
-                                                $("#editAdopt").load("/animalDatas/EditAdopt/@item.animalID");
+                                                $("#editAdopt_@item.animalID").empty();
+                                                $("#editAdopt_@item.animalID").load("/animalDatas/EditAdopt/@item.animalID");
 
                                             };
-                                        </script>
+                                        </script>*@
 
 
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="myModal" role="dialog">
+                                        <div class="modal fade" id="myModal_@item.animalID" role="dialog">
                                             <div class="modal-dialog">
 
                                                 <!-- Modal content-->
@@ -154,7 +165,7 @@
                                                         <h4 class="modal-title">確認送養</h4>
 
                                                     </div>
-                                                    <div class="modal-body" id="editAdopt">
+                                                    <div class="modal-body" id="editAdopt_@item.animalID">
 
 
                                                     </div>
