@@ -55,27 +55,9 @@ namespace prjPetAdoption
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //正式環境
-            //app.UseFacebookAuthentication(
-            //   appId: "208269922976554",
-            //   appSecret: "20dbe805f01805bf6287d926999da83f");
+        
 
-
-            var facebookAuthenticationOptions = new FacebookAuthenticationOptions()
-            {
-                AppId = "208269922976554",
-                AppSecret = "20dbe805f01805bf6287d926999da83f"
-
-            };
-            facebookAuthenticationOptions.Scope.Add("email");
-            app.UseFacebookAuthentication(facebookAuthenticationOptions);
-
-            //測試
-            //app.UseFacebookAuthentication(
-            //   appId: "222558511547695",
-            //   appSecret: "0546799fdfbf65a33eadea610ef1f36e");
-
-
+        
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
